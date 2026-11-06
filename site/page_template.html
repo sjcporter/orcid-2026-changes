@@ -1,0 +1,509 @@
+<title>ORCID 2026 Release Changes</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,750&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: a single reading column of findings; each finding = claim, chart, short note. Data in mono, tabular. */
+:root {
+  --bg: #f6f8f9;
+  --surface: #ffffff;
+  --ink: #15212b;
+  --muted: #566572;
+  --rule: #dbe2e7;
+  --accent: #0f7b74;      /* this release */
+  --accent-2: #9db4c2;    /* previous release */
+  --bsky: #1d7fe0;
+  --xtw: #2c3338;
+  --warn: #b35a1f;
+  --c-self: #0f7b74; --c-crossref: #7fb3d5; --c-scopus: #e07b39; --c-clar: #8e5bb5; --c-pub: #c9a227; --c-dc: #3b9c5a; --c-other: #b7c1c8; --c-inst: #c2457a; --c-nat: #6b8e23; --c-repo: #8a6d3b;
+  --display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", sans-serif;
+  --body: "Source Sans 3", "Helvetica Neue", Arial, sans-serif;
+  --mono: "JetBrains Mono", "SFMono-Regular", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f161c; --surface: #16212a; --ink: #e4ebf0; --muted: #94a5b2; --rule: #26343f;
+    --accent: #3cc2b6; --accent-2: #4f6574; --bsky: #5aa9ff; --xtw: #c9d2d8; --warn: #e3935c;
+    --c-self: #3cc2b6; --c-crossref: #6fa8d6; --c-scopus: #f0915a; --c-clar: #b48ad8; --c-pub: #dcbc4a; --c-dc: #5cc27e; --c-other: #55636d; --c-inst: #e57aa6; --c-nat: #a3c25a; --c-repo: #c9a56e;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0f161c; --surface: #16212a; --ink: #e4ebf0; --muted: #94a5b2; --rule: #26343f;
+  --accent: #3cc2b6; --accent-2: #4f6574; --bsky: #5aa9ff; --xtw: #c9d2d8; --warn: #e3935c;
+  --c-self: #3cc2b6; --c-crossref: #6fa8d6; --c-scopus: #f0915a; --c-clar: #b48ad8; --c-pub: #dcbc4a; --c-dc: #5cc27e; --c-other: #55636d; --c-inst: #e57aa6; --c-nat: #a3c25a; --c-repo: #c9a56e;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 1.0625rem; line-height: 1.55;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 2.5rem 4rem;
+}
+main { max-width: 60rem; margin: 0 auto; display: grid; gap: 3.5rem; }
+header { display: grid; gap: 1.25rem; }
+.eyebrow { font-family: var(--mono); font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+h1 { font-family: var(--display); font-weight: 750; font-size: clamp(2.1rem, 5vw, 3.4rem); line-height: 1.05; margin: 0; text-wrap: balance; letter-spacing: -.01em; }
+h2 { font-family: var(--display); font-weight: 600; font-size: clamp(1.4rem, 3vw, 1.9rem); line-height: 1.15; margin: 0; text-wrap: balance; }
+h3 { font-family: var(--display); font-weight: 600; font-size: 1.15rem; margin: 0; }
+p { margin: 0; max-width: 65ch; }
+.lede { font-size: 1.2rem; color: var(--muted); max-width: 60ch; }
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr)); gap: 1px; background: var(--rule); border: 1px solid var(--rule); border-radius: 6px; overflow: hidden; }
+.stat { background: var(--surface); padding: 1rem 1.1rem; display: grid; gap: .2rem; align-content: start; }
+.stat b { font-family: var(--mono); font-size: 1.6rem; font-weight: 600; font-variant-numeric: tabular-nums; }
+.stat span { color: var(--muted); font-size: .9rem; }
+.stat em { font-style: normal; font-family: var(--mono); font-size: .8rem; color: var(--accent); }
+section { display: grid; gap: 1.1rem; }
+section > .kicker { font-family: var(--mono); font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); }
+.chart { background: var(--surface); border: 1px solid var(--rule); border-radius: 6px; padding: 1rem; display: grid; gap: .6rem; min-width: 0; }
+.chart .canvas-wrap { position: relative; width: 100%; }
+.chart figcaption { font-size: .88rem; color: var(--muted); }
+.legend { display: flex; flex-wrap: wrap; gap: .4rem 1.1rem; font-size: .85rem; color: var(--muted); }
+.legend i { display: inline-block; width: .8rem; height: .8rem; border-radius: 2px; margin-right: .35rem; vertical-align: -1px; }
+.two { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 24rem), 1fr)); gap: 1rem; }
+.two > * { min-width: 0; }
+.table-wrap { overflow-x: auto; background: var(--surface); border: 1px solid var(--rule); border-radius: 6px; }
+table { border-collapse: collapse; width: 100%; font-size: .92rem; }
+th, td { padding: .5rem .75rem; text-align: left; border-bottom: 1px solid var(--rule); white-space: nowrap; }
+th { font-family: var(--mono); font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+td.n, th.n { text-align: right; font-family: var(--mono); font-variant-numeric: tabular-nums; }
+tr:last-child td { border-bottom: 0; }
+td.bar { min-width: 8rem; width: 30%; }
+.bar-track { height: .55rem; background: var(--rule); border-radius: 99px; overflow: hidden; }
+.bar-fill { height: 100%; background: var(--accent); border-radius: 99px; }
+.pill { display: inline-block; font-family: var(--mono); font-size: .75rem; padding: .05rem .45rem; border-radius: 99px; border: 1px solid currentColor; }
+.up { color: var(--accent); } .down { color: var(--warn); }
+.callout { border-left: 3px solid var(--accent); padding: .2rem 0 .2rem 1rem; display: grid; gap: .4rem; }
+.notes { display: grid; gap: .6rem; color: var(--muted); font-size: .92rem; }
+.notes ul { margin: 0; padding-left: 1.1rem; display: grid; gap: .35rem; max-width: 70ch; }
+footer { color: var(--muted); font-size: .85rem; border-top: 1px solid var(--rule); padding-top: 1rem; }
+code { font-family: var(--mono); font-size: .85em; }
+.panel { display: grid; gap: 3.5rem; }
+.panel[hidden] { display: none; }
+.tabs { display: flex; gap: .25rem; border-bottom: 1px solid var(--rule); position: sticky; top: 0; z-index: 5; background: var(--bg); padding-top: .5rem; margin-bottom: -2rem; }
+.tabs button { font: 600 .95rem var(--body); color: var(--muted); background: none; border: 0; border-bottom: 3px solid transparent; padding: .6rem .9rem; cursor: pointer; margin-bottom: -1px; }
+.tabs button[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--accent); }
+.tabs button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.editor { display: grid; gap: .5rem; justify-items: start; background: var(--surface); border: 1px dashed var(--rule); border-radius: 6px; padding: .9rem 1rem; font-size: .92rem; color: var(--muted); }
+.editor button { font: 600 .85rem var(--body); color: var(--accent); background: none; border: 1px solid var(--accent); border-radius: 4px; padding: .3rem .7rem; cursor: pointer; }
+.post { display: grid; gap: 1.1rem; max-width: 42rem; }
+.post h1 { font-size: clamp(1.9rem, 4.5vw, 2.8rem); }
+.post h2 { font-size: clamp(1.25rem, 2.6vw, 1.55rem); margin-top: 1.2rem; }
+.post a { color: var(--accent); text-underline-offset: 2px; }
+.post ul { margin: 0; padding-left: 1.2rem; display: grid; gap: .4rem; max-width: 65ch; }
+.post pre { margin: 0; background: var(--surface); border: 1px solid var(--rule); border-radius: 6px; padding: .9rem 1rem; overflow-x: auto; font-size: .85rem; line-height: 1.5; }
+.tbc { font-family: var(--mono); font-size: .7rem; color: var(--warn); border: 1px solid currentColor; border-radius: 99px; padding: 0 .4rem; white-space: nowrap; vertical-align: 1px; }
+details.sql { background: var(--surface); border: 1px solid var(--rule); border-radius: 6px; font-size: .9rem; }
+details.sql summary { cursor: pointer; padding: .55rem .9rem; font-family: var(--mono); font-size: .78rem; letter-spacing: .04em; color: var(--muted); }
+details.sql summary:hover { color: var(--ink); }
+details.sql[open] summary { border-bottom: 1px solid var(--rule); }
+details.sql .q { padding: .7rem .9rem; display: grid; gap: .4rem; border-bottom: 1px solid var(--rule); }
+details.sql .q:last-child { border-bottom: 0; }
+details.sql .q b { font-family: var(--mono); font-size: .78rem; color: var(--ink); }
+details.sql pre { margin: 0; overflow-x: auto; font-family: var(--mono); font-size: .78rem; line-height: 1.5; color: var(--ink); white-space: pre; }
+details.sql .note { color: var(--muted); }
+.pairpick { display: flex; gap: .6rem; align-items: center; font-size: .92rem; color: var(--muted); }
+.pairpick select { font: inherit; color: var(--ink); background: var(--surface); border: 1px solid var(--rule); border-radius: 4px; padding: .3rem .5rem; }
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+</style>
+
+<main>
+  <nav class="tabs" role="tablist" aria-label="Views">
+    <button role="tab" id="tab-dash" aria-controls="panel-dash" aria-selected="true">Dashboard</button>
+    <button role="tab" id="tab-blog" aria-controls="panel-blog" aria-selected="false" tabindex="-1">Blog post</button>
+  </nav>
+  <div class="panel" id="panel-dash" role="tabpanel" aria-labelledby="tab-dash">
+  <header>
+    <div class="eyebrow">ORCID Public Data File · 2026 vs 2025 release</div>
+    <h1>What changed in the ORCID 2026 release</h1>
+    <p class="lede">A year of growth in the public ORCID record: who is joining, what they add, and which systems add it for them.</p>
+    <div class="stats" id="stats"></div>
+    <!--SQL:stats.sql,stats_works.sql-->
+  </header>
+
+  <section id="links">
+    <div class="kicker">Profile links</div>
+    <h2>LinkedIn and GitHub grow fastest among the big platforms. X/Twitter stalls.</h2>
+    <p>Only 6% of records list any website, a share that has barely moved. Within that group, links to professional and code platforms grew strongly. X/Twitter added just 5% more profiles, and GitHub overtook it.</p>
+    <figure class="chart">
+      <div class="legend"><span><i style="background:var(--accent-2)"></i>2025 release</span><span><i style="background:var(--accent)"></i>2026 release</span></div>
+      <div class="canvas-wrap" style="height:460px"><canvas id="cPlatforms" role="img" aria-label="Profiles linking to each platform, 2025 and 2026 releases"></canvas></div>
+      <figcaption>Public profiles with at least one link to the platform. Platforms with 30,000+ profiles in 2026.</figcaption>
+    </figure>
+    <div class="table-wrap"><table id="tFast"></table></div>
+    <h3>Which links go together</h3>
+    <p>Links cluster. Profiles that list Hugging Face are 21 times as likely as the average linked profile to list GitHub, and 346 times as likely to list Kaggle. Bluesky goes with Mastodon (38×) and Threads (43×). X/Twitter is listed with Hugging Face 4.6 times as often as chance (79 profiles), and with Bluesky 8.7 times (2,017). Researchers linking to Brazil's Lattes CV rarely list X (0.15×) or Bluesky (0.09×). Lift is noisiest for small platforms, where a few profiles that list everything can dominate.</p>
+    <div class="pairpick"><label for="pairSel">Platform</label><select id="pairSel"></select></div>
+    <div class="table-wrap"><table id="tPairs"></table></div>
+    <p class="notes">Among the 1.80M 2026 profiles with at least one website. Lift = profiles listing both ÷ the number expected if the two were listed independently. Pairs with fewer than 20 shared profiles are left out.</p>
+    <!--SQL:urls_platforms.sql,completeness_urls.sql,link_pairs.sql-->
+  </section>
+
+  <section id="bluesky">
+    <div class="kicker">Bluesky</div>
+    <h2>Bluesky has a clear signal, but it peaked in November 2024.</h2>
+    <p>6,410 profiles now link to Bluesky, up 40% in a year, but that's still a tenth of X/Twitter. New Bluesky links spiked after the November 2024 US election and have tapered since. Researchers still add X links about 3.5 times as often.</p>
+    <figure class="chart">
+      <div class="legend"><span><i style="background:var(--bsky)"></i>Bluesky links added</span><span><i style="background:var(--xtw)"></i>X/Twitter links added</span></div>
+      <div class="canvas-wrap" style="height:300px"><canvas id="cTimeline" role="img" aria-label="Monthly Bluesky and X links added, 2023 to 2026"></canvas></div>
+      <figcaption>Links on 2026 public profiles, by month first added. Links that were later removed are not counted.</figcaption>
+    </figure>
+    <div class="callout">
+      <h3>Switching, in numbers</h3>
+      <p>3,184 existing profiles dropped their X link this year; 503 of them (16%) now list Bluesky. 1,561 existing profiles added Bluesky, and 131 removed it. 2,017 profiles list both.</p>
+    </div>
+    <!--SQL:social_timeline.sql,social_flows.sql-->
+  </section>
+
+  <section id="employment">
+    <div class="kicker">Employment</div>
+    <h2>Two-thirds of new researchers now record an employer, up from under a fifth.</h2>
+    <p>The share of records with an employment entry rose from 27% (2024) to 36% (2025) and 42% (2026). The jump began with accounts created in February–March 2024, when the share went from 18% to 66% and has stayed there. This matches the <a href="https://info.orcid.org/feature-friday" target="_blank" rel="noopener">ORCID release notes, 23 February 2024</a>, from which new users are prompted to add an employer when they register, either typed in or suggested from their email domain. The step can still be skipped. The <a href="https://doi.org/10.23640/07243.31846192" target="_blank" rel="noopener">ORCID 2025 Annual Report</a> credits these automatic affiliation suggestions and validated email domains with a large rise in records with affiliations (p. 18).</p>
+    <div class="two">
+      <figure class="chart">
+        <div class="canvas-wrap" style="height:280px"><canvas id="cEmpMonth" role="img" aria-label="Share of new accounts with an employer, by signup month"></canvas></div>
+        <figcaption>Share of accounts with an employment entry, by month the account was created.</figcaption>
+      </figure>
+      <figure class="chart">
+        <div class="legend"><span><i style="background:var(--accent-2)"></i>Oct 2024–Oct 2025</span><span><i style="background:var(--accent)"></i>Oct 2025–Oct 2026</span></div>
+        <div class="canvas-wrap" style="height:280px"><canvas id="cEmpRegion" role="img" aria-label="Employment entries added by region"></canvas></div>
+        <figcaption>Employment entries added in each release year, by the employer's country.</figcaption>
+      </figure>
+    </div>
+    <div class="callout">
+      <h3>Who adds them: researchers, overwhelmingly</h3>
+      <p>Of 4.52M employment entries added this year, <b>4.42M (98%)</b> were entered by researchers themselves, up 26%. Institutional systems added about 96k, two-thirds of them in Europe. Growth in self-entered employment was fastest in South Asia (+40%), Southeast Asia (+38%) and Sub-Saharan Africa (+37%). Institutional entries grew most at Australian and US employers, but much of that is systems recreating entries they had already sent (see <a href="#drops">drops and churn</a>).</p>
+    </div>
+    <div class="table-wrap"><table id="tEmpSrc"></table></div>
+    <p class="notes">Counts are entries <i>created</i> in each window, not entries on the record. A fall means a system added fewer new entries than the year before, often after a one-off load of existing staff, not that entries were removed. <a href="#drops">Drops and churn</a> checks this against the 2025 snapshot.</p>
+    <!--SQL:completeness_employment.sql,emp_month.sql,emp_by_country.sql,employment_sources.sql,emp_src_years.sql-->
+  </section>
+
+  <section id="drops">
+    <div class="kicker">Drops and churn</div>
+    <h2>Falls in institutional employment are one-off loads, not removals. But many systems rewrite what they already sent.</h2>
+    <p>Each employment entry an integration had written by the 2025 snapshot was matched to the 2026 snapshot on iD, source system and created timestamp. ORCID's public file has no per-entry id. Works are stable: 99.4% of works written by integrations survive. Employment is not. Only 84% of the 296k institution- and system-written employment entries in 2025 are still there in 2026 with the same created date.</p>
+    <div class="stats">
+      <div class="stat"><b>72%</b><span>of vanished entries were recreated by the same system, for the same employer</span><em>35.4k entries</em></div>
+      <div class="stat"><b>20%</b><span>actually removed, or made private, with no replacement from that system</span><em>10.1k entries</em></div>
+      <div class="stat"><b>8%</b><span>replaced by the same system with a differently named employer</span><em>3.9k, mostly Minnesota and LSE</em></div>
+      <div class="stat"><b>41%</b><span>of this year's 95.8k institutional employment entries replace an entry the same system had already sent to that researcher</span><em>39.6k rewrites</em></div>
+    </div>
+    <p>The systems whose additions fell each had a single large batch in the previous window. Most of what they wrote is still on the record. The fall is the year after a backfill, and removals are small.</p>
+    <div class="table-wrap"><table>
+      <thead><tr><th>System</th><th class="n">Added Oct 24–25</th><th class="n">Added Oct 25–26</th><th>Peak month (entries)</th><th class="n">On record, 2025</th><th class="n">Still there, 2026</th><th class="n">Recreated</th><th class="n">Removed</th></tr></thead>
+      <tbody>
+        <tr><td>Aarhus University</td><td class="n">5,263</td><td class="n">3,217</td><td>Jun 2025 (2,123)</td><td class="n">6,298</td><td class="n">60%</td><td class="n">2,489</td><td class="n">55</td></tr>
+        <tr><td>University of Dundee</td><td class="n">5,112</td><td class="n">1,661</td><td>Sep 2025 (3,664)</td><td class="n">5,289</td><td class="n">73%</td><td class="n">1,018</td><td class="n">393</td></tr>
+        <tr><td>University of Southern Denmark</td><td class="n">3,572</td><td class="n">1,018</td><td>Sep 2025 (2,030)</td><td class="n">3,865</td><td class="n">85%</td><td class="n">505</td><td class="n">68</td></tr>
+        <tr><td>University of Oxford</td><td class="n">1,367</td><td class="n">974</td><td>Jul 2025 (1,101)</td><td class="n">4,876</td><td class="n">97%</td><td class="n">6</td><td class="n">135</td></tr>
+        <tr><td>Erasmus University & Erasmus MC</td><td class="n">3,638</td><td class="n">2,699</td><td>Mar 2025 (658)</td><td class="n">8,098</td><td class="n">88%</td><td class="n">883</td><td class="n">63</td></tr>
+        <tr><td>University of Groningen</td><td class="n">2,967</td><td class="n">2,388</td><td>Dec 2024 (893)</td><td class="n">5,417</td><td class="n">70%</td><td class="n">1,455</td><td class="n">119</td></tr>
+        <tr><td>City University of Hong Kong</td><td class="n">1,131</td><td class="n">955</td><td>Jun 2025 (496)</td><td class="n">3,147</td><td class="n">84%</td><td class="n">420</td><td class="n">72</td></tr>
+      </tbody>
+    </table></div>
+    <div class="callout">
+      <h3>What this changes</h3>
+      <p>Year-on-year counts of institutional employment overstate new coverage. Australia is the clearest case. Of 9.4k employment entries Australian systems added this year, 6.0k (64%) replace an entry the same system had already sent to that researcher. Only 3.3k go to researchers the system had never written to, about the same as last year's total. The UK (59% rewrites), Denmark (59%) and the Netherlands (56%) show the same pattern. Researchers' own employment entries are not affected. The pattern points to how some research information systems resync with ORCID, deleting and re-posting entries instead of updating them. This is an inference from the data.</p>
+      <p>A few systems show the same churn for works: University of Galway CRIS (2% of 12.5k kept), Charles Darwin University (3% of 6.8k), Sheffield (61%) and Carnegie Mellon Elements (62%). Across all integrations, works churn is under 1%.</p>
+    </div>
+    <!--SQL:drops_emp.sql,drops_replace.sql,drops_month.sql,drops_works.sql-->
+  </section>
+
+  <section id="works">
+    <div class="kicker">Works</div>
+    <h2>Web of Science went from a minor source of works to a major one.</h2>
+    <p>145M works are now public, up 23M in a year. Journal articles added in the year rose 57%. The largest single change is Clarivate: Web of Science and its researcher-profile and sign-on services added about 5.0M works, up from 161k the year before.</p>
+    <figure class="chart">
+      <div class="legend"><span><i style="background:var(--accent-2)"></i>Oct 2024–Oct 2025</span><span><i style="background:var(--accent)"></i>Oct 2025–Oct 2026</span></div>
+      <div class="canvas-wrap" style="height:420px"><canvas id="cWorkSrc" role="img" aria-label="Works added by source in each release year"></canvas></div>
+      <figcaption>Work records added in each release year, by the system that added them. "Self-entered" means the researcher's own iD is the source. A work that reaches a researcher's record from three systems counts three times, once per system.</figcaption>
+    </figure>
+    <figure class="chart">
+      <div class="legend"><span><i style="background:var(--accent-2)"></i>Researcher Profile Sync (old client)</span><span><i style="background:var(--c-clar)"></i>Web of Science (new client)</span><span><i style="background:var(--accent)"></i>Researcher Profiles / Clarivate SSO (new client)</span></div>
+      <div class="canvas-wrap" style="height:280px"><canvas id="cClarivate" role="img" aria-label="Works added per month by Clarivate's ORCID clients, November 2024 to September 2026"></canvas></div>
+      <figcaption>Works added per month by each Clarivate client, as seen in the 2026 file. "Researcher Profiles" and "Clarivate SSO" are two names on one client.</figcaption>
+    </figure>
+    <div class="callout">
+      <h3>Why: Clarivate rebuilt its ORCID connection in late 2025</h3>
+      <p>In September–October 2025 the old "Web of Science Researcher Profile Sync" client fell from about 55k works a month to about 4k. Two new clients started at the same moment. Together they now add about 430k works a month, seven times the old rate. This matches Clarivate's "revised ORCID connection", which asked existing users to re-grant wider permissions through ORCID sign-in or profile sync. The deck says 341k users synced only for profile purposes would lose auto-sync unless they re-authenticated (<a href="https://recursoscientificos.fecyt.es/sites/default/files/Sesi%C3%B3n%20B2_Administrar%20un%20perfil%20de%20investigador%20en%20Web%20of%20Science%20(Dic2025).pdf" target="_blank" rel="noopener">Clarivate training deck, December 2025</a>, slides 12–13). The ORCID 2025 Annual Report does not mention it.</p>
+      <p>The new clients mostly send researchers' existing publication lists rather than new papers. 51% of Web of Science's works this year were published before 2020. About half (52–62%) were already on the record from another source, but only 3–10% duplicate an entry from the old Clarivate client. So this is mostly new coverage of the same researchers' back catalogues, plus Clarivate as an extra source on works ORCID already had. The deck does not give a launch date, so the link between the two is an inference from the timing.</p>
+    </div>
+    <div class="table-wrap"><table id="tTypes"></table></div>
+    <!--SQL:work_sources.sql,work_types.sql,clarivate.sql-->
+  </section>
+
+  <section id="datacite">
+    <div class="kicker">DataCite</div>
+    <h2>DataCite adds more, and researchers increasingly claim through it themselves.</h2>
+    <p>DataCite reaches ORCID in two ways. Its automatic update, which fires when a DOI's metadata carries an ORCID iD, grew 46%. Its search-and-link tool, where researchers claim works themselves, grew about tenfold. That tool has also been renamed in the data: it was "DataCite - Search &amp; Link Wizard" and now appears as "DataCite" with the researcher as the asserting party.</p>
+    <div class="two">
+      <div class="table-wrap"><table id="tDcChannel"></table></div>
+      <div class="table-wrap"><table id="tDcTypes"></table></div>
+    </div>
+    <p>DataCite preprints rose eightfold (2.6k to 20.5k), and conference presentations appear for the first time (4.1k). Datasets and software are still mostly added by DataCite itself. Self-entered software tripled, from 3.7k to 11.2k.</p>
+    <!--SQL:datacite.sql-->
+  </section>
+
+  <section id="sources">
+    <div class="kicker">Who writes to ORCID</div>
+    <h2>Indexes doubled their contribution. Institutions grew 19%, mostly in Europe and Australia.</h2>
+    <p>Each of the 838 systems that added works or employment this year was classified from its name, using rules for known services, then name patterns (university, hospital, institute, CRIS, Pure, Symplectic Elements, IRIS, journal, OJS, repository). 99.98% of additions fall into a named class. An institution's country is inferred, because ORCID does not record where an integration is based. See the note on country below.</p>
+    <p class="notes">For scale, the <a href="https://doi.org/10.23640/07243.31846192" target="_blank" rel="noopener">ORCID 2025 Annual Report</a> counts 23.3M items added in calendar 2025 by 708 integrations run by 856 members (p. 5). That figure covers all item types and includes private items, over a calendar year. The 838 here count every source system that added public works or employment between October 2025 and October 2026, and ORCID may group clients into integrations differently.</p>
+    <figure class="chart">
+      <div class="legend"><span><i style="background:var(--accent-2)"></i>Oct 2024–Oct 2025</span><span><i style="background:var(--accent)"></i>Oct 2025–Oct 2026</span></div>
+      <div class="canvas-wrap" style="height:340px"><canvas id="cClasses" role="img" aria-label="Works added by type of source system, both release years"></canvas></div>
+      <figcaption>Works added by each type of source system, excluding self-entered works. Crossref and DataCite automatic updates are counted as registration agencies.</figcaption>
+    </figure>
+    <div class="two">
+      <figure class="chart">
+        <div class="legend"><span><i style="background:var(--accent-2)"></i>Oct 2024–Oct 2025</span><span><i style="background:var(--accent)"></i>Oct 2025–Oct 2026</span></div>
+        <div class="canvas-wrap" style="height:320px"><canvas id="cInstCountry" role="img" aria-label="Works added by institutional systems, by country"></canvas></div>
+        <figcaption>Works added by institutions' systems, top 12 countries.</figcaption>
+      </figure>
+      <div class="callout" style="align-self:start">
+        <h3>Institutional integrations are a European and Australian story</h3>
+        <p>Of 2.50M works pushed by institutions this year, 68% came from European systems, 14.5% from Oceania and 13% from North America. Asia, Latin America, Africa and the Middle East together contributed under 4%, even though about two-thirds of this year's new employment entries are at employers in those regions.</p>
+        <p>Australia's institutions nearly doubled their output (185k to 357k works). Ireland went from 30k to 105k, Canada from 18k to 60k and Czechia from 35k to 88k. Italy's IRIS-based systems fell 17%.</p>
+        <p>The full lookup (838 systems, class, subclass, country) is in <a href="https://github.com/sjcporter/orcid-2026-changes/blob/main/data/source_classes.csv"><code>data/source_classes.csv</code></a> in the repository.</p>
+      </div>
+    </div>
+    <div class="callout" id="australia">
+      <h3>Australia: a one-off backfill on top of a steady flow</h3>
+      <p>Australian institutional systems pushed 172k more works than the year before. About 165k of that came from four universities loading researchers' past publications. Each pushed dozens of works per researcher, about half published before 2020, concentrated in one or two months. About half were already on the record from another source, so they add the university as a source rather than a new publication.</p>
+    </div>
+    <div class="table-wrap"><table>
+      <thead><tr><th>System</th><th class="n">Works Oct 24–25</th><th class="n">Works Oct 25–26</th><th class="n">Researchers</th><th class="n">Works each</th><th class="n">Published pre-2020</th><th>Peak</th></tr></thead>
+      <tbody>
+        <tr><td>University of Sydney Profile Manager</td><td class="n">0</td><td class="n">84,679</td><td class="n">982</td><td class="n">86</td><td class="n">49%</td><td>Oct 2025 – Jan 2026</td></tr>
+        <tr><td>University of Queensland</td><td class="n">4,382</td><td class="n">60,645</td><td class="n">1,600</td><td class="n">38</td><td class="n">45%</td><td>Nov 2025</td></tr>
+        <tr><td>UniSC Research Bank</td><td class="n">3,390</td><td class="n">19,695</td><td class="n">606</td><td class="n">33</td><td class="n">49%</td><td>Nov 2025</td></tr>
+        <tr><td>University of Newcastle</td><td class="n">1,693</td><td class="n">9,701</td><td class="n">248</td><td class="n">39</td><td class="n">53%</td><td>Jun 2026</td></tr>
+      </tbody>
+    </table></div>
+    <p>The steady flow looks different. Macquarie (74% of works published 2025 or later), QUT (53%), UWA (52%) and Flinders (46%) mainly push recent publications at about last year's volume. Employment entries from Australian systems appear to nearly triple (3.6k to 9.4k), led by Macquarie, QUT, ANU, UWA and Flinders. This is mostly not new coverage. 64% of them replace an entry the same system had already sent to that researcher, so new coverage is about 3.3k. See <a href="#drops">drops and churn</a>.</p>
+    <div class="table-wrap"><table id="tClasses"></table></div>
+    <!--SQL:source_names.sql,source_country.sql,au_detail.sql-->
+  </section>
+
+  <section id="self">
+    <div class="kicker">Self-entered works</div>
+    <h2>Researchers entered 7.0M works by hand this year, up 45%.</h2>
+    <p>Self-entered works are records the researcher added themselves. 36% of them have no DOI. Of the 4.49M with a DOI, 84% (3.75M) have no copy from any other source on that researcher's record. For those, no integration delivered the work. The other 734k sit alongside an integration's copy. For the rest, the DOI prefix shows which publishers leave the most work to researchers. A low Crossref auto-update share for a large publisher suggests its Crossref deposits rarely carry ORCID iDs.</p>
+    <div class="table-wrap"><table id="tPublishers"></table></div>
+    <h3>Where the rest came from</h3>
+    <p>Each source is grouped by type using the classification below. For most large publishers, index and discovery services account for 40–57% of this year's work records, nearly all of them from Scopus and Web of Science. That is more than Crossref auto-update. A paper sent by several systems counts once for each, so these shares describe where this year's records came from, not which system first delivered each paper. These are researcher-authorised syncs: the researcher connects the service once and it then pushes works. Institutions' research information systems delivered 5–17%, highest for BMJ (17%), Oxford University Press (12%) and Taylor &amp; Francis and SAGE (10%). MDPI is the only publisher pushing works itself at scale (36%). Frontiers gets nothing from Crossref auto-update: indexes deliver 57% of its works and researchers enter a third.</p>
+    <figure class="chart">
+      <div class="legend" id="mixLegend"></div>
+      <div class="canvas-wrap" style="height:620px"><canvas id="cPubMix" role="img" aria-label="Share of each publisher's works added this year, by source"></canvas></div>
+      <figcaption>Share of work records created Oct 2025–Oct 2026 with each publisher's DOIs, by the system that sent them. Counts are records, not distinct papers. A paper on a researcher's record from Scopus, Web of Science and Crossref counts once for each, and a paper counts again on each co-author's record. Records sent before this window are not counted. Index and discovery services include Europe PMC, INSPIRE-HEP, NASA ADS, OpenAIRE and The Lens as well as Scopus and Web of Science.</figcaption>
+    </figure>
+    <p class="notes">Prefixes grouped by registrant name from the Crossref and DataCite APIs. "Self share" and "auto-update share" are shares of this year's work records for the publisher, counted the same way as the chart below (n/a for DataCite-registered DOIs). Only the 400 prefixes with the most self-entered works are included, so totals are slight undercounts.</p>
+    <!--SQL:self_overlap.sql,self_prefix.sql,self_prefix_prev.sql,other_sources.sql,pub_mix_class.sql-->
+  </section>
+
+  <section class="notes" id="method">
+    <h3 style="color:var(--ink)">Method and caveats</h3>
+    <ul>
+      <li>Source: ORCID Public Data File 2026 (snapshot of 14 October 2026) and 2025, loaded to BigQuery from the summaries XML. Only public data is included, so all counts are lower bounds.</li>
+      <li><b>What is counted.</b> The 145.1M headline counts each work once per record, as the ORCID record displays it. Every other works figure counts work records: one per source per researcher. A paper sent to a researcher by Scopus and Crossref counts twice, and a paper with five ORCID-holding co-authors counts on each of their records.</li>
+      <li>"Release year" windows run 14 Oct–14 Oct and use each item's created date as reported by ORCID.</li>
+      <li>1,159,821 files in the 2026 snapshot are ORCID placeholders for locked, deprecated or deactivated records and contain no data.</li>
+      <li>Bluesky counts use <code>bsky.app</code> and <code>*.bsky.social</code> links, plus links labelled "Bluesky". Custom-domain handles without a label are missed.</li>
+      <li>Entries are matched between snapshots on iD, source system (client id) and created timestamp, as the public file has no per-entry id. "Removed" includes entries made private: the public file can't tell them apart. "Recreated" means the same system has an entry for the same researcher and employer with a later created date.</li>
+      <li><b>Comparison with ORCID's own figures.</b> The <a href="https://doi.org/10.23640/07243.31846192" target="_blank" rel="noopener">ORCID 2025 Annual Report</a> reports 8.9M records updated, 10.6M researchers actively engaged and 23.3M items added via integrations in calendar 2025 (p. 5). Those counts include private data and use calendar years, so they run higher than, and are not directly comparable with, counts from the public file.</li>
+      <li>Self-entered = the item's source is the record owner's own iD. That includes works added through ORCID's own add-by-DOI tool.</li>
+      <li>The 2024 registration change is documented in the <a href="https://info.orcid.org/feature-friday" target="_blank" rel="noopener">ORCID release notes, 23 February 2024</a>. Later releases expanded the email-domain suggestions (January 2025, March and May 2026) and added a sign-in prompt for existing users with no employer (May 2025).</li>
+      <li><b>Country of an institutional system</b> is inferred, as ORCID does not record it. For 72.5% of institutional volume it is the country of the employers in the employment entries the system itself wrote. Those come from ORCID's organisation picker, and within a system they agree a median 100% of the time. For 27.4% (systems that write works but no employment) it is the employer country on the first employment entry of the researchers it writes to, a weaker signal that depends on researchers having a public employer. A system needs 5+ employment entries with 60%+ in one country, or 20+ such researchers with 50%+ in one country. 0.1% of volume gets no country. All 268 systems whose names identify a country were assigned that country.</li>
+      <li><b>Country of a researcher or employment entry</b> comes from the employer recorded on public employment entries. A third of new researchers, and 59% of older ones, have no public employer and are left out. Because new researchers have a country far more often (after the 2024 registration change), compare country shares only among records with a known country.</li>
+    </ul>
+    <!--SQL:cohorts.sql,new_countries.sql-->
+  </section>
+  </div>
+
+  <div class="panel" id="panel-blog" role="tabpanel" aria-labelledby="tab-blog" hidden>
+    <aside class="editor">
+      <p>Also available as <a href="https://github.com/sjcporter/orcid-2026-changes/blob/main/blog/post.md">Markdown</a>. Numbers link to the dashboard section that backs them.</p>
+      <button type="button" id="copyBlog">Copy article text</button>
+    </aside>
+    <article class="post" id="blogText">
+      <div class="eyebrow">ORCID Public Data File 2026</div>
+      <h1>Thirty million researchers, and who writes their records</h1>
+      <p class="lede">The 2026 ORCID Public Data File is out, and it is now in BigQuery next to last year's. We compared the two releases to see what has changed over the year.</p>
+
+      <p>The snapshot, taken on 14 October 2026, holds <b>29.99 million public records</b>, up 19.7% on 2025. Nearly 5 million of them are new since last year. Between them they list <b>145 million works</b>, 23 million more than a year ago. Most of the changes we found are about who adds information to records: researchers, publishers, citation indexes or universities.</p>
+
+      <h2>1. New researchers now say where they work</h2>
+      <p>Two-thirds of researchers who joined in the last two years list an employer. Before 2024, under a fifth of new accounts did. The change happened suddenly: <a href="#employment">accounts created in February–March 2024</a> jumped from 18% to 66% with an employer, and the share has stayed there. That is when ORCID started prompting new users to add an employer at registration, suggested from their email domain where possible (<a href="https://info.orcid.org/feature-friday" target="_blank" rel="noopener">release notes, 23 February 2024</a>). The <a href="https://doi.org/10.23640/07243.31846192" target="_blank" rel="noopener">ORCID 2025 Annual Report</a> credits these suggestions with a large rise in records with affiliations. Across all records, the share with employment has gone from 27% to 36% to 42% over three releases.</p>
+      <p>Researchers enter almost all of this themselves: 98% of the 4.5 million employment entries added this year. Self-entered employment grew fastest in South Asia (+40%), Southeast Asia (+38%) and Sub-Saharan Africa (+37%). If you use ORCID to map the research workforce, note that recent cohorts carry country and institution data that older cohorts mostly lack, so compare countries only among records that list an employer.</p>
+
+      <h2>2. Web of Science became a main source of works</h2>
+      <p>Last year Clarivate's services added about 161,000 works to ORCID. This year they added about <a href="#works">5.0 million</a>, through Web of Science, Web of Science Researcher Profiles and Clarivate sign-on. Scopus grew too, from 4.1M to 5.7M. Overall, <a href="#sources">indexing and discovery services</a> added 97% more works than last year.</p>
+      <p>In September–October 2025, Clarivate's old ORCID sync client dropped from about 55,000 works a month to about 4,000, and two new Clarivate clients started up. A <a href="https://recursoscientificos.fecyt.es/sites/default/files/Sesi%C3%B3n%20B2_Administrar%20un%20perfil%20de%20investigador%20en%20Web%20of%20Science%20(Dic2025).pdf" target="_blank" rel="noopener">Clarivate training deck from December 2025</a> describes a "revised ORCID connection" that asked users to re-grant wider permissions, which would explain the switch. The deck doesn't give a launch date, so we are going on the timing. About half of the works Web of Science sent this year were published before 2020, and 52% were already on the researcher's record from another source. So most of this is researchers' older publications, often ones ORCID already had.</p>
+      <p>These are syncs the researcher authorises: they connect the service once, and it then sends their works to ORCID. For most large publishers, these services now account for 40–57% of the work records created for the publisher's DOIs, more than Crossref's automatic update. (A paper sent by several systems counts once for each.)</p>
+
+      <h2>3. Researchers still enter 7 million works by hand</h2>
+      <p>Researchers entered <a href="#self">7.0 million works</a> themselves this year, up 45%. 36% of those have no DOI: theses, reports, talks and outputs no integration covers. Of the 4.49M with a DOI, 84% have no copy from any integration on the researcher's record. For the rest, the DOI prefix shows which publishers leave the most work to researchers.</p>
+      <p>Crossref's automatic update adds a work to ORCID when the publisher includes authors' iDs in its DOI metadata. For Frontiers and Cureus it delivered none of this year's works. For Frontiers, indexes delivered 57% of works and researchers a third. MDPI is the only large publisher that sends works to ORCID itself at scale (36%). For publishers, the simplest way to reduce researchers' manual entry is to include iDs in every Crossref deposit.</p>
+
+      <h2>4. Institutional integrations are mostly in Europe and Australia</h2>
+      <p>We classified the 838 systems that wrote to ORCID this year, using their names. (The <a href="https://doi.org/10.23640/07243.31846192" target="_blank" rel="noopener">ORCID 2025 Annual Report</a> counts 708 member integrations adding 23.3M items in calendar 2025, private items included.) Universities' and hospitals' research information systems pushed <a href="#sources">2.50 million works</a>, up 19%. 68% came from European systems, 14.5% from Oceania and 13% from North America. Asia, Latin America, Africa and the Middle East together contributed under 4%, although about two-thirds of this year's new employment entries are at employers in those regions. Researchers in those regions are joining and stating where they work, but their institutions mostly aren't sending works to ORCID.</p>
+      <p>Australian institutional systems nearly doubled their output, from 185k to 357k works. Most of the rise came from <a href="#australia">four universities loading researchers' past publications</a>: the University of Sydney (from zero to 84.7k works across 982 researchers), Queensland, UniSC and Newcastle. Ireland (30k to 105k), Canada (18k to 60k) and Czechia (35k to 88k) also grew sharply.</p>
+
+      <h2>5. DataCite: more automatic updates, and many more researcher claims</h2>
+      <p>DataCite's <a href="#datacite">automatic update</a>, which fires when a DOI's metadata includes an ORCID iD, grew 46%, from 175k to 255k works. Its search-and-link tool, where researchers claim works themselves, grew about tenfold, from 1.5k to 14.3k. DataCite-registered preprints rose eightfold. Researchers tripled the software they enter themselves, from 3.7k to 11.2k. Preprints overall more than doubled (+126%) across all sources.</p>
+
+      <h2>6. Links: LinkedIn and GitHub grow, X stalls, Bluesky has a foothold</h2>
+      <p>Only about 6% of records list a website, a share that has barely moved. Within that group, <a href="#links">LinkedIn</a> grew 31% to 518k profiles, and GitHub grew 47% to 75k, overtaking X/Twitter (65k, +5%).</p>
+      <p><a href="#bluesky">6,410 profiles</a> link to Bluesky, up 40%. New Bluesky links peaked at 895 in November 2024, after the US election, and have settled at about 140 a month. Researchers still add X links about 3.5 times as often. Of the 3,184 profiles that removed an X link this year, 503 (16%) now list Bluesky.</p>
+
+      <h2>Try it yourself</h2>
+      <p>The 2026 file is in BigQuery as <code>ds-open-datasets.orcid.summaries_2026</code>, next to <code>summaries_2025</code>, with one row per public record and column descriptions for each field. For example, to count profiles that link to Bluesky:</p>
+<pre><code>SELECT COUNT(DISTINCT orcid_identifier.path) AS profiles
+FROM `ds-open-datasets.orcid.summaries_2026`,
+  UNNEST(person.researcher_urls.urls) AS u
+WHERE REGEXP_CONTAINS(LOWER(u.url), r'bsky\.(app|social)')</code></pre>
+      <p>BigQuery charges by the columns a query reads, not by table size. A query like this reads a few gigabytes and costs a few cents.</p>
+
+      <h2>A few caveats</h2>
+      <ul>
+        <li>The file holds public data only, so every count is a lower bound. About 1.16 million records in the snapshot are placeholders for locked, deprecated or deactivated accounts.</li>
+        <li>Year-on-year comparisons use each item's created date, in 14 October to 14 October windows.</li>
+        <li>ORCID doesn't record where an integration is based. We inferred each institutional system's country from the employers in the entries it writes. Every one of the 268 systems whose name identifies a country was assigned that country.</li>
+        <li>Counts of entries sent by institutions include rewrites. 41% of this year's institutional employment entries recreate entries a system had already sent. Works are not affected in the same way: 99.4% of works sent by integrations carry over between releases.</li>
+      </ul>
+      <p>The ORCID Public Data File is released by ORCID under CC0.</p>
+    </article>
+  </div>
+
+  <footer>Analysis of the ORCID Public Data Files (CC0). Figures computed November 2026.</footer>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script>
+const D = /*DATA*/null;
+const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+const fmt = n => n.toLocaleString("en-GB");
+const k = n => n >= 1e6 ? (n / 1e6).toFixed(n >= 1e7 ? 1 : 2) + "M" : n >= 1e3 ? (n / 1e3).toFixed(n >= 1e5 ? 0 : 1) + "k" : String(n);
+const pct = (a, b) => a ? Math.round(100 * (b - a) / a) : null;
+const pill = p => p === null ? '<span class="pill up">new</span>' : `<span class="pill ${p >= 0 ? "up" : "down"}">${p >= 0 ? "+" : ""}${p}%</span>`;
+
+document.getElementById("stats").innerHTML = D.stats.map(s => `<div class="stat"><b>${s[0]}</b><span>${s[1]}</span><em>${s[2]}</em></div>`).join("");
+
+function table(id, head, rows) {
+  document.getElementById(id).innerHTML = `<thead><tr>${head.map(h => `<th class="${h[1] || ""}">${h[0]}</th>`).join("")}</tr></thead><tbody>${rows.map(r => `<tr>${r.map((c, i) => `<td class="${head[i][1] || ""}">${c}</td>`).join("")}</tr>`).join("")}</tbody>`;
+}
+
+const plat = D.platforms.filter(p => p[2] >= 30000).sort((a, b) => b[2] - a[2]);
+const fast = D.platforms.filter(p => p[2] < 30000 && p[1] >= 150).map(p => [...p, pct(p[1], p[2])]).sort((a, b) => b[3] - a[3]).slice(0, 10);
+table("tFast", [["Smaller platforms growing fastest"], ["2025", "n"], ["2026", "n"], ["Change", "n"]], fast.map(p => [p[0], fmt(p[1]), fmt(p[2]), pill(p[3])]));
+
+const emp = D.emp_sources.slice(0, 12);
+table("tEmpSrc", [["Added by"], ["Oct 24–Oct 25", "n"], ["Oct 25–Oct 26", "n"], ["Change", "n"]], emp.map(r => [r[0], fmt(r[1]), fmt(r[2]), pill(pct(r[1], r[2]))]));
+
+table("tTypes", [["Work type"], ["Added Oct 24–Oct 25", "n"], ["Added Oct 25–Oct 26", "n"], ["Change", "n"]], D.work_types.slice(0, 14).map(r => [r[0], fmt(r[1]), fmt(r[2]), pill(pct(r[1], r[2]))]));
+
+table("tDcChannel", [["DataCite channel"], ["Oct 24–25", "n"], ["Oct 25–26", "n"], ["Change", "n"]], D.dc_channels.map(r => [r[0], fmt(r[1]), fmt(r[2]), pill(pct(r[1], r[2]))]));
+table("tDcTypes", [["Type, via DataCite"], ["Oct 24–25", "n"], ["Oct 25–26", "n"], ["Change", "n"]], D.dc_types.map(r => [r[0], fmt(r[1]), fmt(r[2]), pill(pct(r[1], r[2]))]));
+
+const pubMax = Math.max(...D.publishers.map(p => p.self));
+table("tPublishers", [["Publisher"], ["Self-entered", "n"], [""], ["Self share", "n"], ["Auto-update share", "n"], ["vs last year", "n"]],
+  D.publishers.map(p => [p.name, fmt(p.self), `<div class="bar-track"><div class="bar-fill" style="width:${(100 * p.self / pubMax).toFixed(1)}%"></div></div>`,
+    Math.round(100 * p.self / p.total) + "%", p.datacite ? "n/a" : Math.round(100 * p.crossref / p.total) + "%", pill(pct(p.prev_self, p.self))]).map((r, i) => r));
+document.querySelectorAll("#tPublishers td:nth-child(3)").forEach(td => td.classList.add("bar"));
+
+table("tClasses", [["Source type"], ["Systems", "n"], ["Works Oct 24–25", "n"], ["Works Oct 25–26", "n"], ["Change", "n"], ["Employment Oct 25–26", "n"]],
+  D.classes.map(r => [r[0], fmt(r[4]), fmt(r[1]), fmt(r[2]), pill(pct(r[1], r[2])), fmt(r[3])]));
+
+const pairCount = {};
+D.link_pairs.forEach(r => { pairCount[r[0]] = r[3]; pairCount[r[1]] = r[4]; });
+const pairSel = document.getElementById("pairSel");
+pairSel.innerHTML = Object.keys(pairCount).filter(p => pairCount[p] >= 300).sort((a, b) => pairCount[b] - pairCount[a])
+  .map(p => `<option${p === "X/Twitter" ? " selected" : ""}>${p}</option>`).join("");
+function drawPairs() {
+  const P = pairSel.value;
+  const rows = D.link_pairs.filter(r => r[0] === P || r[1] === P).map(r => r[0] === P ? [r[1], r[2], r[3], r[5]] : [r[0], r[2], r[4], r[5]])
+    .sort((a, b) => b[3] - a[3]);
+  table("tPairs", [["Also lists"], ["Profiles with both", "n"], ["Share of " + P + " profiles", "n"], ["Lift", "n"]],
+    rows.map(r => [r[0], fmt(r[1]), (100 * r[1] / r[2]).toFixed(1) + "%", `<span class="pill ${r[3] >= 1 ? "up" : "down"}">${r[3] >= 10 ? Math.round(r[3]) : r[3].toFixed(1)}×</span>`]));
+}
+pairSel.addEventListener("change", drawPairs); drawPairs();
+
+let charts = [];
+function draw() {
+  charts.forEach(c => c.destroy()); charts = [];
+  const ink = css("--ink"), muted = css("--muted"), rule = css("--rule"), acc = css("--accent"), acc2 = css("--accent-2");
+  Chart.defaults.font.family = css("--body"); Chart.defaults.color = muted; Chart.defaults.borderColor = rule;
+  const base = { responsive: true, maintainAspectRatio: false, animation: false, plugins: { legend: { display: false }, tooltip: { callbacks: { label: c => `${c.dataset.label}: ${fmt(c.raw)}` } } } };
+  const hbar = (id, labels, a, b, la, lb) => charts.push(new Chart(document.getElementById(id), { type: "bar",
+    data: { labels, datasets: [{ label: la, data: a, backgroundColor: acc2 }, { label: lb, data: b, backgroundColor: acc }] },
+    options: { ...base, indexAxis: "y", scales: { x: { beginAtZero: true, grid: { color: rule }, ticks: { callback: v => k(v) } }, y: { grid: { display: false }, ticks: { color: ink } } } } }));
+
+  hbar("cPlatforms", plat.map(p => p[0]), plat.map(p => p[1]), plat.map(p => p[2]), "2025 release", "2026 release");
+
+  charts.push(new Chart(document.getElementById("cTimeline"), { type: "line",
+    data: { labels: D.timeline.map(t => t[0]), datasets: [
+      { label: "Bluesky", data: D.timeline.map(t => t[1]), borderColor: css("--bsky"), backgroundColor: css("--bsky"), pointRadius: 0, borderWidth: 2.5, tension: .25 },
+      { label: "X/Twitter", data: D.timeline.map(t => t[2]), borderColor: css("--xtw"), backgroundColor: css("--xtw"), pointRadius: 0, borderWidth: 2, tension: .25 }] },
+    options: { ...base, interaction: { mode: "index", intersect: false }, scales: { y: { beginAtZero: true, grid: { color: rule } }, x: { grid: { display: false }, ticks: { maxRotation: 0, autoSkip: true, callback: function (v) { const l = this.getLabelForValue(v); return l.endsWith("-01") ? l.slice(0, 4) : (l === "2024-11" ? "Nov 24" : ""); } } } } } }));
+
+  charts.push(new Chart(document.getElementById("cEmpMonth"), { type: "line",
+    data: { labels: D.emp_month.map(t => t[0]), datasets: [{ label: "% with employer", data: D.emp_month.map(t => t[1]), borderColor: acc, backgroundColor: acc, pointRadius: 3, borderWidth: 2.5, stepped: false }] },
+    options: { ...base, plugins: { ...base.plugins, tooltip: { callbacks: { label: c => `${c.raw}% of new accounts` } } }, scales: { y: { min: 0, max: 80, grid: { color: rule }, ticks: { callback: v => v + "%" } }, x: { grid: { display: false }, ticks: { maxRotation: 0, callback: function (v) { const l = this.getLabelForValue(v); return ["2023-06", "2024-01", "2024-03", "2024-08"].includes(l) ? l : ""; } } } } } }));
+
+  const reg = D.emp_regions.filter(r => r[0] !== "(no country)");
+  hbar("cEmpRegion", reg.map(r => r[0]), reg.map(r => r[1]), reg.map(r => r[2]), "Oct 2024–Oct 2025", "Oct 2025–Oct 2026");
+
+  const ws = D.work_sources.slice(0, 10);
+  hbar("cWorkSrc", ws.map(r => r[0]), ws.map(r => r[1]), ws.map(r => r[2]), "Oct 2024–Oct 2025", "Oct 2025–Oct 2026");
+  const mixSeries = [["Self-entered", "--c-self"], ["Crossref auto-update", "--c-crossref"], ["Index / discovery (Scopus, Web of Science, Lens…)", "--c-scopus"], ["Publisher's own system", "--c-pub"], ["DataCite / other DOI agency", "--c-dc"], ["Institution", "--c-inst"], ["National CV system", "--c-nat"], ["Repository", "--c-repo"], ["Other", "--c-other"]];
+  document.getElementById("mixLegend").innerHTML = mixSeries.map(m => `<span><i style="background:var(${m[1]})"></i>${m[0]}</span>`).join("");
+  charts.push(new Chart(document.getElementById("cPubMix"), { type: "bar",
+    data: { labels: D.pub_mix.map(r => r[0]), datasets: mixSeries.map((m, i) => ({ label: m[0], data: D.pub_mix.map(r => { const t = r.slice(1).reduce((a, b) => a + b, 0); return +(100 * r[i + 1] / t).toFixed(1); }), backgroundColor: css(m[1]) })) },
+    options: { ...base, indexAxis: "y", plugins: { ...base.plugins, tooltip: { callbacks: { label: c => `${c.dataset.label}: ${c.raw}%` } } },
+      scales: { x: { stacked: true, max: 100, grid: { color: rule }, ticks: { callback: v => v + "%" } }, y: { stacked: true, grid: { display: false }, ticks: { color: ink } } } } }));
+  const cv = D.clarivate;
+  charts.push(new Chart(document.getElementById("cClarivate"), { type: "line",
+    data: { labels: cv.months, datasets: [
+      { label: "Researcher Profile Sync (old)", data: cv.old, borderColor: acc2, backgroundColor: acc2, pointRadius: 0, borderWidth: 2.5, tension: .2 },
+      { label: "Web of Science (new)", data: cv.wos, borderColor: css("--c-clar"), backgroundColor: css("--c-clar"), pointRadius: 0, borderWidth: 2.5, tension: .2 },
+      { label: "Researcher Profiles / SSO (new)", data: cv.profiles, borderColor: acc, backgroundColor: acc, pointRadius: 0, borderWidth: 2.5, tension: .2 }] },
+    options: { ...base, interaction: { mode: "index", intersect: false }, scales: { y: { beginAtZero: true, grid: { color: rule }, ticks: { callback: v => k(v) } }, x: { grid: { display: false }, ticks: { maxRotation: 0, callback: function (v) { const l = this.getLabelForValue(v); return l.endsWith("-01") || l === "2025-10" ? l : ""; } } } } } }));
+  const cls = D.classes.filter(r => r[1] + r[2] > 1000);
+  hbar("cClasses", cls.map(r => r[0]), cls.map(r => r[1]), cls.map(r => r[2]), "Oct 2024–Oct 2025", "Oct 2025–Oct 2026");
+  const ic = D.inst_countries.slice(0, 12);
+  hbar("cInstCountry", ic.map(r => r[0]), ic.map(r => r[1]), ic.map(r => r[2]), "Oct 2024–Oct 2025", "Oct 2025–Oct 2026");
+}
+if (window.Chart) {
+  draw();
+  const mq = matchMedia("(prefers-color-scheme: dark)");
+  mq.addEventListener && mq.addEventListener("change", draw);
+  new MutationObserver(draw).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+} else {
+  document.querySelectorAll(".canvas-wrap").forEach(w => { w.style.height = "auto"; w.innerHTML = '<p class="notes">The chart library did not load. The tables on this page carry the same figures.</p>'; });
+}
+// Tabs: #blog opens the draft; any other hash (a dashboard section) opens the dashboard and scrolls to it.
+const tabs = [...document.querySelectorAll('[role="tab"]')];
+function show(id, focus) {
+  tabs.forEach(t => { const on = t.id === id; t.setAttribute("aria-selected", on); t.tabIndex = on ? 0 : -1;
+    document.getElementById(t.getAttribute("aria-controls")).hidden = !on; if (on && focus) t.focus(); });
+}
+tabs.forEach((t, i) => {
+  t.addEventListener("click", () => { show(t.id); history.replaceState(null, "", t.id === "tab-blog" ? "#blog" : "#"); scrollTo(0, 0); });
+  t.addEventListener("keydown", e => { const d = e.key === "ArrowRight" ? 1 : e.key === "ArrowLeft" ? -1 : 0; if (d) tabs[(i + d + tabs.length) % tabs.length].click(), tabs[(i + d + tabs.length) % tabs.length].focus(); });
+});
+function route() {
+  const h = location.hash.slice(1);
+  if (h === "blog") return show("tab-blog");
+  show("tab-dash");
+  const el = h && document.getElementById(h);
+  if (el) requestAnimationFrame(() => el.scrollIntoView());
+}
+addEventListener("hashchange", route); route();
+document.getElementById("copyBlog").addEventListener("click", async e => {
+  try { await navigator.clipboard.writeText(document.getElementById("blogText").innerText); e.target.textContent = "Copied"; }
+  catch { e.target.textContent = "Copy failed: select the text instead"; }
+  setTimeout(() => e.target.textContent = "Copy article text", 2500);
+});
+</script>

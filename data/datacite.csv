@@ -1,0 +1,384 @@
+section,k,type,prev_year,this_year
+datasets_software_by_source,University of Michigan Symplectic Elements,software,7,6
+datasets_software_by_source,Adam Mickiewicz University - Omega-PSIR,software,8,15
+datasets_software_by_source,Open Universiteit,software,2,4
+datasets_software_by_source,Repository KITopen (Karlsruhe Institute of Technology),data-set,475,730
+datasets_software_by_source,Brandeis University - ScholarWorks,data-set,10,3
+datasets_software_by_source,Griffith University,data-set,2,16
+datasets_software_by_source,Universitätsbibliographie Duisburg-Essen,software,0,4
+datasets_software_by_source,Università degli studi di Firenze - IRIS,data-set,4,3
+datasets_software_by_source,King's College London,software,2,7
+datasets_software_by_source,CRIS - University of Galway,software,0,6
+datasets_software_by_source,Boston University - MyCV,data-set,1,10
+datasets_software_by_source,"Architecture, Design and Conservation - Danish Portal for Artistic and Scientific Research",data-set,0,1
+datasets_software_by_source,City University of Hong Kong,software,13,1
+datasets_software_by_source,Università degli Studi dell'Insubria - IRIS,data-set,0,1
+datasets_software_by_source,University of Strathclyde,software,5,6
+datasets_software_by_source,PUB - Publications at Bielefeld University,data-set,92,42
+datasets_software_by_source,University of Antwerp,data-set,77,67
+datasets_software_by_source,University of Portsmouth,software,15,2
+datasets_software_by_source,Symplectic Elements at American University,data-set,13,2
+datasets_software_by_source,BASE - Bielefeld Academic Search Engine,data-set,1100,906
+datasets_software_by_source,Universidade Nova de Lisboa,data-set,16,8
+datasets_software_by_source,Research Data Australia,data-set,87,0
+datasets_software_by_source,Ulster University,software,6,3
+datasets_software_by_source,GND Network,data-set,0,2
+datasets_software_by_source,Manchester Metropolitan University,data-set,15,19
+datasets_software_by_source,Ghent University Academic Bibliography,data-set,42,73
+datasets_software_by_source,University of Louisville - Symplectic Elements,data-set,3,4
+datasets_software_by_source,Oklahoma State University's Research Information Management System,software,1,0
+datasets_software_by_source,"Dun Laoghaire Institute of Art, Design and Technology - PURE",software,0,2
+datasets_software_by_source,Roskilde University,software,2,0
+datasets_software_by_source,University of Copenhagen,data-set,0,29
+datasets_software_by_source,Universitat Autònoma de Barcelona,software,33,9
+datasets_software_by_source,UGA Elements,data-set,3,6
+datasets_software_by_source,University of Western Australia,software,7,1
+datasets_software_by_source,Università degli studi di Salerno - IRIS,data-set,1,4
+datasets_software_by_source,SOAR (Scholarly Open Access at Rutgers),data-set,1,5
+datasets_software_by_source,Murdoch University Research Portal,software,0,3
+datasets_software_by_source,University of Plymouth - Pure,software,2,0
+datasets_software_by_source,JaLC,data-set,18,12
+datasets_software_by_source,Symplectic Elements at University of Cambridge,software,1,2
+datasets_software_by_source,Ruhr-Universität Bochum,data-set,32,74
+datasets_software_by_source,University of Canberra,data-set,0,1
+datasets_software_by_source,Registro de Producción Intelectual,software,16,0
+datasets_software_by_source,Ifremer,data-set,110,166
+datasets_software_by_source,University of Melbourne,data-set,22,22
+datasets_software_by_source,Hanken School of Economics,software,0,1
+datasets_software_by_source,KU Leuven,data-set,320,445
+datasets_software_by_source,University of Iowa – Iowa Research Online,data-set,17,94
+datasets_software_by_source,OpenAIRE Explore,software,26,0
+datasets_software_by_source,University of Twente Research Information (Pure Portal),software,6,1
+datasets_software_by_source,Victoria University of Wellington Elements,software,0,8
+datasets_software_by_source,Otto-Friedrich-Universität Bamberg,data-set,7,3
+datasets_software_by_source,KAUST Repository,software,21,26
+datasets_software_by_source,University of Salzburg,software,14,5
+datasets_software_by_source,Lincoln University - Elements,data-set,1,0
+datasets_software_by_source,University of Freiburg,data-set,1,0
+datasets_software_by_source,South East Technological University - Pure,software,0,6
+datasets_software_by_source,University of Oxford - Symplectic Elements,data-set,45,51
+datasets_software_by_source,Università degli Studi di Verona - IRIS,data-set,13,19
+datasets_software_by_source,Utrecht University,data-set,12,19
+datasets_software_by_source,University of Bristol - PURE,software,2,5
+datasets_software_by_source,Imperial College London,data-set,26,7
+datasets_software_by_source,Stellenbosch University Symplectic Elements Search ORCiD,data-set,0,1
+datasets_software_by_source,University of Michigan Symplectic Elements,data-set,7,27
+datasets_software_by_source,Experts@Minnesota,data-set,2,0
+datasets_software_by_source,Carnegie Mellon University Elements,software,0,5
+datasets_software_by_source,University of Brighton,software,1,1
+datasets_software_by_source,Tracking Information Products - TIP,data-set,0,324
+datasets_software_by_source,Purdue University Research Repository,data-set,5,10
+datasets_software_by_source,Warsaw University of Technology - OmegaPSIR,software,7,3
+datasets_software_by_source,Leeds Beckett University,data-set,7,13
+datasets_software_by_source,Northumbria University,data-set,42,0
+datasets_software_by_source,FIS - Leibniz Universität Hannover,software,0,1
+datasets_software_by_source,Hochschulbibliographie - Universität Witten/Herdecke,data-set,7,13
+datasets_software_by_source,UC Viden - UCL University College,software,2,0
+datasets_software_by_source,OpenAIRE,data-set,573,2217
+datasets_software_by_source,Francis Crick Institute,data-set,14,34
+datasets_software_by_source,Roskilde University,data-set,0,2
+datasets_software_by_source,Edge Hill University,software,1,0
+datasets_software_by_source,Montanuniversität Leoben,data-set,0,4
+datasets_software_by_source,DataCite - Search & Link Wizard,data-set,37,0
+datasets_software_by_source,The Lens,data-set,482,2434
+datasets_software_by_source,Esploro (UBIR),data-set,0,2
+datasets_software_by_source,DOE OSTI.GOV,data-set,264,114
+datasets_software_by_source,Tampere University,software,5,3
+datasets_software_by_source,Johannes Kepler University Linz - Research Information Portal,software,1,13
+datasets_software_by_source,University of Warwick Symplectic Elements,data-set,32,27
+datasets_software_by_source,Hochschule Bielefeld (HSBI),data-set,15,12
+datasets_software_by_source,Carnegie Mellon University Elements,data-set,3,28
+datasets_software_by_source,Oklahoma State University's Research Information Management System,data-set,19,90
+datasets_software_by_source,University of Birmingham,data-set,2,0
+datasets_software_by_source,HAL,software,35,132
+datasets_software_by_source,Federated Research Data Repository (FRDR) - Dépôt fédéré de données de recherche (DFDR),data-set,18,32
+datasets_software_by_source,Johannes Gutenberg University Mainz,data-set,4,2
+datasets_software_by_source,Symplectic Elements@McMaster,software,2,0
+datasets_software_by_source,University College Dublin,data-set,12,15
+datasets_software_by_source,Universidade Nova de Lisboa,software,3,0
+datasets_software_by_source,University of Milano Bicocca - IRIS,data-set,0,4
+datasets_software_by_source,Technological University of the Shannon - PURE,software,2,3
+datasets_software_by_source,Stanford University,software,30,46
+datasets_software_by_source,Birmingham City University: Pure to ORCID Integration,software,2,1
+datasets_software_by_source,Università degli Studi di Enna Kore - IRIS,data-set,1,3
+datasets_software_by_source,Boston University - MyCV,software,5,2
+datasets_software_by_source,University of Tennessee Knoxville,software,1,0
+datasets_software_by_source,Karolinska Institutet,software,1,0
+datasets_software_by_source,University of Dundee,software,12,7
+datasets_software_by_source,Pure @ James Hutton,software,0,2
+datasets_software_by_source,Università degli studi del Molise - IRIS,data-set,3,0
+datasets_software_by_source,Ruhr-Universität Bochum,software,8,9
+datasets_software_by_source,Masaryk University,data-set,1,7
+datasets_software_by_source,Queen's University Belfast - PURE,software,1,2
+datasets_software_by_source,Goethe University Data Repository,data-set,1,0
+datasets_software_by_source,The Australian National University,software,75,14
+datasets_software_by_source,OUR Archive,data-set,0,9
+datasets_software_by_source,ScienceON,software,10,2
+datasets_software_by_source,UniSC Research Bank,data-set,9,123
+datasets_software_by_source,WU-FIS-Portal,software,14,3
+datasets_software_by_source,TU Graz,software,6,4
+datasets_software_by_source,UDORA Repository University of Derby,data-set,2,1
+datasets_software_by_source,Università degli Studi di Napoli Federico II,data-set,3,3
+datasets_software_by_source,Pure HvA,software,1,7
+datasets_software_by_source,University of Amsterdam - PURE,software,18,20
+datasets_software_by_source,Lincoln University - Elements,software,2,1
+datasets_software_by_source,Karolinska Institutet,data-set,1,27
+datasets_software_by_source,IRISanRaf,data-set,0,1
+datasets_software_by_source,University of Pittsburgh - Faculty Information System,data-set,0,3
+datasets_software_by_source,City University London,software,5,1
+datasets_software_by_source,Università del Salento  - IRIS,data-set,0,2
+datasets_software_by_source,VDU CRIS,data-set,2,15
+datasets_software_by_source,TU Graz,data-set,31,5
+datasets_software_by_source,Iris CamPuS,data-set,11,3
+datasets_software_by_source,DataCite,software,9142,13368
+datasets_software_by_source,Iris OGS-Istituto,data-set,21,13
+datasets_software_by_source,Elements at RMIT,software,1,0
+datasets_software_by_source,Universitätsbibliographie Duisburg-Essen,data-set,0,12
+datasets_software_by_source,University of Surrey - Research Repository,data-set,125,112
+datasets_software_by_source,University of New England Australia,data-set,22,0
+datasets_software_by_source,DataCite,data-set,66719,112486
+datasets_software_by_source,UGA Elements,software,6,18
+datasets_software_by_source,Otto-Friedrich-Universität Bamberg,software,0,1
+datasets_software_by_source,Medical University of Gdańsk,software,3,29
+datasets_software_by_source,VTT Technical Research Centre of Finland - PURE,software,0,6
+datasets_software_by_source,Queen's University Belfast - PURE,data-set,3,0
+datasets_software_by_source,Francis Crick Institute,software,0,4
+datasets_software_by_source,Ulster University,data-set,0,1
+datasets_software_by_source,CRIS - University of Galway,data-set,24,41
+datasets_software_by_source,Università di Pisa - IRIS,data-set,12,4
+datasets_software_by_source,Vrije Universiteit Brussel,data-set,4,4
+datasets_software_by_source,University of Manchester - PURE,software,12,4
+datasets_software_by_source,OpenAIRE Explore,data-set,100,0
+datasets_software_by_source,University of Hertfordshire,software,1,0
+datasets_software_by_source,University of Manchester - PURE,data-set,91,31
+datasets_software_by_source,London South Bank University - Haplo,data-set,0,1
+datasets_software_by_source,INAF - Istituto Nazionale di Astrofisica,software,1,0
+datasets_software_by_source,Sac State Scholars,software,0,1
+datasets_software_by_source,NC State University Libraries,data-set,10,123
+datasets_software_by_source,Eurac Research,data-set,9,37
+datasets_software_by_source,University of Technology Sydney,data-set,5,3
+datasets_software_by_source,Experts at ESF,data-set,0,56
+datasets_software_by_source,Sheffield Hallam University,data-set,3,2
+datasets_software_by_source,figshare,software,440,641
+datasets_software_by_source,Università degli Studi di Milano - IRIS,data-set,26,18
+datasets_software_by_source,Liverpool School of Tropical Medicine CRIS,software,0,4
+datasets_software_by_source,Victoria University,data-set,1,2
+datasets_software_by_source,Fondazione Bruno Kessler - IRIS,data-set,1,0
+datasets_software_by_source,University of Toronto: Elements,data-set,1,3
+datasets_software_by_source,Technische Universität Dortmund,data-set,9,9
+datasets_software_by_source,London School of Hygiene and Tropical Medicine,software,5,28
+datasets_software_by_source,Victoria University of Wellington Elements,data-set,1,5
+datasets_software_by_source,EMBL-EBI,data-set,400,353
+datasets_software_by_source,APICURON,data-set,28,51
+datasets_software_by_source,Symplectic @ York University,data-set,7,30
+datasets_software_by_source,KU Leuven,software,28,17
+datasets_software_by_source,Università degli studi di Cagliari - IRIS,data-set,4,1
+datasets_software_by_source,University of Namur,software,1,7
+datasets_software_by_source,Università Cattolica del Sacro Cuore - IRIS,data-set,1,11
+datasets_software_by_source,Montanuniversität Leoben,software,0,1
+datasets_software_by_source,Sheffield Hallam University,software,1,0
+datasets_software_by_source,Knowledge Base of the Silesian University of Technology,software,0,61
+datasets_software_by_source,figshare,data-set,6308,7903
+datasets_software_by_source,Lund University,software,7,18
+datasets_software_by_source,Murdoch University Research Portal,data-set,47,63
+datasets_software_by_source,University of Illinois at Chicago Symplectic Elements,software,3,0
+datasets_software_by_source,Royal Netherlands Academy of Arts and Science (KNAW),software,26,9
+datasets_software_by_source,Istituto Universitario di Studi Superiori - Pavia,data-set,1,3
+datasets_software_by_source,University of Antwerp,software,0,2
+datasets_software_by_source,University of Aberdeen - PURE,data-set,0,1
+datasets_software_by_source,Florida International University - Symplectic  Elements,data-set,0,11
+datasets_software_by_source,Abertay University,software,3,5
+datasets_software_by_source,"Universidade Estadual Paulista ""Júlio de Mesquita Filho""",data-set,0,3
+datasets_software_by_source,"Cadmus, EUI Research Repository",data-set,10,69
+datasets_software_by_source,University of Namur,data-set,1,21
+datasets_software_by_source,The University of Sydney Profile Manager,data-set,0,15
+datasets_software_by_source,Fondazione Edmund Mach - IRIS OPENHUB,data-set,1,0
+datasets_software_by_source,UC Viden - VIA University College,software,2,12
+datasets_software_by_source,Vivli,data-set,24,10
+datasets_software_by_source,RWTH Aachen University,data-set,5,18
+datasets_software_by_source,University of Groningen,software,3,20
+datasets_software_by_source,Università di Bergamo,data-set,0,2
+datasets_software_by_source,Università degli studi di Genova - IRIS,data-set,0,2
+datasets_software_by_source,Technische Universität Dortmund,software,7,0
+datasets_software_by_source,Symplectic Elements at University of Cambridge,data-set,31,63
+datasets_software_by_source,University of California Publication Management System,data-set,9,13
+datasets_software_by_source,University of Alabama at Birmingham - Profiles,software,1,0
+datasets_software_by_source,Reactome,data-set,213,17
+datasets_software_by_source,Symplectic Elements at University of Tasmania,data-set,1,0
+datasets_software_by_source,Manchester Metropolitan University,software,8,7
+datasets_software_by_source,Forschungszentrum Jülich,data-set,74,35
+datasets_software_by_source,Griffith University,software,1,1
+datasets_software_by_source,OUR Archive,software,0,1
+datasets_software_by_source,Università Ca'Foscari Venezia - IRIS,data-set,1,0
+datasets_software_by_source,University of Queensland,data-set,31,308
+datasets_software_by_source,Elements at RMIT,data-set,15,6
+datasets_software_by_source,La Trobe University,software,1,0
+datasets_software_by_source,Elements at University of Utah,software,4,2
+datasets_software_by_source,University of Bath,software,1,2
+by_datacite_client,DataCite [APP-A12FJQ67LRK3QL53] on behalf of user,review,1,56
+datasets_software_by_source,University of Salzburg,data-set,1,5
+datasets_software_by_source,MorphoBank,data-set,0,55
+datasets_software_by_source,PURE - Universidad Pontificia Bolivariana,software,39,7
+datasets_software_by_source,University of Michigan - Deep Blue Data,data-set,23,45
+datasets_software_by_source,La Trobe University,data-set,19,39
+datasets_software_by_source,Pure TUe,software,1,6
+datasets_software_by_source,Stanford University,data-set,93,99
+by_datacite_client,DataCite - Search & Link Wizard [APP-A12FJQ67LRK3QL53] on behalf of user,book,2,0
+datasets_software_by_source,University of Oregon - Symplectic Elements,data-set,0,1
+datasets_software_by_source,University of Newcastle,software,2,2
+datasets_software_by_source,OBD - UPOL,software,29,14
+datasets_software_by_source,UNSW Sydney,software,4,0
+datasets_software_by_source,Cranfield University Elements,data-set,3,0
+by_datacite_client,DataCite [APP-A12FJQ67LRK3QL53],report,1,0
+datasets_software_by_source,Università degli Studi di Palermo - IRIS,data-set,1,4
+datasets_software_by_source,Masaryk University,software,2,114
+datasets_software_by_source,CSIRO,software,40,37
+datasets_software_by_source,University of Wollongong Elements,data-set,23,2
+datasets_software_by_source,University of Iowa – Iowa Research Online,software,1,3
+datasets_software_by_source,Universität Kassel,data-set,4,14
+datasets_software_by_source,Duke University Elements,data-set,2,1
+by_datacite_client,DataCite - Search & Link Wizard [APP-A12FJQ67LRK3QL53] on behalf of user,journal-article,28,0
+datasets_software_by_source,Alma Mater Studiorum Università di Bologna - IRIS,data-set,18,28
+by_datacite_client,DataCite - Search & Link Wizard [APP-A12FJQ67LRK3QL53] on behalf of user,dissertation-thesis,1,0
+datasets_software_by_source,University of Liverpool,software,1,6
+by_datacite_client,DataCite - Search & Link Wizard [APP-A12FJQ67LRK3QL53] on behalf of user,other,52,0
+datasets_software_by_source,Università degli studi di Parma - IRIS,data-set,0,1
+datasets_software_by_source,Università degli Studi Link Roma - IRIS,data-set,2,8
+datasets_software_by_source,Imperial College London,software,5,3
+datasets_software_by_source,Macquarie University,data-set,3,15
+datasets_software_by_source,Pure at University College Cork,software,0,1
+datasets_software_by_source,University of Northampton,software,1,1
+datasets_software_by_source,University College London,software,5,12
+datasets_software_by_source,University of Wollongong Elements,software,1,2
+by_datacite_client,DataCite [APP-A12FJQ67LRK3QL53] on behalf of user,physical-object,0,2
+datasets_software_by_source,Liverpool John Moores University,data-set,27,36
+datasets_software_by_source,AIT Publication Database,software,11,10
+datasets_software_by_source,Authenticus,data-set,11,9
+datasets_software_by_source,SoleCRIS,software,0,2
+datasets_software_by_source,Crossref Metadata Search,data-set,961,1109
+datasets_software_by_source,Consiglio Nazionale delle Ricerche CNR,data-set,276,65
+datasets_software_by_source,Korea DOI Center,data-set,98,1
+datasets_software_by_source,Northumbria University,software,2,4
+datasets_software_by_source,University of Birmingham,software,18,9
+datasets_software_by_source,OpenAIRE,software,394,1272
+datasets_software_by_source,Università degli Studi di Siena - IRIS,data-set,3,0
+datasets_software_by_source,University of Helsinki,software,30,48
+datasets_software_by_source,Drexel Research Discovery,data-set,2,6
+datasets_software_by_source,London South Bank University - Pure,software,0,3
+datasets_software_by_source,University College Dublin,software,6,9
+datasets_software_by_source,University of Melbourne,software,1,10
+datasets_software_by_source,University of Tennessee Knoxville,data-set,0,1
+datasets_software_by_source,Yareta UNIGE,data-set,4,8
+datasets_software_by_source,RTI International,software,4,0
+datasets_software_by_source,Macquarie University,software,5,3
+datasets_software_by_source,Politecnico di Torino - IRIS,data-set,0,3
+by_datacite_client,DataCite - Search & Link Wizard [APP-A12FJQ67LRK3QL53] on behalf of user,working-paper,1,0
+datasets_software_by_source,WesternU Libraries,data-set,0,22
+datasets_software_by_source,UC Viden - University College Copenhagen,software,1,0
+datasets_software_by_source,Wageningen University & Research,software,39,33
+datasets_software_by_source,Aston Research Explorer,software,1,2
+datasets_software_by_source,King's College London,data-set,1,7
+datasets_software_by_source,Northwestern University Galter Health Sciences Library Symplectic Elements,data-set,0,1
+datasets_software_by_source,Aalto University,software,8,0
+by_datacite_client,DataCite [0000-0001-8099-6984],other,55158,43373
+datasets_software_by_source,myPublications at the University of Sheffield,software,5,59
+datasets_software_by_source,Åbo Akademi University,software,1,1
+datasets_software_by_source,Symplectic Elements at University of Leeds,data-set,25,191
+datasets_software_by_source,Pennsieve,data-set,57,176
+by_datacite_client,DataCite - Search & Link Wizard [APP-A12FJQ67LRK3QL53] on behalf of user,preprint,58,0
+datasets_software_by_source,Politecnico di Milano - IRIS,data-set,5,1
+by_datacite_client,DataCite [APP-A12FJQ67LRK3QL53],preprint,0,17
+datasets_software_by_source,Queensland University of Technology PURE,software,0,2
+by_datacite_client,DataCite [APP-A12FJQ67LRK3QL53] on behalf of user,standards-and-policy,2,11
+datasets_software_by_source,City University London,data-set,3,3
+by_datacite_client,DataCite - Search & Link Wizard [APP-A12FJQ67LRK3QL53] on behalf of user,conference-poster,9,0
+datasets_software_by_source,Symplectic @ York University,software,8,6
+datasets_software_by_source,Università degli studi di Udine - IRIS,data-set,5,1
+datasets_software_by_source,UCAR ORCID Integration,data-set,0,100
+datasets_software_by_source,University of Westminster,data-set,8,35
+datasets_software_by_source,IRIHS - Institutional Repository at IHS,data-set,0,1
+datasets_software_by_source,University of Western Australia,data-set,2,2
+datasets_software_by_source,(self-entered),software,3710,11178
+by_datacite_client,DataCite [APP-A12FJQ67LRK3QL53] on behalf of user,book-chapter,17,121
+by_datacite_client,DataCite [APP-A12FJQ67LRK3QL53],software,2,1
+datasets_software_by_source,Universidad de Santiago de Chile - Dataverse,data-set,14,2
+datasets_software_by_source,(self-entered),data-set,10983,17609
+by_datacite_client,DataCite [0000-0001-8099-6984],conference-poster,2781,2890
+datasets_software_by_source,Università degli studi di Modena e Reggio Emilia - IRIS,data-set,1,23
+datasets_software_by_source,University of Southampton,software,0,5
+by_datacite_client,DataCite [0000-0001-8099-6984],review,262,363
+datasets_software_by_source,Università degli Studi di Padova - IRIS,data-set,3,8
+datasets_software_by_source,UNSW Sydney,data-set,1,0
+by_datacite_client,DataCite [0000-0001-8099-6984],conference-presentation,0,3887
+by_datacite_client,DataCite [APP-A12FJQ67LRK3QL53] on behalf of user,conference-abstract,1,4
+by_datacite_client,DataCite [0000-0001-8099-6984],standards-and-policy,142,902
+by_datacite_client,DataCite [APP-A12FJQ67LRK3QL53] on behalf of user,data-set,197,2010
+datasets_software_by_source,University of Liverpool,data-set,247,50
+datasets_software_by_source,Università degli studi di Ferrara - IRIS,data-set,3,0
+by_datacite_client,DataCite [0000-0001-8099-6984],data-set,66522,110475
+datasets_software_by_source,Technical University of Denmark Orbit,data-set,1,0
+datasets_software_by_source,University of Warwick Symplectic Elements,software,1,0
+datasets_software_by_source,University of Sussex - Elements,data-set,1,8
+by_datacite_client,DataCite [APP-A12FJQ67LRK3QL53] on behalf of user,report,82,703
+datasets_software_by_source,University College London,data-set,27,51
+datasets_software_by_source,Royal Netherlands Academy of Arts and Science (KNAW),data-set,1,3
+datasets_software_by_source,myPublications at the University of Sheffield,data-set,21,273
+datasets_software_by_source,Scuola Normale Superiore di Pisa - IRIS,data-set,2,12
+datasets_software_by_source,Leeds Beckett University,software,0,1
+datasets_software_by_source,Duke University Elements,software,2,1
+datasets_software_by_source,Leiden University,data-set,7,7
+datasets_software_by_source,University of Strathclyde,data-set,3,1
+by_datacite_client,DataCite - Search & Link Wizard [APP-A12FJQ67LRK3QL53] on behalf of user,conference-paper,11,0
+by_datacite_client,DataCite [APP-A12FJQ67LRK3QL53] on behalf of user,preprint,276,3771
+by_datacite_client,DataCite - Search & Link Wizard [APP-A12FJQ67LRK3QL53] on behalf of user,report,9,0
+datasets_software_by_source,CIÊNCIAVITAE,software,263,343
+datasets_software_by_source,CSIRO,data-set,1716,2320
+datasets_software_by_source,Symplectic Elements@McMaster,data-set,0,1
+by_datacite_client,DataCite - Search & Link Wizard [APP-A12FJQ67LRK3QL53] on behalf of user,conference-abstract,2,0
+datasets_software_by_source,Heriot-Watt University,software,1,6
+by_datacite_client,DataCite [APP-A12FJQ67LRK3QL53],data-set,0,1
+datasets_software_by_source,Southern Cross University,data-set,31,78
+datasets_software_by_source,Università Commerciale Luigi Bocconi - IRIS,data-set,3,0
+datasets_software_by_source,University of York,software,0,1
+datasets_software_by_source,KAUST Repository,data-set,679,406
+by_datacite_client,DataCite [0000-0001-8099-6984],working-paper,7602,16108
+datasets_software_by_source,Forschungsinformationssystem (FIS Unilu),software,0,1
+datasets_software_by_source,University of Technology Sydney,software,6,0
+datasets_software_by_source,University of Oxford - Symplectic Elements,software,3,0
+datasets_software_by_source,University of Huddersfield - PURE,software,0,1
+by_datacite_client,DataCite [APP-A12FJQ67LRK3QL53] on behalf of user,conference-poster,39,318
+by_datacite_client,DataCite [0000-0001-8099-6984],report,3856,6892
+datasets_software_by_source,CIÊNCIAVITAE,data-set,1313,1486
+by_datacite_client,DataCite [0000-0001-8099-6984],book-chapter,2075,2872
+by_datacite_client,DataCite [APP-A12FJQ67LRK3QL53] on behalf of user,journal-article,129,1524
+datasets_software_by_source,Liverpool John Moores University,software,1,2
+by_datacite_client,DataCite [0000-0001-8099-6984],book,2192,4825
+by_datacite_client,DataCite [APP-A12FJQ67LRK3QL53] on behalf of user,software,62,839
+datasets_software_by_source,Vrije Universiteit Brussel,software,0,19
+by_datacite_client,DataCite [APP-A12FJQ67LRK3QL53] on behalf of user,conference-presentation,0,213
+datasets_software_by_source,UNSW Sydney Research Output System,software,0,6
+by_datacite_client,DataCite [0000-0001-8099-6984],conference-paper,3855,3685
+by_datacite_client,DataCite [0000-0001-8099-6984],conference-abstract,2,3
+by_datacite_client,DataCite [APP-A12FJQ67LRK3QL53] on behalf of user,working-paper,7,349
+by_datacite_client,DataCite [APP-A12FJQ67LRK3QL53] on behalf of user,data-management-plan,0,8
+datasets_software_by_source,Lusófona University Research Portal - Pure,software,7,0
+by_datacite_client,DataCite [0000-0001-8099-6984],dissertation-thesis,430,985
+datasets_software_by_source,Charles University - IS Věda,software,15,183
+datasets_software_by_source,Utrecht University,software,31,29
+by_datacite_client,DataCite [APP-A12FJQ67LRK3QL53] on behalf of user,dissertation-thesis,22,227
+by_datacite_client,DataCite - Search & Link Wizard [APP-A12FJQ67LRK3QL53] on behalf of user,book-chapter,1,0
+by_datacite_client,DataCite [APP-A12FJQ67LRK3QL53] on behalf of user,other,358,3481
+by_datacite_client,DataCite [APP-A12FJQ67LRK3QL53] on behalf of user,conference-paper,40,305
+by_datacite_client,DataCite [0000-0001-8099-6984],software,9078,12528
+datasets_software_by_source,London School of Hygiene and Tropical Medicine,data-set,227,427
+by_datacite_client,DataCite [0000-0001-8099-6984],data-management-plan,131,111
+by_datacite_client,DataCite [APP-A12FJQ67LRK3QL53],other,4,0
+by_datacite_client,DataCite [APP-A12FJQ67LRK3QL53] on behalf of user,book,23,354
+by_datacite_client,DataCite [0000-0001-8099-6984],journal-article,14873,25980
+by_datacite_client,DataCite [0000-0001-8099-6984],physical-object,3361,1980
+by_datacite_client,DataCite [0000-0001-8099-6984],preprint,2260,16728
+datasets_software_by_source,Rothamsted Research,data-set,2,0
+datasets_software_by_source,Sac State Scholars,data-set,0,1
+datasets_software_by_source,NASA Astrophysics Data System,data-set,26,16
+by_datacite_client,DataCite - Search & Link Wizard [APP-A12FJQ67LRK3QL53] on behalf of user,data-set,37,0
+datasets_software_by_source,Symplectic Elements at University of Leeds,software,6,17
