@@ -768,10 +768,6 @@ FROM n GROUP BY 1 ORDER BY new_profiles DESC LIMIT 20</code></pre></div></detail
   </div>
 
   <div class="panel" id="panel-blog" role="tabpanel" aria-labelledby="tab-blog" hidden>
-    <aside class="editor">
-      <p>Also available as <a href="https://github.com/sjcporter/orcid-2026-changes/blob/main/blog/post.md">Markdown</a>. Numbers link to the dashboard section that backs them.</p>
-      <button type="button" id="copyBlog">Copy article text</button>
-    </aside>
     <article class="post" id="blogText">
       <div class="eyebrow">ORCID Public Data File 2026</div>
       <h1>Thirty million researchers, and who writes their records</h1>
@@ -946,11 +942,6 @@ function route() {
   if (el) requestAnimationFrame(() => el.scrollIntoView());
 }
 addEventListener("hashchange", route); route();
-document.getElementById("copyBlog").addEventListener("click", async e => {
-  try { await navigator.clipboard.writeText(document.getElementById("blogText").innerText); e.target.textContent = "Copied"; }
-  catch { e.target.textContent = "Copy failed: select the text instead"; }
-  setTimeout(() => e.target.textContent = "Copy article text", 2500);
-});
 </script>
 
 </body>
