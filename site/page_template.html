@@ -16,6 +16,7 @@
   --bsky: #1d7fe0;
   --xtw: #2c3338;
   --warn: #b35a1f;
+  --hi: #b8661a;          /* NSW post: the highlighted university */
   --c-self: #0f7b74; --c-crossref: #7fb3d5; --c-scopus: #e07b39; --c-clar: #8e5bb5; --c-pub: #c9a227; --c-dc: #3b9c5a; --c-other: #b7c1c8; --c-inst: #c2457a; --c-nat: #6b8e23; --c-repo: #8a6d3b;
   --display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", sans-serif;
   --body: "Source Sans 3", "Helvetica Neue", Arial, sans-serif;
@@ -24,14 +25,14 @@
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     --bg: #0f161c; --surface: #16212a; --ink: #e4ebf0; --muted: #94a5b2; --rule: #26343f;
-    --accent: #3cc2b6; --accent-2: #4f6574; --bsky: #5aa9ff; --xtw: #c9d2d8; --warn: #e3935c;
+    --accent: #3cc2b6; --accent-2: #4f6574; --bsky: #5aa9ff; --xtw: #c9d2d8; --warn: #e3935c; --hi: #f2a541;
     --c-self: #3cc2b6; --c-crossref: #6fa8d6; --c-scopus: #f0915a; --c-clar: #b48ad8; --c-pub: #dcbc4a; --c-dc: #5cc27e; --c-other: #55636d; --c-inst: #e57aa6; --c-nat: #a3c25a; --c-repo: #c9a56e;
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
   --bg: #0f161c; --surface: #16212a; --ink: #e4ebf0; --muted: #94a5b2; --rule: #26343f;
-  --accent: #3cc2b6; --accent-2: #4f6574; --bsky: #5aa9ff; --xtw: #c9d2d8; --warn: #e3935c;
+  --accent: #3cc2b6; --accent-2: #4f6574; --bsky: #5aa9ff; --xtw: #c9d2d8; --warn: #e3935c; --hi: #f2a541;
   --c-self: #3cc2b6; --c-crossref: #6fa8d6; --c-scopus: #f0915a; --c-clar: #b48ad8; --c-pub: #dcbc4a; --c-dc: #5cc27e; --c-other: #55636d; --c-inst: #e57aa6; --c-nat: #a3c25a; --c-repo: #c9a56e;
   color-scheme: dark;
 }
@@ -103,6 +104,14 @@ details.sql .q:last-child { border-bottom: 0; }
 details.sql .q b { font-family: var(--mono); font-size: .78rem; color: var(--ink); }
 details.sql pre { margin: 0; overflow-x: auto; font-family: var(--mono); font-size: .78rem; line-height: 1.5; color: var(--ink); white-space: pre; }
 details.sql .note { color: var(--muted); }
+.postnav { display: flex; flex-wrap: wrap; gap: .5rem; }
+.postnav a { font: 600 .9rem var(--body); color: var(--muted); text-decoration: none; border: 1px solid var(--rule); border-radius: 99px; padding: .3rem .85rem; background: var(--surface); }
+.postnav a[aria-current="page"] { color: var(--ink); border-color: var(--accent); }
+.post[hidden] { display: none; }
+#tNswAff th, #tNswAff td:last-child { white-space: normal; }
+#tNswAff td.bar { min-width: 5rem; width: 22%; }
+.post figure { margin: 0; }
+.post .stats { margin: .2rem 0; grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr)); }
 .pairpick { display: flex; gap: .6rem; align-items: center; font-size: .92rem; color: var(--muted); }
 .pairpick select { font: inherit; color: var(--ink); background: var(--surface); border: 1px solid var(--rule); border-radius: 4px; padding: .3rem .5rem; }
 @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
@@ -111,7 +120,7 @@ details.sql .note { color: var(--muted); }
 <main>
   <nav class="tabs" role="tablist" aria-label="Views">
     <button role="tab" id="tab-dash" aria-controls="panel-dash" aria-selected="true">Dashboard</button>
-    <button role="tab" id="tab-blog" aria-controls="panel-blog" aria-selected="false" tabindex="-1">Blog post</button>
+    <button role="tab" id="tab-blog" aria-controls="panel-blog" aria-selected="false" tabindex="-1">Blog posts</button>
   </nav>
   <div class="panel" id="panel-dash" role="tabpanel" aria-labelledby="tab-dash">
   <header>
@@ -323,6 +332,7 @@ details.sql .note { color: var(--muted); }
   </div>
 
   <div class="panel" id="panel-blog" role="tabpanel" aria-labelledby="tab-blog" hidden>
+    <nav class="postnav" aria-label="Posts"><a href="#blog-nsw" data-post="blogNsw">NSW universities and their research network</a><a href="#blog" data-post="blogText">Thirty million researchers: the 2026 release</a></nav>
     <article class="post" id="blogText">
       <div class="eyebrow">ORCID Public Data File 2026</div>
       <h1>Thirty million researchers, and who writes their records</h1>
@@ -368,6 +378,73 @@ WHERE REGEXP_CONTAINS(LOWER(u.url), r'bsky\.(app|social)')</code></pre>
         <li>Year-on-year comparisons use each item's created date, in 14 October to 14 October windows.</li>
         <li>ORCID doesn't record where an integration is based. We inferred each institutional system's country from the employers in the entries it writes. Every one of the 268 systems whose name identifies a country was assigned that country.</li>
         <li>Counts of entries sent by institutions include rewrites. 41% of this year's institutional employment entries recreate entries a system had already sent. Works are not affected in the same way: 99.4% of works sent by integrations carry over between releases.</li>
+      </ul>
+      <p>The ORCID Public Data File is released by ORCID under CC0.</p>
+    </article>
+    <article class="post" id="blogNsw" hidden>
+      <div class="eyebrow">ORCID Public Data Files 2024–2026 · Follow-up</div>
+      <h1>Ten NSW universities, and the research network their integrations reveal</h1>
+      <p class="lede">University integrations write works and affiliations straight into their researchers' ORCID records. We followed the same 23.6k New South Wales researchers through three public data files to see what that adds up to.</p>
+      <div class="stats" id="nswStats"></div>
+
+      <p>The <a href="#blog">first post</a> noted that Australian institutional systems nearly doubled their output this year, led by the University of Sydney. This follow-up widens the view to every New South Wales university with an ORCID integration. It uses the 2024, 2025 and 2026 snapshots, so we can watch the change rather than just the latest totals.</p>
+      <p>The cohort is fixed from the 2026 file: research staff at each NSW university, plus everyone an NSW university integration has written works to. Research staff means a current employment entry at the university, at least one DOI work, and no student role. That gives 23,557 iDs, and we follow the same iDs back through 2025 and 2024.</p>
+
+      <h2>1. Ten integrations, started a decade apart</h2>
+      <p>New England and Wollongong were writing to ORCID by 2016, and Macquarie and Charles Sturt by 2017. UTS, Newcastle and UNSW followed, the University of Sydney's Profile Manager went live in October 2025, and Western Sydney started in 2026. Macquarie's integration has written the most works, 148k by the 2026 file. Sydney's went from almost nothing to 84.8k in a year.</p>
+      <figure class="chart">
+        <div class="legend"><span><i id="lgW24"></i>2024 file</span><span><i id="lgW25"></i>2025 file</span><span><i id="lgW26"></i>2026 file</span></div>
+        <div class="canvas-wrap" style="height:420px"><canvas id="cNswWorks" role="img" aria-label="Works written by each NSW university's integration, as held in the 2024, 2025 and 2026 files"></canvas></div>
+        <figcaption>Works on public records written by each university's own integration, as held in each October snapshot. The start year is that of the oldest entry still visible.</figcaption>
+      </figure>
+      <!--SQL:nsw/sql/nsw_clients.sql,nsw/sql/nsw_clients_by_snapshot.sql-->
+
+      <h2>2. The smaller universities reach most of their staff</h2>
+      <p>Reach is the share of a university's research staff on ORCID whose record holds at least one work from the university's own integration. Charles Sturt and Macquarie reach about four in five. UNSW and Sydney each have about 5,000 research staff on ORCID, more than any other NSW university, but reach about one in seven so far. Reach can be low for reasons the public file doesn't show: researchers who haven't granted permission, private records, or staff with nothing new to send.</p>
+      <figure class="chart">
+        <div class="canvas-wrap" style="height:400px"><canvas id="cNswReach" role="img" aria-label="Share of each university's research staff on ORCID reached by its own integration, 2026"></canvas></div>
+        <figcaption>Research staff on ORCID with at least one work from their university's integration, 2026 file. Sydney and Western Sydney are in their first year.</figcaption>
+      </figure>
+      <!--SQL:nsw/sql/nsw_reach.sql-->
+
+      <h2>3. The network, three snapshots</h2>
+      <p>Two researchers are linked when their ORCID records share a DOI (papers held by more than 100 iDs are left out). For the same researchers, links grew from 81.9k in 2024 to 124.0k in 2026. Of the 42.3k links that have appeared since 2024, 16.6k (39%) are visible only because a university's own system sent the work: on every paper the pair share, one side holds it only from their university.</p>
+      <figure class="chart">
+        <img src="img/nsw_network_transition.webp" width="2400" height="860" loading="lazy" alt="Three panels of the NSW co-author network in 2024, 2025 and 2026, with every researcher in the same place. 2024 is all teal; orange links, new since 2024, spread through the 2025 panel and fill much of the 2026 panel." style="width:100%;height:auto;border-radius:4px;background:#15212b">
+        <figcaption>One layout for all three years, computed on the combined network; only the largest connected group is drawn. Teal: link already visible in 2024. Orange: link that has appeared since.</figcaption>
+      </figure>
+      <div class="table-wrap"><table id="tNswSnaps"></table></div>
+      <!--SQL:nsw/sql/orcid_doi_2026.sql,nsw/sql/nsw_people.sql,nsw/sql/nsw_edges.sql-->
+
+      <h2>4. Collaboration across NSW is far more visible</h2>
+      <p>Links between researchers at two different NSW universities grew by 46%, from 33.6k to 49.1k among the ten universities with integrations. The busiest pair, UNSW and Sydney, went from 6.5k links to 10.0k. Macquarie–Sydney went from 3.9k to 5.9k, and Macquarie–UNSW from 3.9k to 5.4k. In 2026, 27% of links between universities are visible only through a university integration.</p>
+      <figure class="chart">
+        <img src="img/nsw_uni_ring.webp" width="2000" height="829" loading="lazy" alt="Two ring diagrams of the ten NSW universities with integrations, 2024 and 2026. Link width shows co-author links between each pair; the Sydney–UNSW, Sydney–Macquarie and UNSW–Macquarie links are the thickest and grow most, and their orange cores, links visible only through a university integration, grow with them." style="width:100%;height:auto;border-radius:4px;background:#15212b">
+        <figcaption>Link width: co-author links between the two universities. Orange core: the part visible only through a university integration. Dot size: researchers with a link. Each researcher is counted under one university.</figcaption>
+      </figure>
+
+      <h2>5. Sydney's first year: 1 in 6 of the state's new links</h2>
+      <p>The biggest single change was the University of Sydney's Profile Manager. Of the <span id="nswNewTotal"></span> co-author links that appeared across NSW in the last year, it made 4.4k visible. That is 1 in 6 of all new links, and 38% of the new links that depend on a university integration. Half of them (2.2k) connect Sydney researchers to colleagues at other NSW universities.</p>
+      <figure class="chart">
+        <div class="canvas-wrap" style="height:400px"><canvas id="cNswCredit" role="img" aria-label="Co-author links new in the last year, credited to the university integration that made them visible"></canvas></div>
+        <figcaption>Links new in the 2026 file (no shared DOI in 2025), credited to the integration that is the only source of a shared DOI on one side. A link can be credited to two universities.</figcaption>
+      </figure>
+      <!--SQL:nsw/sql/nsw_new_links_last_year.sql-->
+
+      <h2>6. Works are automated. Affiliations depend on the university.</h2>
+      <p>Between publishers, Crossref and the universities, 85–95% of the works added to these researchers' records in the last year arrived without the researcher typing anything. Employment is different. The university is the most trusted source for "this person works here", yet at most NSW universities researchers still type it in themselves. Charles Sturt, Macquarie and Southern Cross write the employment entry for 63–71% of their staff through their research systems. UNSW reached about half this year by bulk-loading 2.5k affiliations through the ORCID Member Portal. Sydney's Profile Manager has written 10, and Western Sydney's new integration writes none yet.</p>
+      <div class="table-wrap"><table id="tNswAff"></table></div>
+      <!--SQL:nsw/sql/nsw_emp_route.sql-->
+
+      <h2>What if every NSW university reached four in five?</h2>
+      <p>Macquarie and Charles Sturt show it can be done. If the two largest universities reached their staff the way they do, much more of the state's research network would be visible in ORCID, and researchers would have less to type in.</p>
+
+      <h2>Method and caveats</h2>
+      <ul>
+        <li>Public data only, so every count is a lower bound. Queries, scripts and aggregate outputs are in <a href="https://github.com/sjcporter/orcid-2026-changes/tree/main/nsw" target="_blank" rel="noopener">nsw/ in the repository</a>. The cohort and link tables pair individual iDs and are not published.</li>
+        <li>Universities are matched by employer name and country, so misspelt employers are missed. Each researcher is counted under one university: the one whose integration writes to them, otherwise their employer. 550 researchers have current employment at more than one NSW university.</li>
+        <li>The cohort is defined from 2026 records, so 2024 and 2025 describe the same people earlier, not who was on staff then.</li>
+        <li>"Writing since" is the year of the oldest entry from that integration still on a public record. A client named "University of Notre Dame – Digital Measures" belongs to the US university and is left out. Australian Catholic University has no integration visible in the public file.</li>
       </ul>
       <p>The ORCID Public Data File is released by ORCID under CC0.</p>
     </article>
@@ -426,6 +503,22 @@ function drawPairs() {
 }
 pairSel.addEventListener("change", drawPairs); drawPairs();
 
+// NSW post: stats, tables.
+const N = D.nsw;
+document.getElementById("nswStats").innerHTML = D.nsw_stats.map(s => `<div class="stat"><b>${s[0]}</b><span>${s[1]}</span><em>${s[2]}</em></div>`).join("");
+document.getElementById("nswNewTotal").textContent = k(N.new_total);
+const NS = ["2024", "2025", "2026"];
+table("tNswSnaps", [["Same 23.6k researchers"], ["2024", "n"], ["2025", "n"], ["2026", "n"]], [
+  ["Co-author links", "edges"], ["Researchers with a link", "researchers_linked"], ["Largest connected group", "largest_component"],
+  ["Links between two NSW universities", "edges_between_universities"], ["Links visible only via a university integration", "edges_only_via_integration"],
+  ["Links new since 2024", "new_since_first"], ["… of which only via a university integration", "new_since_first_only_via_integration"]]
+  .map(([label, key]) => [label, ...NS.map(y => key.startsWith("new") && y === "2024" ? "–" : fmt(N.snaps[y][key]))]));
+const via = r => r[5] > r[4] ? `ORCID Member Portal (${k(r[5])}), research system (${fmt(r[4])})` : r[4] > 0 ? "Research system" : "None yet";
+table("tNswAff", [["University"], ["Works automated", "n"], ["Employer written by university", "n"], [""], ["Written via"]],
+  N.aff.map(r => [r[0], Math.round(100 * (1 - r[3] / r[2])) + "%", (100 * r[6] / r[1]).toFixed(r[6] / r[1] < .01 ? 1 : 0) + "%",
+    `<div class="bar-track"><div class="bar-fill" style="width:${(100 * r[6] / r[1]).toFixed(1)}%"></div></div>`, via(r)]));
+document.querySelectorAll("#tNswAff td:nth-child(4)").forEach(td => td.classList.add("bar"));
+
 let charts = [];
 function draw() {
   charts.forEach(c => c.destroy()); charts = [];
@@ -466,6 +559,24 @@ function draw() {
       { label: "Web of Science (new)", data: cv.wos, borderColor: css("--c-clar"), backgroundColor: css("--c-clar"), pointRadius: 0, borderWidth: 2.5, tension: .2 },
       { label: "Researcher Profiles / SSO (new)", data: cv.profiles, borderColor: acc, backgroundColor: acc, pointRadius: 0, borderWidth: 2.5, tension: .2 }] },
     options: { ...base, interaction: { mode: "index", intersect: false }, scales: { y: { beginAtZero: true, grid: { color: rule }, ticks: { callback: v => k(v) } }, x: { grid: { display: false }, ticks: { maxRotation: 0, callback: function (v) { const l = this.getLabelForValue(v); return l.endsWith("-01") || l === "2025-10" ? l : ""; } } } } } }));
+  // NSW post charts.
+  const fade = (hex, a) => { const h = hex.replace("#", ""); const n = parseInt(h.length === 3 ? h.replace(/./g, "$&$&") : h, 16); return `rgba(${n >> 16 & 255},${n >> 8 & 255},${n & 255},${a})`; };
+  const wCols = [acc2, fade(acc, .55), acc];
+  ["lgW24", "lgW25", "lgW26"].forEach((id, i) => document.getElementById(id).style.background = wCols[i]);
+  const hopts = (tick, label) => ({ ...base, indexAxis: "y", plugins: { ...base.plugins, tooltip: { callbacks: { label } } },
+    scales: { x: { beginAtZero: true, grid: { color: rule }, ticks: { callback: tick } }, y: { grid: { display: false }, ticks: { color: ink } } } });
+  charts.push(new Chart(document.getElementById("cNswWorks"), { type: "bar",
+    data: { labels: N.works.map(r => r[0]), datasets: NS.map((y, i) => ({ label: y + " file", data: N.works.map(r => r[i + 1]), backgroundColor: wCols[i] })) },
+    options: hopts(v => k(v), c => `${c.dataset.label}: ${fmt(c.raw)} works`) }));
+  const first = ["Sydney", "Western Sydney"];
+  charts.push(new Chart(document.getElementById("cNswReach"), { type: "bar",
+    data: { labels: N.reach.map(r => r[0] + (first.includes(r[0]) ? " (first year)" : "")),
+      datasets: [{ label: "Reached", data: N.reach.map(r => +(100 * r[2] / r[1]).toFixed(1)), backgroundColor: N.reach.map(r => first.includes(r[0]) ? acc2 : acc) }] },
+    options: { ...hopts(v => v + "%", c => { const r = N.reach[c.dataIndex]; return `${c.raw}%: ${fmt(r[2])} of ${fmt(r[1])} research staff`; }), scales: { ...hopts().scales, x: { min: 0, max: 100, grid: { color: rule }, ticks: { callback: v => v + "%" } } } } }));
+  charts.push(new Chart(document.getElementById("cNswCredit"), { type: "bar",
+    data: { labels: N.credit.map(r => r[0]), datasets: [{ label: "New links", data: N.credit.map(r => r[1]), backgroundColor: N.credit.map(r => r[0] === "Sydney" ? css("--hi") : acc2) }] },
+    options: hopts(v => k(v), c => { const r = N.credit[c.dataIndex]; return `${fmt(r[1])} new links, ${fmt(r[2])} to other NSW universities`; }) }));
+
   const cls = D.classes.filter(r => r[1] + r[2] > 1000);
   hbar("cClasses", cls.map(r => r[0]), cls.map(r => r[1]), cls.map(r => r[2]), "Oct 2024–Oct 2025", "Oct 2025–Oct 2026");
   const ic = D.inst_countries.slice(0, 12);
@@ -479,19 +590,27 @@ if (window.Chart) {
 } else {
   document.querySelectorAll(".canvas-wrap").forEach(w => { w.style.height = "auto"; w.innerHTML = '<p class="notes">The chart library did not load. The tables on this page carry the same figures.</p>'; });
 }
-// Tabs: #blog opens the draft; any other hash (a dashboard section) opens the dashboard and scrolls to it.
+// Tabs: #blog and #blog-nsw open a post; any other hash (a dashboard section) opens the dashboard and scrolls to it.
 const tabs = [...document.querySelectorAll('[role="tab"]')];
 function show(id, focus) {
   tabs.forEach(t => { const on = t.id === id; t.setAttribute("aria-selected", on); t.tabIndex = on ? 0 : -1;
     document.getElementById(t.getAttribute("aria-controls")).hidden = !on; if (on && focus) t.focus(); });
 }
 tabs.forEach((t, i) => {
-  t.addEventListener("click", () => { show(t.id); history.replaceState(null, "", t.id === "tab-blog" ? "#blog" : "#"); scrollTo(0, 0); });
+  t.addEventListener("click", () => { show(t.id); history.replaceState(null, "", t.id === "tab-blog" ? "#" + (post === "blogNsw" ? "blog-nsw" : "blog") : "#"); scrollTo(0, 0); });
   t.addEventListener("keydown", e => { const d = e.key === "ArrowRight" ? 1 : e.key === "ArrowLeft" ? -1 : 0; if (d) tabs[(i + d + tabs.length) % tabs.length].click(), tabs[(i + d + tabs.length) % tabs.length].focus(); });
 });
+let post = "blogText";
+function showPost(id) {
+  post = id;
+  document.querySelectorAll(".post").forEach(a => a.hidden = a.id !== id);
+  document.querySelectorAll(".postnav a").forEach(a => a.dataset.post === id ? a.setAttribute("aria-current", "page") : a.removeAttribute("aria-current"));
+  show("tab-blog");
+  charts.forEach(c => c.resize());
+}
 function route() {
   const h = location.hash.slice(1);
-  if (h === "blog") return show("tab-blog");
+  if (h === "blog" || h === "blog-nsw") { showPost(h === "blog" ? "blogText" : "blogNsw"); return scrollTo(0, 0); }
   show("tab-dash");
   const el = h && document.getElementById(h);
   if (el) requestAnimationFrame(() => el.scrollIntoView());

@@ -4,7 +4,7 @@ A comparison of the ORCID Public Data File 2026 (snapshot of 14 October 2026) wi
 
 - **Dashboard:** [`docs/index.html`](docs/index.html), served at <https://sjcporter.github.io/orcid-2026-changes/> when GitHub Pages is enabled. It has charts, tables and the SQL behind every figure.
 - **Blog post:** [`blog/post.md`](blog/post.md), also a tab on the dashboard.
-- **NSW follow-up:** [`nsw/`](nsw/) follows ten New South Wales university integrations and their co-author network across the 2024, 2025 and 2026 files.
+- **NSW follow-up:** [`nsw/`](nsw/) follows ten New South Wales university integrations and their co-author network across the 2024, 2025 and 2026 files. Its blog post is the second post on the dashboard's blog tab (`#blog-nsw`).
 
 ## Findings
 
@@ -33,7 +33,7 @@ A comparison of the ORCID Public Data File 2026 (snapshot of 14 October 2026) wi
 | `scripts/classify_sources.py` | Heuristic classification of source systems from their names |
 | `scripts/prefix_names.py` | Names DOI prefixes through the Crossref and DataCite APIs (set `CONTACT_EMAIL` to identify yourself) |
 | `site/` | Page template and build script |
-| `docs/index.html` | The built dashboard |
+| `docs/index.html`, `docs/img/` | The built dashboard and the images its NSW post uses |
 | `blog/post.md` | The blog post |
 | `nsw/` | The NSW universities follow-up: queries, scripts, outputs and pictures |
 
