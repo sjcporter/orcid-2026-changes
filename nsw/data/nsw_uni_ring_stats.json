@@ -1,0 +1,374 @@
+{
+ "2024": {
+  "between_links": 33648,
+  "only_via_integration": 7682,
+  "pairs": {
+   "UNSW \u2013 USyd": [
+    6480,
+    284
+   ],
+   "Macquarie \u2013 USyd": [
+    3920,
+    1107
+   ],
+   "Macquarie \u2013 UNSW": [
+    3871,
+    1261
+   ],
+   "UNSW \u2013 UTS": [
+    2139,
+    627
+   ],
+   "USyd \u2013 UTS": [
+    1897,
+    479
+   ],
+   "Macquarie \u2013 UTS": [
+    1266,
+    631
+   ],
+   "UNSW \u2013 Wollongong": [
+    1039,
+    169
+   ],
+   "USyd \u2013 Wollongong": [
+    947,
+    131
+   ],
+   "Newcastle \u2013 UNSW": [
+    917,
+    89
+   ],
+   "Newcastle \u2013 USyd": [
+    871,
+    49
+   ],
+   "UNSW \u2013 Western Sydney": [
+    862,
+    44
+   ],
+   "USyd \u2013 Western Sydney": [
+    833,
+    7
+   ],
+   "Macquarie \u2013 Western Sydney": [
+    646,
+    181
+   ],
+   "Macquarie \u2013 Wollongong": [
+    585,
+    266
+   ],
+   "UTS \u2013 Wollongong": [
+    582,
+    195
+   ],
+   "Newcastle \u2013 UTS": [
+    558,
+    186
+   ],
+   "Macquarie \u2013 Newcastle": [
+    511,
+    155
+   ],
+   "UTS \u2013 Western Sydney": [
+    455,
+    103
+   ],
+   "Charles Sturt \u2013 USyd": [
+    424,
+    143
+   ],
+   "Charles Sturt \u2013 Macquarie": [
+    372,
+    248
+   ],
+   "Charles Sturt \u2013 UNSW": [
+    332,
+    132
+   ],
+   "New England \u2013 USyd": [
+    324,
+    62
+   ],
+   "Newcastle \u2013 Wollongong": [
+    317,
+    44
+   ],
+   "Charles Sturt \u2013 UTS": [
+    275,
+    126
+   ],
+   "Western Sydney \u2013 Wollongong": [
+    253,
+    27
+   ],
+   "New England \u2013 UNSW": [
+    251,
+    57
+   ],
+   "Macquarie \u2013 New England": [
+    217,
+    120
+   ],
+   "Southern Cross \u2013 USyd": [
+    215,
+    21
+   ],
+   "Charles Sturt \u2013 New England": [
+    214,
+    112
+   ],
+   "Charles Sturt \u2013 Newcastle": [
+    183,
+    78
+   ],
+   "Newcastle \u2013 Western Sydney": [
+    176,
+    5
+   ],
+   "Southern Cross \u2013 UTS": [
+    174,
+    47
+   ],
+   "Southern Cross \u2013 UNSW": [
+    173,
+    23
+   ],
+   "Charles Sturt \u2013 Western Sydney": [
+    156,
+    52
+   ],
+   "New England \u2013 UTS": [
+    143,
+    82
+   ],
+   "Macquarie \u2013 Southern Cross": [
+    142,
+    54
+   ],
+   "Charles Sturt \u2013 Southern Cross": [
+    134,
+    56
+   ],
+   "New England \u2013 Newcastle": [
+    130,
+    33
+   ],
+   "Charles Sturt \u2013 Wollongong": [
+    120,
+    49
+   ],
+   "Southern Cross \u2013 Wollongong": [
+    118,
+    33
+   ],
+   "Newcastle \u2013 Southern Cross": [
+    103,
+    18
+   ],
+   "New England \u2013 Western Sydney": [
+    95,
+    24
+   ],
+   "New England \u2013 Wollongong": [
+    79,
+    35
+   ],
+   "Southern Cross \u2013 Western Sydney": [
+    78,
+    10
+   ],
+   "New England \u2013 Southern Cross": [
+    71,
+    27
+   ]
+  }
+ },
+ "2026": {
+  "between_links": 49138,
+  "only_via_integration": 13435,
+  "pairs": {
+   "UNSW \u2013 USyd": [
+    9997,
+    1366
+   ],
+   "Macquarie \u2013 USyd": [
+    5884,
+    2106
+   ],
+   "Macquarie \u2013 UNSW": [
+    5380,
+    1928
+   ],
+   "UNSW \u2013 UTS": [
+    3011,
+    943
+   ],
+   "USyd \u2013 UTS": [
+    2960,
+    936
+   ],
+   "Macquarie \u2013 UTS": [
+    1687,
+    836
+   ],
+   "Newcastle \u2013 USyd": [
+    1418,
+    225
+   ],
+   "UNSW \u2013 Wollongong": [
+    1385,
+    264
+   ],
+   "Newcastle \u2013 UNSW": [
+    1376,
+    238
+   ],
+   "USyd \u2013 Wollongong": [
+    1286,
+    253
+   ],
+   "USyd \u2013 Western Sydney": [
+    1280,
+    127
+   ],
+   "UNSW \u2013 Western Sydney": [
+    1267,
+    136
+   ],
+   "Macquarie \u2013 Western Sydney": [
+    896,
+    259
+   ],
+   "Newcastle \u2013 UTS": [
+    765,
+    269
+   ],
+   "Charles Sturt \u2013 USyd": [
+    741,
+    275
+   ],
+   "Macquarie \u2013 Wollongong": [
+    729,
+    322
+   ],
+   "UTS \u2013 Wollongong": [
+    712,
+    214
+   ],
+   "Macquarie \u2013 Newcastle": [
+    710,
+    218
+   ],
+   "UTS \u2013 Western Sydney": [
+    667,
+    159
+   ],
+   "Charles Sturt \u2013 Macquarie": [
+    542,
+    304
+   ],
+   "Charles Sturt \u2013 UNSW": [
+    496,
+    189
+   ],
+   "New England \u2013 USyd": [
+    460,
+    130
+   ],
+   "Newcastle \u2013 Wollongong": [
+    438,
+    75
+   ],
+   "Charles Sturt \u2013 UTS": [
+    392,
+    156
+   ],
+   "Southern Cross \u2013 USyd": [
+    355,
+    79
+   ],
+   "Western Sydney \u2013 Wollongong": [
+    351,
+    54
+   ],
+   "Charles Sturt \u2013 New England": [
+    326,
+    186
+   ],
+   "New England \u2013 UNSW": [
+    320,
+    84
+   ],
+   "Macquarie \u2013 New England": [
+    305,
+    161
+   ],
+   "Charles Sturt \u2013 Newcastle": [
+    294,
+    111
+   ],
+   "Charles Sturt \u2013 Western Sydney": [
+    270,
+    91
+   ],
+   "Newcastle \u2013 Western Sydney": [
+    252,
+    17
+   ],
+   "Southern Cross \u2013 UNSW": [
+    246,
+    54
+   ],
+   "Southern Cross \u2013 UTS": [
+    232,
+    74
+   ],
+   "New England \u2013 Newcastle": [
+    198,
+    56
+   ],
+   "Macquarie \u2013 Southern Cross": [
+    196,
+    78
+   ],
+   "Charles Sturt \u2013 Southern Cross": [
+    194,
+    86
+   ],
+   "New England \u2013 UTS": [
+    180,
+    98
+   ],
+   "Charles Sturt \u2013 Wollongong": [
+    167,
+    62
+   ],
+   "Southern Cross \u2013 Wollongong": [
+    151,
+    40
+   ],
+   "Newcastle \u2013 Southern Cross": [
+    143,
+    31
+   ],
+   "New England \u2013 Western Sydney": [
+    134,
+    39
+   ],
+   "New England \u2013 Southern Cross": [
+    119,
+    42
+   ],
+   "New England \u2013 Wollongong": [
+    118,
+    47
+   ],
+   "Southern Cross \u2013 Western Sydney": [
+    108,
+    17
+   ]
+  }
+ }
+}
