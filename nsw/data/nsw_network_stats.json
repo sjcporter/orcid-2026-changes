@@ -1,0 +1,203 @@
+{
+ "2024": {
+  "edges": 81912,
+  "edges_only_via_integration": 20065,
+  "researchers_linked": 15469,
+  "largest_component": 14984,
+  "edges_between_universities": 34126,
+  "between_only_via_integration": 7739,
+  "top_university_pairs": [
+   [
+    "UNSW \u2013 USyd",
+    6480
+   ],
+   [
+    "Macquarie \u2013 USyd",
+    3920
+   ],
+   [
+    "Macquarie \u2013 UNSW",
+    3871
+   ],
+   [
+    "UNSW \u2013 UTS",
+    2139
+   ],
+   [
+    "USyd \u2013 UTS",
+    1897
+   ],
+   [
+    "Macquarie \u2013 UTS",
+    1266
+   ],
+   [
+    "UNSW \u2013 Wollongong",
+    1039
+   ],
+   [
+    "USyd \u2013 Wollongong",
+    947
+   ],
+   [
+    "Newcastle \u2013 UNSW",
+    917
+   ],
+   [
+    "Newcastle \u2013 USyd",
+    871
+   ],
+   [
+    "UNSW \u2013 Western Sydney",
+    862
+   ],
+   [
+    "USyd \u2013 Western Sydney",
+    833
+   ]
+  ],
+  "new_since_first": 0,
+  "new_since_first_only_via_integration": 0,
+  "drawn_researchers": 15256,
+  "drawn_not_linked_in_2024": 0
+ },
+ "2025": {
+  "edges": 98126,
+  "edges_only_via_integration": 24561,
+  "researchers_linked": 17374,
+  "largest_component": 16930,
+  "edges_between_universities": 40067,
+  "between_only_via_integration": 9351,
+  "top_university_pairs": [
+   [
+    "UNSW \u2013 USyd",
+    7607
+   ],
+   [
+    "Macquarie \u2013 USyd",
+    4503
+   ],
+   [
+    "Macquarie \u2013 UNSW",
+    4468
+   ],
+   [
+    "UNSW \u2013 UTS",
+    2464
+   ],
+   [
+    "USyd \u2013 UTS",
+    2250
+   ],
+   [
+    "Macquarie \u2013 UTS",
+    1439
+   ],
+   [
+    "UNSW \u2013 Wollongong",
+    1241
+   ],
+   [
+    "Newcastle \u2013 UNSW",
+    1107
+   ],
+   [
+    "Newcastle \u2013 USyd",
+    1065
+   ],
+   [
+    "UNSW \u2013 Western Sydney",
+    1060
+   ],
+   [
+    "USyd \u2013 Wollongong",
+    1051
+   ],
+   [
+    "USyd \u2013 Western Sydney",
+    995
+   ]
+  ],
+  "new_since_first": 16352,
+  "new_since_first_only_via_integration": 5590,
+  "drawn_researchers": 17092,
+  "drawn_not_linked_in_2024": 1849
+ },
+ "2026": {
+  "edges": 123957,
+  "edges_only_via_integration": 34305,
+  "researchers_linked": 19883,
+  "largest_component": 19464,
+  "edges_between_universities": 49929,
+  "between_only_via_integration": 13563,
+  "top_university_pairs": [
+   [
+    "UNSW \u2013 USyd",
+    9997
+   ],
+   [
+    "Macquarie \u2013 USyd",
+    5884
+   ],
+   [
+    "Macquarie \u2013 UNSW",
+    5380
+   ],
+   [
+    "UNSW \u2013 UTS",
+    3011
+   ],
+   [
+    "USyd \u2013 UTS",
+    2960
+   ],
+   [
+    "Macquarie \u2013 UTS",
+    1687
+   ],
+   [
+    "Newcastle \u2013 USyd",
+    1418
+   ],
+   [
+    "UNSW \u2013 Wollongong",
+    1385
+   ],
+   [
+    "Newcastle \u2013 UNSW",
+    1376
+   ],
+   [
+    "USyd \u2013 Wollongong",
+    1286
+   ],
+   [
+    "USyd \u2013 Western Sydney",
+    1280
+   ],
+   [
+    "UNSW \u2013 Western Sydney",
+    1267
+   ]
+  ],
+  "new_since_first": 42292,
+  "new_since_first_only_via_integration": 16592,
+  "drawn_researchers": 19466,
+  "drawn_not_linked_in_2024": 4221
+ },
+ "core_size": 19480,
+ "researchers_in_any_snapshot": 19901,
+ "core_by_uni": {
+  "UNSW": 4319,
+  "USyd": 4094,
+  "Macquarie": 3230,
+  "UTS": 1914,
+  "Newcastle": 1194,
+  "Charles Sturt": 1160,
+  "Wollongong": 1086,
+  "Western Sydney": 954,
+  "New England": 807,
+  "Southern Cross": 573,
+  "Notre Dame": 149
+ }
+}

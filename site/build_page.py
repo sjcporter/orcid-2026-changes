@@ -64,6 +64,37 @@ for r in csv.DictReader(open("data/clarivate.csv")):
 months = [f"{y}-{m:02d}" for y in (2024, 2025, 2026) for m in range(1, 13) if "2024-11" <= f"{y}-{m:02d}" <= "2026-09"]
 D["clarivate"] = {"months": months, **{k: [cvm[k][m] for m in months] for k in ("old", "wos", "profiles")}}
 D["link_pairs"] = [[r["pa"], r["pb"], int(r["both_n"]), int(r["n_a"]), int(r["n_b"]), float(r["lift"])] for r in csv.DictReader(open("data/link_pairs.csv"))]
+
+# NSW follow-up (nsw/): data for the second blog post. Notre Dame's client is the US university's and is left out.
+NAME = {"USyd": "Sydney"}
+SNAPS = ("2024", "2025", "2026")
+nsw_rows = lambda f: list(csv.DictReader(open("nsw/data/" + f)))
+nsw_works = collections.defaultdict(lambda: [0, 0, 0])
+for r in nsw_rows("nsw_clients_by_snapshot.csv"):
+    if r["section"] == "work" and r["uni"] != "Notre Dame":
+        nsw_works[NAME.get(r["uni"], r["uni"])][SNAPS.index(r["yr"])] += int(r["entries"])
+reach = {r["uni"]: r for r in nsw_rows("nsw_reach.csv") if r["uni"] != "Notre Dame"}
+route = {r["uni"]: r for r in nsw_rows("nsw_emp_route.csv")}
+credit = nsw_rows("nsw_new_links_last_year.csv")
+net = json.load(open("nsw/data/nsw_network_stats.json"))
+D["nsw"] = {
+    "works": sorted([[u, *v] for u, v in nsw_works.items()], key=lambda x: -x[3]),
+    "reach": sorted([[NAME.get(u, u), int(r["research_staff"]), int(r["reached_by_own_integration"])] for u, r in reach.items()],
+                    key=lambda x: -x[2] / x[1]),
+    "credit": [[NAME.get(r["uni"], r["uni"]), int(r["new_links_credited"]), int(r["between_universities"])] for r in credit],
+    "credit_total": int(credit[0]["total_new_int_links"]), "new_total": int(credit[0]["total_new_links"]),
+    # [university, research staff, works added last year, of which by hand, employment by own system, by Member Portal, by either]
+    "aff": sorted([[NAME.get(u, u), int(r["research_staff"]), int(r["works_added_ly"]), int(r["works_ly_by_hand"]),
+                    int(route[u]["emp_by_own_system"]), int(route[u]["emp_by_member_portal"]), int(r["emp_written_by_uni"])]
+                   for u, r in reach.items()], key=lambda x: -x[6] / x[1]),
+    "snaps": {s: {k: net[s][k] for k in ("edges", "researchers_linked", "largest_component", "edges_between_universities",
+                                           "edges_only_via_integration", "new_since_first", "new_since_first_only_via_integration")}
+              for s in SNAPS},
+}
+D["nsw_stats"] = [["10", "NSW universities writing to ORCID", "New England 2016 to Western Sydney 2026"],
+                  ["+51%", "co-author links, 2024 to 2026", "81.9k → 124k, same researchers"],
+                  ["2 in 5", "new links seen only via a university", "16.6k of 42.3k since 2024"],
+                  ["1 in 6", "last year’s new links from Sydney", "4.4k of 26.1k"]]
 html = open("site/page_template.html").read().replace("/*DATA*/null", json.dumps(D, separators=(",", ":")))
 
 
@@ -80,12 +111,13 @@ def sql_block(m: "re.Match[str]") -> str:
     parts = []
     for f in files:
         note = f'<span class="note">{html_lib.escape(NOTES[f])}</span>' if f in NOTES else ""
-        parts.append(f'<div class="q"><b>{f}</b>{note}<pre><code>{html_lib.escape(open("sql/" + f).read().rstrip())}</code></pre></div>')
+        path = f if "/" in f else "sql/" + f
+        parts.append(f'<div class="q"><b>{f.split("/")[-1]}</b>{note}<pre><code>{html_lib.escape(open(path).read().rstrip())}</code></pre></div>')
     label = "Show the SQL" + (f" ({len(files)} queries)" if len(files) > 1 else "")
     return f'<details class="sql"><summary>{label}</summary>{"".join(parts)}</details>'
 
 
-html = re.sub(r"<!--SQL:([\w.,]+)-->", sql_block, html)
+html = re.sub(r"<!--SQL:([\w./,]+)-->", sql_block, html)
 head, body = html.split("\n<main>", 1)
 page = ('<!doctype html>\n<html lang="en">\n<head>\n<meta charset="utf-8">\n<meta name="viewport" content="width=device-width, initial-scale=1">\n'
         + head + "\n</head>\n<body>\n<main>" + body + "\n</body>\n</html>\n")
