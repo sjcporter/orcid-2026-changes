@@ -16,6 +16,7 @@ If every NSW university reached four in five of its researchers, how much more o
 
 (Method: research staff = ORCID records with a current employment entry at the university, at least one DOI work and no student role. A link = two researchers sharing a DOI; papers with more than 100 ORCID iDs left out. Public data only, so all counts are lower bounds.)
 
-Method, queries and data: https://github.com/sjcporter/orcid-2026-changes/tree/main/nsw
+Full post, charts and method: https://sjcporter.github.io/orcid-2026-changes/#blog-nsw
+Queries and data: https://github.com/sjcporter/orcid-2026-changes/tree/main/nsw
 
 #ORCID #ResearchInformation #OpenData #ResearchManagement #NSW
