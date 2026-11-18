@@ -95,6 +95,8 @@ D["nsw_stats"] = [["10", "NSW universities writing to ORCID", "New England 2016 
                   ["+51%", "co-author links, 2024 to 2026", "81.9k → 124k, same researchers"],
                   ["2 in 5", "new links seen only via a university", "16.6k of 42.3k since 2024"],
                   ["1 in 6", "last year’s new links from Sydney", "4.4k of 26.1k"]]
+# Prompt history behind the dashboard and both posts (exported from the Claude Code session, private links removed).
+D["prompts"] = json.load(open("data/prompts.json"))
 html = open("site/page_template.html").read().replace("/*DATA*/null", json.dumps(D, separators=(",", ":")))
 
 

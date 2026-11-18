@@ -1,0 +1,813 @@
+{
+"release": {
+"turns": [
+{
+"date": "2026-11-03",
+"ts": "08:45",
+"kind": "prompt",
+"label": null,
+"user": "now that the new ORCID table is released, lets do some analysis on the data to see what has changed.\n\nwhat is the difference in the uptake of different urls? is there now a bluSky signal? \n\nWhat other qualitative differences can you see from the previous release. \n\nWe are collecting this information in order to write a blog post promoting the file",
+"reply": "I can't query BigQuery at the moment, so I haven't started the analysis:\n\n- **`bq` command line:** your Google Cloud login has expired and needs signing in again. I can't do that from here.\n\nPlease run this here and finish the browser sign-in:\n\n```\n! gcloud auth login\n```\n\nOnce you're signed in, I'll run two sets of comparisons between `summaries_2025` and `summaries_2026`:\n\n**Your two questions**\n- **Website links:** how many profiles list each kind of site (LinkedIn, GitHub, Google Scholar, ResearchGate, X/Twitter, Mastodon, personal sites and so on), by domain, in 2025 and 2026. I'll show the change in count and share.\n- **Bluesky:** links to `bsky.app` or `*.bsky.social`, plus any Bluesky handles in the other identifiers field. I'll check how fast these grew compared with X/Twitter and Mastodon.\n\n**Other changes for the blog post**\n- How many records there are, and how many are new since 2025.\n- How complete profiles are: names, biographies, keywords, countries, emails, and identifiers such as Scopus or ResearcherID.\n- Activities: works, employment, education, funding, peer review and the newer sections, including the share of profiles with any of each.\n- Where the information comes from: entered by the person or added by an organisation's system, and which systems add the most.\n- Country spread, and how many records were last updated in the past year.\n\nEach query reads about 160 GB, so the full set should cost a few tens of dollars, billed to the sandbox project. I'll check the website and Bluesky results with you before going further.",
+"work": {
+"bq": 2,
+"files": 0,
+"publish": 0,
+"browser": 0,
+"other": 2
+},
+"ncom": 0,
+"notes": 0,
+"images": []
+},
+{
+"date": "2026-11-03",
+"ts": "08:46",
+"kind": "action",
+"label": "Ran in the terminal",
+"user": "! gcloud auth login",
+"reply": "Yes, there's a Bluesky signal, but it's small and it peaked in November 2024. Since then it has faded to about 140 new links a month, while X/Twitter links keep growing slowly. The bigger stories for the post are a step change in employment data and a surge of publications pushed in by Web of Science.\n\nOn cost, all the queries together read about 70 GB, roughly **$0.45**. The queries and results are saved in `analysis/`.\n\n## The release in one line\n2026 has **29.99M public records**, up 19.7% from 25.05M. That's 4.96M new records and 13.6k that dropped out. Public works grew from 122M to 145M.\n\n## Website links on profiles\n6.0% of profiles list at least one website, about the same as last year. Growth by platform, in profiles:\n\n| Platform | 2025 | 2026 | Change |\n|---|---|---|---|\n| LinkedIn | 396.6k | 518.4k | +31% |\n| Google Scholar | 186.3k | 230.9k | +24% |\n| ResearchGate | 176.5k | 202.6k | +15% |\n| GitHub | 51.0k | 74.8k | **+47%** |\n| X/Twitter | 62.4k | 65.3k | **+5%** |\n| Instagram | 39.8k | 54.4k | +37% |\n| **Bluesky** | 4.6k | 6.4k | **+40%** |\n| Mastodon / other fediverse servers | 3.7k | 4.5k | +23% |\n| Hugging Face | 151 | 478 | +217% |\n| Substack | 512 | 1,285 | +151% |\n| Zenodo | 704 | 1,824 | +159% |\n| Wikidata | 277 | 673 | +143% |\n\n- **X/Twitter is flat.** It was overtaken by GitHub this year. 3,184 existing profiles removed their X link and 6,608 added one.\n- **Bluesky is real but small.** It's on 6,410 profiles, about a tenth of X. When the 2026 snapshot was taken, 2,017 profiles listed both.\n  - Of the profiles that removed X this year, 16% (503) now list Bluesky.\n  - 1,561 existing profiles added Bluesky and 131 removed it.\n- **The Bluesky timeline** comes from when each link was first added:\n  - November 2024 saw 895 new Bluesky links, compared with about 40 a month before, matching the post-US-election move off X.\n  - Monthly additions have since declined steadily, to about 140 a month in 2026.\n  - New X links still outnumber Bluesky about 3.5 to 1: roughly 500 a month against 140.\n  - From May 2024, most new X links use `x.com` rather than `twitter.com`.\n- **Researchers increasingly link code and data:** GitHub, Hugging Face, Zenodo and Kaggle (+70%) are the fastest-growing groups. Hugging Face is the AI model and dataset site.\n\n## Other changes from the previous release\n1. **Employment data jumped.** 42.1% of records now list an employer, up from 35.5% in 2025 and 27.4% in 2024.\n   - For accounts created through January 2024, about 18% have an employer. From March 2024 that's **66%**.\n   - That pattern points to a change in ORCID's sign-up flow. It's worth confirming with ORCID before publishing.\n   - 99% of the employment entries added this year were typed in by researchers themselves (4.4M). Institutional systems added the rest, led by universities' research information systems, often Pure, in Australia, Denmark, the Netherlands and the UK.\n2. **Web of Science went from a minor source of publications to a major one.** In the year before the 2025 release, Clarivate systems added about 161k works. This year they added about **5.0M**: Web of Science 3.9M, Web of Science Researcher Profiles 611k and Clarivate's single sign-on 508k. That's the main reason works added in the year rose 57% for journal articles.\n3. **Preprints more than doubled**, from 588k to 1.33M added. Most came from Crossref's automatic updates, which added 1.12M preprints, up from 503k. Datasets (+63%), software (+89%), patents (+105%) and theses (+87%) also grew quickly.\n4. **Self-entered works rose 45%,** from 4.8M to 7.0M, so researchers are adding more themselves too.\n5. **New researchers are increasingly from outside Europe and North America.** For records created this year with a known country, the share compared with older records is:\n\n   | Country | Share of new records | Share of older records |\n   |---|---|---|\n   | China | 11.9% | 4.8% |\n   | India | 4.9% | 2.5% |\n   | Brazil | 4.8% | 3.1% |\n   | Peru | 4.4% | 1.7% |\n\n   Turkey, Indonesia, Ecuador, the Philippines, Pakistan and Nigeria are also over-represented. For about a third of new records no country is known.\n6. **Fewer empty records.** Records with no works, employment, education, biography, keywords or websites fell from 54.8% in 2024 to 48.8% in 2025 and **43.9%** now. That's almost entirely because of the employment change.\n7. **Most other fields are flat or slightly down as a share:** biography 4.9%, keywords 5.2%, country 10.7%, works 28.0%. Public emails crept up to 4.0%.\n\n## Caveats for the post\n- **Public data only:** the file only contains what researchers have made public, so these are lower bounds.\n- **Bluesky undercount:** people who use their own web domain as their Bluesky handle are only caught if they label the link \"Bluesky\". That adds about 92 profiles, so it doesn't change the picture.\n- **Link dates:** the dates are when a link was first created. A few \"Bluesky\" links dated before Bluesky existed are probably older links people later edited.\n- **Self-entered vs. added by an integration:** I split these by whether the entry's source is the record owner's own iD.\n\nWould you like this as a draft blog post, or as a shareable page with charts for the timeline and the platform table?",
+"work": {
+"bq": 14,
+"files": 0,
+"publish": 0,
+"browser": 0,
+"other": 2
+},
+"ncom": 0,
+"notes": 5,
+"images": []
+},
+{
+"date": "2026-11-03",
+"ts": "09:20",
+"kind": "prompt",
+"label": null,
+"user": "make a shareable page with charts, but also answer the following questions. what sources are the employment changes comming from? are they from particular parts of the world? has there been any change in the way records are sourced from DataCite? The self entered number is important. Which publishers are requireing the most work here -- assuming that it is DOI based?",
+"reply": "The page is published at (private draft). It's private, so share it from the page's Share menu before sending it to anyone. It has charts for:\n- website links by platform\n- monthly Bluesky vs X links\n- employment by sign-up month and by region\n- works by source\n\nIt also has tables for DataCite and for self-entered works by publisher. The new queries cost about $0.75, so the analysis so far comes to roughly $1.20.\n\n## Where do the employment changes come from?\n**Almost entirely from researchers themselves.** Of 4.52M employment entries added this year, 4.42M (98%) were self-entered, up 26% on last year. Institutional systems added only about 96k, up from 84k. The cause is the March 2024 sign-up step change described earlier.\n\n**By region**, all the employment growth is outside Europe. Entries added this year:\n\n| Region | Share of entries | Growth |\n|---|---|---|\n| Latin America & Caribbean | 21% | +27% |\n| East Asia | 18% | +27% |\n| Europe | 17% | **+12%**, the slowest |\n| South Asia | 9% | **+40%** |\n| Southeast Asia | 6% | +38% |\n| Sub-Saharan Africa | 4% | +37% |\n\n- **Institutional entries:** two-thirds come from European university systems, mostly Pure.\n- **Biggest institutional growth:** Australia went from 3.6k to 12.2k and the US from 3.3k to 8.8k. Experts@Minnesota alone went from 0.8k to 6.0k.\n\n## Has the way DataCite delivers works changed?\nYes, in two ways:\n1. **Automatic updates** grew 46%, from 175k to 255k. These are sent when a DataCite DOI's metadata includes an ORCID iD.\n2. **Researcher-initiated claims grew about tenfold,** from 1.5k to 14.3k. These go through DataCite's search-and-link tool. The tool's name changed in the data: it used to appear as \"DataCite - Search & Link Wizard\" and now shows as \"DataCite\" acting on the researcher's behalf.\n\nWhat arrives through DataCite has also widened:\n- Preprints went from 2.6k to 20.5k (8×).\n- Conference presentations appear for the first time (4.1k).\n- Journal articles nearly doubled.\n\nDatasets are still mainly added by DataCite itself (112k). Self-entered software tripled, from 3.7k to 11.2k.\n\n## Which publishers leave the most work to researchers?\nResearchers entered **7.0M works themselves this year, up 45%**. 36% of those (2.5M) have no DOI. For the ones with a DOI:\n\n| Publisher | Self-entered | Share of this year's works that were self-entered | Delivered by Crossref auto-update |\n|---|---|---|---|\n| Elsevier | 783k | 16% | 27% |\n| Springer Nature | 595k | 19% | 21% |\n| Wiley | 258k | 16% | 29% |\n| Zenodo (DataCite DOIs) | 206k | **57%** | n/a |\n| IEEE | 174k | 16% | 27% |\n| MDPI | 122k | 6% | 31% |\n| **Frontiers** | 99k | **33%** | **0%** |\n| **Cureus** | 17k | **69%** | **0%** |\n| ResearchGate (DataCite DOIs) | 27k | 80% | n/a |\n\n- **Volume vs. rate:** the biggest publishers top the list because they publish the most. Their self-entry rate is ordinary, at 15–20%.\n- **Frontiers and Cureus stand out.** Crossref auto-update delivered essentially none of their works: 5 of 299k for Frontiers. That strongly suggests their Crossref deposits don't carry ORCID iDs, so researchers have to add the works by hand. That would be a concrete point for the blog post, but confirm it with Crossref or the publishers first.\n- **Zenodo self-entries tripled,** from 58k to 206k, the biggest relative rise among large sources.\n\n## Caveats\n- **Inferences to confirm:** the March 2024 sign-up change and the reason behind the Frontiers and Cureus figures are my reading of the data. Check them with ORCID and Crossref before publishing.\n- **Self-entered** includes works added through ORCID's own \"add by DOI\" tool.\n- **Publisher totals** cover the 400 DOI prefixes with the most self-entered works, so they're slight undercounts.",
+"work": {
+"bq": 4,
+"files": 1,
+"publish": 2,
+"browser": 0,
+"other": 8
+},
+"ncom": 0,
+"notes": 4,
+"images": []
+},
+{
+"date": "2026-11-03",
+"ts": "13:08",
+"kind": "prompt",
+"label": null,
+"user": "For each of these publishers, if they were not Self entered, and not from CrossRef, where did the assertions come from?",
+"reply": "For nearly every publisher, the works that weren't self-entered or from Crossref came mainly from **Scopus and Web of Science**. These are syncs the researcher sets up: they connect Scopus or Web of Science to ORCID once, and that service then keeps adding their works. So these works don't arrive without the researcher's involvement. I've added a stacked chart of each publisher's sources to the same page ((private draft)). This query cost about $0.16.\n\nThe figures below are each source's share of all works with that publisher's DOIs added in the past year.\n\n| Publisher | Neither self-entered nor Crossref | Scopus | Web of Science | Next largest source |\n|---|---|---|---|---|\n| Elsevier | 57% | 25% | 21% | CIÊNCIAVITAE 1% |\n| Springer Nature | 60% | 26% | 20% | INSPIRE-HEP 3% |\n| Wiley | 55% | 20% | 23% | Europe PMC 1% |\n| IEEE | 57% | **35%** | 13% | Crossref Metadata Search 1% |\n| Taylor & Francis | 53% | 23% | 18% | Crossref Metadata Search 1% |\n| **MDPI** | 63% | 13% | 10% | **MDPI itself 36%** |\n| **Frontiers** | 66% | 26% | 28% | Europe PMC 1% |\n| Oxford University Press | 53% | 15% | 22% | NASA ADS 1% |\n| ACS | 50% | 20% | 24% | CIÊNCIAVITAE 1% |\n| Wolters Kluwer Health | 61% | 19% | **30%** | Europe PMC 2% |\n| APS | 69% | 24% | 16% | **INSPIRE-HEP 20%** |\n| IOP Publishing | 61% | 28% | 19% | INSPIRE-HEP 6% |\n| PLOS | 60% | 20% | 28% | Europe PMC 2% |\n| BMJ | 62% | 16% | 27% | UCL 2% |\n| Cold Spring Harbor (bioRxiv/medRxiv) | 65% | 30% | 23% | Europe PMC 3% |\n| **arXiv** (DataCite DOIs) | 85% | **75%** | <1% | NASA ADS 3% |\n| **Zenodo** (DataCite DOIs) | 42% | <1% | <1% | **DataCite 32%**, OpenAIRE 5% |\n| ResearchGate (DataCite DOIs) | 18% | 0% | 1% | OpenAIRE 6%, BASE 6% |\n\n**Points for the post:**\n- **Scopus and Web of Science deliver more than Crossref does.** For most large publishers they carry 35–50% of works, while Crossref auto-update carries 20–30%. Scopus leads for Elsevier, IEEE and arXiv. Web of Science leads for Wiley, Oxford, ACS, Wolters Kluwer, PLOS and BMJ.\n- **MDPI is the only publisher pushing works directly at scale.** It added 701k itself, 36% of its works, on top of Crossref.\n- **Frontiers has no direct route.** It gets no Crossref auto-update and no push of its own. Its works reach ORCID only through Scopus or Web of Science (54%) or by researchers typing them in (33%).\n- **Specialist services matter in some fields:**\n  - INSPIRE-HEP delivers 20% of APS works and 6% of IOP's, both mainly physics publishers.\n  - NASA's astrophysics database (ADS) shows up for Oxford, through its astronomy journals.\n  - Europe PMC shows up for the medical publishers.\n  - University research systems such as UCL, Sydney, Leeds and Stanford each contribute 1–3%.\n- **arXiv preprints arrive almost entirely through Scopus** (247k of 331k).\n- **Zenodo is mostly DataCite plus researchers.** DataCite's automatic update covers about a third and OpenAIRE a little more; the rest is self-entered.\n\nOn caveats, the Scopus and Web of Science figures group each company's related services. Web of Science, Web of Science Researcher Profiles and Clarivate's sign-on service are counted together. Sources with fewer than 50 works per DOI prefix are left out, so the long tail of small sources is slightly undercounted.",
+"work": {
+"bq": 1,
+"files": 0,
+"publish": 1,
+"browser": 0,
+"other": 5
+},
+"ncom": 0,
+"notes": 1,
+"images": []
+},
+{
+"date": "2026-11-03",
+"ts": "13:09",
+"kind": "prompt",
+"label": null,
+"user": "can you create a classification for institution? you will need a hueristic",
+"reply": "I've built a classification for the 838 systems that added works or employment entries to ORCID this year, and added a \"Who writes to ORCID\" section to the page ((private draft)). I read \"classification for institution\" as classifying these source systems, with universities, hospitals and research institutes as one type. If you meant classifying the employer organisations researchers list, say so and I'll do that instead.\n\n## How the heuristic works\nThe rules are in `analysis/classify_sources.py`, and the first rule that matches decides the type:\n1. **Known services:** a list of named services whose names don't reveal their type, such as Scopus, Web of Science, The Lens, Europe PMC, INSPIRE-HEP, MDPI, Zenodo and CIÊNCIAVITAE.\n2. **Journal names:** words like journal, revista, OJS or publishing. This is checked before the institution rule so that a university's journal site counts as a journal platform.\n3. **Institution names:** words like university, hospital, institute or academy, or research-system brands such as Pure, Symplectic Elements, IRIS, CRIS and Experts@.\n4. **Repository names:** words like repository, archive or e-prints.\n\nEach institution also gets a country. It comes from the employment entries that system writes, or failing that from the employers of the researchers it adds works for.\n\n**Checks:**\n- 99.98% of additions fall into a named type; the 42 unclassified systems add only about 4.4k works.\n- I sampled 40 names classified as institutions and 25 classified as journal platforms, and all were correct.\n- A country is assigned for 81% of institutional volume.\n- I also tried detecting the institution's software platform (Pure, Elements, IRIS) from the name, but 71% couldn't be identified, so I left that out.\n\n## Results (works added in each release year, excluding self-entered)\n| Source type | Systems | Oct 24–25 | Oct 25–26 | Change |\n|---|---|---|---|---|\n| Index / discovery service | 21 | 6.08M | 12.00M | **+97%** |\n| DOI agency automatic update (Crossref, DataCite) | 6 | 5.63M | 7.73M | +37% |\n| **Institution** | **599** | 2.10M | 2.50M | +19% |\n| Commercial / society publisher | 18 | 684k | 774k | +13% |\n| National CV system | 4 | 329k | 429k | +30% |\n| Repository / preprint server | 13 | 121k | 181k | +49% |\n| University-hosted journals | 84 | 8.2k | 10.6k | +29% |\n\nInstitutions also wrote 86k of the 96k employment entries that came from systems rather than researchers. Most of the remainder came through ORCID's own Member Portal tool (9k).\n\n**Institutions by region:** of the 2.50M works from institutional systems, 68% came from Europe, 14.5% from Oceania and 13% from North America. Asia, Latin America and Africa together supplied under 4%, even though most new researchers are from there. That's a strong angle for the post.\n\n**Countries with the biggest changes:**\n- **Growing:** Australia (185k → 357k works), Ireland (30k → 105k), Canada (18k → 60k), Czechia (35k → 88k) and the US (199k → 265k).\n- **Falling:** Italy's IRIS-based systems, down 17%.\n\n**Each publisher's source mix,** using these types:\n- **Indexes** (mainly Scopus and Web of Science) delivered 40–57% of each large publisher's works this year. That's more than Crossref's automatic update delivered.\n- **Institutions** delivered 5–17%, highest for BMJ (17%), Oxford University Press (12%) and Taylor & Francis and SAGE (10%).\n- **MDPI** is still the only publisher whose own system pushes works at scale (36% of its works).\n\nThe full lookup is a BigQuery table in your sandbox: `sandbox.orcid_source_classes`. It has one row per system with its type, subtype, country and the reason for the country, so it can be joined to any ORCID table on `source.source_client_id.path`. Today's extra queries cost about $0.50.",
+"work": {
+"bq": 4,
+"files": 3,
+"publish": 1,
+"browser": 0,
+"other": 12
+},
+"ncom": 0,
+"notes": 6,
+"images": []
+},
+{
+"date": "2026-11-03",
+"ts": "13:19",
+"kind": "prompt",
+"label": null,
+"user": "cveat the countries data. It is super impressive, but what does it rely on?",
+"reply": "ORCID doesn't record where a source system is based, so every institution country on the page is inferred. The inference holds up well, but it rests on researchers' public employer data, and that weakness turned up a mistake in something I told you earlier. I've added the caveats to the page's method notes.\n\n## Where an institution's country comes from\n| Basis | Share of institutional volume | How strong |\n|---|---|---|\n| Employers in the employment entries the system itself wrote | 72.5% (326 systems) | Strong |\n| Employers of the researchers it adds works for | 27.4% (204 systems) | Weaker |\n| No country | 0.1% (69 systems) | |\n\n**The strong basis:** a system that writes employment entries is mostly recording its own staff, and each entry names an employer with its country. Within a system these agree a median 100% of the time; only 1 system is below 80%.\n\n**The weaker basis:** this covers systems that only add works.\n- It uses each researcher's first listed employment entry. That's an arbitrary choice: it can be self-entered, out of date, or one of several countries.\n- It only counts researchers who have a public employer.\n- Agreement is still a median 99%, but 12 systems are below 80%.\n\n**Thresholds:** a system needs at least 5 employment entries with 60% or more in one country, or at least 20 such researchers with 50% or more in one country.\n\n**Validation:** 268 systems have names that identify a country, such as \"Università…\", \"University of Copenhagen\" or \"Experts@Minnesota\". All 268 were assigned that country. My check first flagged 3 mismatches, but each was the check's mistake. IRIS UNIL is Lausanne, Switzerland. \"Iris\" at Waikato is in New Zealand. Nottingham Ningbo is in China.\n\n**What it can't tell you:**\n- A system's country is where the institution is based, not where all its researchers are.\n- Branch campuses and multinational organisations get the parent's country only if their own data says so.\n- A system serving several countries, such as a national consortium, gets the majority country.\n\n## Where researcher and employment countries come from\nThe new-researcher and employment-by-region figures use the employer country on public employment entries. Records without one are left out, and that's the bigger risk.\n\n**Coverage is very uneven:** 32% of new records have no country, against 59% of older ones, because of the 2024 sign-up change. My earlier comparison of new and older researchers by country included the records without a country, which made some countries look more over-represented than they are. Comparing only records with a known country:\n\n| Country | Share of new | Share of older | Ratio | Earlier claim |\n|---|---|---|---|---|\n| China | 17.7% | 11.6% | **1.5×** | holds |\n| Peru | 6.5% | 4.1% | **1.6×** | holds |\n| Philippines | 1.3% | 0.7% | 1.8× | holds |\n| Ecuador, Pakistan, Nigeria, Indonesia | | | 1.3–1.5× | holds |\n| India | 7.3% | 6.1% | 1.2× | weaker than I said (I implied 2×) |\n| **Brazil** | 7.1% | 7.5% | **0.95×** | **wrong: not over-represented** |\n| Turkey, Mexico, Korea | | | about 1.0× | level |\n| US, UK, Germany, Spain | | | 0.5–0.8× | under-represented |\n\nThe page didn't include that earlier comparison. It did say institutional systems are concentrated where \"most new researchers\" are. I've reworded that to a measure that doesn't depend on the coverage gap: about two-thirds of this year's new employment entries are at employers in Asia, Latin America, Africa and the Middle East.\n\n## For the blog post\nKeep the institutional-country finding (68% Europe, 14.5% Oceania, 13% North America). It rests mostly on the strong basis and passed the name check. For researcher countries, quote shares among records with a known country, and say that about a third of new researchers don't list a public employer.",
+"work": {
+"bq": 0,
+"files": 0,
+"publish": 2,
+"browser": 0,
+"other": 5
+},
+"ncom": 0,
+"notes": 2,
+"images": []
+},
+{
+"date": "2026-11-03",
+"ts": "13:21",
+"kind": "prompt",
+"label": null,
+"user": "I'm still interested in the Australia numbers",
+"reply": "Australia's near-doubling (185k → 357k works) is mostly a one-off backfill by four universities rather than a broad rise. Ongoing institutional activity grew only modestly.\n\n## Four universities explain almost all the growth\nAustralian systems added 172k more works than the year before. About 165k of that came from four universities:\n\n| System | Works 24–25 | Works 25–26 | Researchers reached | Works per researcher | Published before 2020 | Peak month |\n|---|---|---|---|---|---|---|\n| **University of Sydney Profile Manager** | 0 | **84.7k** | 982 | 86 | 49% | Oct 2025 – Jan 2026 |\n| **University of Queensland** | 4.4k | **60.6k** | 1,600 | 38 | 45% | Nov 2025 (11.9k) |\n| UniSC (Sunshine Coast) Research Bank | 3.4k | 19.7k | 606 | 33 | 49% | Nov 2025 (10.4k) |\n| University of Newcastle | 1.7k | 9.7k | 248 | 39 | 53% | Jun 2026 (6.4k) |\n\nAll four look like backfills:\n- Each pushed dozens of works per researcher, for relatively few researchers.\n- About half of the works were published before 2020.\n- Each system's activity is concentrated in one or two months.\n- About half the works were already on the researcher's ORCID record from another source, such as Crossref or Scopus. The institutional copy adds the university as a source but doesn't add a new publication.\n\n## Ongoing institutional activity looks different\nSeveral universities mainly push recent publications, at a steady rate:\n- Macquarie: 74% published in 2025 or later, and only 13% before 2020.\n- University of Western Australia: 52% published in 2025 or later.\n- QUT: 53% published in 2025 or later.\n- Flinders: 46% published in 2025 or later.\n\nTheir volumes were roughly flat on last year, at 10–17k each. So Australia's steady institutional flow is about the same size as before, with a large one-off backfill on top.\n\n## Employment entries are a separate story\nEmployment entries from Australian systems rose from 3.6k to 9.4k. Most of that came from five universities, each adding about 1,000 more than last year:\n- Macquarie: 287 → 1,735\n- QUT: 567 → 1,698\n- ANU: 260 → 1,345\n- UWA: 450 → 1,335\n- Flinders: 249 → 1,117\n\nFive universities rising together could point to a common cause, such as a national ORCID consortium campaign or a funder requirement. That's my guess, not something the data shows, so check with the Australian ORCID consortium before writing it. Sydney and Queensland, despite their large works backfills, wrote almost no employment entries.\n\n## Suggested wording for the blog\n\"Australian institutions nearly doubled the works they pushed to ORCID. Most of that came from one-off backfills of researchers' past publications, led by the University of Sydney and the University of Queensland. Employment entries from Australian universities nearly tripled.\"\n\n## Caveats\n- **Already on the record:** this relies on ORCID grouping copies of the same work, which it does by shared identifiers such as a DOI. Copies without a shared identifier aren't grouped, so the real overlap is probably a bit higher than half.\n- **Lookup table fix:** this breakdown also exposed one wrong country in the lookup table. William & Mary Libraries Journals (US) had been assigned Australia, from a small number of researchers' employers. I've corrected and reloaded the table. It only affected about 26 works, but it's a reminder that countries for small systems inferred from researchers' employers are the least reliable part of the table.\n\nThis query cost about $0.08. Want me to add this as an Australia box on the page?",
+"work": {
+"bq": 2,
+"files": 0,
+"publish": 0,
+"browser": 0,
+"other": 1
+},
+"ncom": 0,
+"notes": 1,
+"images": []
+},
+{
+"date": "2026-11-03",
+"ts": "13:24",
+"kind": "prompt",
+"label": null,
+"user": "yes, add the Australia box to the page",
+"reply": "I've added the Australia box to the page: (private draft)\n\nIt sits in the \"Who writes to ORCID\" section, below the source-type table, and has three parts:\n- **The backfill:** about 165k of Australia's 172k extra works came from four universities loading researchers' past publications. The box says that about half of those works were already on the record from another source.\n- **A table of the four backfills:** Sydney, Queensland, UniSC and Newcastle. It shows works last year and this year, researchers reached, works per researcher, the share published before 2020, and the peak month.\n- **The steady flow:** Macquarie, QUT, UWA and Flinders mainly push recent publications at about last year's volume.\n\nThe box also covers employment entries nearly tripling, led by five universities. It says the possible shared cause, such as a consortium campaign or a funder requirement, is not confirmed.\n\nThe page is still private, so share it from its Share menu before sending it to anyone.",
+"work": {
+"bq": 0,
+"files": 0,
+"publish": 1,
+"browser": 0,
+"other": 1
+},
+"ncom": 0,
+"notes": 0,
+"images": []
+},
+{
+"date": "2026-11-03",
+"ts": "16:31",
+"kind": "prompt",
+"label": null,
+"user": "now draft the blog post -- include it as a tab as part of the dashboard",
+"reply": "The blog post draft is now a second tab on the page, next to the dashboard: (private draft). The script passes a syntax check, but I haven't opened it in a browser yet, so check that the tabs and charts display as expected.\n\n**Draft:** \"Thirty million researchers, and who writes their records\". It's about 1,100 words, in six findings:\n1. **Employment:** two-thirds of new researchers now list an employer, up from under a fifth. 98% of employment entries are entered by researchers themselves.\n2. **Web of Science:** it went from 161k to 5.0M works. Indexes now deliver more of large publishers' works than Crossref's automatic update does.\n3. **Self-entered works:** researchers entered 7.0M works by hand (+45%), and 36% have no DOI. Crossref delivered none of this year's Frontiers or Cureus works. The section closes by asking publishers to include iDs in their Crossref deposits.\n4. **Institutions:** 68% of works sent by institutional systems come from Europe, against about two-thirds of new employment entries in other regions. It includes the Australian backfill story.\n5. **DataCite:** automatic updates rose 46%, and researcher claims about tenfold.\n6. **Links:** GitHub overtook X. Bluesky now has 6,410 profiles, and of the 3,184 profiles that dropped X, 503 now list Bluesky.\n\nIt finishes with a \"Try it yourself\" BigQuery example (counting Bluesky profiles) and a short list of caveats.\n\n**On the page:**\n- Numbers in the post link to the dashboard section that backs them.\n- A \"Copy article text\" button copies the post for pasting into your blog editor.\n- Links ending in `#blog` open straight to the draft.\n\n**To confirm before publishing (marked TBC in the draft):**\n- With ORCID, that the February–March 2024 employment jump was a sign-up change.\n- Access instructions for `ds-open-datasets.orcid.summaries_2026`.\n- The DOI for the 2026 file, once figshare mints it.\n\nThe page is still private, so share it from its Share menu before sending it to reviewers.",
+"work": {
+"bq": 0,
+"files": 0,
+"publish": 1,
+"browser": 0,
+"other": 6
+},
+"ncom": 0,
+"notes": 1,
+"images": []
+},
+{
+"date": "2026-11-06",
+"ts": "08:03",
+"kind": "comment",
+"label": "Who adds them: researchers, overwhelmingly",
+"user": "These results are really interesting (especially the drops) This implies records are being removed?",
+"reply": "You asked in a page comment whether the drops in the employment-sources table mean records are being removed. Not necessarily. The table counts entries *added* in each window, so a fall means a system created fewer new entries this year than last. The biggest drops (Aarhus 5,263 → 3,217, Dundee 5,112 → 1,661, Southern Denmark 3,572 → 1,018) look like a large one-off load of existing staff in 2024–25, followed by a smaller flow. The earlier automatic reply said the same.\n\nI've added a one-line note under that table saying the counts are entries created in each window, not removals. The page is now at Version 7.\n\nMy follow-up reply in the comment thread, pointing to the new note, was blocked by the permission check, so I've left the thread open.\n\nThe table can't rule removals out: entries can be deleted, or made private and so drop out of the public file. To test it, I'd match those three systems' entries in the 2025 snapshot against the 2026 one and count how many disappeared. The query should cost a few cents; say if you want it.",
+"work": {
+"bq": 0,
+"files": 0,
+"publish": 3,
+"browser": 0,
+"other": 2
+},
+"ncom": 1,
+"notes": 0,
+"images": []
+},
+{
+"date": "2026-11-06",
+"ts": "08:05",
+"kind": "comment",
+"label": "Who adds them: researchers, overwhelmingly",
+"user": "Yes -- a separate analysis on drops would be great",
+"reply": "You asked in the page comments for an analysis of the drops. I've written the queries, but BigQuery's login has expired, so I can't run them or check their cost yet. Please run `! gcloud auth login` in this prompt and I'll carry on.\n\nThere are three queries:\n\n- **`drops_emp.sql`**: for every system that wrote 300+ employment entries by the 2025 snapshot, it counts how many of those entries are:\n  - still there in 2026;\n  - gone from records that are still public;\n  - gone because the whole record dropped out of the public file (locked, deactivated or deprecated).\n\n  ORCID's summary data has no ID for each entry, so entries are matched on iD + source system + created timestamp.\n- **`drops_works.sql`**: the same check for works, for systems that wrote 5,000+ works. This covers Italy's IRIS systems, Europe PMC and the Dutch and Danish institutions. It also gives Crossref, Scopus and the rest as a baseline.\n- **`drops_month.sql`**: monthly employment additions for Aarhus, Dundee, Southern Denmark, Oxford, Erasmus, Groningen and City University of Hong Kong. This shows whether each one did a large load followed by a trickle.\n\nThe public file can't tell a deleted entry from one set to private, so \"gone\" is an upper bound on deletions.\n\nI'll dry-run all three before running them. I expect well under $1 in total and will check with you first if it comes out higher. The results will go in a new \"Drops\" section on the page, and I'll resolve the comment thread once it's done.",
+"work": {
+"bq": 3,
+"files": 0,
+"publish": 1,
+"browser": 0,
+"other": 6
+},
+"ncom": 1,
+"notes": 2,
+"images": []
+},
+{
+"date": "2026-11-06",
+"ts": "08:07",
+"kind": "action",
+"label": "Ran in the terminal",
+"user": "! gcloud auth login",
+"reply": "The drops aren't removals, but the check found something more important: a lot of institutional systems delete and re-post employment entries they've already sent. That inflates year-on-year counts, including the Australian employment rise already on the page. I've added a \"Drops and churn\" section to the dashboard and corrected the affected text (now Version 8): (private draft)\n\nThe method: ORCID's public file has no ID for each entry, so I matched entries between the 2025 and 2026 snapshots on iD, source system and created timestamp. The queries cost about $0.15.\n\n**Works carry over cleanly.** 99.4% of works sent by integrations in 2025 are still there in 2026. A few systems resend works too: Galway CRIS kept 2% of 12.5k, Charles Darwin 3%, Sheffield 61% and Carnegie Mellon 62%.\n\n**The systems whose employment additions fell made one big batch load last year:**\n\n| System | Peak month (entries) | Removed | Recreated |\n|---|---|---|---|\n| Aarhus | Jun 2025 (2,123) | 55 | 2,489 |\n| Dundee | Sep 2025 (3,664) | 393 | 1,018 |\n| Southern Denmark | Sep 2025 (2,030) | 68 | 505 |\n| Oxford | Jul 2025 (1,101) | 135 | 6 |\n\nSo the fall is the year after a backfill. Most of what these systems sent is still on the record.\n\n**Employment entries churn heavily.** Only 84% of employment entries sent by systems in 2025 are still there in the same form. Of those that disappeared:\n- 72% were deleted and re-posted by the same system, for the same researcher and employer.\n- 20% were removed or made private, with no replacement. The public file can't tell these two apart.\n- 8% were re-posted with a differently named employer, mostly Minnesota and LSE.\n\nAs a result, 41% of this year's 95.8k institutional employment additions are rewrites for researchers the system already covered.\n\n**Corrections to the dashboard:**\n- **Australia:** 64% of the 9.4k entries added by Australian systems are rewrites. Only about 3.3k reach researchers new to those systems, which is roughly flat on last year. The UK (59% rewrites), Denmark (59%) and the Netherlands (56%) look the same. The page now says this, and the old \"nearly tripled\" wording has been replaced.\n- **Other claims:** the \"Australia and US grew most\" line and the institutions callout are reworded. The method notes describe the matching.\n- **Blog draft:** the main text never quoted the Australian employment figure, so I only added a caveat about rewrites. The headline findings are unchanged, because they rest on works and on entries researchers make themselves.\n\nThe cause is my inference from the data: some research information systems seem to resync by deleting and re-posting entries rather than updating them. It would be worth confirming with ORCID or the system vendors before the blog says so.\n\nI've resolved the comment thread. The new queries are in `analysis/`: `drops_emp.sql`, `drops_works.sql`, `drops_month.sql` and `drops_replace.sql`.",
+"work": {
+"bq": 4,
+"files": 0,
+"publish": 2,
+"browser": 0,
+"other": 6
+},
+"ncom": 0,
+"notes": 2,
+"images": []
+},
+{
+"date": "2026-11-06",
+"ts": "08:14",
+"kind": "comment",
+"label": "Falls in institutional employment are one-off loads, not removals. But",
+"user": "what does this mean. do you mean that the orcid already existed, or that the institution was already there?",
+"reply": "You asked in a comment what \"already covered\" means. It means the same system had already sent an employment entry to that researcher's record before the 2025 snapshot, and this year's entry replaces it.\n\nI've changed the wording to say that in three places (now Version 9):\n- the 41% figure in the Drops section;\n- the Australia sentence in the same section;\n- the Australia paragraph in \"Who writes to ORCID\".\n\nEach now says \"replace an entry the same system had already sent to that researcher\". The 3.3k figure is now described as entries going to \"researchers the system had never written to\". I've resolved the thread.\n\nOne correction to the automatic reply in that thread: it split the 39.6k replacement entries into 35.4k for the same employer and 3.9k for a renamed employer. Those two numbers come from counting the entries that disappeared, not the new ones. They give a similar total but are not an exact split of the 39.6k. The page doesn't make that claim.",
+"work": {
+"bq": 0,
+"files": 0,
+"publish": 3,
+"browser": 0,
+"other": 1
+},
+"ncom": 1,
+"notes": 0,
+"images": []
+},
+{
+"date": "2026-11-06",
+"ts": "08:17",
+"kind": "comment",
+"label": "Two-thirds of new researchers now record an employer, up from under a ",
+"user": "Can you link to the announcement on this?",
+"reply": "I found the announcement you asked about in the page comments. ORCID's [release notes](https://info.orcid.org/feature-friday) for 23 February 2024 say that new users are now prompted at registration to add an employer, typed in or suggested from their email domain. That matches the jump in the data, from 18% to 66% of new accounts listing an employer. It is a short note in the rolling \"Feature Friday\" release notes, not a blog post, and it has no link of its own, so the page links to the release-notes page.\n\nThe page is now at Version 10:\n- **Employment section:** it now cites the release note instead of saying the jump is \"consistent with\" a registration change.\n- **Method notes:** the \"should be confirmed with ORCID\" caveat is replaced by the citation. I added the later changes ORCID made: more email-domain suggestions in January 2025 and in March and May 2026, and a prompt at sign-in for existing users with no employer, from May 2025.\n- **Blog draft:** the claim now has the source inline, and the \"to confirm\" tag and that caveat are gone.\n\nTwo \"to confirm\" points are still open in the blog draft: access instructions for the BigQuery table, and the DOI for the 2026 file. I've resolved the comment thread.\n\nSources:\n- [ORCID Feature Friday release notes](https://info.orcid.org/feature-friday)\n- [ORCID support: registering an iD](https://support.orcid.org/hc/articles/360006897454)",
+"work": {
+"bq": 0,
+"files": 0,
+"publish": 3,
+"browser": 0,
+"other": 8
+},
+"ncom": 1,
+"notes": 1,
+"images": []
+},
+{
+"date": "2026-11-06",
+"ts": "08:20",
+"kind": "comment",
+"label": "Views",
+"user": "for each query in the dashboard, provide a collapsible area with the sql.\n\nAlso see if you can link the numbers to references in the ORCID annual report",
+"reply": "Both comment requests are done and live as Version 11. I've resolved that thread.\n\n**SQL panels**\n- Every dashboard section, plus the header stats and the method notes, now ends with a collapsible \"Show the SQL\" panel. Each panel holds the queries behind that section.\n- There is one panel per section rather than one under each chart, as the automatic reply had promised. Several charts share a query.\n- Where a figure also needed a Python step, the panel says so: the source classification (`classify_sources.py`) and the DOI-prefix naming (`prefix_names.py`).\n- Two queries name the classification table in your sandbox dataset. The page already gave that table's name, so nothing new is exposed.\n\n**Header numbers now reproducible.** The header numbers came from counts I never saved, so I wrote `stats.sql` and `stats_works.sql` and re-ran them (about $0.10). They reproduce all the header figures exactly: 29,992,444 records, 4,957,955 new, 13,569 gone, and 145.1M works. The works figure counts each work once per record, as the ORCID record displays it. The 181.0M source entries behind them would double-count works sent by more than one system.\n\n**Annual report links**\nI linked the [ORCID 2025 Annual Report](https://doi.org/10.23640/07243.31846192) (published 1 April 2026) where it has a comparable figure, each with a page number:\n- **Employment section and blog:** the report credits automatic affiliation suggestions and validated email domains with a large rise in records with affiliations (p. 18).\n- **\"Who writes to ORCID\" section and blog:** the report counts 23.3M items added in calendar 2025 via 708 integrations run by 856 members (p. 5).\n- **Method notes:** 8.9M records updated and 10.6M researchers actively engaged (p. 5).\n\nEach one says that ORCID's figures include private data and use calendar years, so they aren't directly comparable with the public-file numbers.\n\nMost figures on the page have no counterpart in the report: links, Bluesky, publishers, DataCite and churn are not covered there. The report gives no total for records or works, so the header stats stay unlinked.\n\nSources:\n- [ORCID 2025 Annual Report](https://doi.org/10.23640/07243.31846192)\n- [Announcement post](https://info.orcid.org/now-available-orcids-2025-annual-report/)\n- [ORCID annual reports index](https://info.orcid.org/annual-reports/)",
+"work": {
+"bq": 4,
+"files": 0,
+"publish": 3,
+"browser": 0,
+"other": 12
+},
+"ncom": 1,
+"notes": 3,
+"images": []
+},
+{
+"date": "2026-11-06",
+"ts": "10:24",
+"kind": "comment",
+"label": "Show the SQL (2 queries)",
+"user": "What did you use this sql for? It doesn't seem to match the above",
+"reply": "You were right that the query didn't match the section. It was a general record-completeness query that measured about 20 fields at once, and the section uses only one of them. I've replaced it with two trimmed queries, each keeping just the column its section needs, and published the page as Version 12.\n\n- **Profile links section:** `completeness_urls.sql` backs \"only 6% of records list any website\". The figures are 6.1%, 5.9% and 6.0% across the 2024, 2025 and 2026 releases.\n- **Employment section:** `completeness_employment.sql` backs the share of records with employment: 27.4%, 35.5% and 42.1%.\n\nI re-ran both trimmed queries, and they give the same numbers as the original. Each panel now has a line saying which claim the query supports. I've resolved the comment thread.",
+"work": {
+"bq": 2,
+"files": 0,
+"publish": 3,
+"browser": 0,
+"other": 3
+},
+"ncom": 1,
+"notes": 1,
+"images": []
+},
+{
+"date": "2026-11-06",
+"ts": "10:31",
+"kind": "comment",
+"label": "Web of Science went from a minor source of works to a major one.",
+"user": "What is the reason for this? is this mentioned in the annual report?",
+"reply": "The likely reason for the Web of Science jump is that Clarivate rebuilt its ORCID connection in late 2025. The ORCID 2025 Annual Report doesn't mention it. I've added the explanation, a monthly chart and the query to the Works section, and a paragraph to the blog draft. The page is now Version 13, and I've resolved the comment thread.\n\n**What the data shows** (one query, about 12 GB, roughly $0.08):\n- **The switch:** in September–October 2025, Clarivate's old \"Researcher Profile Sync\" client fell from about 55k works a month to about 4k. Two new clients started at the same time: \"Web of Science\", and \"Researcher Profiles\"/\"Clarivate SSO\", which share one client.\n- **The volume:** together the new clients now add about 430k works a month, roughly seven times the old rate.\n- **Mostly older papers:** 51% of the works from the new \"Web of Science\" client were published before 2020. About half were already on the record from another source. Only 3–10% duplicate an entry from the old Clarivate client, so this is not old entries being re-posted. It is mostly researchers' back catalogues being added, with Clarivate as an extra source on works ORCID already had.\n\n**What supports the cause:** a [Clarivate training deck from December 2025](https://recursoscientificos.fecyt.es/sites/default/files/Sesi%C3%B3n%20B2_Administrar%20un%20perfil%20de%20investigador%20en%20Web%20of%20Science%20(Dic2025).pdf), hosted by the Spanish science foundation FECYT, describes a \"revised ORCID connection\". Existing users had to re-grant wider permissions, through ORCID sign-in or profile sync. 341k users who synced only for profile purposes would lose auto-sync unless they re-authenticated, after a 60-day grace period.\n\nThe deck gives no launch date, so linking it to the September–October switch rests on the timing. The page says so. Before the blog states it as fact, it would be worth confirming with Clarivate or finding their own release notes, which my search didn't turn up.\n\nSources:\n- [Clarivate / FECYT training deck, December 2025](https://recursoscientificos.fecyt.es/sites/default/files/Sesi%C3%B3n%20B2_Administrar%20un%20perfil%20de%20investigador%20en%20Web%20of%20Science%20(Dic2025).pdf)\n- [ORCID 2025 Annual Report](https://doi.org/10.23640/07243.31846192)",
+"work": {
+"bq": 2,
+"files": 0,
+"publish": 3,
+"browser": 0,
+"other": 6
+},
+"ncom": 1,
+"notes": 2,
+"images": []
+},
+{
+"date": "2026-11-06",
+"ts": "11:18",
+"kind": "comment",
+"label": "Bluesky has a clear signal, but it peaked in November 2024.",
+"user": "Is there a correlation between links?  X + huggingface forinstance",
+"reply": "Yes, links are strongly correlated. I measured this across the 1.80M profiles in the 2026 release that list at least one website. \"Lift\" is how much more often two platforms appear together than they would by chance. The query cost about $0.01.\n\n**X/Twitter and Hugging Face:** 79 profiles list both, 4.6 times what chance would predict. Hugging Face's own strongest partners are Kaggle (346×) and GitHub (21×, 422 profiles).\n\n**The clusters:**\n- **Developer tools:** GitHub, Hugging Face, Kaggle and GitLab go together.\n- **Social platforms beyond X:** Bluesky pairs with Mastodon (38×) and Threads (43×). X pairs with Threads (14×), Bluesky (8.7×) and TikTok (8×).\n- **Open-science tools:** Figshare, Zenodo, OSF, Semantic Scholar and Dimensions pair with each other at 40–300×.\n- **Opposite cases:** researchers who link to Brazil's Lattes CV rarely list X (0.15×) or Bluesky (0.09×). GitHub users rarely list Scopus (0.3×).\n\nTreat the very high numbers with care. The biggest lifts are among small platforms, where a handful of profiles that list everything can drive the figure. The page says so.\n\nI've added a \"Which links go together\" block to the Profile links section, live as Version 14. It has a short summary and a dropdown that opens on X/Twitter: pick a platform to see its partners, with the number of profiles listing both, the share and the lift. The query is in that section's SQL panel. I've resolved the comment thread.",
+"work": {
+"bq": 3,
+"files": 0,
+"publish": 3,
+"browser": 0,
+"other": 4
+},
+"ncom": 1,
+"notes": 2,
+"images": []
+},
+{
+"date": "2026-11-06",
+"ts": "11:25",
+"kind": "comment",
+"label": "Researchers entered 7.0M works by hand this year, up 45%.",
+"user": "This is great, but also somewhat evidence of system failure",
+"reply": "The automatic reply in your \"evidence of system failure\" thread is accurate. I checked each of its figures against the data:\n\n| Figure | Check |\n|---|---|\n| Crossref auto-update share, Elsevier | 26.7% (said 27%) |\n| Crossref auto-update share, Springer Nature | 20.9% (said 21%) |\n| Self-entered works | Elsevier 783k (16%), Springer Nature 595k (19%) |\n| Frontiers | 5 works from Crossref auto-update, 98.7k self-entered (33%) |\n| Growth | self-entry +45%, Crossref auto-update +37% (5.45M to 7.46M) |\n\nThe reply closes by asking whether to align the dashboard heading with the blog's framing. I haven't changed the page, and the thread stays open until you decide. The suggested heading is:\n\n> 7.0M works still entered by hand, up 45%: mostly DOIs no integration delivered.\n\nThe section text would then say it outright: about two-thirds of these works have a DOI that an integration could have delivered, and growth in self-entry is outpacing Crossref auto-update.\n\nShould I go ahead? You can say so here or in the thread.",
+"work": {
+"bq": 0,
+"files": 0,
+"publish": 1,
+"browser": 0,
+"other": 1
+},
+"ncom": 1,
+"notes": 1,
+"images": []
+},
+{
+"date": "2026-11-06",
+"ts": "11:27",
+"kind": "comment",
+"label": "Share of works added Oct 2025–Oct 2026 with each publisher's DOIs, by ",
+"user": "I assume that an assetion is counted more than once if it has come from more than one system? We should be explicit about this",
+"reply": "You were right: a work sent to a researcher's record by several systems is counted once for each. The page now says so wherever it matters (Version 15), and I've resolved the comment thread.\n\n**What changed on the page:**\n- **Publisher source-mix chart caption:** it now says the counts are work records, not distinct papers. A paper that reaches a researcher from Scopus, Web of Science and Crossref counts three times, and it counts again on each co-author's record. Records sent before the October 2025 window aren't counted.\n- **The 40–57% index figure:** both the dashboard and the blog now say \"account for 40–57% of work records\". The dashboard adds that this shows where this year's records came from, not which system first delivered each paper; the blog says a paper sent by several systems counts once for each.\n- **Works-by-source chart caption and publisher table notes:** each states the same rule.\n- **Method notes:** a new \"What is counted\" item explains that the 145.1M headline counts each work once per record. Every other works figure counts one record per source per researcher.\n\n**A new check: are self-entered works really ones no integration delivered?** The page claimed this without checking, so I ran a query (about 8 GB, roughly $0.05). It mostly holds:\n\n| Self-entered works this year | Count |\n|---|---|\n| With a DOI | 4.49M |\n| No copy from any other source on that researcher's record | 3.75M (84%) |\n| Alongside an integration's copy | 734k |\n\nThe self-entered section and the blog now give those figures instead of the unqualified claim, and the query is in that section's SQL panel. The figures also support your earlier point that self-entry is partly a sign of integrations failing.\n\nThe other thread, on retitling the self-entered heading, is still open and waiting for your yes or no.",
+"work": {
+"bq": 1,
+"files": 0,
+"publish": 3,
+"browser": 0,
+"other": 4
+},
+"ncom": 1,
+"notes": 1,
+"images": []
+},
+{
+"date": "2026-11-06",
+"ts": "11:30",
+"kind": "comment",
+"label": "2. Web of Science became a main source of works",
+"user": "claude speak",
+"reply": "I took your \"claude speak\" comment to mean the sentence reads like AI-written prose. The automatic reply in that thread misread it as a request to fact-check. I rewrote the paragraph in plain language and fixed similar phrasing elsewhere in the blog draft (now Version 16). I've resolved the thread.\n\n**The Clarivate paragraph** now says, in plain terms:\n- In September–October 2025, the old sync client dropped from about 55,000 works a month to about 4,000, and two new Clarivate clients started up.\n- A December 2025 Clarivate deck describes a revised ORCID connection that would explain the switch. It gives no launch date, \"so we are going on the timing.\"\n- About half of the works Web of Science sent were published before 2020, and 52% were already on the record from another source.\n\nIt also includes the accuracy fixes the automatic reply had found.\n\n**Elsewhere in the blog:**\n- **Intro:** the \"Growth alone isn't news… What is new is…\" lines are replaced with one plain sentence.\n- **Removed:** \"Several things that are often treated as the same can now be told apart…\" and the closing \"Researchers are moving, but slowly.\" The Bluesky paragraph now ends on the number (503 profiles, 16%).\n- **Openers:** \"Australia stood out.\" and \"Bluesky now shows up in the data.\" are folded into plain sentences.\n- **Workforce sentence:** \"this is the biggest change\" is now a direct note about cohort differences.\n- **Bug fix:** the doubled \"ORCID's ORCID 2025 Annual Report\" now reads correctly in both places.\n\nThe thread asking whether to retitle the self-entered heading to \"still entered by hand\" is still open and waiting for your answer.",
+"work": {
+"bq": 0,
+"files": 0,
+"publish": 3,
+"browser": 0,
+"other": 4
+},
+"ncom": 1,
+"notes": 0,
+"images": []
+},
+{
+"date": "2026-11-06",
+"ts": "11:37",
+"kind": "prompt",
+"label": null,
+"user": "ok, lets turn the benchmark and the blog into a public repository on my github account (sjcporter).  It would be also good to prepare a linkedIn post with \"slides\"",
+"reply": "The public repository is up, the dashboard is live on GitHub Pages, and the LinkedIn slides are ready. The post text is below.\n\n- **Repository:** https://github.com/sjcporter/orcid-2026-changes\n- **Live dashboard** (blog post on the second tab): https://sjcporter.github.io/orcid-2026-changes/ — I checked that it builds and loads.\n- **Slides:** (private draft)\n\n**What's in the repo:**\n- the dashboard as a standalone page;\n- the blog post as Markdown;\n- all 30 SQL queries;\n- the aggregate data the page is built from, including the classification of 838 source systems;\n- the classification and DOI-prefix scripts, the build script, and a README with the findings and how to reproduce them.\n\nCode is MIT-licensed and the text is CC BY 4.0; change that if you'd prefer something else. Commits are under your personal name and gmail address.\n\n**Removed before publishing:**\n- your work email from the DOI-prefix script (it now reads a `CONTACT_EMAIL` setting);\n- the sandbox table names in two queries, now placeholders, with the README explaining how to load `data/source_classes.csv` yourself;\n- the private figshare link, which was nothing to remove: it was never in any file;\n- the blog's \"draft\" box and \"to confirm\" tags. As you confirmed, the \"Try it yourself\" section says the BigQuery table is public.\n\nThe private Claude page and its source are unchanged.\n\n**Slides:** eight slides — a cover, one per finding (employment, Web of Science, self-entered works, institutions, churn, links), and a closing slide with the dashboard and repo links. Download it as a PDF and add it to your LinkedIn post as a document; LinkedIn shows a PDF as a swipeable carousel. The slides are 16:9 widescreen. LinkedIn carousels usually read better on phones square or portrait, so say if you'd like a portrait version.\n\n**LinkedIn post:**\n\n> The 2026 ORCID Public Data File is out, and I've compared it with last year's release. A few things surprised me.\n>\n> • Two-thirds of new researchers now list an employer, up from under a fifth. The jump starts the month ORCID began asking for one at registration.\n> • Web of Science sent about 5 million works to ORCID this year, up from 161k, after Clarivate switched to new ORCID connections in late 2025.\n> • Researchers still added 7 million works by hand. For 84% of those with a DOI, no integration had sent a copy.\n> • 68% of works sent by university systems come from Europe. Asia, Latin America, Africa and the Middle East send under 4%, although that's where most new employment entries are.\n> • 41% of this year's institutional employment entries replace one the same system had already sent, so raw year-on-year counts overstate growth.\n> • GitHub has overtaken X on ORCID profiles. Bluesky is at 6,410 and growing slowly.\n>\n> Slides below. The dashboard, blog post and every SQL query are open, so you can rerun the analysis on the public file in BigQuery: https://sjcporter.github.io/orcid-2026-changes/\n>\n> #ORCID #OpenScience #ResearchInformation #Scientometrics",
+"work": {
+"bq": 0,
+"files": 11,
+"publish": 6,
+"browser": 0,
+"other": 14
+},
+"ncom": 0,
+"notes": 5,
+"images": []
+},
+{
+"date": "2026-11-06",
+"ts": "11:45",
+"kind": "comment",
+"label": "2 comments",
+"user": "[Slide 2 › Spacer]\nadd the chart\n\n[Slide 7 › Spacer]\ninclude the cool bluesky twitter graph on this slide",
+"reply": "I've added both charts you asked for in the slide comments and resolved the two threads: (private draft) (Version 7).\n\n- **Slide 2, employment:** a line chart of the share of new accounts with an employer, by sign-up month from June 2023 to August 2024. It is flat near 18%, then jumps to 66% in February–March 2024. A dashed marker labels it \"ORCID adds an employer step to registration, February 2024\".\n- **Slide 7, links:** the Bluesky vs X/Twitter timeline from the dashboard, showing links added per month from January 2023 to September 2026. X uses the dashboard's dark grey and Bluesky its blue, and the November 2024 Bluesky spike (895) is labelled.\n\n**What changed around the charts:**\n- On both slides the chart sits to the right, and the big number, its label and the short text moved into a narrower left column.\n- On slide 2, the line about the registration change moved to the chart's label and the speaker notes. The 98% figure and the 27% → 42% share stay in the text.\n- Each slide's footer is now a chart caption.\n\nI haven't opened the slides to check the layout, so look at slides 2 and 7 before exporting to PDF. The chart labels are placed by hand on top of each chart, so they're the most likely thing to need a nudge.",
+"work": {
+"bq": 0,
+"files": 2,
+"publish": 4,
+"browser": 0,
+"other": 1
+},
+"ncom": 2,
+"notes": 0,
+"images": []
+},
+{
+"date": "2026-11-06",
+"ts": "11:48",
+"kind": "comment",
+"label": "Slide 3",
+"user": "chart pleas",
+"reply": "I added the chart you asked for in the slide 3 comment (Version 8) and resolved that thread. Slide 3 now has the Clarivate chart from the dashboard: works added per month by each of Clarivate's ORCID clients, November 2024 to September 2026.\n\n- **Old client:** the old Profile Sync client, in grey, ran at about 55,000 works a month and falls to about 4,000 in October 2025.\n- **New clients:** a dashed line marks the September–October 2025 switch. The new Web of Science client, in purple, then climbs to about 400,000 a month. The new Researcher Profiles / Clarivate SSO client, in teal, adds about 40,000 a month.\n\nThe layout matches slides 2 and 7: the 5.0M figure and a shorter note on the left, the chart on the right. The \"timing matches Clarivate's revised connection\" caveat is in the speaker notes. As with the other two charts, I haven't checked the layout by eye, so look at the label positions before exporting the PDF.",
+"work": {
+"bq": 0,
+"files": 1,
+"publish": 3,
+"browser": 0,
+"other": 1
+},
+"ncom": 1,
+"notes": 1,
+"images": []
+},
+{
+"date": "2026-11-06",
+"ts": "11:49",
+"kind": "comment",
+"label": "Slide 4",
+"user": "Trust in ORCID is great, but a working system that reduced academic burden would be even better!",
+"reply": "I've reworked slide 4 around your point about researcher burden (Version 9) and resolved the comment thread.\n\nThe automatic reply in that thread promised wording about \"fewer repeated forms\" and \"auto-populated records\". The data doesn't support that, so the slide uses numbers from the analysis instead.\n\n- **Heading:** now \"Integrations should be saving researchers this work\".\n- **Left side:** 7.0M works researchers added by hand this year, up 45%. 3.75M of them have a DOI, yet no integration sent a copy. Crossref's automatic update delivered none of Frontiers' or Cureus's works this year.\n- **New chart:** a bar chart of works researchers entered themselves, by publisher. Each bar shows the share of that publisher's works that Crossref auto-update delivered:\n\n  | Publisher | Self-entered works | Crossref auto-update share |\n  |---|---|---|\n  | Elsevier | 783k | 27% |\n  | Springer Nature | 595k | 21% |\n  | Wiley | 258k | 29% |\n  | IEEE | 174k | 27% |\n  | Taylor & Francis | 122k | 30% |\n  | Frontiers | 99k | 0% (highlighted orange) |\n\n- **Footer:** \"The fix sits with publishers: include ORCID iDs in every Crossref deposit.\"\n- **Speaker notes:** your line about trust is there: researchers trust ORCID enough to update their records by hand, but a working system would do it for them.\n\nTo match the slide in the LinkedIn post, the third bullet could read:\n\n> • Researchers still added 7 million works by hand. 3.75M had a DOI that no integration delivered. Trust in ORCID is great, but a system that removed this work would be better.",
+"work": {
+"bq": 0,
+"files": 1,
+"publish": 3,
+"browser": 0,
+"other": 1
+},
+"ncom": 1,
+"notes": 0,
+"images": []
+},
+{
+"date": "2026-11-06",
+"ts": "11:53",
+"kind": "comment",
+"label": "Slide 6",
+"user": "lets remove the churn slide",
+"reply": "I've removed the churn slide (Version 10) and resolved your comment thread.\n\nThe deck now has seven slides:\n1. Cover\n2. Employment\n3. Web of Science\n4. Self-entered works\n5. Institutions\n6. Profile links\n7. Explore\n\nPage numbers now read 1/7 to 7/7. The links slide is finding 5 instead of 6, and the cover says \"Five findings\".\n\nThe LinkedIn post still has a churn bullet. Delete the line starting \"41% of this year's institutional employment entries…\" so the post matches the slides.\n\nThe churn analysis is still on the dashboard and in the repo; only the slide is gone.",
+"work": {
+"bq": 0,
+"files": 1,
+"publish": 4,
+"browser": 0,
+"other": 1
+},
+"ncom": 1,
+"notes": 1,
+"images": []
+},
+{
+"date": "2026-11-06",
+"ts": "12:07",
+"kind": "prompt",
+"label": null,
+"user": "remove the copy blog text from the top of the blog post on the github page",
+"reply": "I've removed the box from the top of the blog tab on the GitHub page, and the live site has updated: https://sjcporter.github.io/orcid-2026-changes/#blog\n\nThe box held the \"Copy article text\" button and a note linking to the Markdown version, so both are gone. The blog tab now starts directly with the article. I also removed the code behind the button so it doesn't break the page. The change is pushed to the repo.\n\nYour private Claude version of the page still has its draft box; say if you want that one changed too.",
+"work": {
+"bq": 0,
+"files": 0,
+"publish": 0,
+"browser": 0,
+"other": 2
+},
+"ncom": 0,
+"notes": 0,
+"images": []
+}
+],
+"total": {
+"bq": 46,
+"files": 20,
+"publish": 59,
+"browser": 0,
+"other": 119
+}
+},
+"nsw": {
+"turns": [
+{
+"date": "2026-11-10",
+"ts": "09:50",
+"kind": "prompt",
+"label": null,
+"user": "ok back to the Sydney work. I think I want to braoden it our to a UNSW story, including the connectors of UTS, and Maquarrie and any other significant ones.",
+"reply": "Your BigQuery login has expired. Please run `! gcloud auth login` and I'll carry on from there.\n\nI've written the first query, `analysis/nsw/nsw_clients.sql`, but haven't run it yet. It finds every ORCID integration whose source name looks like an NSW university: UNSW, UTS, Macquarie, Western Sydney, Newcastle, Wollongong, Southern Cross, Charles Sturt, New England, ACU and Notre Dame, alongside USyd.\n\nOnce that's back, the plan is:\n\n1. **Integration map.** For each university's integration: when it started, works and affiliations written, profiles reached, and activity in the last year.\n2. **The USyd analysis at state scale.** For each university: research staff on ORCID, how far the integration reaches them, and works versus affiliations (automated or typed by hand).\n3. **Cross-university network.** Co-author links within and between NSW universities, 2025 versus 2026 for the same iDs, using the same before/after visual. The orange links would now be \"visible only because a university integration sent the work\".\n\nI'm taking \"UNSW story\" to mean a **New South Wales** story with USyd as one case. If you meant UNSW specifically as the lead, say so and I'll reframe around it.",
+"work": {
+"bq": 1,
+"files": 0,
+"publish": 0,
+"browser": 0,
+"other": 0
+},
+"ncom": 0,
+"notes": 1,
+"images": []
+},
+{
+"date": "2026-11-10",
+"ts": "09:52",
+"kind": "prompt",
+"label": null,
+"user": "yes New South Wales. You should probably go back a further year to 2024 to plot the transistion",
+"reply": "Agreed. `ds-open-datasets.orcid.summaries_2024` already exists (the completeness queries use it), so I can show three snapshots, 2024 → 2025 → 2026, for the same iDs. That also lets me check each university's integration in the 2024 and 2025 files directly, rather than relying only on the dates entries were created.\n\nMy BigQuery login is still expired, so nothing has run yet. Please run `! gcloud auth login`. Once it's back I'll:\n\n1. Run the NSW integration map against all three snapshots: which universities had an integration live in 2024, 2025 and 2026, and how much each wrote.\n2. Build the per-university staff cohorts on definition C, and the works-versus-affiliations split.\n3. Draw the NSW co-author network as three panels with fixed node positions, coloured by university. Links that are visible only through a university integration will be highlighted, so the change shows from one year to the next.",
+"work": {
+"bq": 1,
+"files": 0,
+"publish": 0,
+"browser": 0,
+"other": 3
+},
+"ncom": 0,
+"notes": 0,
+"images": []
+},
+{
+"date": "2026-11-10",
+"ts": "09:53",
+"kind": "action",
+"label": "Ran in the terminal",
+"user": "! gcloud auth login",
+"reply": "The NSW picture is clear enough to build a story on. All ten universities that matter have an integration, but they differ a lot in how far they reach and in whether they write affiliations as well as works.\n\n**When each integration started, and how far it reaches (2026)**\n\n| University | Live since | Research staff on ORCID | Reached by own integration | Employment written by uni | Employment self-typed only |\n|---|---|---|---|---|---|\n| UNSW | 2022 | 5,091 | 16% | 2,672 | 48% |\n| USyd | Oct 2025 | 5,064 | 14% | 10 | **99.8%** |\n| Macquarie | 2017 | 2,388 | **79%** | 1,648 | 31% |\n| UTS | 2020 | 2,111 | 43% | 743 | 65% |\n| Newcastle | 2021 | 1,432 | 18% | 299 | 79% |\n| Western Sydney | 2026 (new) | 1,319 | 5% | 0 | 100% |\n| Wollongong | 2016 | 1,210 | 24% | 92 | 92% |\n| Charles Sturt | 2017 | 1,104 | **79%** | 788 | 29% |\n| Southern Cross | 2019 | 654 | 61% | 409 | 38% |\n| New England | 2016 | 641 | 71% | 102 | 84% |\n\n\"Research staff\" is definition C, as for USyd: a current employment entry at the university, at least one DOI work, and no student role.\n\n**Change by snapshot (works written by each university's integration)**\n\n| University | 2024 | 2025 | 2026 |\n|---|---|---|---|\n| USyd | 0.1k | 0.1k | **84.8k** |\n| UNSW | 35.1k | 51.9k | 72.5k |\n| Macquarie | 126.6k | 137.5k | 147.7k |\n| UTS | 78.5k | 87.9k | 98.1k |\n| Newcastle | 7.3k | 8.9k | 18.6k (doubled) |\n| Western Sydney | 0 | 0 | 4.5k (new) |\n\nThe other four grew more slowly: Charles Sturt 40k → 54k, New England 29k → 34k, Wollongong 30k → 36k, Southern Cross 9k → 15k.\n\n**What stands out**\n- **Older, smaller universities lead on reach.** Macquarie and Charles Sturt have reached about four in five of their staff, and both write affiliations too. USyd and UNSW have the most staff but reach only about one in seven.\n- **UNSW is changing its affiliations this year.** Its 2,811 employment entries came through the ORCID Member Portal (bulk affiliation upload), not its research system, and almost all arrived after 2025. That moved UNSW from nearly all self-typed affiliations to under half.\n- **USyd is the outlier on affiliations.** It's the newest large push for works, but almost none of its affiliations are written by the university. That makes the \"works are automated, affiliations aren't\" point sharper with UNSW alongside for contrast.\n- **Works are 85–95% integrated everywhere.** That holds even where a university's own reach is low, because publishers and Crossref fill much of the gap. Each university's own integration matters most for the back catalogue and for works with no DOI.\n\n**Caveats**\n- I matched universities on employer name plus country AU, not ROR, so misspellings are missed, as with USyd.\n- One client, \"University of Notre Dame – Digital Measures\", turned out to be the US Notre Dame (it reaches none of the Australian staff), so I've excluded it.\n- My USyd count here (5,064) differs slightly from the 5,083 in the deck because the name match is slightly different. If USyd stays in the NSW story, I'll use the same match for all universities.\n\n**Next:** the three-snapshot NSW co-author network (2024 → 2025 → 2026). It will use the same iDs and fixed node positions, coloured by university, with links visible only through a university integration highlighted. After that I'll draft the post and deck.\n\nThe queries and outputs are in `analysis/nsw/`. I've also saved the client IDs to memory.",
+"work": {
+"bq": 9,
+"files": 1,
+"publish": 0,
+"browser": 0,
+"other": 1
+},
+"ncom": 0,
+"notes": 1,
+"images": []
+},
+{
+"date": "2026-11-10",
+"ts": "09:57",
+"kind": "prompt",
+"label": null,
+"user": "yes, build the three-snapshot network",
+"reply": "The three-snapshot network is built. I followed the same 23,557 NSW researchers across the 2024, 2025 and 2026 files, on one fixed layout.\n\n**Teal** links were already visible in 2024. **Orange** links have appeared since.\n\nMy first version coloured links by whether only a university integration made them visible. It was mostly orange in every year, because Macquarie, Charles Sturt and UTS were already pushing in 2024, so it didn't show any change. Colouring by year first seen does.\n\n| | 2024 | 2025 | 2026 |\n|---|---|---|---|\n| Co-author links between NSW researchers | 81.9k | 98.1k | **124.0k** (+51%) |\n| Researchers with at least one link | 15.5k | 17.4k | 19.9k |\n| Links between two different universities | 34.1k | 40.1k | **49.9k** (+46%) |\n| Links visible only via a university integration | 20.1k (24%) | 24.6k (25%) | 34.3k (28%) |\n| New since 2024, only via a university integration | – | 5.6k of 16.4k | **16.6k of 42.3k (39%)** |\n\n**What it says**\n- **Integrations account for a lot of the new picture.** About two in five of the 42k links that appeared since 2024 can only be seen because a university's own system sent the work.\n- **About a quarter of links between universities depend on an integration (13.6k in 2026).** This is where joining up NSW research shows most: the USyd–UNSW link grew from 6.5k to 10.0k, Macquarie–USyd from 3.9k to 5.9k, and Macquarie–UNSW from 3.9k to 5.4k.\n- **The biggest orange area in 2026 is the dense central-right cluster.** That matches USyd's push arriving in Oct 2025.\n\n**Second image:** `analysis/nsw/net/nsw_network_by_uni.png` shows the 2026 network coloured by university. Regional universities (Charles Sturt, New England, Southern Cross) sit in their own clusters on the edge, and the Sydney metro universities mix in the centre.\n\n**Caveats**\n- The cohort is defined from 2026 records: current staff plus anyone an NSW integration has written to. 2024 and 2025 are the same iDs looked at earlier, not who was on staff then.\n- Each researcher is coloured by one university, so 550 people with more than one NSW affiliation appear under only one.\n- DOIs held by more than 100 iDs are excluded, as before.\n\n**Files**\n- Queries and drawing script: `analysis/nsw/` (`nsw_people.sql`, `nsw_edges.sql`, `draw_nsw_network.py`).\n- Images and stats: `analysis/nsw/net/`.\n- The edge list pairs ORCID iDs, so it stays in the scratchpad.\n- New sandbox tables: `orcid_doi_2024`, `nsw_people` and `nsw_edges`.\n\n**Next:** draft the NSW post and deck: the integration map, reach by university, works versus affiliations, and this transition visual. I could also split the 16.6k integration-only new links by which university's integration delivered them, which would show each university's contribution.",
+"work": {
+"bq": 10,
+"files": 1,
+"publish": 0,
+"browser": 0,
+"other": 10
+},
+"ncom": 0,
+"notes": 5,
+"images": [
+{
+"src": "img/nsw_network_transition.webp",
+"cap": "The three-snapshot network: teal links were visible in 2024, orange links appeared since."
+}
+]
+},
+{
+"date": "2026-11-10",
+"ts": "10:16",
+"kind": "prompt",
+"label": null,
+"user": "great continue",
+"reply": "The NSW deck (9 slides) and the post draft are ready.\n\n**Deck:** (private draft). It's private, so others can't open it until you share it from its Share menu. It uses the same look as the USyd deck.\n\n1. **Cover:** \"Ten universities, three years of ORCID\". The 10 integrations; links rose from 81.9k to 124k; 2 in 5 new links come only through university integrations.\n2. **The integrations:** when each started (2016–2026), and works written at each snapshot. Sydney and Western Sydney are highlighted as new.\n3. **Reach:** Charles Sturt and Macquarie reach 79% of their research staff. UNSW and Sydney reach about 1 in 7.\n4. **The network:** the three-snapshot picture.\n5. **Between universities:** links between two universities rose 46%. A table of the top pairs: UNSW–Sydney grew 1.5× to 10.0k links.\n6. **Who delivered it:** new links credited to each university's integration. Macquarie 5.0k, Sydney 4.4k (almost all in its first year), UNSW 2.6k.\n7. **Who sits where:** the 2026 network coloured by university.\n8. **Affiliations:** works arrive 85–95% through integrations everywhere. Employment written by the university ranges from 71% at Charles Sturt to about 0% at Sydney and Western Sydney.\n9. **Close:** \"What if every NSW university reached four in five?\"\n\n**Post:** `analysis/nsw/linkedin_post.md`. It follows the same pattern as the USyd post and names no individuals.\n\n**Before posting**\n- **The repo link.** Both the post and the last slide point to sjcporter.github.io/orcid-2026-changes, but neither the USyd nor the NSW work is in the repo yet. I can add the queries, images and an NSW tab. The edge lists stay out because they pair ORCID iDs.\n- **The \"Writing since\" years.** These come from the oldest entry still visible on a public record, so they're the earliest *visible* start. It would be worth checking with anyone you know at New England and Wollongong, who show 2016.\n- **The regional-clusters reading on slide 7.** I described it from the picture, not from a computed measure. If you want it on firmer ground, I can work out each university's share of links that stay inside the university.\n- **Australian Catholic University and Notre Dame Australia.** Neither has an integration visible in the public file. I left both out of the \"ten\" and say so in the slide 2 notes.",
+"work": {
+"bq": 1,
+"files": 14,
+"publish": 9,
+"browser": 0,
+"other": 2
+},
+"ncom": 0,
+"notes": 2,
+"images": []
+},
+{
+"date": "2026-11-10",
+"ts": "10:22",
+"kind": "comment",
+"label": "Slide 5",
+"user": "I think this would be better represented as a circular network viz",
+"reply": "I've replaced the table on slide 5 with a circular network, as you asked in your comment: (private draft)\n\n- **Layout:** two rings side by side, 2024 and 2026. Each ring has the ten universities with integrations, Sydney metro on one side and regional on the other.\n- **Link width** is the number of co-author links between the two universities. The **orange core** is the part visible only through a university integration.\n- **Dot size** is the number of researchers with at least one link.\n- **What it shows:** 33.6k links in 2024 and 49.1k in 2026 (+46%). The Sydney–UNSW, Sydney–Macquarie and UNSW–Macquarie links thicken most, and so do their orange cores.\n\nI switched the slide to the dark background to match the image. The pair figures from the old table are now in the speaker notes. Notre Dame Australia is left off the ring because it has no integration, so the totals are slightly lower than the old table (33.6k vs 34.1k), but the +46% is unchanged.\n\nI've replied on your comment and resolved it. The script that draws the rings is `analysis/nsw/draw_uni_ring.py`.",
+"work": {
+"bq": 0,
+"files": 2,
+"publish": 5,
+"browser": 0,
+"other": 5
+},
+"ncom": 1,
+"notes": 2,
+"images": [
+{
+"src": "img/nsw_uni_ring.webp",
+"cap": "The ring that replaced the table on slide 5, after the deck comment."
+}
+]
+},
+{
+"date": "2026-11-10",
+"ts": "10:24",
+"kind": "comment",
+"label": "Slide 6",
+"user": "rephrase, a large uni compared to a mid sized story isn't interesting. Sydneys impact on the network is.",
+"reply": "I've reframed slide 6 around what Sydney's integration did to the network, instead of comparing it with Macquarie: (private draft)\n\nThe new heading is **\"One integration made 1 in 6 of the state's new links visible.\"** The slide now covers only the last year, since the Profile Manager went live in October 2025:\n- 26.1k co-author links appeared across NSW in that year. 4.4k of them exist only because of Sydney's Profile Manager.\n- That is 38% of all the new links that depend on a university integration.\n- Half of Sydney's links (2.2k) connect its researchers to colleagues at other NSW universities.\n\nSydney's bar is orange and the other nine universities are grey for context. The 2024–26 totals (Macquarie 5.0k, Sydney 4.4k and so on) are now in the speaker notes only.\n\nThe \"Who delivered those new links?\" paragraph in `analysis/nsw/linkedin_post.md` now makes the same point. I've replied on your comment and resolved it.",
+"work": {
+"bq": 1,
+"files": 2,
+"publish": 4,
+"browser": 0,
+"other": 0
+},
+"ncom": 1,
+"notes": 1,
+"images": []
+},
+{
+"date": "2026-11-10",
+"ts": "10:30",
+"kind": "comment",
+"label": "Slide 8",
+"user": "add the type of integration. (ie profile or member portal)",
+"reply": "Slide 8 now has a \"Written via\" column showing how each university writes employment entries: (private draft)\n\n- **Own research system:** Charles Sturt, Macquarie, Southern Cross, UTS, Newcastle, New England and Wollongong (Elements).\n- **UNSW is the exception.** Its entries come almost entirely through the **ORCID Member Portal**: 2,515 staff have one, 183 have an entry from its Research Output System, and 26 have both. No other NSW university uses the Member Portal for affiliations.\n- **Sydney:** 10 entries from the Profile Manager.\n- **Western Sydney:** none yet. Its new integration writes only works and external IDs.\n\nTo make room, the heading is now one line, \"Affiliations depend on the university\". The old \"works are automated, affiliations aren't\" line has moved to the eyebrow, and the side text is now in the speaker notes.\n\nI've replied on your comment and resolved it. The split is in `analysis/nsw/nsw_emp_route.sql` and `nsw_emp_route.txt`.",
+"work": {
+"bq": 1,
+"files": 2,
+"publish": 6,
+"browser": 0,
+"other": 0
+},
+"ncom": 1,
+"notes": 1,
+"images": []
+},
+{
+"date": "2026-11-10",
+"ts": "10:32",
+"kind": "comment",
+"label": "Slide 8 (two comments)",
+"user": "Sydneys Profile Manager is Elements -- so just make it Research Systme\n\nnot true that only unis can asset it although that is preferable",
+"reply": "I've made the three changes from your comments on slide 8: (private draft)\n\n- **Wollongong:** the cell now reads just \"Research system\".\n- **Sydney:** now also \"Research system\", since the Profile Manager runs on Elements. The 10-entry count is only in the speaker notes now.\n- **\"Only the university can assert it\":** reworded to say the university is the most trusted source for employment, while at most NSW universities researchers still type it in themselves.\n\nI made the same correction in both LinkedIn drafts:\n- `analysis/nsw/linkedin_post.md` now says \"the assertion the university is best placed to make\".\n- `analysis/usyd/linkedin_post.md` now says \"The university is the most trusted source for that assertion, and it's what lets everyone else rely on it.\"\n\nI've replied on all three comments and resolved them. Your Elements note and the wording rule are saved to memory for future slides.\n\nThe USyd deck ((private draft)) still has the old line in the speaker notes for its affiliations slide: \"the one assertion only USyd can make\". I haven't changed it. Do you want the same fix there?",
+"work": {
+"bq": 0,
+"files": 0,
+"publish": 7,
+"browser": 0,
+"other": 3
+},
+"ncom": 2,
+"notes": 0,
+"images": []
+},
+{
+"date": "2026-11-10",
+"ts": "10:33",
+"kind": "comment",
+"label": "Slide 8",
+"user": "don't need to say Elements",
+"reply": "I checked your \"don't need to say Elements\" comment on slide 8. I'd already made that change and resolved the comment, so there was nothing more to do. All six comments on the NSW deck are now resolved.",
+"work": {
+"bq": 0,
+"files": 0,
+"publish": 1,
+"browser": 0,
+"other": 0
+},
+"ncom": 1,
+"notes": 0,
+"images": []
+},
+{
+"date": "2026-11-10",
+"ts": "10:34",
+"kind": "prompt",
+"label": null,
+"user": "great you can push nsw changes",
+"reply": "I've pushed the NSW work to a branch called `nsw-followup` and opened a pull request: https://github.com/sjcporter/orcid-2026-changes/pull/1. It isn't live until you merge it. I used a branch rather than pushing straight to `main` so you can look over it first.\n\n**What's in the new `nsw/` folder**\n- **`sql/`:** the 12 queries, including the 2024, 2025 and 2026 DOI table builds. The sandbox table names are replaced with `your-project.your_dataset`.\n- **`scripts/`:** the two drawing scripts, for the three-snapshot network and the university ring.\n- **`data/`:** query outputs and network stats, as aggregates only.\n- **`images/`:** the three pictures.\n- **`README.md`:** findings, definitions, how to rebuild the cohort and link tables, and caveats.\n- **`post.md`:** the LinkedIn post.\n\nThe root README now links to the folder.\n\n**What I left out or changed**\n- The cohort and link lists aren't in the repo, because they pair ORCID iDs. The README explains how to rebuild them.\n- Before committing I checked for the sandbox and bucket names, local paths, the figshare link and your work email. None are in the commit, which is authored under your gmail address as before.\n- The only iD-shaped string left is the source identifier for UNSW's Research Output System. The queries need it to find UNSW's entries, and it's a public source identifier, not a researcher.\n\n**Links updated to the new folder**\n- The NSW post and the deck's closing slide now point to github.com/sjcporter/orcid-2026-changes/tree/main/nsw instead of the dashboard, because the dashboard has no NSW tab. The dashboard is still mentioned on the closing slide.\n- Both links work once the PR is merged.\n\nThe deck is still private, so others can't open it until you share it from its Share menu. The USyd work isn't in the repo yet, and the USyd deck notes still say \"the one assertion only USyd can make\".",
+"work": {
+"bq": 0,
+"files": 2,
+"publish": 2,
+"browser": 0,
+"other": 9
+},
+"ncom": 0,
+"notes": 3,
+"images": []
+},
+{
+"date": "2026-11-10",
+"ts": "10:40",
+"kind": "prompt",
+"label": null,
+"user": "ok, we now need to add a second blog post to  https://sjcporter.github.io/orcid-2026-changes/#blog for NSW, with similar treatment for the data as visuals",
+"reply": "The NSW blog post is on the `nsw-followup` branch, as a second commit on the open pull request: https://github.com/sjcporter/orcid-2026-changes/pull/1. It goes live at **sjcporter.github.io/orcid-2026-changes/#blog-nsw** once you merge.\n\n**How it fits the page**\n- The tab is now \"Blog posts\", with a switcher at the top: the NSW post first, then the 2026 release post.\n- `#blog` still opens the original post, so links already in your first LinkedIn post keep working.\n- The NSW post links back to the first one, and the tab remembers which post you were reading.\n\n**The NSW post** has six numbered sections in the same style as the first, each with its visual:\n1. **Ten integrations, a decade apart:** a chart of works per university in the 2024, 2025 and 2026 files.\n2. **Reach:** a chart of the share of research staff reached, with Sydney and Western Sydney marked as first year.\n3. **The network:** the three-snapshot picture, plus a table of links, linked researchers and integration-only links for each year.\n4. **Between universities:** the two rings.\n5. **Sydney's first year:** a chart of the new links each integration made visible, with Sydney highlighted. 4.4k of the 26.1k new links, or 1 in 6.\n6. **Works are automated, affiliations depend on the university:** a table with a bar for employment written by the university, and a \"Written via\" column.\n\nIt opens with a strip of four headline figures and ends with the \"four in five\" close and a method and caveats section. Each figure has a \"Show the SQL\" panel, as on the dashboard.\n\n**Checks**\n- I tested it in Chrome from a local copy: all three charts draw, the tables fit the column, and post switching and dashboard links work.\n- The network images are web-sized WebP copies in `docs/img/`, about 640 KB in total.\n- None of the sandbox names, local paths or the private figshare link are in the build, and the root README now mentions the second post.\n\n**Post link:** the NSW LinkedIn post and the deck's closing slide still point to the `nsw/` folder on GitHub. Once you merge, `sjcporter.github.io/orcid-2026-changes/#blog-nsw` is probably the better link for readers. Say if you want me to switch both.",
+"work": {
+"bq": 0,
+"files": 0,
+"publish": 0,
+"browser": 20,
+"other": 20
+},
+"ncom": 0,
+"notes": 10,
+"images": [
+{
+"src": "img/nsw_network_by_uni.webp",
+"cap": "The 2026 network coloured by university, used in the blog post."
+}
+]
+},
+{
+"date": "2026-11-10",
+"ts": "10:48",
+"kind": "prompt",
+"label": null,
+"user": "switch both",
+"reply": "I've switched both links to the NSW blog post.\n\n- **LinkedIn post:** it now ends with \"Full post, charts and method: https://sjcporter.github.io/orcid-2026-changes/#blog-nsw\", followed by \"Queries and data:\" and the GitHub `nsw/` folder. I changed the draft at `analysis/nsw/linkedin_post.md` and the copy in the repo, and pushed that as a third commit to PR #1.\n- **Deck closing slide:** the main link is now sjcporter.github.io/orcid-2026-changes/#blog-nsw, at a size that keeps it on one line, with the GitHub repo underneath: (private draft)\n\nBoth links only work once you merge PR #1: https://github.com/sjcporter/orcid-2026-changes/pull/1",
+"work": {
+"bq": 0,
+"files": 0,
+"publish": 1,
+"browser": 0,
+"other": 2
+},
+"ncom": 0,
+"notes": 0,
+"images": []
+},
+{
+"date": "2026-11-10",
+"ts": "10:48",
+"kind": "prompt",
+"label": null,
+"user": "merge the PR",
+"reply": "I merged PR #1 into `main`, and the NSW post is now live at **https://sjcporter.github.io/orcid-2026-changes/#blog-nsw**. The page shows the new post and the network images load. I deleted the `nsw-followup` branch after merging and updated your local copy of `main`.\n\nEvery link in the LinkedIn post and on the deck's closing slide now works.\n\nThe NSW deck is still private, so others can't open it until you share it from its Share menu.",
+"work": {
+"bq": 0,
+"files": 0,
+"publish": 0,
+"browser": 0,
+"other": 2
+},
+"ncom": 0,
+"notes": 0,
+"images": []
+},
+{
+"date": "2026-11-10",
+"ts": "10:51",
+"kind": "prompt",
+"label": null,
+"user": "https://sjcporter.github.io/orcid-2026-changes/#blog-nsw doesn't seem to work",
+"reply": "I opened https://sjcporter.github.io/orcid-2026-changes/#blog-nsw in a fresh Chrome tab and it works: the NSW post opens on the Blog posts tab, with the stats strip and charts drawn and no console errors.\n\nYou're most likely seeing the old version of the page from your browser's cache. GitHub Pages tells browsers to keep the page for up to 10 minutes, and the new version went live at 10:49. The old page doesn't recognise `#blog-nsw`, so it just shows the dashboard.\n\nTo fix it, do a hard refresh with **Cmd+Shift+R**, or open the link in a private window. If you still see the dashboard after that, tell me what appears and which browser you're using.",
+"work": {
+"bq": 0,
+"files": 0,
+"publish": 0,
+"browser": 10,
+"other": 1
+},
+"ncom": 0,
+"notes": 0,
+"images": []
+},
+{
+"date": "2026-11-10",
+"ts": "10:52",
+"kind": "prompt",
+"label": null,
+"user": "ok I think i needed a hard refresh",
+"reply": "Good, the hard refresh fixed it. Your browser was still showing the cached copy of the old page, which didn't know about `#blog-nsw`.\n\nPeople clicking the link from LinkedIn won't hit this. They'll get the new page, since the cached copy only lasts up to 10 minutes.\n\nThe only thing left is the NSW deck, which is still private. If you want to post the deck alongside the LinkedIn post, share it from its Share menu.",
+"work": {
+"bq": 0,
+"files": 0,
+"publish": 0,
+"browser": 0,
+"other": 0
+},
+"ncom": 0,
+"notes": 0,
+"images": []
+}
+],
+"total": {
+"bq": 24,
+"files": 24,
+"publish": 35,
+"browser": 30,
+"other": 58
+}
+}
+}
