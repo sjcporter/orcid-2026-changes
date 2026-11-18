@@ -111,6 +111,47 @@ details.sql .note { color: var(--muted); }
 #tNswAff th, #tNswAff td:last-child { white-space: normal; }
 #tNswAff td.bar { min-width: 5rem; width: 22%; }
 .post figure { margin: 0; }
+.pr { display: grid; gap: 1.6rem; max-width: 46rem; }
+.pr header { display: grid; gap: .8rem; }
+.pr .facts { display: flex; flex-wrap: wrap; gap: .5rem 1.6rem; margin: 0; padding: 0; list-style: none; font-variant-numeric: tabular-nums; }
+.pr .facts b { font-family: var(--display); font-size: 1.5rem; display: block; line-height: 1.1; }
+.pr .facts span { font-size: .85rem; color: var(--muted); }
+.pr-controls { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; }
+.pr-controls .sp { flex: 1; }
+.pr-controls button { font: 600 .85rem var(--body); color: var(--ink); background: var(--surface); border: 1px solid var(--rule); border-radius: 6px; padding: .35rem .8rem; cursor: pointer; }
+.pr-controls button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--bg); }
+.pr-controls button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.pr-log { list-style: none; margin: 0 0 0 .4rem; padding: 0; display: grid; gap: 1.6rem; border-left: 2px solid var(--rule); }
+.pr-log .day { font-family: var(--display); font-weight: 600; color: var(--muted); padding-left: 1.4rem; }
+.pr-turn { display: grid; gap: .6rem; padding-left: 1.4rem; position: relative; min-width: 0; }
+.pr-turn::before { content: ""; position: absolute; left: -.45rem; top: .35rem; width: .8rem; height: .8rem; border-radius: 50%; background: var(--accent); border: 3px solid var(--bg); }
+.pr-turn.comment::before { background: var(--hi); }
+.pr-turn.action::before { background: var(--muted); }
+.pr-meta { display: flex; flex-wrap: wrap; gap: .3rem .8rem; align-items: baseline; font-size: .85rem; color: var(--muted); }
+.pr-meta .n { font-family: var(--display); font-weight: 600; color: var(--ink); }
+.pr-meta .tag { font-weight: 600; letter-spacing: .06em; text-transform: uppercase; font-size: .72rem; color: var(--accent); }
+.pr-turn.comment .tag { color: var(--hi); }
+.pr-prompt { margin: 0; font-family: var(--mono); font-size: .9rem; line-height: 1.5; white-space: pre-wrap; overflow-wrap: anywhere; border-radius: 8px; padding: .75rem 1rem; background: color-mix(in srgb, var(--accent) 12%, var(--surface)); }
+.pr-turn.comment .pr-prompt { background: color-mix(in srgb, var(--hi) 14%, var(--surface)); }
+.pr-turn.action .pr-prompt { background: var(--surface); border: 1px dashed var(--rule); }
+.pr-work { display: flex; flex-wrap: wrap; gap: .35rem; font: .78rem var(--mono); color: var(--muted); }
+.pr-work span { border: 1px solid var(--rule); border-radius: 4px; padding: 0 .45rem; }
+.pr-reply { background: var(--surface); border: 1px solid var(--rule); border-radius: 8px; min-width: 0; }
+.pr-reply summary { cursor: pointer; padding: .55rem 1rem; font-weight: 600; font-size: .88rem; color: var(--muted); }
+.pr-md { padding: 0 1rem 1rem; min-width: 0; overflow-wrap: anywhere; font-size: .95rem; }
+.pr-md > :first-child { margin-top: 0; }
+.pr-md p, .pr-md ul, .pr-md ol { margin: .5rem 0; }
+.pr-md code { font-family: var(--mono); font-size: .85em; background: var(--bg); padding: 0 .3rem; border-radius: 3px; }
+.pr-md pre { overflow-x: auto; background: var(--bg); padding: .7rem; border-radius: 6px; }
+.pr-md pre code { padding: 0; }
+.pr-md a { color: var(--accent); }
+.pr-md .tbl { overflow-x: auto; margin: .6rem 0; }
+.pr-md table { border-collapse: collapse; font-size: .85rem; font-variant-numeric: tabular-nums; }
+.pr-md th, .pr-md td { border-bottom: 1px solid var(--rule); padding: .3rem .6rem; text-align: left; white-space: nowrap; }
+.pr figure { margin: 0; display: grid; gap: .3rem; }
+.pr figure img { width: 100%; height: auto; border-radius: 6px; background: #15212b; }
+.pr figcaption { font-size: .85rem; color: var(--muted); }
+.pr-log.only .pr-reply, .pr-log.only figure, .pr-log.only .pr-work { display: none; }
 .post .stats { margin: .2rem 0; grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr)); }
 .pairpick { display: flex; gap: .6rem; align-items: center; font-size: .92rem; color: var(--muted); }
 .pairpick select { font: inherit; color: var(--ink); background: var(--surface); border: 1px solid var(--rule); border-radius: 4px; padding: .3rem .5rem; }
@@ -121,6 +162,7 @@ details.sql .note { color: var(--muted); }
   <nav class="tabs" role="tablist" aria-label="Views">
     <button role="tab" id="tab-dash" aria-controls="panel-dash" aria-selected="true">Dashboard</button>
     <button role="tab" id="tab-blog" aria-controls="panel-blog" aria-selected="false" tabindex="-1">Blog posts</button>
+    <button role="tab" id="tab-prompts" aria-controls="panel-prompts" aria-selected="false" tabindex="-1">Prompts</button>
   </nav>
   <div class="panel" id="panel-dash" role="tabpanel" aria-labelledby="tab-dash">
   <header>
@@ -450,10 +492,27 @@ WHERE REGEXP_CONTAINS(LOWER(u.url), r'bsky\.(app|social)')</code></pre>
     </article>
   </div>
 
+  <div class="panel" id="panel-prompts" role="tabpanel" aria-labelledby="tab-prompts" hidden>
+    <nav class="postnav" aria-label="Sessions"><a href="#prompts" data-sess="release">The 2026 release: dashboard and blog</a><a href="#prompts-nsw" data-sess="nsw">NSW universities follow-up</a></nav>
+    <div class="pr">
+      <header id="prHead"></header>
+      <div class="pr-controls" role="toolbar" aria-label="Filter the history">
+        <button type="button" data-f="all" aria-pressed="true">Everything</button>
+        <button type="button" data-f="prompt" aria-pressed="false">Typed prompts</button>
+        <button type="button" data-f="comment" aria-pressed="false">Comments</button>
+        <span class="sp"></span>
+        <button type="button" id="prOnly" aria-pressed="false">Prompts only</button>
+      </div>
+      <ol class="pr-log" id="prLog"></ol>
+      <p class="notes">This analysis, the dashboard and both posts were built with Claude Code (Anthropic). These are the prompts typed and the comments left on the drafts, each followed by Claude’s final reply for that turn, unedited apart from removing links to private drafts and local file paths. Replies are working notes: some figures and wording changed in later turns, and the published page is the reference. The work line counts tool calls in each turn. Times are London time.</p>
+    </div>
+  </div>
+
   <footer>Analysis of the ORCID Public Data Files (CC0). Figures computed November 2026.</footer>
 </main>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.2/marked.min.js"></script>
 <script>
 const D = /*DATA*/null;
 const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
@@ -590,14 +649,18 @@ if (window.Chart) {
 } else {
   document.querySelectorAll(".canvas-wrap").forEach(w => { w.style.height = "auto"; w.innerHTML = '<p class="notes">The chart library did not load. The tables on this page carry the same figures.</p>'; });
 }
-// Tabs: #blog and #blog-nsw open a post; any other hash (a dashboard section) opens the dashboard and scrolls to it.
+// Tabs: #blog and #blog-nsw open a post, #prompts and #prompts-nsw a prompt history; any other hash (a dashboard section) opens the dashboard and scrolls to it.
 const tabs = [...document.querySelectorAll('[role="tab"]')];
 function show(id, focus) {
   tabs.forEach(t => { const on = t.id === id; t.setAttribute("aria-selected", on); t.tabIndex = on ? 0 : -1;
     document.getElementById(t.getAttribute("aria-controls")).hidden = !on; if (on && focus) t.focus(); });
 }
 tabs.forEach((t, i) => {
-  t.addEventListener("click", () => { show(t.id); history.replaceState(null, "", t.id === "tab-blog" ? "#" + (post === "blogNsw" ? "blog-nsw" : "blog") : "#"); scrollTo(0, 0); });
+  t.addEventListener("click", () => {
+    if (t.id === "tab-prompts") showSess(sess);
+    show(t.id);
+    history.replaceState(null, "", t.id === "tab-blog" ? "#" + (post === "blogNsw" ? "blog-nsw" : "blog") : t.id === "tab-prompts" ? (sess === "nsw" ? "#prompts-nsw" : "#prompts") : "#");
+    scrollTo(0, 0); });
   t.addEventListener("keydown", e => { const d = e.key === "ArrowRight" ? 1 : e.key === "ArrowLeft" ? -1 : 0; if (d) tabs[(i + d + tabs.length) % tabs.length].click(), tabs[(i + d + tabs.length) % tabs.length].focus(); });
 });
 let post = "blogText";
@@ -608,8 +671,58 @@ function showPost(id) {
   show("tab-blog");
   charts.forEach(c => c.resize());
 }
+// Prompts tab: the prompt history behind each post, from data/prompts.json.
+const esc = s => s.replace(/[&<>"]/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;"}[c]));
+if (window.marked) marked.use({ renderer: { html: h => esc(typeof h === "string" ? h : h.text) } });
+const md = s => (window.marked ? marked.parse(s) : "<p>" + esc(s).replace(/\n\n/g, "</p><p>") + "</p>")
+  .replace(/<table>/g, '<div class="tbl"><table>').replace(/<\/table>/g, "</table></div>");
+const SESS = {
+  release: { eyebrow: "Prompt history · 3–6 November 2026", title: "How the dashboard and the 2026 release post were made", span: "across two working days",
+    lede: "From “what has changed in the new ORCID file?” to this dashboard, the SQL behind every figure, the first blog post and the public repository." },
+  nsw: { eyebrow: "Prompt history · 10 November 2026", title: "How the NSW universities post was made", span: "about an hour",
+    lede: "From “broaden the Sydney work” to the three-snapshot network, the NSW post and its LinkedIn version. It reused the staff definition and network method from a Sydney-only analysis earlier in the same session." }
+};
+let sess = "release", prFilter = "all";
+function prApply() { document.querySelectorAll("#prLog .pr-turn").forEach(li => li.hidden = prFilter !== "all" && li.dataset.kind !== prFilter); }
+function showSess(key) {
+  sess = key;
+  document.querySelectorAll("[data-sess]").forEach(a => a.dataset.sess === key ? a.setAttribute("aria-current", "page") : a.removeAttribute("aria-current"));
+  const S = D.prompts[key], M = SESS[key], T = S.turns, first = T[0], last = T[T.length - 1];
+  const when = first.date === last.date ? `${first.ts}–${last.ts}` : `${+first.date.slice(8)}–${+last.date.slice(8)} Nov`;
+  const facts = [[T.filter(t => t.kind === "prompt").length, "typed prompts"], [T.reduce((n, t) => n + t.ncom, 0), "comments on drafts"],
+                 [S.total.bq, "BigQuery queries"], [S.total.files, "files written or edited"], [when, M.span]];
+  document.getElementById("prHead").innerHTML = `<p class="eyebrow">${M.eyebrow}</p><h1>${M.title}</h1><p class="lede">${M.lede}</p>
+    <ul class="facts">${facts.map(([b, s]) => `<li><b>${b}</b><span>${s}</span></li>`).join("")}</ul>`;
+  let n = 0, day = null;
+  document.getElementById("prLog").innerHTML = T.map(t => {
+    let row = "";
+    if (first.date !== last.date && t.date !== day) { day = t.date; row = `<li class="day">${new Date(t.date + "T12:00:00Z").toLocaleDateString("en-GB", { weekday: "long", day: "numeric", month: "long", timeZone: "UTC" })}</li>`; }
+    const tag = t.kind === "comment" ? "Comment · " + esc(t.label) : t.kind === "action" ? esc(t.label) : "Prompt";
+    const w = t.work, parts = [];
+    if (w.bq) parts.push(`${w.bq} BigQuery`); if (w.files) parts.push(`${w.files} files`); if (w.publish) parts.push(`${w.publish} draft/comment`);
+    if (w.browser) parts.push(`${w.browser} browser`); if (w.other) parts.push(`${w.other} shell/other`); if (t.notes) parts.push(`${t.notes} progress notes`);
+    return row + `<li class="pr-turn ${t.kind}" data-kind="${t.kind}">
+      <div class="pr-meta">${t.kind === "prompt" ? `<span class="n">${++n}</span>` : ""}<span class="tag">${tag}</span><span>${t.ts}</span></div>
+      <pre class="pr-prompt">${esc(t.user)}</pre>${parts.length ? `<div class="pr-work">${parts.map(p => `<span>${p}</span>`).join("")}</div>` : ""}
+      ${t.reply ? `<details class="pr-reply" open><summary>Claude’s reply</summary><div class="pr-md">${md(t.reply)}</div></details>` : ""}
+      ${t.images.map(i => `<figure><img src="${i.src}" loading="lazy" alt="${esc(i.cap)}"><figcaption>${esc(i.cap)}</figcaption></figure>`).join("")}
+    </li>`;
+  }).join("");
+  prApply();
+  show("tab-prompts");
+}
+document.querySelectorAll("[data-f]").forEach(b => b.addEventListener("click", () => {
+  document.querySelectorAll("[data-f]").forEach(o => o.setAttribute("aria-pressed", String(o === b)));
+  prFilter = b.dataset.f; prApply();
+}));
+document.getElementById("prOnly").addEventListener("click", e => {
+  const on = e.currentTarget.getAttribute("aria-pressed") !== "true";
+  e.currentTarget.setAttribute("aria-pressed", String(on));
+  document.getElementById("prLog").classList.toggle("only", on);
+});
 function route() {
   const h = location.hash.slice(1);
+  if (h === "prompts" || h === "prompts-nsw") { showSess(h === "prompts" ? "release" : "nsw"); return scrollTo(0, 0); }
   if (h === "blog" || h === "blog-nsw") { showPost(h === "blog" ? "blogText" : "blogNsw"); return scrollTo(0, 0); }
   show("tab-dash");
   const el = h && document.getElementById(h);
