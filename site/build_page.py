@@ -95,6 +95,31 @@ D["nsw_stats"] = [["10", "NSW universities writing to ORCID", "New England 2016 
                   ["+51%", "co-author links, 2024 to 2026", "81.9k → 124k, same researchers"],
                   ["2 in 5", "new links seen only via a university", "16.6k of 42.3k since 2024"],
                   ["1 in 6", "last year’s new links from Sydney", "4.4k of 26.1k"]]
+# Affiliations follow-up (aff/): data for the third blog post.
+aff_rows = lambda f: list(csv.DictReader(open("aff/data/" + f)))
+AFF_SRC = {"Researcher": "Researcher", "Institution's own system": "Institution's own system", "ORCID Member Portal": "ORCID Member Portal"}
+fate = collections.defaultdict(collections.Counter)
+for r in aff_rows("aff_pair_fate_summary.csv"):
+    if r["section"] == "employment" and r["bucket"] in AFF_SRC:
+        f = r["fate"]
+        f = "kept" if f.startswith("kept") else "removed" if f.startswith("removed") else f
+        fate[r["bucket"]][f] += int(r["pairs"])
+FATES = ("kept", "recreated, identical", "recreated, changed", "removed", "record not public")
+D["aff"] = {
+    # [source, entries, % start date, % end date, % role, % organisation ID]
+    "src": [[r["bucket"], int(r["entries"]), float(r["pct_start"]), float(r["pct_end"]), float(r["pct_role"]), float(r["pct_org_id"])]
+            for r in aff_rows("aff_by_source.csv") if r["yr"] == "2026" and r["section"] == "employment" and r["bucket"] in AFF_SRC],
+    "fates": FATES,
+    "fate": [[b, *[fate[b][f] for f in FATES]] for b in AFF_SRC],
+    "links": [[r["link"][2:], int(r["pairs"])] for r in aff_rows("inst_coverage.csv")],
+    # [maintained system?, last seen bucket, pairs, still open, ended, removed]
+    "warn": [[r["maintained"] == "true", r["last_seen_2024"][2:].replace("-", "–").capitalize(), int(r["pairs"]), int(r["still_open_2026"]), int(r["ended_by_2026"]),
+              int(r["removed_by_2026"])] for r in aff_rows("inst_early_warning.csv")],
+}
+D["aff_stats"] = [["98%", "of affiliation entries typed by researchers", "institutions write 1.4%"],
+                  ["+44%", "researcher–institution links", "when every item an institution writes counts"],
+                  ["39.5k", "researchers placed at an institution", "with no employment on their record"],
+                  ["1 in 6", "open institution entries not seen for 2 years", "21.4k of 126k"]]
 # Prompt history behind the dashboard and both posts (exported from the Claude Code session, private links removed).
 D["prompts"] = json.load(open("data/prompts.json"))
 html = open("site/page_template.html").read().replace("/*DATA*/null", json.dumps(D, separators=(",", ":")))

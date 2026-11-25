@@ -1,0 +1,196 @@
+client_id,source_name,bucket,pairs,kept,recreated_identical,recreated_changed,recreated_end_added,removed,removed_other_org_left,record_gone,pairs_with_duplicates,entries,recreated_24,recreated_25,pairs_24,pairs_25
+APP-4B3XYWJHXCC1VLVV,ORCID Member Portal,ORCID Member Portal,55642,53323,13,38,9,2253,93,15,317,58788,18,33,21867,33775
+0000-0002-4407-7742,ORCID Integration at the University of Oxford,Institution's own system,39588,39138,7,11,0,398,0,34,33,39656,12,6,18346,21242
+APP-5E1VKQXON4GX3LS0,University of Helsinki,Institution's own system,16758,15219,378,976,737,183,0,2,2,16762,499,855,7864,8894
+APP-XHU57R4PV338B8VC,City University of Hong Kong,Institution's own system,14645,11208,352,2576,2406,494,0,15,6,14652,1796,1132,6883,7762
+APP-33AWTQA1UKY94ARA,Hong Kong University of Science and Technology,Institution's own system,12653,12526,0,0,0,119,0,8,19,12742,0,0,5979,6674
+APP-LL5BC8LIJTSL4916,Vrije Universiteit Brussel,Institution's own system,10927,9350,348,1054,852,168,0,7,9,10946,423,979,4815,6112
+APP-VIGMV7IBOUTU5T4L,University of Copenhagen,Institution's own system,9605,8175,84,1231,1207,112,0,3,30,9643,74,1241,4577,5028
+APP-QSI3BOI1FRJ3MSVC,Aarhus University,Institution's own system,8882,4322,26,4396,1087,135,0,3,154,10220,2824,1598,3918,4964
+APP-GDBANNMKQOIC4TUU,University of Manchester - PURE,Institution's own system,8829,6519,598,1082,605,630,0,0,4,8837,969,711,4011,4818
+APP-IW5Q469BTAGREJ7K,University of Western Australia,Institution's own system,8799,6994,580,948,948,274,0,3,64,8863,41,1487,4093,4706
+APP-M3NHPL73K2817SG4,University of Groningen,Institution's own system,8681,5818,348,2262,666,251,79,2,4,9259,1255,1355,3560,5121
+0000-0001-9655-6473,KTH Royal Institute of Technology,Institution's own system,8351,8186,0,0,0,164,0,1,6,8357,0,0,4039,4312
+APP-4HQZN5O76K3LZ0U4,University of Bristol - PURE,Institution's own system,7583,4415,33,1332,245,1796,14,7,5,11440,509,856,3923,3660
+0000-0002-7539-5209,Karolinska Institutet,Institution's own system,7341,7198,0,3,0,138,22,2,802,8779,2,1,3631,3710
+0000-0002-6423-5541,University of Southern Denmark,Institution's own system,7319,3646,2308,972,951,393,267,0,1,7320,2755,525,3370,3949
+APP-5XHQTE23PU7OAST9,King's College London,Institution's own system,7112,6489,102,327,299,192,0,2,9,7124,239,190,3260,3852
+0000-0002-4792-4935,University College London,Institution's own system,6630,6523,0,0,0,107,0,0,348,6979,0,0,3256,3374
+APP-N0TAO4G9BBK9PWHT,Tampere University,Institution's own system,6462,5505,328,467,377,161,6,1,0,6462,390,405,2937,3525
+APP-O5MZRBSVG23MEPOJ,"North-West University, South Africa",Institution's own system,6431,6332,0,0,0,97,0,2,4,6435,0,0,3237,3194
+APP-W1CV1JU6GMSLKHHR,University of Southampton,Institution's own system,6398,5690,101,424,389,182,0,1,2,6400,265,260,2818,3580
+APP-UKGLZX5LPGYOXYX5,Macquarie University,Institution's own system,6345,2135,2234,57,0,1918,0,1,35,6381,227,2064,3826,2519
+APP-44VHLOXPP9WTFRSR,Technical University of Denmark Orbit,Institution's own system,6208,5126,44,949,917,86,0,3,0,6209,873,120,2832,3376
+APP-NCM0IQPR2ZNVISEK,Ben-Gurion University of the Negev,Institution's own system,5922,4292,748,679,4,203,0,0,11,6265,1200,227,2530,3392
+0000-0002-6267-206X,Universidad de Zaragoza,Institution's own system,5805,5776,0,0,0,25,6,4,0,5805,0,0,2900,2905
+0000-0001-8821-588X,Aalborg University,Institution's own system,5394,4398,153,772,739,69,0,2,3,5398,663,262,2429,2965
+APP-NMZQ8IRMT5FHJB03,Lancaster University - Pure,Institution's own system,5171,2495,2297,260,244,119,0,0,0,5173,32,2525,2463,2708
+APP-VRSBU5YWKOGMLL7H,The University of Auckland,Institution's own system,5040,4970,0,1,0,67,0,2,133,11074,1,0,2294,2746
+APP-H7GN4AWBE4NU5999,Vrije Universiteit Amsterdam,Institution's own system,4768,3655,267,741,704,102,0,3,13,4781,676,332,2189,2579
+APP-I2Q3P5180FBRHDS3,University of Birmingham,Institution's own system,4674,4118,111,360,349,85,0,0,0,4674,219,252,1855,2819
+APP-YXUW1T8S07K0ZZUA,University of Virginia,Institution's own system,4670,4610,0,0,0,59,0,1,8,4678,0,0,2167,2503
+0000-0002-8893-4734,University of Colorado Boulder,Institution's own system,4609,4583,0,0,0,26,0,0,0,4609,0,0,2300,2309
+APP-J9VR8I3XNJWK7DLZ,University of Bath,Institution's own system,4345,3748,70,475,443,51,0,1,0,4345,281,264,1922,2423
+APP-LBV5EQ8U9CUC0XII,University of Pittsburgh,Institution's own system,4279,4217,1,0,0,61,0,0,6,4285,0,1,2107,2172
+APP-UTBMR8B6ZGTEGQSO,University of Vienna - u:cris,Institution's own system,4255,2715,204,102,93,1232,52,2,23,4278,90,216,2227,2028
+APP-KE68QAAHGDW7QUHR,University of Glasgow,Institution's own system,4219,4128,1,1,0,89,0,0,8,4227,0,2,1935,2284
+0000-0001-9526-8162,University of Michigan,Institution's own system,4218,4149,1,0,0,68,0,0,449,4888,0,1,2108,2110
+APP-G3P0BISCBAMO72CQ,"Pao Yue-kong Library, Hong Kong Polytechnic University",Institution's own system,4149,4098,0,0,0,49,0,2,44,4279,0,0,2084,2065
+APP-934DAS04INM23LSR,Université libre de Bruxelles,Institution's own system,4149,4064,1,0,0,84,0,0,169,4481,0,1,1955,2194
+0000-0002-6828-0884,Memorial Sloan Kettering Cancer Center,Institution's own system,4149,4058,0,0,0,88,0,3,2,4151,0,0,2007,2142
+APP-CBBRNA08S76OOD5I,Queensland University of Technology PURE,Institution's own system,4088,1447,2169,389,303,83,0,0,0,4088,301,2257,1729,2359
+APP-XEW1LFN5TWB0MZTA,The Hebrew University of Jerusalem,Institution's own system,4065,4009,0,0,0,54,0,2,23,4188,0,0,1969,2096
+APP-BSCQQ0PS85OE435Z,Los Alamos National Laboratory,Institution's own system,4062,3991,0,1,0,70,2,0,9,4277,1,0,1936,2126
+APP-KVL0MCI8EWOKU16I,CSIRO,Institution's own system,3959,3890,0,0,0,68,0,1,12,3971,0,0,1936,2023
+APP-FZGV9VZW6LTWY5Y7,La Universidad de Granada,Institution's own system,3596,3558,0,0,0,36,0,2,0,3596,0,0,1800,1796
+APP-UX015Z851O6ST9E1,KAUST Repository,Institution's own system,3525,3449,0,0,0,70,2,6,71,5433,0,0,1762,1763
+APP-K1RFUENXTHHY2XLK,Delft University of Technology,Institution's own system,3509,2861,134,172,159,341,0,1,8,3519,94,212,1582,1927
+APP-ARG7587K08AJCXUL,Pure TUe,Institution's own system,3478,1768,1147,468,454,95,0,0,2,3480,1363,252,1449,2029
+0000-0003-0822-0684,National Taiwan University,Institution's own system,3277,3258,0,0,0,19,7,0,6,5100,0,0,1643,1634
+APP-Q1JBREKLK73FSBP5,University of St Andrews CRIS,Institution's own system,3251,1521,1138,471,441,121,5,0,0,3251,1390,219,1513,1738
+APP-V1HDZZ0V41IHIHX8,Aalto University,Institution's own system,3250,2640,224,340,290,46,0,0,0,3250,249,315,1358,1892
+APP-XRRA9M610F4X1K7J,University of Strathclyde,Institution's own system,3234,1431,929,165,159,709,0,0,2,3236,81,1013,1702,1532
+APP-FAUVJJ4YRW0OY8I5,VŠB - Technická univerzita Ostrava,Institution's own system,3171,3125,0,0,0,45,0,1,9,3186,0,0,1532,1639
+APP-JBUOKF0BTFJO2IS6,RTI International,Institution's own system,3144,2396,122,461,448,165,33,0,0,3144,446,137,1537,1607
+APP-7CGOKZ7WMVSXBK2P,IS - Brno University of Technology,Institution's own system,3072,3048,0,0,0,21,1,3,2,3074,0,0,1510,1562
+APP-Q30LIXMED2K0QIWN,Queen's University Belfast - PURE,Institution's own system,3029,1257,1086,3,2,682,0,1,1,3030,1038,51,1545,1484
+APP-L7D3MTOOLHUTCFDN,Experts@Minnesota,Institution's own system,2865,1825,5,87,69,947,892,1,13,7165,84,8,1384,1481
+APP-OZVG6PSQT2L2OBUK,Ruhr-Universität Bochum,Institution's own system,2850,2153,488,125,10,83,0,1,2,3846,389,224,1367,1483
+APP-MFX4PZLXYBYO7W27,Universidad Politécnica de Madrid UPM,Institution's own system,2762,2746,0,0,0,14,0,2,0,2762,0,0,1379,1383
+APP-BNO3F4CN39W4BFNH,University of Tsukuba,Institution's own system,2705,2658,0,0,0,47,1,0,0,2724,0,0,1300,1405
+APP-N8WJ6J34URPT3BS7,Monash University,Institution's own system,2687,2625,0,0,0,61,0,1,6,2699,0,0,1358,1329
+APP-6K5U04SUJX1B4R2U,Edith Cowan University,Institution's own system,2670,2585,0,2,0,80,0,3,423,4355,0,2,1199,1471
+APP-3MHIXVAQ1MK7PLXN,The University of South Australia,Institution's own system,2652,2354,7,0,0,290,0,1,0,2652,5,2,1274,1378
+0000-0003-1140-680X,University of Melbourne,Institution's own system,2651,2615,0,0,0,36,0,0,2,2653,0,0,1200,1451
+APP-QVDLJCSO2LRO76WF,University of Bern - BORIS Portal,Institution's own system,2639,2530,0,0,0,108,0,1,149,2798,0,0,1334,1305
+APP-4HOGAF1S1G7KC47J,TU Wien,Institution's own system,2556,2501,0,0,0,54,0,1,17,2573,0,0,1193,1363
+APP-4I2KH866G1I6UEQ3,Massachusetts Institute of Technology,Institution's own system,2487,2470,0,0,0,14,0,3,0,2487,0,0,1218,1269
+APP-OSCS04PQHJ6J7O4T,Tel Aviv University,Institution's own system,2451,2414,0,0,0,36,0,1,42,2870,0,0,1095,1356
+APP-ZWE21D8HS9AT1QPA,Coventry University,Institution's own system,2387,1301,344,200,200,540,0,2,1,2388,3,541,1159,1228
+APP-MNH3Q20DZSNZELHV,Northumbria University,Institution's own system,2386,940,1223,163,146,59,0,1,0,2386,150,1236,1093,1293
+APP-7Z2PEJ8LBN0GG7CU,The Australian National University,Institution's own system,2381,964,1219,73,71,123,0,2,0,2381,77,1215,1044,1337
+APP-B2ITWSM1JCIUKPBR,Lund University,Institution's own system,2368,2116,37,10,10,205,0,0,2,2372,7,40,907,1461
+0000-0002-6054-6158,Universidad Autonoma de Madrid,Institution's own system,2365,2350,0,0,0,10,0,5,0,2365,0,0,1180,1185
+APP-90Z7Y7Q69NED7GT3,New York University,Institution's own system,2316,2281,0,0,0,35,0,0,0,2316,0,0,1163,1153
+APP-27YMK5HJE77QY55G,La Universidad de Sevilla,Institution's own system,2276,2235,0,0,0,41,0,0,0,2276,0,0,1134,1142
+APP-15WA0OYIS98AAZOV,Flinders University PURE,Institution's own system,2174,857,1106,108,86,103,0,0,6,2184,88,1126,973,1201
+APP-CKEHJIBFNUU4JULX,EUR & Erasmus MC Research Information Portal Pure,Institution's own system,2171,1957,7,183,100,24,0,0,54,13317,83,107,853,1318
+APP-HXR30K539YF44P33,National Institutes of Natural Sciences,Institution's own system,2162,2120,0,5,2,37,16,0,12,2892,0,5,1071,1091
+APP-GU2S9WZ9LVZ23GEB,Utrecht University,Institution's own system,2122,1829,43,205,197,44,0,1,0,2122,147,101,844,1278
+APP-R73X7631IOWXAFSA,Kyoto University,Institution's own system,2091,2058,1,17,11,14,0,1,114,4910,0,18,972,1119
+APP-OIEGLPSKM1QO1ZO6,Universidade Nova de Lisboa,Institution's own system,2053,1841,41,21,21,150,112,0,0,2053,26,36,986,1067
+APP-SWXOHDD27XW04U4E,Maastricht University,Institution's own system,2052,1673,31,208,203,140,110,0,0,2052,175,64,910,1142
+APP-F3692PH9EP2BSHJ3,ORCID Integration at EPFL,Institution's own system,2048,2017,0,8,0,23,0,0,3,4396,6,2,937,1111
+APP-7ZC860H2K0QXLW2B,Tilburg University - PURE,Institution's own system,1933,1524,123,252,179,34,0,0,0,1939,237,138,888,1045
+APP-K6Z527AADXR7WTXB,University of Zurich,Institution's own system,1891,1825,0,0,0,66,0,0,18,1916,0,0,859,1032
+APP-JSMN9FEI3LE08UHE,The Open University (ORO - Open Research Online),Institution's own system,1885,1855,0,0,0,29,0,1,0,1885,0,0,947,938
+APP-O9XRDA50EWBQOKQ1,University of Amsterdam - PURE,Institution's own system,1868,629,620,223,26,396,0,0,7,3057,46,797,924,944
+APP-ZOHYRM4L1ZOCN5RS,Sapienza Università di Roma - IRIS,Institution's own system,1858,1829,0,1,0,28,0,0,15,4690,0,1,826,1032
+APP-VKNFGSUVT5M2SUJ5,Charles Sturt University,Institution's own system,1856,1591,23,161,161,81,0,0,0,1856,133,51,856,1000
+APP-C9EFX6ZOY8D8H65H,Technion - Israel Institute of Technology,Institution's own system,1829,1819,0,0,0,10,0,0,55,1922,0,0,917,912
+APP-35SKP0KSM43NGI5B,Universidad de Castilla-La Mancha,Institution's own system,1776,1726,0,0,0,50,0,0,0,1776,0,0,896,880
+APP-PKYLAT26OJLG84GU,"Aristotle University of Thessaloniki - Quality Assurance of educational, research activities and services and infrastructure of AUTh (QMS – AUTH)",Institution's own system,1774,1731,0,0,0,43,0,0,291,2254,0,0,892,882
+APP-BQO2Q6GUIRPPQFEP,University of Technology Sydney,Institution's own system,1769,1743,0,0,0,25,0,1,4,1777,0,0,818,951
+APP-0CJ1DAALX7F17VEK,Brown University,Institution's own system,1752,1722,0,0,0,30,0,0,0,1752,0,0,842,910
+APP-LEDXGIRXOYGHYMVE,University of Twente Research Information (Pure Portal),Institution's own system,1679,989,317,300,288,73,0,0,2,1681,479,138,750,929
+APP-BS7AM42FY7XCHVR9,"High Energy Accelerator Research Organization (AKA ,KEK)",Institution's own system,1677,1664,0,0,0,13,0,0,36,1743,0,0,730,947
+APP-EPSHKBE26VFNI93T,Mendel University in Brno,Institution's own system,1627,1589,0,16,0,22,0,0,0,1691,1,15,786,841
+APP-BZI1IODNFH41HUA0,FIS TU Dresden,Institution's own system,1541,708,3,49,3,781,628,0,0,1982,2,50,701,840
+0000-0002-1343-468X,Imperial College London,Institution's own system,1530,1513,0,0,0,17,0,0,1,1541,0,0,763,767
+0000-0002-0927-3393,Aston Research Explorer,Institution's own system,1502,779,500,37,37,186,0,0,0,1502,462,75,704,798
+APP-251IJGODT5MT6S8P,"The Graduate University for Advanced Studies, SOKENDAI",Institution's own system,1502,1491,0,3,3,8,0,0,2,1506,0,3,685,817
+APP-NDT0XCDC4PIF1O8H,OBD VŠCHT,Institution's own system,1502,1475,1,3,1,23,3,0,5,1508,1,3,385,1117
+APP-UFIB4NH6VX4PCS1A,Université de Lorraine,Institution's own system,1497,93,144,1064,0,196,155,0,3,1500,0,1208,0,1497
+APP-B66QG2KJSC9KUGY6,University of Canterbury,Institution's own system,1484,1466,0,2,1,16,0,0,41,2134,1,1,733,751
+APP-9L7HP9MON0UYJJJC,National Chengchi University 國立政治大學,Institution's own system,1456,1445,0,1,0,10,4,0,44,2794,0,1,729,727
+APP-EWFK7AL9I24T7WCG,Alma Mater Studiorum Università di Bologna - IRIS,Institution's own system,1416,1396,0,1,0,18,1,1,6,4189,1,0,622,794
+APP-6CS2P9ZNSCUJAJ8S,University of Portsmouth,Institution's own system,1390,471,463,332,3,124,0,0,3,2381,157,638,679,711
+APP-KP19Z896VNQ9BHJJ,"Institute of High Energy Physics, Chinese Academy of Sciences",Institution's own system,1356,1341,0,0,0,15,2,0,0,1356,0,0,676,680
+APP-QZ1PTTCQZ9SJWCFI,VTT Technical Research Centre of Finland - PURE,Institution's own system,1337,127,978,187,186,45,0,0,0,1337,574,591,606,731
+APP-INCJTS9KAUDIIV4J,University of Reading,Institution's own system,1311,1271,1,1,0,38,0,0,19,1333,2,0,624,687
+APP-17XA2VBWPPOS0VHS,University of East Anglia,Institution's own system,1245,337,0,0,0,906,0,2,4,1249,0,0,1068,177
+0000-0002-8025-6553,UC Viden,Institution's own system,1223,1206,0,0,0,17,6,0,402,4891,0,0,617,606
+APP-LEVFYL1P7YN2E7CV,University of Central Lancashire,Institution's own system,1218,1161,1,0,0,56,0,0,0,1218,1,0,570,648
+APP-DAPY6WMUWFSTMJ3D,Bar-Ilan University,Institution's own system,1215,1196,0,0,0,19,0,0,15,1401,0,0,609,606
+APP-JDVPC3DB3C7LM6Z8,University of Dundee,Institution's own system,1204,886,59,229,113,30,0,0,237,5927,99,189,121,1083
+APP-OFZR6297G4QVO8B6,Technische Universität Dortmund,Institution's own system,1203,739,341,88,4,35,0,0,0,1384,72,357,567,636
+APP-E4OVERHVWC6NXGLU,OBD - UPOL,Institution's own system,1200,1183,0,1,0,16,0,0,2,1206,0,1,285,915
+APP-YPFUGDR4JWBMM8OA,Wageningen University & Research,Institution's own system,1189,1023,15,119,117,32,0,0,0,1189,82,52,541,648
+APP-VGGX96L98UJ77AFO,University of Brighton,Institution's own system,1182,1056,44,61,56,21,0,0,2,1184,41,64,569,613
+APP-G7QN73B3OLI30QKW,Heriot-Watt University,Institution's own system,1172,418,527,6,5,221,0,0,0,1172,5,528,536,636
+APP-523WFRTGOLGFQ6N4,Università degli Studi di Padova - IRIS,Institution's own system,1158,1142,0,0,0,16,0,0,7,4760,0,0,538,620
+APP-1U5UQ75986YPFELY,Universidad Nacional Mayor de San Marcos,Institution's own system,1149,1140,0,0,0,9,0,0,2,1151,0,0,576,573
+APP-LB172RYK365QDA57,KU Leuven,Institution's own system,1129,1101,0,0,0,28,0,0,0,1129,0,0,397,732
+APP-G8CUM5UJEPXHT2QL,London School of Economics & Political Science,Institution's own system,1117,18,2,222,16,874,866,1,1,1152,224,0,242,875
+APP-6BVA0PSNACBJ865A,Hong Kong Baptist University,Institution's own system,1116,769,125,189,100,32,0,1,2,1862,80,234,536,580
+APP-NB3VM4RRUMJ64MDP,CIRAD,Institution's own system,1107,1091,1,0,0,15,0,0,0,1107,0,1,458,649
+APP-NM9L886HQAY7JYN8,La Universidad de Córdoba,Institution's own system,1099,1078,0,0,0,20,0,1,0,1099,0,0,551,548
+APP-1W8EIKFCD34IRHEL,myPublications at the University of Sheffield,Institution's own system,1099,1080,0,0,0,19,0,0,0,1099,0,0,516,583
+APP-WDD49RJYT8SR8WV0,University of Plymouth - Pure,Institution's own system,1075,927,60,69,58,18,0,1,0,1077,55,74,368,707
+0000-0003-3238-1373,Fred Hutchinson Cancer Research Center,Institution's own system,1073,1060,0,0,0,10,0,3,0,1073,0,0,538,535
+APP-IMGDDA7413OGNW7U,TU Graz,Institution's own system,1045,804,22,114,110,105,0,0,0,1045,45,91,449,596
+APP-L1679EFH65VELYNI,RWTH Aachen University,Institution's own system,1036,1018,0,0,0,18,0,0,0,1036,0,0,464,572
+0000-0002-7223-7870,Roskilde University,Institution's own system,1024,963,4,49,37,8,0,0,4,4123,22,31,474,550
+APP-2HKP4XS4POODO2F7,University of Michigan Symplectic Elements,Institution's own system,1009,990,0,0,0,19,0,0,2,1011,0,0,467,542
+APP-8N6G3WMDE6WYIY1L,Università degli Studi di Milano - IRIS,Institution's own system,997,981,0,1,1,15,0,0,6,2234,1,0,434,563
+APP-5GJA4VOIG60HFOXM,Teesside University,Institution's own system,988,857,34,76,73,21,0,0,0,988,62,48,466,522
+APP-OTFHR5RZD4J8WZ6L,Åbo Akademi University,Institution's own system,975,770,100,90,80,15,0,0,0,975,95,95,404,571
+APP-6MQXXONU3Y3KRU8L,University of Salford,Institution's own system,951,927,0,0,0,24,0,0,0,951,0,0,478,473
+0000-0002-1424-8213,Universidad Carlos III de Madrid,Institution's own system,944,931,0,0,0,10,0,3,0,944,0,0,464,480
+APP-EZVUZIXRPWAXCZ2D,La Universidad de Jaén,Institution's own system,942,924,0,0,0,18,0,0,0,942,0,0,471,471
+APP-CWOSV5DXROCY1Q2H,Neuromatch Academy Portal,Institution's own system,941,934,0,0,0,7,0,0,10,1246,0,0,218,723
+APP-SJIOVMQ3CZYNQFX1,Politecnico di Torino - IRIS,Institution's own system,929,921,0,0,0,8,0,0,4,3029,0,0,418,511
+APP-SCITQWZFVBF07JXF,University of Pardubice,Institution's own system,915,911,0,0,0,4,0,0,117,1120,0,0,456,459
+APP-T90XAAYCONKDZGWM,University of Northampton,Institution's own system,897,732,57,67,58,41,0,0,0,897,86,38,430,467
+APP-GX6WGJ3QQCLR6LAR,Ariel University - TRP,Institution's own system,895,877,0,4,0,14,0,0,6,904,4,0,445,450
+APP-M286K6K8A2PT5DCR,University of Haifa,Institution's own system,878,868,0,2,0,8,0,0,68,1003,1,1,434,444
+APP-UQGBOU36BX1G2IGX,Universitat Autònoma de Barcelona,Institution's own system,876,36,1,0,0,839,0,0,0,876,1,0,856,20
+0000-0002-8039-4593,Universidad de Cádiz,Institution's own system,868,851,0,0,0,17,0,0,0,868,0,0,436,432
+APP-ETJSG3URM6R9C0SM,Duke University Elements,Institution's own system,862,840,0,0,0,22,0,0,0,862,0,0,409,453
+APP-CT2LCC4KZVAGLBYF,Massey University,Institution's own system,855,837,0,0,0,18,0,0,0,857,0,0,427,428
+APP-YBUMD2PV70ZKQHLY,University of Aberdeen - PURE,Institution's own system,827,525,87,18,18,197,0,0,0,827,82,23,260,567
+APP-9PAC44YVW64SN0CK,Perfiles y Capacidades de la Javeriana - Pure,Institution's own system,814,495,52,263,63,4,0,0,0,2109,281,34,287,527
+APP-F5NLT5A6IJWDRMNV,University of Hertfordshire,Institution's own system,805,748,10,7,7,40,0,0,0,805,6,11,356,449
+APP-W00O62HLR0RS4TTC,UGA Elements,Institution's own system,803,791,0,0,0,12,0,0,0,803,0,0,374,429
+APP-CCDX8SHFTBL5W0CV,Symplectic Elements at University of Leeds,Institution's own system,785,759,2,0,0,24,0,0,0,785,0,2,297,488
+APP-YINSD0G882XTZLHB,Charles University - IS Věda,Institution's own system,781,766,0,2,2,13,0,0,0,781,0,2,0,781
+APP-BG4XZFRKQQECY5RF,Griffith University,Institution's own system,770,740,0,0,0,30,0,0,0,770,0,0,350,420
+APP-CEAUY3O6IBKPMCQ0,University of Greenwich,Institution's own system,761,742,0,0,0,19,0,0,0,761,0,0,347,414
+APP-AGS2EIUKOCSSMZ0A,Edge Hill University,Institution's own system,729,459,20,219,63,31,0,0,0,779,115,124,328,401
+APP-BD2SOE916THQLEF5,Università di Pisa - IRIS,Institution's own system,726,723,0,0,0,3,0,0,8,2575,0,0,325,401
+APP-RIVW66MQF71WEMXG,Birmingham City University: Pure to ORCID Integration,Institution's own system,724,296,5,44,44,379,0,0,0,724,1,48,300,424
+APP-YI7J3CD217HOTT7K,Manchester Metropolitan University,Institution's own system,719,706,0,0,0,13,0,0,0,719,0,0,329,390
+APP-MVAVUF92RK1B5YMI,Ifremer,Institution's own system,717,704,0,1,0,12,0,0,40,776,1,0,354,363
+APP-ZBZQB726MVBHXFD3,University of Edinburgh - PURE,Institution's own system,714,702,0,0,0,12,0,0,3,717,0,0,348,366
+APP-11OP2B5GJEHAY2J7,Aberystwyth University,Institution's own system,713,700,0,0,0,13,0,0,0,713,0,0,358,355
+APP-LOHU2Y62BVH8JI6U,WU-FIS-Portal,Institution's own system,710,567,46,75,70,22,0,0,0,710,40,81,289,421
+0000-0003-0729-2045,University of Hong Kong,Institution's own system,706,697,0,0,0,9,2,0,0,832,0,0,346,360
+APP-EJGLA2YA0THTYIKZ,Southern Cross University,Institution's own system,684,653,0,5,2,26,0,0,49,920,1,4,320,364
+APP-YO96LF5F6WNPYBHU,University of Namur,Institution's own system,683,213,333,118,104,19,0,0,4,689,84,367,296,387
+APP-NZJ8J43KJL15NZOV,"Universidade Estadual Paulista ""Júlio de Mesquita Filho""",Institution's own system,678,674,0,0,0,4,0,0,0,682,0,0,339,339
+APP-LFZVN25CLQLE57G6,La Universidad Pablo de Olavide,Institution's own system,671,646,0,0,0,25,0,0,0,671,0,0,340,331
+APP-HIV5RZ5COCEOPN2A,University of Otago,Institution's own system,661,653,0,0,0,8,0,0,0,661,0,0,314,347
+APP-DQRZG8G1TAQHFQI6,University of Sussex - Elements,Institution's own system,654,641,0,0,0,13,0,0,0,654,0,0,305,349
+APP-G5VGAF9CJICGA2CP,Florida International University - Symplectic  Elements,Institution's own system,642,629,0,0,0,13,0,0,1,643,0,0,290,352
+APP-QHSUZPS3QB65R12B,Politecnico di Milano - IRIS,Institution's own system,641,628,0,0,0,13,0,0,5,3276,0,0,295,346
+APP-AKH2J4E6UHXMUNWB,Boston College,Institution's own system,634,629,0,0,0,5,0,0,0,634,0,0,318,316
+APP-PPR7HU92F0XL4MMV,University of Lapland,Institution's own system,611,407,156,39,30,9,0,0,0,611,36,159,244,367
+APP-AB49SS7BYI77NZEB,The Education University of Hong Kong,Institution's own system,601,579,5,0,0,17,0,0,0,601,3,2,303,298
+APP-MQN14GFHCFOVE6YM,AIT Publication Database,Institution's own system,596,35,215,31,30,315,0,0,0,596,238,8,245,351
+APP-C2U70RXWYG8CE4TB,The New Zealand Institute for Plant & Food Research,Institution's own system,594,586,0,0,0,8,0,0,2,598,0,0,296,298
+APP-A2MHMQNKG9OQFDHH,University of Newcastle,Institution's own system,572,554,1,0,0,17,0,0,0,572,1,0,260,312
+APP-Y1M2AAUOJFEU5749,London School of Hygiene and Tropical Medicine,Institution's own system,572,562,1,0,0,9,0,0,0,572,0,1,267,305
+APP-QISXN799H62XD6V7,Capital Region of Denmark,Institution's own system,562,230,289,35,29,8,0,0,4,566,14,310,241,321
+APP-4XWLCD444P2PJ7OF,Università degli Studi di Siena - IRIS,Institution's own system,561,555,0,0,0,6,1,0,2,1250,0,0,254,307
+APP-90O1CCO1OPR92JYC,TU Dublin - PURE,Institution's own system,559,499,32,15,15,13,0,0,0,559,4,43,200,359
+APP-4F581CO5Z816BSBL,Università degli Studi di Palermo - IRIS,Institution's own system,559,556,0,0,0,3,0,0,3,1771,0,0,252,307
+APP-8BIDHBZD5FVHQ4C8,La Universidad de Huelva,Institution's own system,556,543,0,0,0,12,0,1,0,556,0,0,277,279
+APP-XD4HEVMYY46KEW3W,Brandeis University - ScholarWorks,Institution's own system,553,540,0,1,0,12,0,0,12,579,0,1,279,274
+APP-PYUX6QDIF4T1S72I,"University of Economics, Prague - Publications Repository",Institution's own system,552,544,0,0,0,8,1,0,4,567,0,0,277,275
+APP-WGX8A7BCBT12K16O,University of Roehampton - PURE,Institution's own system,546,512,2,0,0,32,0,0,0,546,2,0,271,275
+APP-CKV92M0O9MPKINNV,Università degli Studi di Napoli Federico II,Institution's own system,534,307,86,131,1,10,0,0,57,23210,217,0,228,306
+APP-10NW61JYS1EBGODK,Smithsonian Institution,Institution's own system,531,514,0,0,0,17,0,0,0,531,0,0,264,267
+APP-WXEHLYUVE9HRTZ73,UC Viden - VIA University College,Institution's own system,529,327,145,13,13,44,0,0,0,529,16,142,242,287
+APP-OI660V7YVLYDUWDV,University of Huddersfield - PURE,Institution's own system,528,10,0,0,0,517,0,1,0,528,0,0,521,7
+APP-6FSTTCWOI90XRH3L,Montanuniversität Leoben,Institution's own system,505,99,175,17,12,214,199,0,0,505,1,191,214,291
+APP-960EPY2F4TK0VIXA,University of Wollongong Elements,Institution's own system,500,485,0,0,0,15,1,0,2,502,0,0,238,262

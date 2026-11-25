@@ -374,7 +374,7 @@ details.sql .note { color: var(--muted); }
   </div>
 
   <div class="panel" id="panel-blog" role="tabpanel" aria-labelledby="tab-blog" hidden>
-    <nav class="postnav" aria-label="Posts"><a href="#blog-nsw" data-post="blogNsw">NSW universities and their research network</a><a href="#blog" data-post="blogText">Thirty million researchers: the 2026 release</a></nav>
+    <nav class="postnav" aria-label="Posts"><a href="#blog-aff" data-post="blogAff">Where researchers work: what institutions tell ORCID</a><a href="#blog-nsw" data-post="blogNsw">NSW universities and their research network</a><a href="#blog" data-post="blogText">Thirty million researchers: the 2026 release</a></nav>
     <article class="post" id="blogText">
       <div class="eyebrow">ORCID Public Data File 2026</div>
       <h1>Thirty million researchers, and who writes their records</h1>
@@ -490,6 +490,68 @@ WHERE REGEXP_CONTAINS(LOWER(u.url), r'bsky\.(app|social)')</code></pre>
       </ul>
       <p>The ORCID Public Data File is released by ORCID under CC0.</p>
     </article>
+    <article class="post" id="blogAff" hidden>
+      <div class="eyebrow">ORCID Public Data Files 2024–2026 · Follow-up</div>
+      <h1>Where researchers work: what institutions tell ORCID without saying it</h1>
+      <p class="lede">Almost every affiliation in ORCID is typed by the researcher. Institutions write few, and many of those lack dates. But every work, grant or identifier an institution's system sends also says "this researcher is ours, as of today". Counting those gives far more links, each with a date.</p>
+      <div class="stats" id="affStats"></div>
+
+      <p>This follow-up looks at the six affiliation sections of an ORCID record (employment, education, qualifications, invited positions, memberships and service) in the 2024, 2025 and 2026 public data files. It asks who writes them, whether entries written by institutions last, and what the rest of a record says about where someone works.</p>
+
+      <h2>1. Researchers type 98% of affiliations</h2>
+      <p>The 2026 file holds 30.9 million affiliation entries, up from 19.4 million in 2024. Researchers entered 98.4% of them. Institutions' own research systems wrote 419k, and the ORCID Member Portal, where an institution adds affiliations by hand or in bulk, another 50k. Institutions are writing more each year, but researchers are adding entries faster, so the institutional share is falling.</p>
+      <p>The institution is the most trusted source for "this person works here", yet its entries carry the least detail. Fewer than two in five employment entries from institutions' own systems have a start date or a role, against seven in ten of researchers' own.</p>
+      <div class="table-wrap"><table id="tAffSrc"></table></div>
+      <!--SQL:aff/sql/aff_2026.sql,aff/sql/aff_by_source.sql-->
+
+      <h2>2. Most institutional entries stay put. Some systems recreate theirs in waves.</h2>
+      <p>ORCID publishes no ID for each entry, so we follow each researcher–organisation pair from one file to the next and use the entries' created times to tell whether the same entry survived. Each year, about 83 in 100 employment pairs from institutions' systems keep their entry, about 11 are deleted and written again, and about 5 disappear. Researchers' and Member Portal entries almost never change this way.</p>
+      <figure class="chart">
+        <div class="legend" id="lgAffFate"></div>
+        <div class="canvas-wrap" style="height:220px"><canvas id="cAffFate" role="img" aria-label="What happens to employment pairs from one yearly file to the next, by who wrote them"></canvas></div>
+        <figcaption>Employment pairs (researcher, source, organisation) in the 2024 and 2025 files, and their state one file later. Both transitions combined.</figcaption>
+      </figure>
+      <p>Of the 132 institutional systems with at least 1,000 pairs, 80 keep almost everything: Oxford, HKUST, KTH, UCL and many others keep 97–99%. 45 recreate many of their entries, but nearly always in a single year rather than continuously. QUT recreated 96% of its pairs in 2025–26 after 17% the year before; St Andrews 92% in 2024–25 and 13% since. Only three systems recreated heavily in both years. That looks like migrations and full re-syncs, not ordinary behaviour.</p>
+      <p>Recreation is not always a loss. Half of the recreated pairs changed something, and 65% of those gained an end date: the system closed a position by deleting the entry and writing a new one. The cost is that the new entry's created date is recent, so anything tracking the original entry loses it. Seven systems remove entries outright, so the record no longer shows the person ever worked there. At some, such as LSE, the researcher still has an entry from the same system under a renamed employer.</p>
+      <!--SQL:aff/sql/aff_detail.sql,aff/sql/aff_pair_fate.sql,aff/sql/aff_pair_fate_by_system.sql,aff/sql/aff_recreated_changes.sql-->
+
+      <h2>3. Every item is an affiliation</h2>
+      <p>An institution's research system writes far more than employment entries: works, grants, links to staff pages, local identifiers. Each one is an assertion that the researcher belongs to that institution, made on a known date. We collected every item written by 745 institutional systems across all three files: 14.6 million works in the 2026 file alone, plus employment and education entries, grants, URLs, identifiers and more.</p>
+      <p>That gives 459k researcher–institution links in 2026 from the 654 systems we can tie to an organisation. The system wrote an affiliation for 318k of them. The other 141k, 44% more, are visible only through other items. For 72k of those, the researcher entered the institution themselves. For 39.5k, it is the only institution we can see: their records have no employment at all.</p>
+      <figure class="chart">
+        <div class="canvas-wrap" style="height:260px"><canvas id="cAffLinks" role="img" aria-label="Researcher–institution links in the 2026 file, by what else the record says about the link"></canvas></div>
+        <figcaption>Links between a researcher and an institution's system, 2026 file. A researcher's own entry counts if it names the organisation by any of its IDs (ROR, Ringgold, GRID, Crossref Funder) or common names.</figcaption>
+      </figure>
+      <!--SQL:aff/sql/inst_items.sql,aff/sql/inst_pairs.sql,aff/sql/inst_org_map.sql,aff/sql/inst_org_keys.sql,aff/sql/inst_coverage.sql-->
+
+      <h2>4. first_seen and last_seen: a date for every link</h2>
+      <p>Each item carries the date the system created it. For each link we call the earliest of these <code>first_seen</code> and the latest <code>last_seen</code>. Every link has both, to the day. Researchers with works and an employment entry from the same system were seen in a median of six different months.</p>
+      <p>Where an institution did write explicit dates, the derived ones mostly agree. <code>last_seen</code> falls within a year of the stated end date for 55% of 40k ended entries; for 38% the system kept sending items for more than a year after the end, often papers published after the person left. <code>first_seen</code> falls within a year of the stated start for 49%, counting only starts after the system began writing to ORCID. A system that connects loads its back catalogue at once, so <code>first_seen</code> cannot be earlier than its go-live date.</p>
+      <!--SQL:aff/sql/inst_dates_check.sql-->
+
+      <h2>5. last_seen is an early warning that someone has left</h2>
+      <p>126k employment entries written by institutions have no end date, so they say the person is there now. 17% of them have not been seen for two years, and 9% for five. Are those people still there?</p>
+      <p>We took the open entries in the 2024 file and checked them in 2026. Among systems that still maintain their entries, the longer since <code>last_seen</code> in 2024, the more likely the entry had been ended or removed by 2026: 22% for links seen in the year before, 37% for one to two years, and 57% for two to five years. Links last seen more than five years earlier rarely changed, which fits honorary and emeritus staff, or researchers the system no longer syncs. Systems that never end or remove entries ended almost none, so there <code>last_seen</code> is the only sign that someone has moved on.</p>
+      <figure class="chart">
+        <div class="legend" id="lgAffWarn"></div>
+        <div class="canvas-wrap" style="height:240px"><canvas id="cAffWarn" role="img" aria-label="Open institutional employment entries in the 2024 file and their state in 2026, by how long since last_seen"></canvas></div>
+        <figcaption>Open employment entries from institutions' systems in the 2024 file, at systems that still wrote works in the last year and ended or removed at least 5% of their entries. State in the 2026 file. last_seen is measured on the 2024 file, from items other than affiliations.</figcaption>
+      </figure>
+      <div class="table-wrap"><table id="tAffWarn"></table></div>
+      <!--SQL:aff/sql/inst_early_warning.sql-->
+
+      <h2>What this means</h2>
+      <p>For anyone using ORCID to say where researchers work: affiliations alone miss a third of the links institutions make, and most institutional entries have no dates. Counting every item a system writes fills in many of the gaps, and <code>last_seen</code> shows how fresh each link is. For institutions: write start and end dates, and edit entries rather than deleting and recreating them, so the history stays intact.</p>
+
+      <h2>Method and caveats</h2>
+      <ul>
+        <li>Public data only, so every count is a lower bound. A deleted entry and one made private look the same, so "removed" is an upper bound. Queries, scripts and aggregate outputs are in <a href="https://github.com/sjcporter/orcid-2026-changes/tree/main/aff" target="_blank" rel="noopener">aff/ in the repository</a>. The pair tables hold individual iDs and are not published.</li>
+        <li>Institutional systems are classified by name, reusing the classification from the first post. Systems whose researchers rarely name the institution (data services, for example) are left out of sections 3–5.</li>
+        <li>A pair is matched on the organisation name, so a new position at the same place counts as "recreated, changed", and a renamed employer as removed. With yearly files, an entry recreated twice in a year looks the same as one recreated once.</li>
+        <li><code>last_seen</code> moves forward when a system recreates its entries or sends a paper published after someone left, so it is better read as "still active" than as a leaving date. One system had written about 97 copies of each entry before cleaning up, which is why we count pairs, not entries.</li>
+      </ul>
+      <p>The ORCID Public Data File is released by ORCID under CC0.</p>
+    </article>
   </div>
 
   <div class="panel" id="panel-prompts" role="tabpanel" aria-labelledby="tab-prompts" hidden>
@@ -578,6 +640,15 @@ table("tNswAff", [["University"], ["Works automated", "n"], ["Employer written b
     `<div class="bar-track"><div class="bar-fill" style="width:${(100 * r[6] / r[1]).toFixed(1)}%"></div></div>`, via(r)]));
 document.querySelectorAll("#tNswAff td:nth-child(4)").forEach(td => td.classList.add("bar"));
 
+// Affiliations post: stats, tables.
+const AF = D.aff, pc = (a, b) => (100 * a / b).toFixed(0) + "%";
+document.getElementById("affStats").innerHTML = D.aff_stats.map(s => `<div class="stat"><b>${s[0]}</b><span>${s[1]}</span><em>${s[2]}</em></div>`).join("");
+table("tAffSrc", [["Employment entries, 2026 file"], ["Entries", "n"], ["Start date", "n"], ["End date", "n"], ["Role", "n"], ["Org ID", "n"]],
+  AF.src.map(r => [r[0], k(r[1]), Math.round(r[2]) + "%", Math.round(r[3]) + "%", Math.round(r[4]) + "%", Math.round(r[5]) + "%"]));
+const warnRow = r => [r[1], fmt(r[2]), pc(r[3], r[2]), pc(r[4], r[2]), pc(r[5], r[2])];
+table("tAffWarn", [["Open entry in the 2024 file"], ["Entries", "n"], ["Still open 2026", "n"], ["Ended", "n"], ["Removed", "n"]],
+  [...AF.warn.filter(r => r[0]).map(warnRow), ["<i>Systems that don't maintain entries</i>", "", "", "", ""], ...AF.warn.filter(r => !r[0]).map(warnRow)]);
+
 let charts = [];
 function draw() {
   charts.forEach(c => c.destroy()); charts = [];
@@ -636,6 +707,22 @@ function draw() {
     data: { labels: N.credit.map(r => r[0]), datasets: [{ label: "New links", data: N.credit.map(r => r[1]), backgroundColor: N.credit.map(r => r[0] === "Sydney" ? css("--hi") : acc2) }] },
     options: hopts(v => k(v), c => { const r = N.credit[c.dataIndex]; return `${fmt(r[1])} new links, ${fmt(r[2])} to other NSW universities`; }) }));
 
+  // Affiliations post charts.
+  const pctStack = (id, legendId, labels, series, rows) => {
+    document.getElementById(legendId).innerHTML = series.map(m => `<span><i style="background:${m[1]}"></i>${m[0]}</span>`).join("");
+    charts.push(new Chart(document.getElementById(id), { type: "bar",
+      data: { labels, datasets: series.map((m, i) => ({ label: m[0], data: rows.map(r => { const t = r.reduce((a, b) => a + b, 0); return +(100 * r[i] / t).toFixed(1); }), backgroundColor: m[1] })) },
+      options: { ...base, indexAxis: "y", plugins: { ...base.plugins, tooltip: { callbacks: { label: c => `${c.dataset.label}: ${c.raw}%` } } },
+        scales: { x: { stacked: true, max: 100, grid: { color: rule }, ticks: { callback: v => v + "%" } }, y: { stacked: true, grid: { display: false }, ticks: { color: ink } } } } }));
+  };
+  const fateCols = [acc, fade(acc, .45), css("--c-crossref"), css("--warn"), css("--c-other")];
+  pctStack("cAffFate", "lgAffFate", AF.fate.map(r => r[0]), AF.fates.map((f, i) => [f[0].toUpperCase() + f.slice(1), fateCols[i]]), AF.fate.map(r => r.slice(1)));
+  const mw = AF.warn.filter(r => r[0]);
+  pctStack("cAffWarn", "lgAffWarn", mw.map(r => r[1]), [["Still open", acc], ["Ended", css("--c-crossref")], ["Removed", css("--warn")]], mw.map(r => r.slice(3)));
+  charts.push(new Chart(document.getElementById("cAffLinks"), { type: "bar",
+    data: { labels: AF.links.map(r => r[0][0].toUpperCase() + r[0].slice(1)), datasets: [{ label: "Links", data: AF.links.map(r => r[1]), backgroundColor: AF.links.map((r, i) => i ? (i === 4 ? css("--hi") : acc) : acc2) }] },
+    options: hopts(v => k(v), c => `${fmt(c.raw)} links`) }));
+
   const cls = D.classes.filter(r => r[1] + r[2] > 1000);
   hbar("cClasses", cls.map(r => r[0]), cls.map(r => r[1]), cls.map(r => r[2]), "Oct 2024–Oct 2025", "Oct 2025–Oct 2026");
   const ic = D.inst_countries.slice(0, 12);
@@ -649,7 +736,7 @@ if (window.Chart) {
 } else {
   document.querySelectorAll(".canvas-wrap").forEach(w => { w.style.height = "auto"; w.innerHTML = '<p class="notes">The chart library did not load. The tables on this page carry the same figures.</p>'; });
 }
-// Tabs: #blog and #blog-nsw open a post, #prompts and #prompts-nsw a prompt history; any other hash (a dashboard section) opens the dashboard and scrolls to it.
+// Tabs: #blog, #blog-nsw and #blog-aff open a post, #prompts and #prompts-nsw a prompt history; any other hash (a dashboard section) opens the dashboard and scrolls to it.
 const tabs = [...document.querySelectorAll('[role="tab"]')];
 function show(id, focus) {
   tabs.forEach(t => { const on = t.id === id; t.setAttribute("aria-selected", on); t.tabIndex = on ? 0 : -1;
@@ -659,7 +746,7 @@ tabs.forEach((t, i) => {
   t.addEventListener("click", () => {
     if (t.id === "tab-prompts") showSess(sess);
     show(t.id);
-    history.replaceState(null, "", t.id === "tab-blog" ? "#" + (post === "blogNsw" ? "blog-nsw" : "blog") : t.id === "tab-prompts" ? (sess === "nsw" ? "#prompts-nsw" : "#prompts") : "#");
+    history.replaceState(null, "", t.id === "tab-blog" ? "#" + (post === "blogNsw" ? "blog-nsw" : post === "blogAff" ? "blog-aff" : "blog") : t.id === "tab-prompts" ? (sess === "nsw" ? "#prompts-nsw" : "#prompts") : "#");
     scrollTo(0, 0); });
   t.addEventListener("keydown", e => { const d = e.key === "ArrowRight" ? 1 : e.key === "ArrowLeft" ? -1 : 0; if (d) tabs[(i + d + tabs.length) % tabs.length].click(), tabs[(i + d + tabs.length) % tabs.length].focus(); });
 });
@@ -723,7 +810,7 @@ document.getElementById("prOnly").addEventListener("click", e => {
 function route() {
   const h = location.hash.slice(1);
   if (h === "prompts" || h === "prompts-nsw") { showSess(h === "prompts" ? "release" : "nsw"); return scrollTo(0, 0); }
-  if (h === "blog" || h === "blog-nsw") { showPost(h === "blog" ? "blogText" : "blogNsw"); return scrollTo(0, 0); }
+  if (h === "blog" || h === "blog-nsw" || h === "blog-aff") { showPost({ "blog": "blogText", "blog-nsw": "blogNsw", "blog-aff": "blogAff" }[h]); return scrollTo(0, 0); }
   show("tab-dash");
   const el = h && document.getElementById(h);
   if (el) requestAnimationFrame(() => el.scrollIntoView());
