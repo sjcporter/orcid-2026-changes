@@ -495,12 +495,12 @@ WHERE REGEXP_CONTAINS(LOWER(u.url), r'bsky\.(app|social)')</code></pre>
     <article class="post" id="blogAff" hidden>
       <div class="eyebrow">ORCID Public Data Files 2024–2026 · Follow-up</div>
       <h1>How could ORCID be used more effectively in affiliations matching?</h1>
-      <p class="lede">Turning an affiliation string such as "department of physics, university of central florida, orlando" into an organisation ID is one of the oldest problems in research metadata. The text alone often fits dozens of organisations. ORCID records say where many researchers work, but that information is thin and rarely used for matching. We tested three ways to use it better: as the decider when text can't choose, as a source of the many ways each organisation is written, and by reading every item an institution sends to ORCID as a dated affiliation.</p>
+      <p class="lede">Turning an affiliation string into an organisation ID is one of the oldest problems in research metadata. Some strings are easy. Many are not: "department of surgery, royal melbourne hospital, the university of melbourne" names two organisations, and "laboratoire de physique des solides, umr 8502 cnrs, université paris-sud, université paris-saclay" names four. The text alone cannot say which one the author meant. ORCID records say where many researchers work, but that information is thin and rarely used for matching. We tested three ways to use it better: as the decider when text can't choose, as a source of the many ways each organisation is written, and by reading every item an institution sends to ORCID as a dated affiliation.</p>
       <div class="stats" id="affStats"></div>
 
       <h2>1. Text alone rarely settles a match</h2>
-      <p>We took affiliation strings from papers and, for each, every organisation in the <a href="https://ror.org" target="_blank" rel="noopener">ROR registry</a> that the text plausibly fits: a distinctive word from one of its names or acronyms appears in the string, and the string doesn't name a different country. Common words such as "university" or "hospital" don't count. A typical string still fits about 120 organisations. "Department of physics, university of central florida, orlando, usa" also fits every Orlando hospital, and "massey university, new zealand" fits a New Zealand company with "massey" in its name.</p>
-      <p>Scoring candidates by how many of their words match helps only so far. For almost half the strings, several candidates tie at the top, and text cannot choose. Where one candidate does score highest, it is right about half the time. Of all strings with any text candidate, text alone gets about one in five right.</p>
+      <p>We took affiliation strings from papers and, for each, every organisation in the <a href="https://ror.org" target="_blank" rel="noopener">ROR registry</a> that the text plausibly fits: a distinctive word from one of its names or acronyms appears in the string, and the string doesn't name a different country. Common words such as "university" or "hospital" don't count. By this simple test a typical string fits about 120 organisations. Most are easy to rule out by eye, but not by rule: "department of physics, university of central florida, orlando, usa" also matches every Orlando hospital through "orlando", and "massey university, new zealand" matches a New Zealand company with "massey" in its name.</p>
+      <p>Scoring candidates by how many of their words match helps only so far. For almost half the strings, several candidates tie at the top, and text cannot choose. Where one candidate does score highest, it is right about half the time. Of all strings with any text candidate, text alone matches about one in five correctly.</p>
       <!--SQL:aff/sql/xr_ror_map.sql,aff/sql/xr_text.sql-->
 
       <h2>2. ORCID as the decider</h2>
@@ -509,9 +509,9 @@ WHERE REGEXP_CONTAINS(LOWER(u.url), r'bsky\.(app|social)')</code></pre>
       <figure class="chart">
         <div class="legend" id="lgAffMatch"></div>
         <div class="canvas-wrap" style="height:170px"><canvas id="cAffMatch" role="img" aria-label="Share of affiliation strings matched to the right organisation, text alone against text with ORCID as the decider"></canvas></div>
-        <figcaption>Author–string instances where the text finds at least one candidate organisation. Right = the same ROR ID as Dimensions' resolution.</figcaption>
+        <figcaption>Author–string instances where the text finds at least one candidate organisation. Correct = the same ROR ID as Dimensions' resolution.</figcaption>
       </figure>
-      <p>ORCID decides for 40–49% of instances, and when it does it is right 82–91% of the time. That holds whether text tied or had a favourite. When text and ORCID disagree, ORCID is right in 72–79% of cases. Using ORCID where it can decide and text otherwise lifts the share of strings matched right from about one in five to one in two. The surname-only run does only a few points worse than the best case, so this needs nothing more than public ORCID and Crossref data.</p>
+      <p>ORCID decides for 40–49% of instances, and when it does it is right 82–91% of the time. That holds whether text tied or had a favourite. When text and ORCID disagree, ORCID is right in 72–79% of cases. Using ORCID where it can decide and text otherwise lifts the share of strings matched correctly from about one in five to one in two. The surname-only run does only a few points worse than the best case, so this needs nothing more than public ORCID and Crossref data.</p>
       <div class="table-wrap"><table id="tAffMatch"></table></div>
       <p>The disagreements show where each method goes wrong. Text favours rare words, so it picks the company or the unrelated institute that shares one. ORCID's mistakes are mostly about level: a researcher's record names the university, while the string, and Dimensions, name a hospital, unit or laboratory inside it. Many of those "wrong" picks are defensible.</p>
       <div class="table-wrap"><table id="tAffEx"></table></div>
@@ -558,7 +558,7 @@ WHERE REGEXP_CONTAINS(LOWER(u.url), r'bsky\.(app|social)')</code></pre>
 
       <h2>What this means</h2>
       <ul>
-        <li><b>For anyone matching affiliations:</b> use the organisations on an author's ORCID record, limited to those whose dates cover the paper, to break ties that text can't. It more than doubles the share of strings matched right, and it works on open data. When ORCID names a parent and the string names a unit inside it, keep the unit.</li>
+        <li><b>For anyone matching affiliations:</b> use the organisations on an author's ORCID record, limited to those whose dates cover the paper, to break ties that text can't. It more than doubles the share of strings matched correctly, and it works on open data. When ORCID names a parent and the string names a unit inside it, keep the unit.</li>
         <li><b>For building matching dictionaries:</b> ORCID-linked strings, filtered by text, give millions of variants with about 85–90% precision, many for organisations a reference system has never seen written that way.</li>
         <li><b>For using ORCID's signal fully:</b> treat every item an institution writes as a dated affiliation, with <code>first_seen</code> and <code>last_seen</code>. That adds 44% more links and gives each one dates.</li>
         <li><b>For institutions:</b> write ROR IDs with start and end dates on employment entries, and edit entries rather than deleting and recreating them. Each of those makes the decider work for more of your researchers' papers.</li>
@@ -759,7 +759,7 @@ function draw() {
   charts.push(new Chart(document.getElementById("cAffMatch"), { type: "bar",
     data: { labels: AM.runs.map(r => r[0]), datasets: [{ label: "Text alone", data: AM.runs.map(r => +r[1].text_right.toFixed(1)), backgroundColor: acc2 },
       { label: "Text, with ORCID as the decider", data: AM.runs.map(r => +r[1].both_right.toFixed(1)), backgroundColor: acc }] },
-    options: { ...hopts(v => v + "%", c => `${c.dataset.label}: ${c.raw}% right`), scales: { ...hopts(v => v + "%").scales, x: { ...hopts(v => v + "%").scales.x, max: 100 } } } }));
+    options: { ...hopts(v => v + "%", c => `${c.dataset.label}: ${c.raw}% correct`), scales: { ...hopts(v => v + "%").scales, x: { ...hopts(v => v + "%").scales.x, max: 100 } } } }));
   document.getElementById("lgAffMatch").innerHTML = [["Text alone", acc2], ["Text, with ORCID as the decider", acc]].map(([l, c]) => `<span><i style="background:${c}"></i>${l}</span>`).join("");
   charts.push(new Chart(document.getElementById("cAffLinks"), { type: "bar",
     data: { labels: AF.links.map(r => r[0][0].toUpperCase() + r[0].slice(1)), datasets: [{ label: "Links", data: AF.links.map(r => r[1]), backgroundColor: AF.links.map((r, i) => i ? (i === 4 ? css("--hi") : acc) : acc2) }] },

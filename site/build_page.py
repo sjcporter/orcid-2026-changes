@@ -137,8 +137,8 @@ D["aff_match"] = {
     "dict": [[RUN[r["run"]], r["rule"], int(r["variants"]), 100 * float(r["precision"]), 100 * float(r["precision_related"])]
              for r in aff_rows("xr_eval_summary.csv") if r["signal"] == "emp"],
 }
-D["aff_stats"] = [["1 in 5", "affiliation strings matched right by text alone", "where text finds any candidate"],
-                  ["1 in 2", "matched right with ORCID as the decider", "ORCID's pick is right 82–91% of the time"],
+D["aff_stats"] = [["1 in 5", "affiliation strings matched correctly by text alone", "where text finds any candidate"],
+                  ["1 in 2", "matched correctly with ORCID as the decider", "ORCID's pick is correct 82–91% of the time"],
                   ["14.2M", "ways of writing 53k organisations", "collected through ORCID records"],
                   ["+44%", "researcher–institution links", "when every item an institution writes counts"]]
 # Prompt history behind the dashboard and both posts (exported from the Claude Code session, private links removed).
