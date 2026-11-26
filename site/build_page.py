@@ -130,9 +130,9 @@ def decider(f):
                        100 * num(r, "orcid_decides"), 100 * num(r, "orcid_acc"), 100 * num(r, "orcid_right_when_disagree") if r["orcid_right_when_disagree"] else None]
                       for r in cand],
             "instances": n, "text_right": 100 * text_right / n, "both_right": 100 * both_right / n}
-RUN = {"dim": "Researchers matched by iD", "cr_orcid": "Crossref, author's iD", "cr_surname": "Crossref, surname only"}
+RUN = {"dim": "Linked through Dimensions", "cr_orcid": "Crossref, author's iD", "cr_surname": "Crossref, surname only"}
 D["aff_match"] = {
-    "runs": [["Researchers matched by iD", decider("xr_decider_summary.csv")], ["Crossref, surname only", decider("xr_decider_cr_summary.csv")]],
+    "runs": [["Linked through Dimensions", decider("xr_decider_summary.csv")], ["Crossref, surname only", decider("xr_decider_cr_summary.csv")]],
     # [run, rule, variants, % exact, % same or related organisation] for employment-based candidates
     "dict": [[RUN[r["run"]], r["rule"], int(r["variants"]), 100 * float(r["precision"]), 100 * float(r["precision_related"])]
              for r in aff_rows("xr_eval_summary.csv") if r["signal"] == "emp"],
