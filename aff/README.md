@@ -1,8 +1,16 @@
-# Affiliations in ORCID, and what institutions tell it without saying it, 2024–2026
+# How could ORCID be used more effectively in affiliations matching?
 
-A follow-up to the 2026 release analysis. It looks at the six affiliation sections of ORCID records (employment, education, qualifications, invited positions, memberships, service) in the 2024, 2025 and 2026 public data files. It asks who writes them, whether entries written by institutions last, and what every other item an institution writes says about where a researcher works.
+A follow-up to the 2026 release analysis. It tests how ORCID records can help match affiliation strings on papers to ROR organisation IDs: as the decider when the text fits several organisations, and as a source of the ways each organisation is written. It then looks at where ORCID's affiliation information comes from: the six affiliation sections (employment, education, qualifications, invited positions, memberships, service) in the 2024, 2025 and 2026 public data files, whether entries written by institutions last, and what every other item an institution writes says about where a researcher works.
 
 ## Findings
+
+### Matching
+
+A. **Text alone rarely settles a match.** A typical affiliation string has about 120 ROR organisations whose distinctive name words it contains. For almost half of strings the best text score is tied; where one organisation scores highest it is right about half the time. Text alone matches about one in five strings right.
+B. **ORCID as the decider.** Take the RORs on the author's ORCID record for the publication year (dated employment and education, plus the institution whose system sent the paper). Where exactly one text candidate is among them, ORCID decides: for 40–49% of instances, right 82–91% of the time, and right 72–79% of the time when it disagrees with the text. Text plus ORCID matches about one in two strings right. This holds for researchers matched by iD through Dimensions and for Crossref authors matched by surname only (`data/xr_decider_summary.csv`, `data/xr_decider_cr_summary.csv`, `data/xr_decider_cr_examples.csv`).
+C. **A dictionary of variants.** Pairing each string with the RORs on the author's record is 60–67% right. Dropping strings the text shows cannot belong lifts that to 80–85%, and keeping the best text match to 85–90% (92–94% counting parent or child organisations). Across runs: 14.2M variants for 53k organisations, 5.3M without a reference in Dimensions (`data/xr_eval_summary.csv`, `data/xr_eval_dim.csv`, `data/xr_variants.csv`).
+
+### Where ORCID's affiliation information comes from
 
 1. **Who writes affiliations.** Researchers entered 98.4% of the 30.9M affiliation entries in the 2026 file. Institutions' own systems wrote 419k, and the ORCID Member Portal 50k. Of employment entries from institutions' systems, 38% have a start date and 36% a role. For researchers' own entries, both figures are 71–72% (`data/aff_by_source.csv`).
 2. **Do institutional entries last?** Each year, about 83% of the employment pairs written by institutions' systems keep their entry, about 11% are deleted and written again, and about 5% disappear (`data/aff_pair_fate_summary.csv`). Systems recreate their entries in one-off waves: of 188 systems, 34 recreated heavily in one year and 3 in both (`data/aff_pair_fate_by_system.csv`). Half of the recreated pairs changed something, and 65% of those gained an end date (`data/aff_recreated_changes.csv`).
@@ -12,6 +20,9 @@ A follow-up to the 2026 release analysis. It looks at the six affiliation sectio
 
 ## Definitions
 
+- **Instance (matching).** One author's affiliation string on one paper. Three runs: `dim` (Dimensions researchers matched one-to-one to an ORCID iD), `cr_orcid` (the Crossref author carries the iD and the surname matches the record), `cr_surname` (the DOI is on the ORCID record, the accent-stripped surname matches, and no other author on the paper shares it). DOIs are lower-cased when comparing systems.
+- **Text candidates.** ROR organisations with a distinctive name word (in at most 300 organisations' names, at least 3 letters, or an acronym) in the string, and no conflict with a country named in the string's last two parts. Score = words matched, plus 0.5 if the city matches (`sql/xr_text.sql`).
+- **Reference.** How Dimensions resolved the same string: for the same author on the same paper (decider runs), or most often across all papers (dictionary runs, `sql/xr_dim_dict.sql`).
 - **Pair (sections 1–2).** One iD, section, source and organisation name (lowercased). Created timestamps show whether the same entry survived ("kept") or was replaced ("recreated"). Dates, role and department show whether a replacement changed anything.
 - **Link (sections 3–5).** One iD and one institutional system. All items count, in every section and in all three files. Member Portal entries count for the institution they were made on behalf of.
 - **Institutional systems.** 745 sources, classified as an institution's own system by name (`scripts/classify_inst_sources.py`, which reuses `scripts/classify_sources.py` at the repository root). The list is in `data/inst_sources.csv`.
@@ -27,12 +38,16 @@ A follow-up to the 2026 release analysis. It looks at the six affiliation sectio
 | `sql/aff_pair_fate*.sql`, `sql/aff_recreated_changes.sql`, `sql/aff_rewrite_age.sql`, `sql/aff_dupes.sql` | Following pairs between files |
 | `scripts/make_sql.py` | Writes `sql/all_sources.sql` and `sql/inst_items.sql`, covering every section of every file |
 | `sql/inst_pairs.sql`, `sql/inst_org_*.sql`, `sql/inst_coverage.sql`, `sql/inst_dates_check.sql`, `sql/inst_early_warning.sql` | Links, first_seen and last_seen, and the checks against explicit dates |
-| `data/` | Query outputs (aggregates only, and the list of institutional systems) |
+| `sql/xr_ror_map.sql`, `sql/xr_orcid.sql`, `sql/xr_dim.sql`, `sql/xr_cr.sql` | Matching: organisation IDs mapped to ROR, the RORs on each ORCID record, and affiliation strings from Dimensions and Crossref |
+| `sql/xr_text.sql`, `sql/xr_score.sql`, `sql/xr_cand.sql`, `sql/xr_eval*.sql`, `sql/xr_dim_dict.sql`, `sql/xr_variants.sql` | The text test and the variant dictionary |
+| `sql/xr_decider*.sql` | ORCID as the decider |
+| `data/` | Query outputs (aggregates only, the list of institutional systems, and example strings) |
 
-The entry, pair and link tables hold individual ORCID iDs, so they are not published here. To rebuild them, save the `CREATE TABLE` queries as tables in your own dataset, replacing `your-project.your_dataset`.
+The entry, pair and link tables hold individual ORCID iDs, so they are not published here. To rebuild them, save the `CREATE TABLE` queries as tables in your own dataset, replacing `your-project.your_dataset`. The matching queries also read the Crossref metadata (`your-project.crossref.metadata`, from a Crossref public data file), the ROR data dump (`your-project.ror.records`) and Dimensions on BigQuery (`dimensions-ai.data_analytics`), which needs a subscription.
 
 ## Caveats
 
+- Matching is checked against Dimensions, so its errors count against every method, and a parent-or-unit choice that differs from Dimensions counts as wrong. Only 38% of surname-only instances have a Dimensions answer for the same author, string and paper. Decider runs use a 2% sample of strings.
 - Public data only, so every count is a lower bound. A deleted entry and one made private look the same, so "removed" is an upper bound.
 - Pairs are matched on organisation name. A new position at the same organisation counts as "recreated, changed", and a renamed employer counts as removed. With yearly files, an entry recreated twice in a year looks the same as one recreated once.
 - `first_seen` can be no earlier than a system's first write to ORCID. `last_seen` moves forward when a system recreates entries or sends papers published after someone left.

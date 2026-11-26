@@ -116,10 +116,31 @@ D["aff"] = {
     "warn": [[r["maintained"] == "true", r["last_seen_2024"][2:].replace("-", "–").capitalize(), int(r["pairs"]), int(r["still_open_2026"]), int(r["ended_by_2026"]),
               int(r["removed_by_2026"])] for r in aff_rows("inst_early_warning.csv")],
 }
-D["aff_stats"] = [["98%", "of affiliation entries typed by researchers", "institutions write 1.4%"],
-                  ["+44%", "researcher–institution links", "when every item an institution writes counts"],
-                  ["39.5k", "researchers placed at an institution", "with no employment on their record"],
-                  ["1 in 6", "open institution entries not seen for 2 years", "21.4k of 126k"]]
+# Affiliation matching: text alone vs ORCID as the decider, for two ways of linking a paper's author to an ORCID record.
+DEC_CASE = {"1": "One text candidate", "2": "Several, one scores highest", "3": "Several, tied at the top"}
+def decider(f):
+    rows = aff_rows(f)
+    cand = [r for r in rows if r["text_case"][0] in DEC_CASE]
+    n = sum(int(r["instances"]) for r in cand)
+    num = lambda r, k: float(r[k] or 0)
+    text_right = sum(int(r["instances"]) * num(r, "text_decides") * num(r, "text_acc") for r in cand)
+    both_right = sum(int(r["instances"]) * num(r, "combined_decides") * num(r, "combined_acc") for r in cand)
+    # [case, % of instances with a text candidate, % text right when it decides, % ORCID decides, % ORCID right, % ORCID right when they disagree]
+    return {"cases": [[DEC_CASE[r["text_case"][0]], 100 * int(r["instances"]) / n, 100 * num(r, "text_acc") if r["text_acc"] else None,
+                       100 * num(r, "orcid_decides"), 100 * num(r, "orcid_acc"), 100 * num(r, "orcid_right_when_disagree") if r["orcid_right_when_disagree"] else None]
+                      for r in cand],
+            "instances": n, "text_right": 100 * text_right / n, "both_right": 100 * both_right / n}
+RUN = {"dim": "Researchers matched by iD", "cr_orcid": "Crossref, author's iD", "cr_surname": "Crossref, surname only"}
+D["aff_match"] = {
+    "runs": [["Researchers matched by iD", decider("xr_decider_summary.csv")], ["Crossref, surname only", decider("xr_decider_cr_summary.csv")]],
+    # [run, rule, variants, % exact, % same or related organisation] for employment-based candidates
+    "dict": [[RUN[r["run"]], r["rule"], int(r["variants"]), 100 * float(r["precision"]), 100 * float(r["precision_related"])]
+             for r in aff_rows("xr_eval_summary.csv") if r["signal"] == "emp"],
+}
+D["aff_stats"] = [["1 in 5", "affiliation strings matched right by text alone", "where text finds any candidate"],
+                  ["1 in 2", "matched right with ORCID as the decider", "ORCID's pick is right 82–91% of the time"],
+                  ["14.2M", "ways of writing 53k organisations", "collected through ORCID records"],
+                  ["+44%", "researcher–institution links", "when every item an institution writes counts"]]
 # Prompt history behind the dashboard and both posts (exported from the Claude Code session, private links removed).
 D["prompts"] = json.load(open("data/prompts.json"))
 html = open("site/page_template.html").read().replace("/*DATA*/null", json.dumps(D, separators=(",", ":")))
