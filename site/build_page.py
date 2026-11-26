@@ -125,7 +125,7 @@ def decider(f):
     num = lambda r, k: float(r[k] or 0)
     text_right = sum(int(r["instances"]) * num(r, "text_decides") * num(r, "text_acc") for r in cand)
     both_right = sum(int(r["instances"]) * num(r, "combined_decides") * num(r, "combined_acc") for r in cand)
-    # [case, % of instances with a text candidate, % text right when it decides, % ORCID decides, % ORCID right, % ORCID right when they disagree]
+    # [case, % of instances with a text candidate, % text correct when it decides, % ORCID decides, % ORCID correct, % ORCID correct when they disagree]
     return {"cases": [[DEC_CASE[r["text_case"][0]], 100 * int(r["instances"]) / n, 100 * num(r, "text_acc") if r["text_acc"] else None,
                        100 * num(r, "orcid_decides"), 100 * num(r, "orcid_acc"), 100 * num(r, "orcid_right_when_disagree") if r["orcid_right_when_disagree"] else None]
                       for r in cand],

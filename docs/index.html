@@ -1219,7 +1219,7 @@ GROUP BY e.uni ORDER BY research_staff DESC</code></pre></div></details>
 
       <h2>1. Text alone rarely settles a match</h2>
       <p>We took affiliation strings from papers and, for each, every organisation in the <a href="https://ror.org" target="_blank" rel="noopener">ROR registry</a> that the text plausibly fits: a distinctive word from one of its names or acronyms appears in the string, and the string doesn't name a different country. Common words such as "university" or "hospital" don't count. By this simple test a typical string fits about 120 organisations. Most are easy to rule out by eye, but not by rule: "department of physics, university of central florida, orlando, usa" also matches every Orlando hospital through "orlando", and "massey university, new zealand" matches a New Zealand company with "massey" in its name.</p>
-      <p>Scoring candidates by how many of their words match helps only so far. For almost half the strings, several candidates tie at the top, and text cannot choose. Where one candidate does score highest, it is right about half the time. Of all strings with any text candidate, text alone matches about one in five correctly.</p>
+      <p>Scoring candidates by how many of their words match helps only so far. For almost half the strings, several candidates tie at the top, and text cannot choose. Where one candidate does score highest, it is correct about half the time. Of all strings with any text candidate, text alone matches about one in five correctly.</p>
       <details class="sql"><summary>Show the SQL (2 queries)</summary><div class="q"><b>xr_ror_map.sql</b><pre><code>-- Crosswalk from every organisation ID used in ORCID, Crossref and Dimensions to a bare ROR ID (e.g. 04040yw90).
 -- GRID and FundRef come from the ROR registry. Ringgold has no public crosswalk, so a Ringgold ID maps to the
 -- ROR ID that ORCID employment entries with the same organisation name most often carry (at least half of them).
@@ -1279,10 +1279,10 @@ UNION DISTINCT SELECT * FROM UNNEST([
       <p>We ran this two ways. In the best case, researchers are linked to their ORCID record by iD, using Dimensions' researcher disambiguation (583k sampled author–string instances). In the realistic case, using only open metadata, a Crossref author is linked to an ORCID record when the paper is on the record, the surname matches, and no other author on the paper shares that surname (752k instances, of which 286k could be checked). The answer each method is checked against is how Dimensions resolved the same string for the same author.</p>
       <figure class="chart">
         <div class="legend" id="lgAffMatch"></div>
-        <div class="canvas-wrap" style="height:170px"><canvas id="cAffMatch" role="img" aria-label="Share of affiliation strings matched to the right organisation, text alone against text with ORCID as the decider"></canvas></div>
+        <div class="canvas-wrap" style="height:170px"><canvas id="cAffMatch" role="img" aria-label="Share of affiliation strings matched to the correct organisation, text alone against text with ORCID as the decider"></canvas></div>
         <figcaption>Author–string instances where the text finds at least one candidate organisation. Correct = the same ROR ID as Dimensions' resolution.</figcaption>
       </figure>
-      <p>ORCID decides for 40–49% of instances, and when it does it is right 82–91% of the time. That holds whether text tied or had a favourite. When text and ORCID disagree, ORCID is right in 72–79% of cases. Using ORCID where it can decide and text otherwise lifts the share of strings matched correctly from about one in five to one in two. The surname-only run does only a few points worse than the best case, so this needs nothing more than public ORCID and Crossref data.</p>
+      <p>ORCID decides for 40–49% of instances, and when it does it is correct 82–91% of the time. That holds whether text tied or had a favourite. When text and ORCID disagree, ORCID is correct in 72–79% of cases. Using ORCID where it can decide and text otherwise lifts the share of strings matched correctly from about one in five to one in two. The surname-only run does only a few points worse than the best case, so this needs nothing more than public ORCID and Crossref data.</p>
       <div class="table-wrap"><table id="tAffMatch"></table></div>
       <p>The disagreements show where each method goes wrong. Text favours rare words, so it picks the company or the unrelated institute that shares one. ORCID's mistakes are mostly about level: a researcher's record names the university, while the string, and Dimensions, name a hospital, unit or laboratory inside it. Many of those "wrong" picks are defensible.</p>
       <div class="table-wrap"><table id="tAffEx"></table></div>
@@ -1541,7 +1541,7 @@ QUALIFY ROW_NUMBER() OVER (PARTITION BY k ORDER BY FARM_FINGERPRINT(CONCAT(raw, 
 ORDER BY k</code></pre></div></details>
 
       <h2>3. A dictionary of how each organisation is written</h2>
-      <p>The same link works in the other direction. Pair every string an author writes with the organisations on their ORCID record for that year, and each organisation collects the ways its researchers write it. Unfiltered, only 60–67% of those pairs are right, because researchers list several affiliations and papers carry several strings. Dropping pairs where the text shows the string cannot belong (no shared distinctive word or place, or a different country) loses only 1–3% of the right pairs, and lifts precision to 80–85%. Keeping only the best text match where several organisations remain lifts it to 85–90%, or 92–94% if a parent or child organisation counts as right.</p>
+      <p>The same link works in the other direction. Pair every string an author writes with the organisations on their ORCID record for that year, and each organisation collects the ways its researchers write it. Unfiltered, only 60–67% of those pairs are correct, because researchers list several affiliations and papers carry several strings. Dropping pairs where the text shows the string cannot belong (no shared distinctive word or place, or a different country) loses only 1–3% of the correct pairs, and lifts precision to 80–85%. Keeping only the best text match where several organisations remain lifts it to 85–90%, or 92–94% if a parent or child organisation counts as correct.</p>
       <div class="table-wrap"><table id="tAffDict"></table></div>
       <p>Across the three runs this gives 14.2 million string variants for 53k organisations. 5.3 million of them have no reference resolution in Dimensions to check them against, and they are where such a dictionary would add most.</p>
       <details class="sql"><summary>Show the SQL (7 queries)</summary><div class="q"><b>xr_cand.sql</b><pre><code>-- Candidate (ROR, affiliation string) pairs. An instance is one author on one DOI; each of its strings is paired with
@@ -2376,7 +2376,7 @@ const warnRow = r => [r[1], fmt(r[2]), pc(r[3], r[2]), pc(r[4], r[2]), pc(r[5], 
 table("tAffWarn", [["Open entry in the 2024 file"], ["Entries", "n"], ["Still open 2026", "n"], ["Ended", "n"], ["Removed", "n"]],
   [...AF.warn.filter(r => r[0]).map(warnRow), ["<i>Systems that don't maintain entries</i>", "", "", "", ""], ...AF.warn.filter(r => !r[0]).map(warnRow)]);
 const AM = D.aff_match, p0 = v => v == null ? "–" : v > 0 && v < 1 ? "<1%" : Math.round(v) + "%";
-table("tAffMatch", [["Text candidates"], ["Share", "n"], ["Text right", "n"], ["ORCID decides", "n"], ["ORCID right", "n"], ["ORCID right if they disagree", "n"]],
+table("tAffMatch", [["Text candidates"], ["Share", "n"], ["Text correct", "n"], ["ORCID decides", "n"], ["ORCID correct", "n"], ["ORCID correct if they disagree", "n"]],
   AM.runs.flatMap(([run, d]) => [[`<i>${run}</i>`, "", "", "", "", ""], ...d.cases.map(c => [c[0], p0(c[1]), c[2] == null ? "can't choose" : p0(c[2]), p0(c[3]), p0(c[4]), p0(c[5])])]));
 table("tAffEx", [["Affiliation string (shortened)"], ["Text picks"], ["ORCID picks"], ["Dimensions"]], [
   ["department of nutrition, chi mei medical center, tainan, taiwan", "Chi Mei Communication Systems", "<b>Chi Mei Medical Center</b>", "Chi Mei Medical Center"],
@@ -2388,7 +2388,7 @@ table("tAffEx", [["Affiliation string (shortened)"], ["Text picks"], ["ORCID pic
   ["…st. michael's hospital, toronto, canada", "Toronto East General Hospital", "University of Toronto", "St. Michael's Hospital"],
   ["department of surgery, royal melbourne hospital, the university of melbourne", "<i>tied</i>", "University of Melbourne", "Royal Melbourne Hospital"]]);
 const dictRule = { "all": "Every pair", "text": "Drop strings that can't belong", "text+pick": "…and keep the best text match" };
-table("tAffDict", [["Strings paired with the record's organisations"], ["Variants", "n"], ["Right", "n"], ["Right or related", "n"]],
+table("tAffDict", [["Strings paired with the record's organisations"], ["Variants", "n"], ["Correct", "n"], ["Correct or related", "n"]],
   ["Researchers matched by iD", "Crossref, author's iD", "Crossref, surname only"].flatMap(run => [[`<i>${run}</i>`, "", "", ""],
     ...AM.dict.filter(r => r[0] === run).map(r => [dictRule[r[1]], k(r[2]), p0(r[3]), p0(r[4])])]));
 
