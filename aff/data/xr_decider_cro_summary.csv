@@ -1,0 +1,5 @@
+text_case,instances,avg_text_cands,truth_among_text,has_orcid_ror,text_decides,text_acc,orcid_decides,orcid_acc,orcid_family_decides,orcid_family_acc,disagree,orcid_right_when_disagree,combined_decides,combined_acc
+0 no text candidate,48995,0.0,0.0,0.516,0.0,,0.0,,0.0,,0.0,,0.0,
+1 one text candidate,365,1.0,0.822,0.638,1.0,0.822,0.466,0.988,0.485,0.989,0.0,,1.0,0.822
+"2 several, one scores highest",58854,138.0,0.97,0.561,1.0,0.496,0.443,0.832,0.184,0.885,0.239,0.734,1.0,0.637
+"3 several, tied at the top",90284,120.7,0.956,0.569,0.0,,0.457,0.893,0.161,0.9,0.0,,0.457,0.893
