@@ -147,17 +147,22 @@ def ambig(run):
     return [[AMB_KIND[r["kind"][0]], int(r["instances"]), 100 * int(r["instances"]) / n, 100 * float(r["text_correct"]),
              100 * float(r["orcid_decides"]), 100 * float(r["orcid_acc"])] for r in rows]
 D["aff_ambig"] = [[RUN[k], ambig(k)] for k in ("dim", "cr_orcid", "cr_surname")]
-# Why text + ORCID does not agree with Dimensions, by run (xr_decider_gap.csv): {bucket: {run: share %}}.
-GAP = {"1": "Agrees with Dimensions", "2": "ORCID chose a parent or child of Dimensions' choice", "3": "ORCID chose a different organisation",
-       "4": "No ORCID affiliation for the year; the matcher's pick differs", "5": "No ORCID affiliation for the year; the matcher tied",
-       "6": "ORCID affiliations, but none or several among the candidates; the matcher's pick differs",
-       "7": "ORCID affiliations, but none or several among the candidates; the matcher tied"}
+# Whole-name-first matcher with and without ORCID (xr_decider_cascade.csv):
+# [run, [% hard strings agreeing, word score alone; with ORCID; % all strings, whole name then word score; with ORCID]].
+casc = {r["run"]: r for r in aff_rows("xr_decider_cascade.csv")}
+D["aff_cascade"] = [[RUN[k], [100 * float(casc[k][c]) for c in ("no_name_text", "no_name_orcid_text", "name_then_text", "name_orcid_text")]]
+                    for k in ("dim", "cr_orcid", "cr_surname")]
+# Why the whole name + ORCID + word score does not agree with Dimensions, by run (xr_decider_gap.csv): rows of [outcome, % per run].
+GAP = {"1": "Agrees: whole name", "2": "Agrees: ORCID decided", "3": "Agrees: word score",
+       "4": "Whole name: a parent or child of Dimensions' choice", "5": "Whole name: a different organisation",
+       "6": "ORCID decided: a different organisation", "7": "No whole name, no ORCID affiliation for the year",
+       "8": "No whole name; ORCID affiliations, but none or several among the candidates"}
 gap = {}
 for r in aff_rows("xr_decider_gap.csv"):
     gap.setdefault(r["bucket"][0], {})[r["run"]] = 100 * float(r["share"])
 D["aff_gap"] = [[GAP[k], *[gap[k][run] for run in ("dim", "cr_orcid", "cr_surname")]] for k in sorted(gap)]
-D["aff_stats"] = [["1 in 5", "affiliation strings where a simple text matcher agrees with Dimensions", "of the 150k–458k strings in each set where it finds any candidate"],
-                  ["1 in 2", "agree once ORCID affiliations are used to decide between the matcher's candidates", "most of the other half has no ORCID affiliation for the year of the paper"],
+D["aff_stats"] = [["4 in 5", "affiliation strings agree with Dimensions when matched on an organisation's whole name first", "of the 150k–458k strings in each set with any candidate; scoring words alone manages 1 in 5"],
+                  ["2×", "agreement on the hard strings, with no whole name, once ORCID affiliations decide", "from 16–19% to 33–35%; over all strings, 83–84%"],
                   ["14.2M", "ways of writing 53k organisations", "training data for affiliation matching, collected through ORCID records"],
                   ["+44%", "more researcher–institution links when the system that wrote an item counts as an affiliation signal", "459k from the works, grants and other items institutions' systems write, against 318k from their affiliation entries"]]
 # Prompt history behind the dashboard and both posts (exported from the Claude Code session, private links removed).

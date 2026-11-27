@@ -1,22 +1,25 @@
 run,bucket,instances,share
-cr_orcid,1 agrees,74629,0.499
-cr_orcid,2 ORCID decided: parent or child of Dimensions' choice,2743,0.018
-cr_orcid,3 ORCID decided: a different organisation,6072,0.041
-cr_orcid,4 no ORCID affiliation for the year: matcher's pick differs,13416,0.09
-cr_orcid,5 no ORCID affiliation for the year: matcher tied,38892,0.26
-cr_orcid,"6 ORCID affiliations, none or several among candidates: matcher's pick differs",3604,0.024
-cr_orcid,"7 ORCID affiliations, none or several among candidates: matcher tied",10147,0.068
-cr_surname,1 agrees,111357,0.513
-cr_surname,2 ORCID decided: parent or child of Dimensions' choice,4318,0.02
-cr_surname,3 ORCID decided: a different organisation,11168,0.051
-cr_surname,4 no ORCID affiliation for the year: matcher's pick differs,16819,0.078
-cr_surname,5 no ORCID affiliation for the year: matcher tied,47577,0.219
-cr_surname,"6 ORCID affiliations, none or several among candidates: matcher's pick differs",6685,0.031
-cr_surname,"7 ORCID affiliations, none or several among candidates: matcher tied",19040,0.088
-dim,1 agrees,226592,0.495
-dim,2 ORCID decided: parent or child of Dimensions' choice,5109,0.011
-dim,3 ORCID decided: a different organisation,13523,0.03
-dim,4 no ORCID affiliation for the year: matcher's pick differs,44277,0.097
-dim,5 no ORCID affiliation for the year: matcher tied,132212,0.289
-dim,"6 ORCID affiliations, none or several among candidates: matcher's pick differs",9101,0.02
-dim,"7 ORCID affiliations, none or several among candidates: matcher tied",27137,0.059
+cr_orcid,1 agrees: whole name,119284,0.798
+cr_orcid,2 agrees: ORCID,4704,0.031
+cr_orcid,3 agrees: word score,1999,0.013
+cr_orcid,4 whole name: parent or child of Dimensions' choice,3892,0.026
+cr_orcid,5 whole name: a different organisation,5748,0.038
+cr_orcid,6 ORCID decided: a different organisation,1765,0.012
+cr_orcid,7 no ORCID affiliation for the year,8384,0.056
+cr_orcid,"8 ORCID affiliations, but none or several among the candidates",3727,0.025
+cr_surname,1 agrees: whole name,168494,0.777
+cr_surname,2 agrees: ORCID,8010,0.037
+cr_surname,3 agrees: word score,3450,0.016
+cr_surname,4 whole name: parent or child of Dimensions' choice,5637,0.026
+cr_surname,5 whole name: a different organisation,9689,0.045
+cr_surname,6 ORCID decided: a different organisation,3429,0.016
+cr_surname,7 no ORCID affiliation for the year,11352,0.052
+cr_surname,"8 ORCID affiliations, but none or several among the candidates",6903,0.032
+dim,1 agrees: whole name,361380,0.789
+dim,2 agrees: ORCID,15111,0.033
+dim,3 agrees: word score,8332,0.018
+dim,4 whole name: parent or child of Dimensions' choice,11223,0.025
+dim,5 whole name: a different organisation,14776,0.032
+dim,6 ORCID decided: a different organisation,3945,0.009
+dim,7 no ORCID affiliation for the year,32153,0.07
+dim,"8 ORCID affiliations, but none or several among the candidates",11031,0.024
