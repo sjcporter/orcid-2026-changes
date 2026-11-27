@@ -137,6 +137,16 @@ D["aff_match"] = {
     "dict": [[RUN[r["run"]], r["rule"], int(r["variants"]), 100 * float(r["precision"]), 100 * float(r["precision_related"])]
              for r in aff_rows("xr_eval_summary.csv") if r["signal"] == "emp"],
 }
+# Kinds of string (whole ROR names found word for word), and how text and ORCID do on each (xr_ambig_summary.csv).
+AMB_KIND = {"1": "One name, a city settles it", "2": "One name, no city settles it", "3": "Several organisations named",
+            "4": "One organisation named", "5": "No whole name"}
+def ambig(run):
+    rows = [r for r in aff_rows("xr_ambig_summary.csv") if r["run"] == run]
+    n = sum(int(r["instances"]) for r in rows)
+    # [kind, instances, % of instances, % text correct, % ORCID decides, % ORCID correct]
+    return [[AMB_KIND[r["kind"][0]], int(r["instances"]), 100 * int(r["instances"]) / n, 100 * float(r["text_correct"]),
+             100 * float(r["orcid_decides"]), 100 * float(r["orcid_acc"])] for r in rows]
+D["aff_ambig"] = [[RUN[k], ambig(k)] for k in ("dim", "cr_orcid", "cr_surname")]
 D["aff_stats"] = [["1 in 5", "affiliation strings matched correctly by a simple text matcher", "where it finds any candidate"],
                   ["1 in 2", "matched correctly with ORCID as the decider", "when ORCID decides, its pick is correct 85–90% of the time"],
                   ["14.2M", "ways of writing 53k organisations", "collected through ORCID records"],
