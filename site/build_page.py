@@ -147,10 +147,10 @@ def ambig(run):
     return [[AMB_KIND[r["kind"][0]], int(r["instances"]), 100 * int(r["instances"]) / n, 100 * float(r["text_correct"]),
              100 * float(r["orcid_decides"]), 100 * float(r["orcid_acc"])] for r in rows]
 D["aff_ambig"] = [[RUN[k], ambig(k)] for k in ("dim", "cr_orcid", "cr_surname")]
-D["aff_stats"] = [["1 in 5", "affiliation strings matched correctly by a simple text matcher", "where it finds any candidate"],
-                  ["1 in 2", "matched correctly with ORCID as the decider", "when ORCID decides, its pick is correct 85–90% of the time"],
-                  ["14.2M", "ways of writing 53k organisations", "collected through ORCID records"],
-                  ["+44%", "more researcher–institution links when works, grants and other items institutions send are counted", "459k, against 318k from affiliations alone"]]
+D["aff_stats"] = [["1 in 5", "affiliation strings where a simple text matcher's pick agrees with Dimensions", "of the 150k–458k strings in each set where it finds any candidate"],
+                  ["1 in 2", "of the same strings agree when ORCID decides where it can and the matcher's pick is used otherwise", "ORCID's own picks agree 85–90% of the time, or 89–93% counting a parent or child organisation"],
+                  ["14.2M", "ways of writing 53k organisations", "training data for affiliation matching, collected through ORCID records"],
+                  ["+44%", "more researcher–institution links when the system that wrote an item counts as an affiliation signal", "459k from the works, grants and other items institutions' systems write, against 318k from their affiliation entries"]]
 # Prompt history behind the dashboard and both posts (exported from the Claude Code session, private links removed).
 D["prompts"] = json.load(open("data/prompts.json"))
 html = open("site/page_template.html").read().replace("/*DATA*/null", json.dumps(D, separators=(",", ":")))
