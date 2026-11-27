@@ -109,6 +109,8 @@ details.sql .note { color: var(--muted); }
 .postnav a[aria-current="page"] { color: var(--ink); border-color: var(--accent); }
 .post[hidden] { display: none; }
 #tNswAff th, #tNswAff td:last-child { white-space: normal; }
+#tAffEx th, #tAffEx td, #tAffMatch th, #tAffDict th, #tAffAmbig th, #tAffAmbig td, #tAffGap th, #tAffGap td, #tAffAmbigEx th, #tAffAmbigEx td { white-space: normal; }
+#tAffEx td:first-child, #tAffAmbigEx td:first-child, #tAffAmbig td:first-child { min-width: 14rem; }
 #tNswAff td.bar { min-width: 5rem; width: 22%; }
 .post figure { margin: 0; }
 .pr { display: grid; gap: 1.6rem; max-width: 46rem; }
@@ -374,7 +376,7 @@ details.sql .note { color: var(--muted); }
   </div>
 
   <div class="panel" id="panel-blog" role="tabpanel" aria-labelledby="tab-blog" hidden>
-    <nav class="postnav" aria-label="Posts"><a href="#blog-nsw" data-post="blogNsw">NSW universities and their research network</a><a href="#blog" data-post="blogText">Thirty million researchers: the 2026 release</a></nav>
+    <nav class="postnav" aria-label="Posts"><a href="#blog-aff" data-post="blogAff">How could ORCID be used more effectively in affiliations matching?</a><a href="#blog-nsw" data-post="blogNsw">NSW universities and their research network</a><a href="#blog" data-post="blogText">Thirty million researchers: the 2026 release</a></nav>
     <article class="post" id="blogText">
       <div class="eyebrow">ORCID Public Data File 2026</div>
       <h1>Thirty million researchers, and who writes their records</h1>
@@ -490,6 +492,104 @@ WHERE REGEXP_CONTAINS(LOWER(u.url), r'bsky\.(app|social)')</code></pre>
       </ul>
       <p>The ORCID Public Data File is released by ORCID under CC0.</p>
     </article>
+    <article class="post" id="blogAff" hidden>
+      <div class="eyebrow">ORCID Public Data Files 2024–2026 · Follow-up</div>
+      <h1>How could ORCID be used more effectively in affiliations matching?</h1>
+      <p class="lede">ORCID records that say where a researcher worked or studied can play a big role in sorting out an ambiguous affiliation on a paper. Turning an affiliation string into an organisation ID is one of the oldest problems in research metadata. Most strings are easy, because they contain an organisation's whole name; some name several organisations, such as a hospital and the university it belongs to, and the author means all of them. The hard ones use abbreviations, local-language forms or a name that several organisations share: "mahatma gandhi university, india" could be any of three universities, and "emergency medicine, chang gung memorial hospital, taiwan" either of two hospitals in the same group. Reading the string alone, no one can say which one the author meant, but the author's ORCID record often can. We tested three ways to use ORCID records: as the decider for those hard strings, where it doubles agreement with Dimensions' matching; as training data, a source of the many ways each organisation is written; and by reading every item an institution sends to ORCID as a dated affiliation. The clearest lesson is for institutions: getting every researcher onto ORCID, with up-to-date affiliations written by the institution's own system, is a more efficient way to get papers matched to the institution than curating affiliation records by hand downstream.</p>
+      <div class="stats" id="affStats"></div>
+
+      <h2>1. Matching by whole name, and where it runs out</h2>
+      <p>To show what ORCID adds, we needed a reference affiliation matching service. For this article we built a deliberately simple matcher, so that its reasoning is easy to follow. Production matching services are far more sophisticated; the point here is not how well text matching can do, but what ORCID's institutional assertions contribute on top.</p>
+      <p>The matcher works in two steps. First, it looks for the whole name of an organisation in the <a href="https://ror.org" target="_blank" rel="noopener">ROR registry</a>, written word for word in the string, such as "university of central florida". If one organisation owns the longest such name, and the string doesn't name a different country, that is the match. Second, where no single whole name is found, it falls back to scoring words. Every organisation with a distinctive word from one of its names or acronyms in the string is a candidate; common words such as "university" or "hospital" don't count. Each candidate scores one point per distinctive word, plus a bonus if the city matches, and the highest score wins if nothing ties with it.</p>
+      <p>The whole name does most of the work. Across the three sets of papers described below, it settles 85% of the strings that have any candidate, and agrees with Dimensions' choice for 92–93% of them; where the string contains exactly one organisation's whole name, 95–96%. Word scoring on its own does far worse, agreeing with Dimensions for only about one string in five: a typical string has about 120 candidates, and for almost half the strings several tie at the top. Together the two steps agree with Dimensions for 80–82% of strings.</p>
+      <p>The remaining 15% are the hard strings: abbreviations, local-language forms, typing errors, or a name that several organisations share. For these, word scoring agrees with Dimensions only 16–19% of the time. That is the gap ORCID can help fill.</p>
+      <!--SQL:aff/sql/xr_ror_map.sql,aff/sql/xr_text.sql-->
+
+      <h2>2. ORCID as the decider</h2>
+      <p>In principle, the affiliations on a paper should agree with those on the author's ORCID record: both say where the researcher worked. In practice they often don't line up. Only 42% of records list any employment. A paper names where the work was done, while a record may show only the current job, or an entry without any dates. And a byline names departments, hospitals and local-language forms, where ORCID holds the organisation's registry name. We checked every public ORCID record in the 2026 file, against a 2% sample of the affiliation strings on papers, and between half and two thirds of the authors had an ORCID affiliation assertion for the year of the paper. So it is important to recognise that ORCID's assertions narrow the field rather than settling every match. The share of records listing employment has risen from 27% in the 2024 file to 42% in 2026, and the greater the adoption of more complete ORCID records, the greater the impact they can have in settling affiliations.</p>
+      <p>For each author on a paper we collected two kinds of ORCID affiliation assertion for that year. The first is explicit: employment and education entries whose dates cover the publication year, or that have no dates, whether the researcher or an institution wrote them. The second is implicit: the institution whose own system sent that paper to the record (see section 5). For the hard strings, we compare these organisations with the matcher's candidates. If exactly one candidate is also an organisation ORCID asserts for the author, we take that one as the match, whatever its word score. If none of the candidates is on the list, or more than one is, ORCID can't tell them apart, and the word score stands if one candidate leads. For example, "emergency medicine, chang gung memorial hospital, taiwan" uses a name shared by two hospitals in the same group, Chang Gung Memorial Hospital in Taipei and Linkou Chang Gung Memorial Hospital. If the author's ORCID record has employment at the Linkou hospital covering the year of the paper, Linkou is chosen. Where a whole name settles the match, we keep it: when the whole name and ORCID point to different organisations, the whole name agrees with Dimensions 63–69% of the time and ORCID only 22–28%.</p>
+      <p>We tested this decider on three sets of papers, which differ in how each author on a paper is linked to an ORCID record. In the first, authors are linked to their ORCID record through Dimensions' researcher disambiguation, which matches researchers to ORCID iDs. We use it because it gives the broadest clean set of papers to work with, though like any algorithmic dataset it can be wrong (583k sampled author–string instances). The other two use only open metadata. In the second, the Crossref record for the paper carries the author's ORCID iD; we also require the surname to match the ORCID record, because iDs are occasionally attached to the wrong author (600k instances, of which 198k could be checked). In the third, for papers whose Crossref metadata has no iD, an author is linked to an ORCID record when the paper is on that record, the surname matches, and no other author on the paper shares that surname (752k instances, of which 286k could be checked). The answer each method is checked against is how Dimensions resolved the same string for the same author.</p>
+      <figure class="chart">
+        <div class="legend" id="lgAffMatch"></div>
+        <div class="canvas-wrap" style="height:300px"><canvas id="cAffMatch" role="img" aria-label="Share of affiliation strings whose match agrees with Dimensions, with and without ORCID as the decider, for hard strings and for all strings"></canvas></div>
+        <figcaption>Author–string instances where the matcher finds at least one candidate organisation. Hard strings = no single whole name in the string. Agrees = the same ROR ID as Dimensions' resolution.</figcaption>
+      </figure>
+      <p>Agreement here means the pick is the same ROR ID that Dimensions assigned to that string for the same author on the same paper. Dimensions isn't ground truth, and we return to its errors below, but it is an independent check made without ORCID's assertions. All figures count author–string instances where the matcher finds at least one candidate and Dimensions has an answer: 458k in the Dimensions-linked set, 150k in the Crossref iD set and 217k in the surname-only set. Of these, 71k, 21k and 33k are hard strings. ORCID decides for 27%, 31% and 35% of the hard strings, and its pick agrees with Dimensions 79%, 73% and 70% of the time. That doubles agreement on the hard strings, from 19%, 16% and 18% with word scoring alone to 33%, 33% and 35%. Over all strings, adding ORCID lifts agreement from 80–82% to 83–84%. The two open-metadata sets do only a few points worse than the Dimensions-linked set, so this needs nothing more than public ORCID and Crossref data.</p>
+      <p>ORCID's picks hold up wherever it can decide. Measured against word scoring alone, over all strings with candidates, ORCID singles out one candidate for 40%, 45% and 49% of instances, and agrees with Dimensions 90%, 87% and 85% of the time; 93%, 91% and 89% if a parent or child organisation one level apart in ROR also counts (a medical school and its university, say). Where word scoring had a favourite and ORCID chose a different organisation, using the ORCID assertion as a proxy for the paper's affiliation agrees with Dimensions 79%, 73% and 72% of the time.</p>
+      <div class="table-wrap"><table id="tAffMatch"></table></div>
+      <p class="notes">ORCID against word scoring alone, over all strings with candidates, by how the word scores fall.</p>
+      <p>Of the 16–17% of strings that still don't agree, the largest share is a whole name that Dimensions resolved differently: 6–7% of instances, about 40% of them a parent or child of Dimensions' choice. Among the hard strings, most of what ORCID can't settle is missing data. Every instance has an ORCID iD linked to the author, but for 5–7% of all instances the record has no affiliation covering the year of the paper, which is 52–68% of the hard strings that don't agree. In another 2–3% the record has affiliations, but none or several of them are among the candidates. ORCID chose a different organisation from Dimensions in only 1–2%.</p>
+      <div class="table-wrap"><table id="tAffGap"></table></div>
+      <p class="notes">The whole name, then ORCID, then the word score, against Dimensions. Share of author–string instances with a candidate and a Dimensions answer. "Affiliation for the year" covers dated employment and education entries, undated entries, and the institution whose system sent the paper.</p>
+      <p>The disagreements show where each method goes wrong. The text matcher favours rare words, so it picks the company or the unrelated institute that shares one. ORCID's mistakes are mostly about level: a researcher's record names the university, while the string, and Dimensions, name a hospital, unit or laboratory inside it. Many of those "wrong" picks are defensible.</p>
+      <div class="table-wrap"><table id="tAffEx"></table></div>
+      <p class="notes">Examples from the surname-only run where text and ORCID disagree, or ORCID differs from Dimensions. Bold marks the pick that matches Dimensions.</p>
+      <h3>Names that several organisations share</h3>
+      <p>Ties in word scoring are mostly not genuine ambiguity. A string such as "royal melbourne hospital, the university of melbourne" names two organisations, and the author means both. The harder case is a single name that belongs to several organisations. To find these, we looked in each string for the whole name of an organisation in ROR, word for word (acronyms aside), and asked whether that name, the longest one in the string, belongs to more than one active organisation that the string's country allows.</p>
+      <div class="table-wrap"><table id="tAffAmbig"></table></div>
+      <p class="notes">Author–string instances with a Dimensions answer, by what the string contains. Agrees = the same ROR ID as Dimensions.</p>
+      <p>Such names are rare: about 0.3% of instances in each set (1,561 in the Dimensions-linked set). In 65–83% of them a city in the string belongs to only one of the organisations, and that settles it. In the rest, no city in the string settles it. A reader might still tell from a state or a district, as with Bethel University in Minnesota below, but the text matcher agrees with Dimensions only 5–11% of the time. ORCID decides for 30–36% of these. In the Dimensions-linked set its pick agrees with Dimensions 80% of the time; in the open-metadata sets, 61–63%, though those figures rest on only 95 and 165 instances. Some of its misses are another branch of the same hospital group, and Dimensions itself chooses one of the organisations sharing the name only about two times in three.</p>
+      <div class="table-wrap"><table id="tAffAmbigEx"></table></div>
+      <p class="notes">Strings where no city in the string matches the ROR location of just one of the organisations. Bold marks the ORCID pick that matches Dimensions.</p>
+      <p>Strings that name several organisations are far more common, at 10–11% of instances. ORCID decides for 39–48% of them and agrees with Dimensions 63–71% of the time, but a different answer here is often another organisation the author also named. Most strings, 55–58%, contain exactly one organisation's whole name, and Dimensions resolves 95–96% of those to that organisation. The remaining third contain no whole name at all, because of abbreviations, local-language forms or typing errors. That is where matching is hardest, and where ORCID decides least often (8–10%).</p>
+      <!--SQL:aff/sql/xr_orcid.sql,aff/sql/xr_dim.sql,aff/sql/xr_cr.sql,aff/sql/xr_decider.sql,aff/sql/xr_decider_summary.sql,aff/sql/xr_decider_cro.sql,aff/sql/xr_decider_cro_summary.sql,aff/sql/xr_decider_cr.sql,aff/sql/xr_decider_cr_summary.sql,aff/sql/xr_decider_cr_examples.sql,aff/sql/xr_decider_levels.sql,aff/sql/xr_decider_gap.sql,aff/sql/xr_decider_cascade.sql,aff/sql/xr_ambig.sql,aff/sql/xr_ambig_summary.sql,aff/sql/xr_ambig_examples.sql-->
+
+      <h2>3. ORCID as training data: how each organisation is written</h2>
+      <p>The same link works in the other direction. Pair every string an author writes with the organisations on their ORCID record for that year, and each organisation collects the ways its researchers write it. Each pair is a labelled example, a string as researchers write it with an organisation ID attached, so ORCID can serve as training data for affiliation matchers, not only as a lookup at the moment of matching. Unfiltered, only 60–67% of those pairs agree with the organisation Dimensions most often assigns to that string, because researchers list several affiliations and papers carry several strings. Dropping pairs where the string cannot belong to the organisation (they share no distinctive word or place, or the string names a different country) loses only 1–3% of the agreeing pairs, and lifts precision to 80–85%. Keeping only the best text match where several organisations remain lifts it to 85–90%, or 92–94% if a parent or child organisation counts as agreement.</p>
+      <div class="table-wrap"><table id="tAffDict"></table></div>
+      <p>Across the three runs this gives 14.2 million string variants for 53k organisations. 5.3 million of them have no reference resolution in Dimensions to check them against, and they are where such a dictionary would add most.</p>
+      <!--SQL:aff/sql/xr_cand.sql,aff/sql/xr_score.sql,aff/sql/xr_eval_dim.sql,aff/sql/xr_dim_dict.sql,aff/sql/xr_eval.sql,aff/sql/xr_eval_summary.sql,aff/sql/xr_variants.sql-->
+
+      <h2>4. Where ORCID's affiliation information comes from</h2>
+      <p>The decider only works where a record says where the author was. The 2026 file holds 30.9 million affiliation entries, and researchers typed 98.4% of them. Institutions' own research systems wrote 419k, and the ORCID Member Portal, where an institution adds affiliations by hand or in bulk, another 50k. The institution is the most trusted source for "this person works here", yet its entries carry the least detail: fewer than two in five employment entries from institutions' systems have a start date, against seven in ten of researchers' own. For matching, an entry without dates cannot say which papers it covers.</p>
+      <div class="table-wrap"><table id="tAffSrc"></table></div>
+      <!--SQL:aff/sql/aff_2026.sql,aff/sql/aff_by_source.sql-->
+      <p>Institutional entries are mostly stable. We follow each researcher–organisation pair from one yearly file to the next. About 83 in 100 employment pairs from institutions' systems keep their entry, about 11 are deleted and written again, and about 5 disappear. Of 132 systems with at least 1,000 pairs, 80 keep almost everything. 45 recreate many entries, nearly always in a single year (QUT recreated 96% in 2025–26 after 17% the year before), which looks like migrations rather than normal behaviour. Half the recreated entries changed something, usually gaining an end date.</p>
+      <figure class="chart">
+        <div class="legend" id="lgAffFate"></div>
+        <div class="canvas-wrap" style="height:220px"><canvas id="cAffFate" role="img" aria-label="What happens to employment pairs from one yearly file to the next, by who wrote them"></canvas></div>
+        <figcaption>Employment pairs (researcher, source, organisation) in the 2024 and 2025 files, and their state one file later. Both transitions combined.</figcaption>
+      </figure>
+      <!--SQL:aff/sql/aff_detail.sql,aff/sql/aff_pair_fate.sql,aff/sql/aff_pair_fate_by_system.sql,aff/sql/aff_recreated_changes.sql-->
+
+      <h2>5. Who makes an assertion is itself an affiliation signal</h2>
+      <p>On ORCID, who wrote an item says something on its own. An institution's research system writes far more than employment entries: works, grants, links to staff pages, local identifiers. Whatever the item is, the fact that the institution's system wrote it says that the researcher belongs to that institution, on a known date. The decider already uses one of these signals, the institution that sent a paper. Counting every item from 745 institutional systems across all three files gives 459k researcher–institution links in 2026 from the 654 systems we can tie to an organisation. The system wrote an affiliation for 318k. The other 141k, 44% more, are visible only through other items, and for 39.5k researchers it is the only institution on their record.</p>
+      <figure class="chart">
+        <div class="canvas-wrap" style="height:260px"><canvas id="cAffLinks" role="img" aria-label="Researcher–institution links in the 2026 file, by what else the record says about the link"></canvas></div>
+        <figcaption>Links between a researcher and an institution's system, 2026 file. A researcher's own entry counts if it names the organisation by any of its IDs (ROR, Ringgold, GRID, Crossref Funder) or common names.</figcaption>
+      </figure>
+      <!--SQL:aff/sql/inst_items.sql,aff/sql/inst_pairs.sql,aff/sql/inst_org_map.sql,aff/sql/inst_org_keys.sql,aff/sql/inst_coverage.sql-->
+
+      <h2>6. first_seen and last_seen: dates for every link</h2>
+      <p>Each item carries the date the system created it. For each link we call the earliest of these <code>first_seen</code> and the latest <code>last_seen</code>. Every link has both, which is what matching needs to decide whether a paper falls inside an affiliation. Where an institution did write dates, the derived ones mostly agree: <code>last_seen</code> is within a year of the stated end for 55% of ended entries, and <code>first_seen</code> within a year of the stated start for 49%, counting only starts after the system began writing to ORCID.</p>
+      <!--SQL:aff/sql/inst_dates_check.sql-->
+      <p><code>last_seen</code> also flags affiliations that may have lapsed. 126k institutional employment entries have no end date, and 17% of them have not been seen for two years. Among systems that maintain their entries, the open 2024 entries were more likely to have been ended or removed by 2026 the longer since <code>last_seen</code>: 22% for links seen in the year before, 37% at one to two years, and 57% at two to five. For systems that never end entries, <code>last_seen</code> is the only sign that someone has moved on.</p>
+      <figure class="chart">
+        <div class="legend" id="lgAffWarn"></div>
+        <div class="canvas-wrap" style="height:240px"><canvas id="cAffWarn" role="img" aria-label="Open institutional employment entries in the 2024 file and their state in 2026, by how long since last_seen"></canvas></div>
+        <figcaption>Open employment entries from institutions' systems in the 2024 file, at systems that still wrote works in the last year and ended or removed at least 5% of their entries. State in the 2026 file. last_seen is measured on the 2024 file, from items other than affiliations.</figcaption>
+      </figure>
+      <div class="table-wrap"><table id="tAffWarn"></table></div>
+      <!--SQL:aff/sql/inst_early_warning.sql-->
+
+      <h2>What this means</h2>
+      <p><b>For an institution that wants every paper its researchers write to be counted as its own, the most effective step is upstream, on ORCID.</b> Make sure every researcher has an ORCID iD and keeps their affiliations up to date. Better still, run an ORCID integration that writes to their records, even once a year. Each item an institution's system writes is an affiliation assertion from the most trusted source, with a date on it. It lets ORCID settle the hard strings a text matcher can't, it adds 44% more researcher–institution links than affiliation entries alone, and it pairs the ways researchers write the institution's name with its ID. That builds an affiliation training set more efficiently than curating affiliation records by hand in each downstream system. In our data, where ORCID couldn't settle a hard string, the most common reason was that the author's record had no affiliation for the year of the paper (52–68% of those strings).</p>
+      <ul>
+        <li><b>For institutions, in practice:</b> write ROR IDs with start and end dates on employment entries, and edit entries rather than deleting and recreating them. Each of those makes the decider work for more of your researchers' papers.</li>
+        <li><b>For whoever does the matching:</b> match on whole organisation names first. Then use the organisations on an author's ORCID record, limited to those whose dates cover the paper, to settle the strings no whole name settles. That doubles agreement with Dimensions on those hard strings and works on open data, but it should not override a whole name. When ORCID names a parent and the string names a unit inside it, keep the unit.</li>
+        <li><b>For building matching dictionaries:</b> ORCID-linked strings, filtered by text, give millions of variants with about 85–90% precision, many for organisations a reference system has never seen written that way.</li>
+        <li><b>For using ORCID's signal fully:</b> treat every item an institution writes as a dated affiliation, with <code>first_seen</code> and <code>last_seen</code>. That adds 44% more links and gives each one dates.</li>
+      </ul>
+
+      <h2>Method and caveats</h2>
+      <ul>
+        <li>Public ORCID data only, so ORCID-side counts are lower bounds. A deleted entry and one made private look the same, so "removed" is an upper bound. Queries, scripts and aggregate outputs are in <a href="https://github.com/sjcporter/orcid-2026-changes/tree/main/aff" target="_blank" rel="noopener">aff/ in the repository</a>. Tables that hold individual iDs are not published.</li>
+        <li>Matching is checked against Dimensions' resolution of the same string, so Dimensions' own errors count against every method, and a defensible parent-or-unit choice counts as wrong. Only 33% of the Crossref iD instances and 38% of the surname-only instances have a Dimensions answer for the same author, string and paper, and those may be easier than the rest. The decider runs use a 2% sample of affiliation strings (keeping every paper and author that uses a sampled string), checked against all public ORCID records in the 2026 file. DOIs are lower-cased before comparing systems.</li>
+        <li>The matcher is deliberately simple (whole names, then distinctive words, city and country), built to illustrate what ORCID adds rather than to compete with matching services. A better matcher would settle more of the hard strings on its own; ORCID would still settle many of those it leaves. Whole names come from active ROR records, without acronyms or names with digits. Organisation IDs on ORCID entries are mapped to ROR through the ROR registry (GRID, Crossref Funder) and, for Ringgold, through the ROR ID most often used with the same organisation name.</li>
+        <li>Institutional systems are classified by name, reusing the classification from the first post. A pair is matched on the organisation name, so a renamed employer counts as removed. <code>last_seen</code> moves forward when a system recreates entries or sends a paper published after someone left, so it is better read as "still active" than as a leaving date.</li>
+      </ul>
+      <p>The ORCID Public Data File is released by ORCID under CC0. Crossref metadata is open, and ROR data is CC0.</p>
+    </article>
   </div>
 
   <div class="panel" id="panel-prompts" role="tabpanel" aria-labelledby="tab-prompts" hidden>
@@ -578,6 +678,42 @@ table("tNswAff", [["University"], ["Works automated", "n"], ["Employer written b
     `<div class="bar-track"><div class="bar-fill" style="width:${(100 * r[6] / r[1]).toFixed(1)}%"></div></div>`, via(r)]));
 document.querySelectorAll("#tNswAff td:nth-child(4)").forEach(td => td.classList.add("bar"));
 
+// Affiliations post: stats, tables.
+const AF = D.aff, pc = (a, b) => (100 * a / b).toFixed(0) + "%";
+document.getElementById("affStats").innerHTML = D.aff_stats.map(s => `<div class="stat"><b>${s[0]}</b><span>${s[1]}</span><em>${s[2]}</em></div>`).join("");
+table("tAffSrc", [["Employment entries, 2026 file"], ["Entries", "n"], ["Start date", "n"], ["End date", "n"], ["Role", "n"], ["Org ID", "n"]],
+  AF.src.map(r => [r[0], k(r[1]), Math.round(r[2]) + "%", Math.round(r[3]) + "%", Math.round(r[4]) + "%", Math.round(r[5]) + "%"]));
+const warnRow = r => [r[1], fmt(r[2]), pc(r[3], r[2]), pc(r[4], r[2]), pc(r[5], r[2])];
+table("tAffWarn", [["Open entry in the 2024 file"], ["Entries", "n"], ["Still open 2026", "n"], ["Ended", "n"], ["Removed", "n"]],
+  [...AF.warn.filter(r => r[0]).map(warnRow), ["<i>Systems that don't maintain entries</i>", "", "", "", ""], ...AF.warn.filter(r => !r[0]).map(warnRow)]);
+const AM = D.aff_match, p0 = v => v == null ? "–" : v > 0 && v < 1 ? "<1%" : Math.round(v) + "%";
+table("tAffMatch", [["Text candidates"], ["Share", "n"], ["Text agrees", "n"], ["ORCID decides", "n"], ["ORCID agrees", "n"], ["ORCID agrees when it overrules the matcher", "n"]],
+  AM.runs.flatMap(([run, d]) => [[`<i>${run}</i>`, "", "", "", "", ""], ...d.cases.map(c => [c[0], p0(c[1]), c[2] == null ? "can't choose" : p0(c[2]), p0(c[3]), p0(c[4]), p0(c[5])])]));
+table("tAffEx", [["Affiliation string (shortened)"], ["Text picks"], ["ORCID picks"], ["Dimensions"]], [
+  ["department of nutrition, chi mei medical center, tainan, taiwan", "Chi Mei Communication Systems", "<b>Chi Mei Medical Center</b>", "Chi Mei Medical Center"],
+  ["department of physics, university of central florida, orlando", "AdventHealth East Orlando", "<b>University of Central Florida</b>", "University of Central Florida"],
+  ["computer graphics lab, tu braunschweig, germany", "Fraunhofer Institute for Computer Graphics Research", "<b>TU Braunschweig</b>", "TU Braunschweig"],
+  ["massey university, new zealand", "Oceanum Ltd", "<b>Massey University</b>", "Massey University"],
+  ["mrc clinical trials unit at ucl, london", "<b>MRC Clinical Trials Unit at UCL</b>", "University College London", "MRC Clinical Trials Unit at UCL"],
+  ["centre inria d’université côte d’azur, sophia antipolis", "<b>Centre Inria d'Université Côte d'Azur</b>", "Inria", "Centre Inria d'Université Côte d'Azur"],
+  ["…st. michael's hospital, toronto, canada", "Toronto East General Hospital", "University of Toronto", "St. Michael's Hospital"],
+  ["department of surgery, royal melbourne hospital, the university of melbourne", "<i>tied</i>", "University of Melbourne", "Royal Melbourne Hospital"]]);
+table("tAffGap", [["Outcome"], ["Linked through Dimensions", "n"], ["Crossref, author's iD", "n"], ["Crossref, surname only", "n"]],
+  D.aff_gap.map(r => [r[0], p0(r[1]), p0(r[2]), p0(r[3])]));
+const p1 = v => v > 0 && v < 1 ? v.toFixed(1) + "%" : Math.round(v) + "%";
+table("tAffAmbig", [["What the string contains"], ["Instances", "n"], ["Share", "n"], ["Text agrees", "n"], ["ORCID decides", "n"], ["ORCID agrees", "n"]],
+  D.aff_ambig.flatMap(([run, rows]) => [[`<i>${run}</i>`, "", "", "", "", ""], ...rows.map(r => [r[0], fmt(r[1]), p1(r[2]), p0(r[3]), p0(r[4]), p0(r[5])])]));
+table("tAffAmbigEx", [["Affiliation string"], ["Organisations with that name"], ["ORCID picks"], ["Dimensions"]], [
+  ["mahatma gandhi university, india", "Mahatma Gandhi University in Kottayam, Meghalaya and Nalgonda", "Nalgonda", "Kottayam"],
+  ["emergency medicine, chang gung memorial hospital, taiwan", "Chang Gung Memorial Hospital (Taipei) and Linkou Chang Gung Memorial Hospital", "Linkou", "Taipei"],
+  ["university library, bethel university, st. paul, minnesota, usa", "Bethel University in Arden Hills, Minnesota, and McKenzie, Tennessee", "<b>Arden Hills, Minnesota</b>", "Arden Hills, Minnesota"],
+  ["department of commerce, sacred heart college, kochi, india", "Sacred Heart College in Ernakulam (Kochi) and Tirupattur", "<b>Ernakulam</b>", "Ernakulam"],
+  ["department of endocrinology, az sint lucas gent, belgium", "AZ Sint-Lucas in Ghent and Bruges", "<b>Ghent</b>", "Ghent"]]);
+const dictRule = { "all": "Every pair", "text": "Drop strings that can't belong", "text+pick": "…and keep the best text match" };
+table("tAffDict", [["Strings paired with the record's organisations"], ["Variants", "n"], ["Agrees", "n"], ["Agrees, or a related organisation", "n"]],
+  ["Linked through Dimensions", "Crossref, author's iD", "Crossref, surname only"].flatMap(run => [[`<i>${run}</i>`, "", "", ""],
+    ...AM.dict.filter(r => r[0] === run).map(r => [dictRule[r[1]], k(r[2]), p0(r[3]), p0(r[4])])]));
+
 let charts = [];
 function draw() {
   charts.forEach(c => c.destroy()); charts = [];
@@ -636,6 +772,28 @@ function draw() {
     data: { labels: N.credit.map(r => r[0]), datasets: [{ label: "New links", data: N.credit.map(r => r[1]), backgroundColor: N.credit.map(r => r[0] === "Sydney" ? css("--hi") : acc2) }] },
     options: hopts(v => k(v), c => { const r = N.credit[c.dataIndex]; return `${fmt(r[1])} new links, ${fmt(r[2])} to other NSW universities`; }) }));
 
+  // Affiliations post charts.
+  const pctStack = (id, legendId, labels, series, rows) => {
+    document.getElementById(legendId).innerHTML = series.map(m => `<span><i style="background:${m[1]}"></i>${m[0]}</span>`).join("");
+    charts.push(new Chart(document.getElementById(id), { type: "bar",
+      data: { labels, datasets: series.map((m, i) => ({ label: m[0], data: rows.map(r => { const t = r.reduce((a, b) => a + b, 0); return +(100 * r[i] / t).toFixed(1); }), backgroundColor: m[1] })) },
+      options: { ...base, indexAxis: "y", plugins: { ...base.plugins, tooltip: { callbacks: { label: c => `${c.dataset.label}: ${c.raw}%` } } },
+        scales: { x: { stacked: true, max: 100, grid: { color: rule }, ticks: { callback: v => v + "%" } }, y: { stacked: true, grid: { display: false }, ticks: { color: ink } } } } }));
+  };
+  const fateCols = [acc, fade(acc, .45), css("--c-crossref"), css("--warn"), css("--c-other")];
+  pctStack("cAffFate", "lgAffFate", AF.fate.map(r => r[0]), AF.fates.map((f, i) => [f[0].toUpperCase() + f.slice(1), fateCols[i]]), AF.fate.map(r => r.slice(1)));
+  const mw = AF.warn.filter(r => r[0]);
+  pctStack("cAffWarn", "lgAffWarn", mw.map(r => r[1]), [["Still open", acc], ["Ended", css("--c-crossref")], ["Removed", css("--warn")]], mw.map(r => r.slice(3)));
+  const casc = [["Hard strings: word scoring alone", 0, fade(acc2, .45)], ["Hard strings: with ORCID as the decider", 1, fade(acc, .45)],
+                ["All strings: whole name, then word scoring", 2, acc2], ["All strings: with ORCID as the decider", 3, acc]];
+  charts.push(new Chart(document.getElementById("cAffMatch"), { type: "bar",
+    data: { labels: D.aff_cascade.map(r => r[0]), datasets: casc.map(([l, i, c]) => ({ label: l, data: D.aff_cascade.map(r => +r[1][i].toFixed(1)), backgroundColor: c })) },
+    options: { ...hopts(v => v + "%", c => `${c.dataset.label}: ${c.raw}% agree with Dimensions`), scales: { ...hopts(v => v + "%").scales, x: { ...hopts(v => v + "%").scales.x, max: 100 } } } }));
+  document.getElementById("lgAffMatch").innerHTML = casc.map(([l, i, c]) => `<span><i style="background:${c}"></i>${l}</span>`).join("");
+  charts.push(new Chart(document.getElementById("cAffLinks"), { type: "bar",
+    data: { labels: AF.links.map(r => r[0][0].toUpperCase() + r[0].slice(1)), datasets: [{ label: "Links", data: AF.links.map(r => r[1]), backgroundColor: AF.links.map((r, i) => i ? (i === 4 ? css("--hi") : acc) : acc2) }] },
+    options: hopts(v => k(v), c => `${fmt(c.raw)} links`) }));
+
   const cls = D.classes.filter(r => r[1] + r[2] > 1000);
   hbar("cClasses", cls.map(r => r[0]), cls.map(r => r[1]), cls.map(r => r[2]), "Oct 2024–Oct 2025", "Oct 2025–Oct 2026");
   const ic = D.inst_countries.slice(0, 12);
@@ -649,7 +807,7 @@ if (window.Chart) {
 } else {
   document.querySelectorAll(".canvas-wrap").forEach(w => { w.style.height = "auto"; w.innerHTML = '<p class="notes">The chart library did not load. The tables on this page carry the same figures.</p>'; });
 }
-// Tabs: #blog and #blog-nsw open a post, #prompts and #prompts-nsw a prompt history; any other hash (a dashboard section) opens the dashboard and scrolls to it.
+// Tabs: #blog, #blog-nsw and #blog-aff open a post, #prompts and #prompts-nsw a prompt history; any other hash (a dashboard section) opens the dashboard and scrolls to it.
 const tabs = [...document.querySelectorAll('[role="tab"]')];
 function show(id, focus) {
   tabs.forEach(t => { const on = t.id === id; t.setAttribute("aria-selected", on); t.tabIndex = on ? 0 : -1;
@@ -659,7 +817,7 @@ tabs.forEach((t, i) => {
   t.addEventListener("click", () => {
     if (t.id === "tab-prompts") showSess(sess);
     show(t.id);
-    history.replaceState(null, "", t.id === "tab-blog" ? "#" + (post === "blogNsw" ? "blog-nsw" : "blog") : t.id === "tab-prompts" ? (sess === "nsw" ? "#prompts-nsw" : "#prompts") : "#");
+    history.replaceState(null, "", t.id === "tab-blog" ? "#" + (post === "blogNsw" ? "blog-nsw" : post === "blogAff" ? "blog-aff" : "blog") : t.id === "tab-prompts" ? (sess === "nsw" ? "#prompts-nsw" : "#prompts") : "#");
     scrollTo(0, 0); });
   t.addEventListener("keydown", e => { const d = e.key === "ArrowRight" ? 1 : e.key === "ArrowLeft" ? -1 : 0; if (d) tabs[(i + d + tabs.length) % tabs.length].click(), tabs[(i + d + tabs.length) % tabs.length].focus(); });
 });
@@ -723,7 +881,7 @@ document.getElementById("prOnly").addEventListener("click", e => {
 function route() {
   const h = location.hash.slice(1);
   if (h === "prompts" || h === "prompts-nsw") { showSess(h === "prompts" ? "release" : "nsw"); return scrollTo(0, 0); }
-  if (h === "blog" || h === "blog-nsw") { showPost(h === "blog" ? "blogText" : "blogNsw"); return scrollTo(0, 0); }
+  if (h === "blog" || h === "blog-nsw" || h === "blog-aff") { showPost({ "blog": "blogText", "blog-nsw": "blogNsw", "blog-aff": "blogAff" }[h]); return scrollTo(0, 0); }
   show("tab-dash");
   const el = h && document.getElementById(h);
   if (el) requestAnimationFrame(() => el.scrollIntoView());

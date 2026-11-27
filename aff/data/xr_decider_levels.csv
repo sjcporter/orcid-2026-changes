@@ -1,0 +1,4 @@
+run,instances,text_exact,text_exact_or_level,orcid_decides,orcid_exact,orcid_exact_or_level,comb_exact,comb_exact_or_level
+cr_orcid,149503,0.197,0.226,0.451,0.869,0.91,0.499,0.534
+cr_surname,216964,0.196,0.224,0.485,0.853,0.894,0.513,0.549
+dim,457951,0.229,0.253,0.403,0.899,0.927,0.495,0.521

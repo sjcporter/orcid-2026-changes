@@ -1,0 +1,9 @@
+signal,strings,cands,pairs,precision_all,precision_related_all,share_flagged,precision_kept,precision_related_kept,precision_flagged,correct_kept,precision_name_only,correct_kept_name_only
+emp,one string,one candidate,9874406,0.827,0.858,0.11,0.918,0.951,0.088,0.988,0.926,0.972
+emp,one string,several candidates,2801222,0.398,0.432,0.447,0.709,0.765,0.013,0.986,0.75,0.969
+emp,several strings,one candidate,2668177,0.565,0.65,0.242,0.736,0.843,0.029,0.987,0.765,0.967
+emp,several strings,several candidates,1424008,0.349,0.413,0.44,0.613,0.717,0.014,0.983,0.662,0.968
+inst_doi,one string,one candidate,528503,0.805,0.825,0.16,0.949,0.97,0.044,0.991,0.953,0.995
+inst_doi,one string,several candidates,20002,0.385,0.392,0.534,0.822,0.834,0.003,0.996,0.844,0.998
+inst_doi,several strings,one candidate,168515,0.53,0.598,0.331,0.776,0.871,0.031,0.98,0.778,0.996
+inst_doi,several strings,several candidates,11571,0.348,0.378,0.51,0.691,0.749,0.017,0.975,0.699,0.984

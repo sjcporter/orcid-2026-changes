@@ -1,0 +1,4 @@
+run,instances,name_decides,name_acc,one_name_acc,text_only,name_only,name_then_text,name_orcid_text,one_name_orcid_name_text,orcid_name_text,no_name,no_name_text,no_name_orcid_decides,no_name_orcid_acc,no_name_orcid_text,differ,differ_name_agrees,differ_orcid_agrees
+cr_orcid,149503,0.862,0.925,0.963,0.197,0.798,0.82,0.843,0.839,0.82,20579,0.161,0.314,0.727,0.326,7447,0.685,0.225
+cr_surname,216964,0.847,0.917,0.953,0.196,0.777,0.804,0.829,0.825,0.803,33144,0.177,0.345,0.7,0.346,12722,0.677,0.224
+dim,457951,0.846,0.933,0.964,0.229,0.789,0.818,0.84,0.84,0.828,70572,0.185,0.27,0.793,0.332,15898,0.632,0.279

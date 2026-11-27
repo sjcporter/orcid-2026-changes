@@ -1,0 +1,746 @@
+client_id,source_name,kinds,items_2024,items_2025,items_2026,basis
+APP-9R1OSHAJ8YSPX4QJ,Victoria University of Wellington Elements,"employment,work",19373,22076,25754,works classification
+APP-29A97BOV3ET1UR30,Nanyang Technological University -DR-NTU,"other_name,url,work",27,27,27,name rules
+APP-PJMZB6YMMX28TQ48,Liverpool School of Tropical Medicine,work,2579,2584,2584,works classification
+APP-2D0H398P0MOR05BW,OBD IKEM,"employment,work",2,2,2,affiliations buckets
+APP-1F0ZV6P3G4HPRGM2,UDORA Repository University of Derby,work,5737,7017,7140,works classification
+APP-CHPRS5PK2O9DQ1TG,Faculty Opinions,"invited_position,peer_review",13836,13903,13894,affiliations buckets
+APP-T8CU433ZB1F50KK4,Università degli studi di Firenze - IRIS,"address,keyword,other_name,url,work",41133,47397,55478,works classification
+APP-PV53BNQ5S29196D0,City University London,"education,employment,work",7673,8386,9152,works classification
+APP-7N8IBZ420LK895Y4,Johannes Kepler University Linz - Research Information Portal,"external_id,work",0,7034,9939,works classification
+APP-VXTYNCOFZEU69DOB,Durban University of Technology,work,2406,2925,3139,works classification
+APP-Q1JBREKLK73FSBP5,University of St Andrews CRIS,"education,employment,external_id,url,work",45710,52127,57947,works classification
+APP-WEJIOARXIE5DLIQX,Universidade Estadual de Campinas,"peer_review,work",344,345,371,works classification
+APP-ZJA7DGHGPUV6NL1B,Harvard Law School Faculty Bibliography,work,76,91,103,works classification
+APP-NZJ8J43KJL15NZOV,"Universidade Estadual Paulista ""Júlio de Mesquita Filho""","employment,external_id,url,work",10322,10364,10990,works classification
+APP-U3Z6FCDDYXQP4GYJ,Universidade Católica Portuguesa,"external_id,url,work",19547,24453,29601,works classification
+APP-WXEHLYUVE9HRTZ73,UC Viden - VIA University College,"employment,external_id,work",8721,10102,11386,works classification
+APP-50FFUIFNROAY8SQ8,UniSC Research Bank,"employment,url,work",3264,7082,28718,works classification
+APP-251IJGODT5MT6S8P,"The Graduate University for Advanced Studies, SOKENDAI","education,employment",687,819,961,affiliations buckets
+APP-EQDQNYDGW4VRNONF,Università degli studi di Pavia - IRIS,work,363,363,363,name rules
+APP-W00O62HLR0RS4TTC,UGA Elements,"education,employment,work",41548,46567,52894,works classification
+APP-E7C6PUGSWG56L99M,University of Notre Dame - Digital Measures,work,0,200,896,works classification
+APP-7VBK77549VGXA8JY,Research Institute for Nature and Forest,"employment,external_id,url,work",10797,12510,13951,works classification
+APP-934DAS04INM23LSR,Université libre de Bruxelles,"employment,url",4150,4644,5103,works classification
+APP-NLOE3LA4SU4187CM,Knowledge Base of the Silesian University of Technology,work,0,0,34296,works classification
+APP-8LCWAXHP48693964,Lusófona University Research Portal - Pure,"education,employment,external_id,url,work",1022,5267,11044,works classification
+APP-8IAG2Y65RLZJU50J,University of Guelph - The Atrium Institutional Repository,url,2,3,7,name rules
+APP-AYKNTCBUHN6SRAYF,Universidad Continental,"education,employment",137,136,134,affiliations buckets
+APP-BNGE5V77CXKGXZ3J,University of Surrey - Research Repository,work,26572,37519,45859,works classification
+APP-RNIQZN5494WUI2HA,Nara Institute of Science and Technology (NAIST),"education,employment",321,366,366,works classification
+APP-O5KFCCPY85YXCKVP,Università degli studi della Basilicata - IRIS,work,439,439,437,name rules
+0000-0003-4206-2798,Universidad de Oviedo,"external_id,keyword,other_name,url",94,94,94,name rules
+APP-4BMNMKZXYMXRZ0YF,Mississippi State University Libraries - VIVO,external_id,3,3,3,name rules
+APP-F0B3XNKTMURE1NZP,UCT Libraries,work,143,228,364,works classification
+APP-PZZRD5Z4KPH1SP6B,Repository of Kyiv National University of Construction and Architecture,url,1,1,1,name rules
+APP-NM9L886HQAY7JYN8,La Universidad de Córdoba,"employment,url",1124,1119,1109,affiliations buckets
+APP-ZZMNBRIEBMEZ3ZRZ,Symplectic Elements at Vlerick Business School,work,0,614,1892,works classification
+0000-0002-9105-8261,EMBL-EBI,"keyword,url,work",7659,8368,9033,works classification
+APP-9SQ1IZPUQL4ZEQS8,Università degli Studi dell'Insubria - IRIS,"address,employment,keyword,other_name,url,work",514,514,7277,works classification
+APP-X7Q1ASTTLR22T00A,Fisheries and Oceans Canada - EOS Open Science Portal,employment,0,9,56,works classification
+APP-DQRZG8G1TAQHFQI6,University of Sussex - Elements,"employment,work",19638,22192,25380,works classification
+APP-M78WASPRDW6SKY5R,University Bibliography,work,1,82,120,works classification
+APP-KE68QAAHGDW7QUHR,University of Glasgow,"education,employment,work",8966,10501,13605,works classification
+APP-C0M0B3AGXMQ08WZC,JASRI,employment,51,54,54,works classification
+APP-UXDZ5IXJGOVS5KJ2,UC Viden - Danish School of Media and Journalism,"employment,work",0,140,176,works classification
+APP-MVAVUF92RK1B5YMI,Ifremer,"employment,url,work",34777,37548,40473,works classification
+APP-8VK2C565NFYXDMAY,University of Jyväskylä,work,34163,39922,49238,works classification
+APP-8LDLL5QSJTFFX3PV,KOPS - Universität Konstanz,work,1786,3129,4709,works classification
+APP-S8L2WIRW906QHX25,Oregon State University - Digital Measures,work,0,211,327,works classification
+APP-D1UJ6O71KAGMG1H5,TU Ilmenau University Bibliography,work,0,0,18,works classification
+APP-1GVMLN2FF9WN9REZ,VIU - Watermark | Faculty Success,work,0,0,8,name rules
+APP-AUV7XHOQF5VJ7LLQ,University of Victoria Libraries,work,475,682,1064,works classification
+APP-16C26HSRTRS2PB47,Universidad Panamericana DSpace-CRIS,"external_id,work",2,2,2,name rules
+APP-QZNXM9M1XTILCQV7,OBD Tomas Bata Hospital Zlin,"employment,work",0,0,4,works classification
+APP-WXLTTUYH3RA19GJ5,University Of Regina - Converis,work,1211,1403,1552,works classification
+0000-0002-9458-9359,Carnegie Mellon University,"keyword,url",31,31,31,name rules
+APP-VSQCJKNRCC1Q89EG,IRIS GSSI,"address,other_name,url,work",1488,1772,2244,works classification
+APP-IAFQDU3V7QFQ4AZ2,ORFEE - HEP Vaud,work,0,120,402,works classification
+APP-FSSZPWMZ7U3HZRRA,CRIS - University of Galway,"external_id,work",0,12873,54072,works classification
+APP-K04KULWZQS60TCDL,Knowledge Base of the University of Gdańsk,work,15684,15668,15692,name rules
+APP-M5Q46ID1G20QCXBV,UG ORCID HUB for Uganda Christian University,"education,employment",0,0,12,works classification
+APP-4KDCSASWCRZVA6R7,Universitäts- und Stadtbibliothek Köln,work,425,441,445,works classification
+APP-X8S8Q65GIZI59Z4A,MADOC - University of Mannheim,"employment,work",9053,10818,12131,works classification
+0000-0002-6267-206X,Universidad de Zaragoza,"employment,external_id,keyword,other_name,url,work",46609,49012,51303,works classification
+APP-WTHDFZPAUVXQW8GG,Tomas Bata University,work,8512,8927,9398,works classification
+APP-ZE8GTZN6KQYQQLOR,Universidad Autónoma de Baja California - Repositorio Institucional,work,0,25,25,works classification
+APP-RIVW66MQF71WEMXG,Birmingham City University: Pure to ORCID Integration,"education,employment,external_id,url,work",6854,8728,10656,works classification
+APP-4ZEGWKJLJVXFT55M,Temple University,work,215,267,278,works classification
+APP-779C1ZXLZUEK29LA,Università degli Studi di Catania - IRIS,"address,employment,keyword,other_name,url,work",15167,17048,19799,works classification
+APP-SWXOHDD27XW04U4E,Maastricht University,"employment,external_id,url,work",39264,48253,59761,works classification
+APP-IA7LW608FNXNUM8F,Trinity College Dublin,"url,work",793,1064,1416,works classification
+APP-6R51ZD88ARME7GXZ,Ulster University,"education,employment,external_id,url,work",10147,18207,24318,works classification
+APP-YZ7K58FLOSPCO6S8,SOAR (Scholarly Open Access at Rutgers),"employment,work",751,992,1062,works classification
+APP-6IGS5O0KKKWXUR1T,Northwestern University Galter Health Sciences Library Symplectic Elements,"employment,work",1954,11084,14863,works classification
+APP-WSOT0ZB3NBQSSDIY,Universidad Autónoma de San Luis Potosí,"employment,work",85,83,83,affiliations buckets
+APP-R6FZJ94B06R8H4OK,Korea University Medicine Research Information Management Service System,work,25823,28282,30559,works classification
+APP-X9Y2PXXWY2OUIOCD,HohCampus - Campus Management System of the University of Hohenheim,work,0,0,351,works classification
+0000-0002-8039-4593,Universidad de Cádiz,"address,employment,external_id,keyword,other_name,url",752,741,742,affiliations buckets
+APP-T90XAAYCONKDZGWM,University of Northampton,"education,employment,external_id,url,work",5869,6669,7088,works classification
+APP-6RTAQDW8PMYIIW9B,OUR Archive,work,0,0,889,works classification
+0000-0002-2134-1029,Technical University of Denmark,"address,external_id,keyword",2617,2602,2591,name rules
+APP-XBMVDZVNFFOBW13F,Università degli studi di Ferrara - IRIS,"address,employment,other_name,url,work",16712,21409,24584,works classification
+APP-79IWJ8QGMNH7PPBV,Università Cattolica del Sacro Cuore - IRIS,"other_name,url,work",10228,12916,16979,works classification
+APP-GKDXOS27G4ISZY3U,National Institutes of Natural Sciences,funding,17,17,28,name rules
+APP-93MRS9CY7XS4STED,UC Viden - University College of Nothern Denmark,"employment,external_id,work",2231,3148,3926,works classification
+APP-SP4OU4BGNK67I1X9,Polish Platform of Medical Research Medical University of Bialystok,work,2457,2475,2475,name rules
+APP-DVPWTCW037P334OM,University of Oregon - Symplectic Elements,"employment,work",0,0,1285,works classification
+APP-8ZHAO137AN16WA9V,myElements at University of New Hampshire,work,0,0,188,works classification
+APP-LHM6HPSUJ8IYBYQR,Ludwig-Maximilians-Universität München (Open Access LMU),"employment,work",1508,2028,3643,works classification
+APP-VGGX96L98UJ77AFO,University of Brighton,"education,employment,external_id,url,work",13872,15023,16176,works classification
+0000-0001-9526-8162,University of Michigan,"employment,keyword,url",2459,2461,2448,works classification
+APP-70VKK1JBIZR555NJ,Universidade de Coimbra,"external_id,other_name,url,work",7,8,8,name rules
+APP-CZKPRRCMBMS4VVXK,Munich University of Applied Sciences,work,1,1,1,name rules
+APP-4C8MF1MDAFKYMN34,Nemours Children's Health,"employment,external_id,url,work",0,31,1097,works classification
+APP-GX6WGJ3QQCLR6LAR,Ariel University - TRP,employment,449,455,468,works classification
+APP-AWFALUHPIWT41VHI,Università degli Studi del Piemonte Orientale - IRIS,"address,employment,other_name,url,work",14487,16991,20132,works classification
+APP-IRZ57FCGXZQ6WZAH,OBD VSB-TUO,"education,employment,work",0,3462,7830,works classification
+APP-SJIOVMQ3CZYNQFX1,Politecnico di Torino - IRIS,"address,employment,keyword,other_name,url,work",45424,52629,60888,works classification
+APP-G8TEJVRB8QLP7G0I,IRIHS - Institutional Repository at IHS,"employment,work",1338,1555,1892,works classification
+APP-AR3Y6BURHNYFSN89,Royal College of Surgeons in Ireland,work,1578,3412,4147,works classification
+APP-GQN3KUONKEAT2H0S,"Institute of Prehistoric and Protohistoric Archaeology, Kiel University",work,1,10,10,works classification
+APP-H38IRRINZ87OUNAU,SLU Research and EMA database,"external_id,url,work",0,0,8227,works classification
+APP-XD4HEVMYY46KEW3W,Brandeis University - ScholarWorks,"employment,work",16360,19548,19906,works classification
+APP-D55O6RTP969NX8AA,Whitireia Community Polytechnic,employment,11,14,14,works classification
+APP-0B2EI4HNXJSRU747,Wirtschaft und Gesellschaft,work,41,41,41,name rules
+APP-FWZQCSEM2OKKLQZJ,St Mary's University,"employment,work",155,208,304,works classification
+APP-Q5WTP1IBS3AOSSB5,Universitaet St. Gallen - DSpace-CRIS 7,"url,work",649,3048,4222,works classification
+APP-ZOHYRM4L1ZOCN5RS,Sapienza Università di Roma - IRIS,"address,employment,keyword,other_name,url,work",68107,83376,102382,works classification
+APP-AZSC577SDPNZ7LX4,Universitätsbibliographie TU Braunschweig,work,484,534,598,works classification
+APP-7J7VT3DQSIRDIPVB,Penn State University Libraries,"employment,work",944,1278,1407,works classification
+0000-0002-6054-6158,Universidad Autonoma de Madrid,"employment,keyword,url",2368,2375,2377,affiliations buckets
+APP-35SKP0KSM43NGI5B,Universidad de Castilla-La Mancha,"address,employment,url",1796,1784,1759,affiliations buckets
+APP-NT5P9NXSVPTPJUC4,Cold Spring Harbor Laboratory (CSHL),"employment,work",39,40,40,works classification
+APP-WPIZEWQONOVX4ASL,Mississippi State University - Digital Measures,work,0,148,276,works classification
+APP-90O1CCO1OPR92JYC,TU Dublin - PURE,"employment,external_id,url,work",592,8166,10328,works classification
+APP-FUXRP5KPWQWJMZPW,Lingnan University,"education,employment,external_id,url,work",8259,9238,11351,works classification
+APP-L7GYT5UCMK8A3A9W,PURE - Universidad Pontificia Bolivariana,"employment,external_id,url,work",3730,5709,7042,works classification
+APP-R94WPMURO23F7TEP,GIST,work,9997,12729,17738,works classification
+APP-C1U305W76SX2Z7G3,Università degli studi di Parma - IRIS,"address,employment,keyword,other_name,url,work",125,125,2940,works classification
+APP-8SDR5NQNUSX1CZA9,Universidad Nacional Mayor de San Marcos,work,2967,3764,4822,works classification
+APP-RARPQ71S3QNJYQ7K,University of Milano Bicocca - IRIS,"address,employment,keyword,other_name,url,work",12134,17136,21290,works classification
+APP-DALYRGEE20YF3G8K,Esploro (UBIR),"url,work",0,42,372,works classification
+APP-O5MZRBSVG23MEPOJ,"North-West University, South Africa","employment,work",10530,10493,10475,affiliations buckets
+APP-H4SUUUX1LF5ZEPII,Université Paris-Est Créteil Val de Marne (UPEC) - Innowalo,"education,employment,work",2,10,10,works classification
+APP-LOXE8XAPGONEDPM3,University of Westminster,work,12228,15498,17154,works classification
+APP-UTBMR8B6ZGTEGQSO,University of Vienna - u:cris,"education,employment,external_id,url,work",74226,91907,119419,works classification
+APP-U37NVFYTISDKLEX7,University of Massachusetts Dartmouth,"employment,funding,work",0,0,1259,works classification
+APP-13L0EAJTX8GVXOOB,University of Pennsylvania,"education,employment,funding",0,0,22,works classification
+APP-CYVO7ZHSKO3NPOAW,Elements at IFS,work,0,329,400,works classification
+APP-6ZUE06QR0CJ7COIR,Faculty Success by Watermark,work,0,0,108,works classification
+APP-2PWG2O0B6C405TUM,University of Venda - Intembeko ORCID Hub,employment,0,0,1,works classification
+APP-PYUX6QDIF4T1S72I,"University of Economics, Prague - Publications Repository",employment,285,282,284,works classification
+APP-CM0XOGMUQNW5XDQY,IRIS UER,"url,work",35,177,228,works classification
+APP-OGXMP42NKKZHISKS,Universidad de Medellín - PURE,external_id,0,1,1,name rules
+APP-4F581CO5Z816BSBL,Università degli Studi di Palermo - IRIS,"address,employment,keyword,other_name,url,work",18335,23978,29258,works classification
+APP-CKEHJIBFNUU4JULX,EUR & Erasmus MC Research Information Portal Pure,"employment,external_id,url,work",60879,87053,106922,works classification
+APP-9QUYDK2VX132R0SP,Institute of Sensory Organs - Editorial System,"peer_review,work",49,155,323,works classification
+APP-KUXWLGYURNZYZNG5,University of Massachusetts - Faculty Success by Watermark,work,0,122,963,works classification
+APP-YC8M2LJ6F89XS5MW,Bank of Canada: Symplectic Elements,employment,3,7,9,works classification
+APP-THMFN1KFJ2W9SP9W,Janáček Academy of Performing Arts,work,0,0,49,works classification
+APP-TX1CRSH02DW5RIJI,University of Liverpool,"employment,work",49583,65548,78235,works classification
+APP-75G9A3RJ2RZX8Z9F,ETSU - Watermark Faculty Success,work,7,227,234,works classification
+APP-EWFK7AL9I24T7WCG,Alma Mater Studiorum Università di Bologna - IRIS,"address,employment,keyword,other_name,url,work",49514,62946,77544,works classification
+APP-VAIY5SN7IKLCUW6L,University of Tuebingen,work,1,1,1,name rules
+APP-L7D3MTOOLHUTCFDN,Experts@Minnesota,"education,employment,external_id,url,work",76958,84930,138800,works classification
+APP-0NQW2ZGSXU6J6FWK,Ecole Polytechnique Fédérale de Lausanne - Infoscience,work,0,1902,4192,works classification
+APP-4YIEO6F0B5P3VA2Y,Francis Crick Institute,work,1175,1467,1783,works classification
+APP-CEAUY3O6IBKPMCQ0,University of Greenwich,"employment,work",1532,1975,2354,works classification
+APP-W1CV1JU6GMSLKHHR,University of Southampton,"education,employment,external_id,work",112802,133537,147846,works classification
+APP-IMGDDA7413OGNW7U,TU Graz,"employment,external_id,url,work",27137,41815,47021,works classification
+0000-0003-0822-0684,National Taiwan University,"address,education,employment,keyword,other_name,url,work",6150,6122,6100,affiliations buckets
+APP-EZVUZIXRPWAXCZ2D,La Universidad de Jaén,"address,employment,external_id,keyword,other_name,url",1807,1815,1799,affiliations buckets
+APP-25SDIUN3W2SUBIVE,Symplectic @ York University,"employment,work",2224,5368,8840,works classification
+APP-AP1GU0YOGE31LCVV,UTHSC - Digital Measures,work,374,744,1791,works classification
+APP-2HKP4XS4POODO2F7,University of Michigan Symplectic Elements,"employment,work",70507,87940,103979,works classification
+APP-8GAYEXCGFBFGQN9O,GNS Science,employment,111,109,103,affiliations buckets
+APP-LU544CVSAGR0I96C,Università di comunicazione e lingue IULM - IRIS,"address,other_name,work",0,68,220,works classification
+0000-0002-6423-5541,University of Southern Denmark,"address,education,employment,external_id,url,work",174392,192887,215423,works classification
+APP-8BU1BMV3WGY3TRWW,Università degli studi di Modena e Reggio Emilia - IRIS,"address,employment,keyword,other_name,url,work",16114,19272,22564,works classification
+APP-IOQOV70KF8YG19C9,CRIS @ Meduni Vienna,"external_id,work",0,0,23375,works classification
+APP-SYIW1WNQBMXZUGFE,National Chiao Tung University,"employment,external_id,keyword,url,work",131,2125,3525,works classification
+APP-PPR7HU92F0XL4MMV,University of Lapland,"education,employment,external_id,url,work",6757,9216,11077,works classification
+APP-OO3GAP5KY1T65G70,Universidad de Valparaíso - DSpace CRIS,"external_id,url",3,3,3,name rules
+APP-AW0A7Z4W8P4CU1EO,University of Canberra,"education,employment,external_id,url,work",15674,20407,23051,works classification
+APP-A1Z1K1U0HNLDEOLG,Manchester Metropolitan University - EPrints,"employment,work",8,10,13,works classification
+0000-0003-1140-680X,University of Melbourne,"education,employment,work",47648,61170,80435,works classification
+APP-7N17X530JQH381QT,Otto-Friedrich-Universität Bamberg,"employment,funding,keyword,work",9330,15828,18746,works classification
+APP-2F8FWOUO4OR4W3KU,BRANZ,employment,12,12,12,affiliations buckets
+APP-W135LSYX2BNBDELE,Faculty Success by Watermark for University of North Texas,work,93,479,1327,works classification
+APP-8BIDHBZD5FVHQ4C8,La Universidad de Huelva,"employment,external_id,keyword,other_name,url",657,659,647,affiliations buckets
+APP-7Z2PEJ8LBN0GG7CU,The Australian National University,"education,employment,external_id,url,work",57922,75708,87669,works classification
+APP-UE7OCPJ6YT54LWLI,Victoria University of Wellington,"education,employment",23,28,29,works classification
+APP-YO96LF5F6WNPYBHU,University of Namur,"education,employment,external_id,url,work",9016,10913,12757,works classification
+APP-LJDJE4V805P0BZPZ,Digital Measures for Texas State University,work,37,403,643,works classification
+APP-G534YDIAKAULEAZM,Politecnico di Bari - IRIS,"address,employment,other_name,url,work",1026,1846,3172,works classification
+APP-Z7YWEPS0LNIPQZSA,TUMFIS,"external_id,work",0,0,7192,works classification
+APP-H2GT35BB5CXV0BK6,"Cadmus, EUI Research Repository",work,7982,10285,13708,works classification
+APP-UJN1CYEGDJ5AXVT4,Consiglio per la Ricerca in Agricolutra e l'analisi dell'Economia Agraria - IRIS,"address,employment,url,work",1120,1120,1117,affiliations buckets
+APP-D0J7N8LXE2SXVS49,Institute of Environmental Sciences and Research,employment,81,81,76,affiliations buckets
+APP-BD2SOE916THQLEF5,Università di Pisa - IRIS,"address,employment,other_name,url,work",49332,58326,63522,works classification
+APP-AUJ1RXUY5Y9LIUWW,Bar Ilan University's CRIS,"education,employment,external_id,url,work",1003,6432,10472,works classification
+APP-ERL34HCK6D9LSO6D,ORA - Iris UNIURB,"address,employment,other_name,url,work",2074,3094,5258,works classification
+APP-BSKWBB4D2EKQMK3C,Oxford Brookes University - Converis,work,337,666,1154,works classification
+APP-LF38DAEGK2OZ252D,Hochschule Bielefeld (HSBI),work,1095,2120,3086,works classification
+APP-ZDSKRRR5LAZ4WD2N,Flinders University,"employment,work",36208,36172,36212,affiliations buckets
+APP-4D9ULJPEM040Y0G5,Università Telematica eCampus - IRIS,"address,employment,keyword,other_name,url,work",2691,4080,5295,works classification
+APP-NR9BVWS82FT11NCT,North West University - Repository,url,0,0,1,name rules
+APP-WBPH1KRFO1FZIDU8,Universität Kassel,work,1071,1544,2157,works classification
+APP-EPSHKBE26VFNI93T,Mendel University in Brno,"employment,work",13387,15258,16482,works classification
+APP-AGS2EIUKOCSSMZ0A,Edge Hill University,"education,employment,external_id,url,work",7255,9022,10572,works classification
+APP-EBS2N5A9VE4I06C6,Luleå University of Technology,"employment,url",146,138,132,affiliations buckets
+0000-0003-1724-6106,Iris (University of Waikato),"education,employment,work",2459,3281,3707,works classification
+APP-IYLHPFO2DDILHHAU,Yonsei University Medical Library,work,118152,126051,135186,works classification
+APP-DQXBKUWOXB7KXT3J,University of Illinois at Urbana-Champaign - Illinois Experts,"employment,external_id,url,work",4011,4115,4447,works classification
+APP-5HLL82C4LH84BVAX,UWC Intembeko ORCID Hub,"education,employment,membership,qualification,service,url,work",450,460,468,works classification
+APP-33513F2CIESYTGXN,University of Alberta Libraries,"peer_review,work",921,1329,1819,works classification
+APP-LBQIMKZFC2QQM5MH,Glasgow Caledonian University CRIS,"employment,external_id,url,work",7584,9552,11694,works classification
+APP-YPFUGDR4JWBMM8OA,Wageningen University & Research,"employment,external_id,work",38289,45380,52808,works classification
+APP-0JYMRRMKL1H6TAQ5,Royal Netherlands Academy of Arts and Science (KNAW),"employment,external_id,url,work",6291,7767,10423,works classification
+APP-925ZCMHTH2FIMC3C,IRIS SSM - Scuola Superiore Meridionale,"url,work",0,0,201,works classification
+APP-SXF8GV2BLJMRPE0V,Università degli studi di Foggia - IRIS,"address,employment,other_name,url,work",5781,8184,9635,works classification
+APP-WGX8A7BCBT12K16O,University of Roehampton - PURE,"education,employment,external_id,url,work",9713,10069,10111,works classification
+APP-Y1M2AAUOJFEU5749,London School of Hygiene and Tropical Medicine,"education,employment,work",34007,40521,46533,works classification
+APP-25VM4JR5Z672A200,Georg-August-Universität Göttingen - GRO.publications,"external_id,other_name,url,work",3084,4314,4939,works classification
+APP-JDC740OBEOM6DS7Z,Albert - The Digital Repository of the IAS,work,5,229,257,works classification
+APP-UY2Z5CCNXRZ1IDMN,Pure @ CEU Library,"external_id,work",1313,3731,4144,works classification
+APP-P85MUEBE6S7S2ZC1,Eurac Research,work,13113,16340,19583,works classification
+APP-44VHLOXPP9WTFRSR,Technical University of Denmark Orbit,"employment,external_id,url,work",190210,208152,223603,works classification
+APP-9AG4GYTEUHQZVTA1,Iris OGS-Istituto,"address,other_name,url,work",2591,3191,3728,works classification
+APP-O3RD2C82E8ZCZ1R2,Digitale Hochschulbibliografie der Technischen Hochschule Köln,work,0,559,692,works classification
+APP-78NNLK3RVBGC7GVF,North West University - Intembeko ORCID Hub,"address,education,employment,keyword,url",46,123,734,works classification
+APP-D7BWB57I7GO4YGL2,University of Florida,"address,funding",1717,1760,2028,name rules
+0000-0002-1424-8213,Universidad Carlos III de Madrid,"employment,keyword,url",1904,1908,1920,affiliations buckets
+APP-CCDX8SHFTBL5W0CV,Symplectic Elements at University of Leeds,"education,employment,work",40240,51386,98315,works classification
+0000-0002-1902-3443,Texas A&M University,"keyword,url,work",427,422,454,name rules
+APP-ZBZQB726MVBHXFD3,University of Edinburgh - PURE,"education,employment,external_id,url,work",12207,12443,13510,works classification
+0000-0003-0749-8537,PURE,"employment,external_id,url,work",108,108,108,affiliations buckets
+APP-8U5G7FLI5X9ZNBQ9,University of Louisville - Symplectic Elements,"employment,work",0,11018,21708,works classification
+APP-LE4ITZSGCZQ8ZIXV,University of Cape Town,work,16199,20032,24418,works classification
+APP-90Z7Y7Q69NED7GT3,New York University,"employment,work",112306,112341,112187,affiliations buckets
+APP-WKQWI0CWDJ4JPAQM,University of Wales Trinity Saint David Research Repository,"employment,work",1,60,166,works classification
+APP-K66HJ70UWIU514LO,Universitätsbibliothek Siegen,"address,other_name",5,6,5,name rules
+APP-DHZUZ4IQAMH6OJ2A,Keio University,"employment,url,work",3,3,3,works classification
+APP-QGFFJDWWI0G88F97,Medical University of Silesia,work,436,0,0,name rules
+APP-YXQU0797FWB5GF75,The University of Texas MD Anderson Cancer Center,"employment,external_id,url,work",742,881,987,works classification
+APP-WX22AO1VJQ0T6KWA,Depositing System of Wrocław University of Science and Technology,work,1,1,28,works classification
+APP-4OD1SB3C4XNFCR8E,Universidad La Gran Colombia - Repositorio Institucional,"address,url,work",0,0,11,works classification
+APP-3D0AZBXHE45OL6BW,Ghent University Academic Bibliography,work,51948,60617,67772,works classification
+APP-KPDV3OXFKEVB0CGM,Scion,"employment,external_id,work",1737,1784,1776,works classification
+APP-QISXN799H62XD6V7,Capital Region of Denmark,"education,employment,external_id,url,work",19135,24921,31696,works classification
+APP-1N0L7DJYA0C9MW3B,"California State University, Fullerton",work,14,14,14,name rules
+APP-YE5JJISVO617BPDA,DSHS FIS,"education,employment,external_id,url,work",0,190,665,works classification
+APP-FTEA6RIKPMPQ0JLE,Università degli Studi di Verona - IRIS,"address,employment,other_name,url,work",10388,13520,16729,works classification
+APP-112Y83D3I4OV5NBJ,Cardiff Metropolitan University Pure,"external_id,work",2573,3676,3795,works classification
+APP-8N6G3WMDE6WYIY1L,Università degli Studi di Milano - IRIS,"address,employment,keyword,other_name,url,work",54090,65232,77887,works classification
+APP-4WPGQ7RR9YHUQZEG,Cyprus University of Technology,"other_name,work",2,2,2,name rules
+APP-VKNFGSUVT5M2SUJ5,Charles Sturt University,"employment,external_id,url,work",42344,50554,56497,works classification
+0000-0002-1343-468X,Imperial College London,"education,employment,url,work",115573,145073,167277,works classification
+APP-Z0LGQ6PCQEJZ24AR,University of Oklahoma College of Medicine - Digital Measures,work,0,438,968,works classification
+APP-3910954V6SPZB9YW,University of Waikato,work,8,10,10,works classification
+APP-9ORCXX0FMM2NXFYS,Tel Aviv University (TAU),"education,employment,external_id,url,work",3700,14641,22510,works classification
+APP-LFQF1M4WSRSZ5237,HARDMIN (HEAL-Link's Research Data Repository for Academic Institutions in Greece),url,24,24,23,name rules
+0000-0002-5314-0686,Chalmers University of Technology,"address,external_id,keyword,url",1033,1024,1019,name rules
+APP-NZ2LWHH5TENFF0ZG,Institutional Repository FHNW - IRF,work,0,1572,2153,works classification
+APP-0OTSS4GLJSVFNRR9,Hochschule Anhalt,work,0,0,3,works classification
+0000-0003-3238-1373,Fred Hutchinson Cancer Research Center,"employment,keyword,url,work",589,586,583,affiliations buckets
+APP-AB49SS7BYI77NZEB,The Education University of Hong Kong,"address,employment,external_id,keyword,other_name,url,work",23145,24032,25231,works classification
+APP-6EX5M86M7GWV21YM,OBD CARC,"employment,work",0,18,1186,works classification
+APP-2HVHFO0WIF3S7LQ1,Università Commerciale Luigi Bocconi - IRIS,"address,keyword,other_name,url,work",10865,14244,15169,works classification
+APP-WWZS4Y8XMSMO4K10,Oklahoma State University's Research Information Management System,"employment,work",11903,14783,17440,works classification
+APP-Q30LIXMED2K0QIWN,Queen's University Belfast - PURE,"education,employment,external_id,url,work",44856,62500,73499,works classification
+APP-OBRVE44R2DWI5ZJ9,Technische Universität Hamburg,work,4292,4531,4791,works classification
+APP-BS7AM42FY7XCHVR9,"High Energy Accelerator Research Organization (AKA ,KEK)","education,employment,work",16835,17054,17269,affiliations buckets
+APP-53DIJ2E4L7Z0JWB4,Experts at ESF,work,0,19,2572,works classification
+APP-GICM51RXINSQOGAB,FACULTY180,"education,employment,work",70,70,70,affiliations buckets
+APP-KLNKYWYNVX2DC1PN,Middlesex University,"employment,work",1348,1342,1340,affiliations buckets
+APP-UTWIJ1HBT14XVFK2,Masaryk University,"education,employment,work",0,2363,34755,works classification
+0000-0003-0471-9234,Cornell University,external_id,16,16,15,name rules
+APP-F5NLT5A6IJWDRMNV,University of Hertfordshire,"employment,external_id,url,work",17151,20543,22490,works classification
+APP-0298YMJ7FVSHMBC4,#Proforis,"address,external_id,keyword,other_name,url,work",2,441,985,works classification
+APP-N0TAO4G9BBK9PWHT,Tampere University,"education,employment,external_id,url,work",86380,102199,115645,works classification
+APP-0MSH2NCM9RJRRRDP,Uganda Martyrs University,"education,employment,work",0,0,125,works classification
+APP-VIGMV7IBOUTU5T4L,University of Copenhagen,"education,employment,external_id,url,work",216655,243827,281396,works classification
+APP-472E03Z2PK4QX84O,University of Wollongong,external_id,690,679,669,name rules
+APP-0O49U82RVQEMDT61,University of Tennessee Knoxville,"employment,work",5431,8120,10990,works classification
+APP-17XA2VBWPPOS0VHS,University of East Anglia,"education,employment,external_id,work",22404,24948,30796,works classification
+APP-LBV5EQ8U9CUC0XII,University of Pittsburgh,"address,employment,external_id",5518,5702,5727,works classification
+APP-NWTZHB8DALQ8VSPW,Hanken School of Economics,"education,employment,external_id,url,work",2743,2868,3863,works classification
+APP-2SN6MJV28A3JR7P8,Leeds Beckett University,"employment,work",526,2773,5431,works classification
+APP-S9DATU4Y43Q5DH4H,La Trobe University,work,20200,23838,26619,works classification
+0000-0001-5450-6697,Boston University,"address,keyword,other_name,url,work",21792,22417,22551,works classification
+APP-C7W3SM7VJ3M45A1C,Pure Meise Botanic Garden,"education,employment,external_id,url,work",356,1570,2013,works classification
+APP-V6DYADQRDTZBPRWE,Universidade Federal de Uberlândia - Portal de Periódicos,work,2431,3522,4444,works classification
+APP-BYVJMQSWWKHKY3G9,UEFCRIS,"employment,work",0,1,67,works classification
+APP-BMSPAXSQ3NOEDLL1,Ben-Gurion University of the Negev - Pure,"external_id,work",257,322,333,works classification
+APP-9NO94E60Y603Y6IZ,Università degli Studi di Enna Kore - IRIS,"address,employment,other_name,url,work",3399,5578,8103,works classification
+APP-KVL0MCI8EWOKU16I,CSIRO,"employment,work",68169,75644,84256,works classification
+APP-HKW9NWRHAWBIHEQG,Repositorio Académico de la Universidad de Atacama,other_name,0,1,1,name rules
+APP-R73X7631IOWXAFSA,Kyoto University,"employment,url",3013,3580,3629,works classification
+APP-36JV3NU6MISBFOZU,Strathmore University - VIVO DEACTIVATED,external_id,1,1,1,name rules
+APP-LUW3KD5OXJG3NZSY,FGV ORCID,"url,work",933,1588,2283,works classification
+APP-XQ7LUQGE3ABQ1T9X,Region Sjaelland,"employment,external_id,url,work",5852,7186,8400,works classification
+APP-WT8ZXOZ8OXJD8GUS,Forschungszentrum Jülich,"employment,work",45087,46255,46739,works classification
+APP-1ZAM2OKCUM078DLM,IRIS ArTS,"address,employment,keyword,url,work",1951,3217,8351,works classification
+APP-89C00PFWIOD9L8YV,Zucker School of Medicine Symplectic Elements,work,1185,6392,13387,works classification
+APP-Q750Z9I3LFGYF0OI,Chang Gung University,"address,education,employment,external_id,funding,keyword,other_name,url,work",11778,12959,13695,works classification
+APP-FZGV9VZW6LTWY5Y7,La Universidad de Granada,"address,employment,url",3567,3565,3575,affiliations buckets
+APP-FD8KENSOJGSPDDWH,Watermark Faculty Success,work,0,27,30,works classification
+APP-LOHU2Y62BVH8JI6U,WU-FIS-Portal,"education,employment,external_id,url,work",10138,14295,16702,works classification
+APP-A1I91A4C9APFE4NH,Ludwig Boltzmann Gesellschaft at Pure,"education,external_id,url,work",0,0,1064,works classification
+APP-AOMBD4AB1DU9V8GQ,Forschungsinformationssystem (FIS Unilu),work,2252,3158,3590,works classification
+APP-XR5SWP6EHQCIZ5RD,PUB - Publications at Bielefeld University,work,31182,35813,40616,works classification
+APP-R2WEZ7B7T49WESQS,York St John University - RaY (Research at York St John),"employment,work",487,810,1390,works classification
+0000-0002-1538-7354,British Library,work,13,13,13,name rules
+APP-H5JWR3AUZBFGXE57,Motu Economic & Public Policy Research Trust,employment,22,22,22,affiliations buckets
+0000-0002-4711-5134,National Taiwan Normal University,"address,employment,keyword,other_name,url",250,251,251,affiliations buckets
+APP-MQN14GFHCFOVE6YM,AIT Publication Database,"education,employment,external_id,url,work",8242,10869,12257,works classification
+APP-G4ZLGTXBYQY6CQBC,Università Mercatorum - IRIS,"other_name,url,work",0,2102,3956,works classification
+APP-LFZVN25CLQLE57G6,La Universidad Pablo de Olavide,"employment,url",653,644,641,affiliations buckets
+APP-SCITQWZFVBF07JXF,University of Pardubice,employment,560,560,560,affiliations buckets
+APP-78MN4ZPKLUD08Z6E,Open Universiteit,"education,employment,external_id,url,work",5784,7786,8760,works classification
+0000-0001-5618-3553,University of California Publication Management System,work,63854,80039,97495,works classification
+APP-PO1OUUF3WBZJTWAE,NIWA - The National Institute of Water and  Atmospheric Research,"education,employment,invited_position",181,187,181,works classification
+APP-IK7UY8P0879KIRQ5,Università degli studi di Udine - IRIS,"address,employment,keyword,other_name,url,work",10947,12867,15416,works classification
+APP-4NC7B6JB0414TNHB,Iris CassiOpeA - Cassino Open Archive,"address,employment,other_name,url,work",0,500,1726,works classification
+APP-HC0PGYJMPX2QULNH,Royal College of Art - Pure,work,0,29,68,works classification
+APP-6OZAVMQLTQFKOJ5A,KROK University e-Repository,"url,work",0,35,2547,works classification
+APP-GMH5NW3CFA3HLFZ9,University of Oxford - Symplectic Elements,work,15474,29119,44772,works classification
+APP-TH87VQW590WEMDK0,Iris CamPuS,"address,employment,other_name,url,work",0,2797,4421,works classification
+APP-J6HQ40KDWS5XG0M5,Syracuse University - Faculty Portfolio System,work,8,196,707,works classification
+0000-0002-4407-7742,University of Oxford,"education,employment",18375,21281,23145,works classification
+APP-VEGR2IHS9Z62WRCP,Universidad del País Vasco,work,78609,78863,78997,works classification
+APP-K1RFUENXTHHY2XLK,Delft University of Technology,"education,employment,external_id,url,work",64491,79118,88682,works classification
+APP-VS8H6CPEK2DT8PQ0,Kanda University of International Studies,employment,31,97,106,works classification
+APP-JBUOKF0BTFJO2IS6,RTI International,"employment,external_id,work",57997,63798,66178,works classification
+APP-YRJXQ58OLADM3OAY,VERSO (Esploro),work,5,8,8,name rules
+APP-HXR30K539YF44P33,National Institutes of Natural Sciences,"education,employment,funding",1445,1467,1729,works classification
+APP-FV9LJOHF2VEEWT4K,"Medical University of Lodz, Poland. PublicUM",work,79546,91304,96060,works classification
+0000-0002-8893-4734,University of Colorado Boulder,"employment,keyword,url",2515,2522,2520,affiliations buckets
+APP-N8WJ6J34URPT3BS7,Monash University,"employment,external_id,url,work",81402,82169,82919,works classification
+APP-BJ1U9X15IASDW6OG,PureExper,"employment,external_id,url,work",83,83,83,affiliations buckets
+APP-KP19Z896VNQ9BHJJ,"Institute of High Energy Physics, Chinese Academy of Sciences","education,employment,other_name,work",20063,20139,20247,affiliations buckets
+APP-NB3VM4RRUMJ64MDP,CIRAD,"employment,work",11433,16864,18166,works classification
+APP-MF1PIJ31E8MJQV09,McGill University Library & Archives,work,295,616,1122,works classification
+APP-HUJJRVEQFMI8929C,MyUnifr,"funding,work",4495,5421,5765,works classification
+APP-VIHRCVN1DCNQGAYD,Medical University of Lublin,work,4932,4928,4928,name rules
+APP-N8GACRKUQYU0DQR1,Pure @ James Hutton,"external_id,work",0,0,3967,works classification
+APP-B66QG2KJSC9KUGY6,University of Canterbury,"education,employment",1048,1086,1130,works classification
+APP-Z1SB2AIWEEKNLWQE,University of Worcester - EPrints,"employment,work",167,383,746,works classification
+APP-79B0SN6EG60DZTUY,The Chinese University of Hong Kong,work,7922,7910,7913,name rules
+APP-ZNW5Y4402YEPY4VQ,Università degli Studi di Brescia - IRIS,"address,employment,keyword,other_name,url,work",14251,17743,19168,works classification
+APP-WGIQ2739VG0GH0X8,Sheffield Hallam University,work,3226,4538,5175,works classification
+APP-TW32VM58LJC0JI6J,Humboldt Universität zu Berlin - VIVO (SFB1412),external_id,8,9,9,name rules
+APP-YCMFOBCV9G3VXIJ0,Università degli studi di Messina - IRIS,"address,employment,keyword,other_name,url,work",421,421,5411,works classification
+APP-8OV7COWXN2MNR0EK,Clemson  University,work,242,479,702,works classification
+APP-4II37260ZNDTPRBQ,Rowan University,employment,89,103,103,works classification
+APP-3BGGE4QAI2Z8EUO3,Bishop's University - IRis Institutional Repository,work,0,0,1,works classification
+APP-DL3PDLUP5U275P6W,University of Michigan - Deep Blue Data,work,0,31,79,works classification
+APP-ILIGUSBEOQCU7O6R,Environmental Molecular Sciences Laboratory (EMSL),"funding,research_resource",838,837,840,name rules
+APP-TC24WC7XQRKES7CL,Florida State University,work,0,0,238,works classification
+APP-OZVG6PSQT2L2OBUK,Ruhr-Universität Bochum,"employment,work",82799,95269,105777,works classification
+APP-RY8I5DC5U2HRNRBJ,Lehigh University,"funding,work",12,12,12,name rules
+APP-1W8EIKFCD34IRHEL,myPublications at the University of Sheffield,"education,employment,work",53950,62775,74674,works classification
+APP-5GJA4VOIG60HFOXM,Teesside University,"education,employment,external_id,url,work",9280,10981,12695,works classification
+APP-ZD5V0BL5BDBBXDMO,UC Viden - University College Copenhagen,"employment,external_id,url,work",3578,6213,7560,works classification
+APP-XU9WECKCJ8UOAY6V,AgResearch Ltd,employment,192,187,183,affiliations buckets
+APP-HU4Y2LDPB3DKTRHR,DIAL,"url,work",24389,32561,37422,works classification
+APP-BG4XZFRKQQECY5RF,Griffith University,"employment,work",36771,41531,48267,works classification
+APP-DC4TIOZUFGRFIJ8X,Oslomet - Oslo Metropolitan University,work,706,978,1242,works classification
+APP-7XLZFKOE17NUUGBN,Victoria University,work,496,4366,4906,works classification
+APP-5EMW2TI4CHTMOP28,University of Alabama at Birmingham - Profiles,"employment,work",11172,14959,18497,works classification
+APP-0T77IMUGJC980DTB,Symplectic Elements,"employment,work",0,0,31,works classification
+APP-G5VGAF9CJICGA2CP,Florida International University - Symplectic  Elements,"employment,work",32144,40906,45414,works classification
+APP-ZAM5REP2WWP90FIV,"KULA: Knowledge Creation, Dissemination, and Preservation Studies","peer_review,work",0,12,57,works classification
+APP-TDDDJO93N6CLIE85,OBD - University of Veterinary Sciences Brno,"employment,work",4,6,9,works classification
+APP-LAU0UEM6HDPVFO2J,Warsaw University of Technology - OmegaPSIR,work,57177,57299,59026,works classification
+APP-EJGLA2YA0THTYIKZ,Southern Cross University,"employment,invited_position,url,work",9656,10869,15717,works classification
+APP-O75NGDSYRKFRKOGA,Cranfield University,work,21843,21919,21899,name rules
+APP-DXL1LBNY8NEEZDDW,"University of California, Davis",employment,70,71,69,works classification
+APP-THOVPICFT13833K0,Pure at University College Cork,"employment,external_id,url,work",0,0,34094,works classification
+APP-P03RR5G90P08H7SO,Georgetown University,work,1,1,1,name rules
+APP-4HQZN5O76K3LZ0U4,University of Bristol - PURE,"education,employment,external_id,url,work",120708,140502,161457,works classification
+APP-GTHLW9KSZFYOWEDU,Symplectic Elements at American University,work,4648,5854,7146,works classification
+APP-A5YFYM5OK9G64H4R,NSU ORCID Integration for Pure Users,"external_id,work",0,42,432,works classification
+APP-AP39OPCH1LT2QME9,TUCfis - the Research Information and Expert Search System of Chemnitz University of Technology,external_id,10,13,13,name rules
+APP-5JU80HH550RFHRN6,University of Turku,work,40466,46514,52490,works classification
+APP-DGV6H2147M0MHOG0,IRIS Humanitas University,"address,employment,other_name,url,work",3239,3809,4943,works classification
+APP-VRSBU5YWKOGMLL7H,The University of Auckland,"education,employment,work",5227,5851,6168,works classification
+APP-K3ZZF59GLFQWWOMA,"Flanders Research Institute for Agriculture, Fisheries and Food","employment,external_id,url,work",3428,5351,8368,works classification
+APP-5QZTHYVPN8GOFL08,Università per Stranieri di Siena - IRIS,"other_name,url,work",36,208,408,works classification
+APP-9GIE4E0AJ4YRELI2,UK Health Security Agency,"external_id,work",33,70,77,works classification
+APP-IC3PS8BH3JJG2VPO,La Universidad de Almería,"employment,external_id,keyword,other_name",618,621,614,affiliations buckets
+APP-2Z2QO47STG5505JI,UCAR ORCID Integration,work,2329,2317,2455,works classification
+APP-JEYC5R4EYE2IS7I2,Digital Measures by Watermark for The University of Texas at San Antonio,work,0,126,419,works classification
+APP-2LVJM56NUEN5LWDH,Symplectic Elements at University of Tasmania,work,21061,25570,28517,works classification
+APP-9C2QP5BJ523TDF6O,University of Stuttgart Identity and Access Management System (SIAM),work,27,39,393,works classification
+APP-15WA0OYIS98AAZOV,Flinders University PURE,"education,employment,external_id,url,work",59394,74256,87298,works classification
+APP-K6Z527AADXR7WTXB,University of Zurich,"employment,work",7927,9230,9258,works classification
+APP-LEVFYL1P7YN2E7CV,University of Central Lancashire,"employment,work",797,1083,1239,works classification
+APP-C86UAPXZ9CCRWK7B,University of the Free State - Intembeko ORCID Hub,"education,employment,membership,service,work",522,724,796,works classification
+APP-ZXQJ4UL0CBK3CI25,Johns Hopkins University - Craedl,work,3,3,2,name rules
+APP-UITEYZXVUL3KPE3M,Syracuse University Experts@Syracuse,"employment,external_id,url,work",2506,2671,2669,works classification
+APP-Y7CF38PTUGLHN3FW,University of Helsinki - Editori,work,341,527,761,works classification
+APP-GF81FZVJUV14V3AX,Faculty Success by Watermark for University of Tennessee at Chattanooga,work,0,0,162,works classification
+APP-10NW61JYS1EBGODK,Smithsonian Institution,"employment,external_id,work",10365,11323,11988,works classification
+APP-HIV5RZ5COCEOPN2A,University of Otago,"education,employment",314,347,365,works classification
+APP-7CGOKZ7WMVSXBK2P,IS - Brno University of Technology,"employment,work",3001,12369,17760,works classification
+APP-IEN2AVEI78VTWQ81,The Johns Hopkins University Applied Physics Laboratory,work,205,205,205,name rules
+APP-XRRA9M610F4X1K7J,University of Strathclyde,"education,employment,external_id,url,work",55926,68825,77922,works classification
+APP-5XGUMETPB77J5MF1,BPP_AGH,work,42025,50662,57611,works classification
+APP-GU47B5B7UJYJMXB0,Elements at Indiana University,work,49,85,85,works classification
+APP-H8SNQD6VJD0YN6A3,Università degli studi di Salerno - IRIS,"address,employment,keyword,other_name,url,work",24054,26533,31709,works classification
+APP-VH40TWX2JIKBX06L,Università degli Studi G. d'Annunzio Chieti - IRIS,work,454,454,454,name rules
+APP-XOJR63BKW1S4X0M1,London South Bank University - Pure,"external_id,work",0,0,2887,works classification
+APP-AKH2J4E6UHXMUNWB,Boston College,"education,employment",318,316,313,affiliations buckets
+APP-BQO2Q6GUIRPPQFEP,University of Technology Sydney,"education,employment,work",79304,88865,99260,works classification
+APP-VJRKMVA47G0ICQ7X,The Open University of Israel,employment,148,152,171,works classification
+APP-UQGBOU36BX1G2IGX,Universitat Autònoma de Barcelona,"education,employment,external_id,url,work",56350,86180,104411,works classification
+APP-CEFCNDUQ669IKMMX,accedaCRIS,work,23014,31842,39054,works classification
+APP-1U5UQ75986YPFELY,Universidad Nacional Mayor de San Marcos,"address,employment,external_id,keyword,other_name,url",4959,4953,4923,affiliations buckets
+APP-OR24T4TGYS46LJEO,Murdoch University Research Portal,"employment,work",8072,11911,15667,works classification
+APP-44IRXILT0ZVDPBR0,Universidad del Rosario,"employment,external_id,url,work",341,420,821,works classification
+APP-PO8TV2XGDOV0O3GY,"SOAS, University of London -  SOAS Research Online","employment,work",1595,1846,1798,works classification
+APP-HIF59R662QF8RNDZ,Michigan State University - Digital Measures by Watermark,work,7,176,247,works classification
+APP-OTFHR5RZD4J8WZ6L,Åbo Akademi University,"education,employment,external_id,url,work",9481,13225,16315,works classification
+APP-GFDYA4LJU011GEFP,Faculty Portfolio - The University of Texas at Austin,work,0,0,1028,works classification
+APP-YZ6RQUB82J5G4GDV,CorpusUL,work,0,262,397,works classification
+APP-UFIB4NH6VX4PCS1A,Université de Lorraine,employment,0,1500,4047,works classification
+APP-SQ5AH3FARV0L0EES,Iris Centro Ricerche Enrico Fermi,"url,work",0,243,533,works classification
+APP-BZOKDW7Y5R7S6883,Ara Institute of Canterbury,employment,22,22,21,affiliations buckets
+APP-6QVPND1V79F7HW0N,Universidade de São Paulo,"education,peer_review,work",545,723,735,works classification
+APP-78CAIEUBKW9K82GQ,Universidad Senor De Sipan Sac,"address,employment,other_name",3,3,4,works classification
+APP-92LTPLSEWAS4MD66,London South Bank University - Haplo,work,5444,5472,5541,works classification
+APP-SUIPPHRUN43Z4SUJ,Cedars-Sinai Health System,work,16130,21593,29582,works classification
+APP-YXRKESDKA0K4G7AA,UC Viden - UCL University College,"employment,external_id,work",2192,3288,3918,works classification
+APP-7OZ0SB6QY02VO1X8,Faculty Success by Watermark for Seton Hall University,work,86,296,368,works classification
+APP-6O4DJHSQIO6XPBY9,Medical Research Institute of New Zealand,"education,employment",17,17,16,affiliations buckets
+APP-ELD9DSY9T01YC6TO,University of South Wales - PURE,"employment,external_id,url,work",1085,1085,1084,affiliations buckets
+APP-VOZZVWHV1K15COEN,New York University Scholars,"employment,external_id,keyword,url,work",12577,13290,13529,works classification
+APP-MVGPSUWW5XWWBLTE,"Dun Laoghaire Institute of Art, Design and Technology - PURE","employment,url,work",0,195,570,works classification
+APP-HFGPJ0JHWLLSII9F,Cardiff University,work,12546,14084,16308,works classification
+APP-IVICEDAHVX1V5EJ0,Digital Measures by Watermark for The University of Alabama,work,44,131,445,works classification
+APP-L5NAFPK1WLBQBVAR,University of Toronto: Elements,work,17526,25438,36792,works classification
+APP-NMZQ8IRMT5FHJB03,Lancaster University - Pure,"education,employment,external_id,url,work",74603,93044,103513,works classification
+APP-XXLGAFI3ZNYM3ULD,West Virginia University - Digital Measures,work,0,166,1662,works classification
+APP-RP6K9JAE06WHRX4C,Deutsches Zentrum für Luft- und Raumfahrt (DLR),work,5216,8970,13931,works classification
+APP-E7V9FJS1H99JO1EU,Faculty Success by Watermark for UNM School of Medicine/HSLIC & Informatics Center,work,0,101,264,works classification
+APP-5EWYO7854CWGBY11,DSpace Cris - UNACH,other_name,1,1,1,name rules
+APP-MNH3Q20DZSNZELHV,Northumbria University,"education,employment,external_id,work",35100,44679,50398,works classification
+APP-C8GX4ZE1Q7NHVIWE,Royal Society Te Apārangi,"employment,funding,service",3267,3572,3955,affiliations buckets
+APP-KVHAHA4YRUO490A7,Newton Gresham Library,work,14,13,13,name rules
+APP-LB172RYK365QDA57,KU Leuven,"employment,work",330438,371530,410711,works classification
+APP-EJSTKWKID7HXVVT1,Mary Immaculate Research Information System (MIRIS),"education,employment,external_id,url,work",935,1833,2588,works classification
+APP-GK7CZC8JRH02IF1R,"Electronic National Technical University ""Kharkiv Polytechnic Institute"" Institutional Repository","url,work",986,9732,16315,works classification
+APP-DWSBL3TRB6LBNJ6K,Digital Measures by Watermark,work,2,26,26,works classification
+APP-QZ1PTTCQZ9SJWCFI,VTT Technical Research Centre of Finland - PURE,"employment,external_id,url,work",24927,29088,33794,works classification
+APP-PPJVHLU18P7ZEV1A,Landcare Research,"employment,invited_position,work",260,270,266,works classification
+APP-GPI787Z98DCKQN07,Bond University,"education,employment,external_id,url,work",12057,15451,17842,works classification
+APP-QZXI967Y33K0FV64,"School of Advanced Study, University of London","employment,work",31,63,116,works classification
+0000-0002-4792-4935,University College London,"employment,keyword,url,work",206439,232161,300609,works classification
+APP-P9OA7T52ZH60LF2D,Fondazione Bruno Kessler - IRIS,"other_name,url,work",2599,3448,4013,works classification
+APP-ICEZ2ZNIE1NENR1J,Archive ouverte UNIGE,work,0,8090,17647,works classification
+0000-0002-0927-3393,Aston Research Explorer,"education,employment,external_id,url,work",28849,31939,36546,works classification
+APP-B12SX7Y9ZUZ0IY3H,Houston Methodist Research Institute - Pure,"employment,external_id,url,work",2769,2766,2761,affiliations buckets
+APP-BZI1IODNFH41HUA0,FIS TU Dresden,"employment,external_id,url,work",37172,52234,65071,works classification
+APP-90JKFHINBODD72RB,Sam Houston State University Integration,work,72,213,715,works classification
+APP-LQU23AKO5TKIQR6S,Kyambogo University,employment,0,0,64,works classification
+APP-PA85IUASUWVHD1ZQ,University of Nebraska-Lincoln,"employment,url,work",10,10,10,affiliations buckets
+APP-QSI3BOI1FRJ3MSVC,Aarhus University,"education,employment,external_id,url,work",228823,275186,313067,works classification
+APP-J0G8JBFRO05FDA4J,UG ORCID Hub,"employment,work",0,0,25,works classification
+APP-C2U70RXWYG8CE4TB,The New Zealand Institute for Plant & Food Research,employment,298,300,299,works classification
+0000-0002-7539-5209,Karolinska Institutet,"employment,work",108669,120447,135792,works classification
+APP-ZK2M7TS6Y0A3JWSH,Pure by Elsevier for Seton Hall University,"external_id,work",1,19,46,works classification
+APP-I2Q3P5180FBRHDS3,University of Birmingham,"education,employment,external_id,work",68452,89289,109770,works classification
+APP-HQTCDILQFPTBRHA4,國立成功大學 - National Cheng Kung University,"education,employment,work",3,3,3,affiliations buckets
+0000-0002-8025-6553,UC Viden,"employment,external_id,keyword,url,work",11220,11148,11115,affiliations buckets
+APP-WQSRGMH4GDQ9LH1W,Cornell eCommons Repository,work,0,0,1,works classification
+APP-7ZC860H2K0QXLW2B,Tilburg University - PURE,"education,employment,external_id,url,work",40875,45092,48456,works classification
+APP-HJG0PBIG77HELV73,VDU CRIS,"address,education,employment,external_id,funding,keyword,other_name,qualification,url,work",6888,10940,11437,works classification
+APP-OI660V7YVLYDUWDV,University of Huddersfield - PURE,"education,employment,external_id,url,work",13502,13984,16807,works classification
+APP-QHSUZPS3QB65R12B,Politecnico di Milano - IRIS,"address,employment,keyword,other_name,url,work",34832,39588,44310,works classification
+APP-IH1XW85HEPB4T87J,SoleCRIS,"employment,work",0,0,1817,works classification
+APP-RI445B295ZLTWUVB,Swedish University of Agricultural Sciences,work,22917,25344,26623,works classification
+APP-B3VXPAY52VNC1XI0,Rhodes University - Intembeko ORCID Hub,"employment,work",26,67,67,works classification
+APP-CBBRNA08S76OOD5I,Queensland University of Technology PURE,"education,employment,external_id,work",67967,81719,94966,works classification
+APP-ZQE79INACAA3FM1D,Institutional Repository of the Ukrainian Catholic University,work,0,0,1,works classification
+APP-9L7HP9MON0UYJJJC,NCCU Academic Hub,"address,education,employment,funding,keyword,other_name,url,work",10244,10258,10354,works classification
+APP-0GOOS04U3WFGWYXI,Charles Darwin University,"education,employment,external_id,url,work",5010,7397,9001,works classification
+APP-4AXFB3OC2HWKRCGP,University of Iowa – Iowa Research Online,"employment,work",2156,4004,12930,works classification
+APP-7NWDR4QA6HDWTU90,Stellenbosch University Symplectic Elements Search ORCiD,work,0,292,3780,works classification
+APP-Q9SV3MZPOEXRM1AX,IRIS - UNICZ,"address,employment,other_name,url,work",368,3978,5423,works classification
+APP-1ATINV8F9FWONZN5,Zachodniopomorski Uniwersytet Technologiczny w Szczecinie,work,11661,12075,12086,works classification
+APP-KA0QIAIB7ETX0QZG,Iris U-PAD Unimc,"address,employment,keyword,other_name,url,work",2619,3156,3779,works classification
+APP-YBZC1Z4IDJDP16Q9,Università Politecnica delle Marche - IRIS,work,549,549,549,name rules
+APP-W27W2JL4TA5GF7BI,CCCU Pure Repository,"external_id,work",0,0,2359,works classification
+APP-02BANAAWUDCXIOQW,University of Pittsburgh - Faculty Information System,work,0,0,20,works classification
+APP-3RIT37BTC5YKIP98,University of Freiburg,work,481,1929,3432,works classification
+APP-VFTFZB29QLGAPC0Y,NYCU Academic Hub,"employment,external_id,url,work",4042,4105,4400,works classification
+APP-0CJ1DAALX7F17VEK,Brown University,"education,employment,keyword,other_name,url",977,1044,1085,affiliations buckets
+APP-G8CUM5UJEPXHT2QL,London School of Economics & Political Science,"education,employment,external_id,work",12389,33488,36425,works classification
+APP-93H8JE7GRNHH02VH,OBD JU v ČB,"education,employment,work",179,367,436,works classification
+APP-L1679EFH65VELYNI,RWTH Aachen University,"employment,work",12680,13583,15374,works classification
+APP-F3692PH9EP2BSHJ3,ORCID Integration at EPFL,employment,2028,2368,2552,works classification
+APP-6BVA0PSNACBJ865A,Hong Kong Baptist University,"employment,external_id,keyword,other_name,url,work",15060,19648,23706,works classification
+APP-G8IN51OMRCQ6O84R,Faculty Success by Watermark for Rowan University,work,0,0,2,works classification
+APP-S7XUTR7JZUDSK0GK,Izmir Institute of Technology,work,0,0,166,works classification
+APP-KOTXMX2NSPQBOC6R,TENET South Africa,"employment,service",8,8,9,works classification
+APP-U0B7YK4EJI5UY6VK,University of Regensburg,work,868,978,1317,works classification
+APP-5QTIBME0X6WYIEHT,Scotland's Rural College,"education,employment,external_id,url,work",8176,7416,7989,works classification
+APP-18YUNZ1TPEYV7LNL,Goethe University Data Repository,work,5,6,6,works classification
+APP-ARG7587K08AJCXUL,Pure TUe,"education,employment,external_id,url,work",40072,59104,71701,works classification
+APP-E4OVERHVWC6NXGLU,OBD - UPOL,"education,employment,work",4454,12997,18187,works classification
+APP-ETJSG3URM6R9C0SM,Duke University Elements,"education,employment,work",52419,58475,75308,works classification
+APP-WN41S31GIXCOP1LJ,Institute of Science Tokyo,work,40536,52014,55226,works classification
+APP-4HOGAF1S1G7KC47J,TU Wien,"address,employment",2428,2809,3271,works classification
+APP-GDA0O4L9FJEN0SU7,Stanford University,work,177081,213170,254137,works classification
+APP-JQZD07JRTTIHS3HU,Medical University of Gdańsk,work,4679,5067,10383,works classification
+APP-Y0T0JZFPWOOKVDPY,"Medical University of Warsaw, Poland – WUM.Publikacje",work,45067,55540,63751,works classification
+APP-YI7J3CD217HOTT7K,Manchester Metropolitan University,"education,employment,work",25681,30038,35357,works classification
+APP-U8F0HH2BU65JSBJE,University of Oregon Libraries,work,0,0,21,works classification
+APP-523WFRTGOLGFQ6N4,Università degli Studi di Padova - IRIS,"address,employment,keyword,other_name,url,work",84521,97472,111300,works classification
+APP-IW5Q469BTAGREJ7K,University of Western Australia,"education,employment,external_id,url,work",152540,172819,192422,works classification
+APP-J4H0I1CPS3HCS4LY,Swinburne Elements,"employment,work",120,467,772,works classification
+APP-237TRBJHMIB952F5,Georgia Southern Scholars (Georgia Southern University),"external_id,url,work",0,1197,3166,works classification
+APP-GYZ2LMPZYKSQIWVC,Atlantic Technological University (Pure),"external_id,url,work",1095,2013,2977,works classification
+APP-PWA4C056G34FLBCK,Children's Tumor Foundation,funding,134,146,147,name rules
+APP-IFZXSR2L0Y4KF9N2,The Weizmann Institute of Science (WIS Works),"employment,work",21,21,21,affiliations buckets
+APP-4G9KWDH4L14D6X2Q,South East Technological University - Pure,"education,employment,external_id,url,work",152,144,7361,works classification
+APP-R92EE3C6QDZDXM87,National Institute for Materials Science,"employment,external_id,url,work",2532,2530,2773,works classification
+0000-0001-7500-7360,Purdue University Research Repository,work,0,5,14,works classification
+APP-H6I5BA3M6G8NB2XH,Universitätsklinikum Hamburg-Eppendorf,"employment,external_id,work",2483,2494,2503,works classification
+APP-JM4WNR1WOAR8770W,Institute of Cancer Research,work,17935,20932,23151,works classification
+APP-H81DQ4SZTU5UQCOI,Repositorio Institucional de la Universidad de Antioquia,"keyword,url,work",0,4,7,works classification
+APP-23ZOU2A3P16BS7NR,Università degli Studi di Torino - IRIS,work,761,761,761,name rules
+APP-M286K6K8A2PT5DCR,University of Haifa,"address,education,employment,external_id,keyword,url,work",3224,4592,4863,works classification
+APP-DAPY6WMUWFSTMJ3D,Bar-Ilan University,employment,703,698,680,affiliations buckets
+APP-N211FI4KWXBZH263,Baylor University,work,0,77,77,works classification
+APP-Y3QHCF8F295IRSRP,Elements at University of Utah,"employment,work",0,15170,19799,works classification
+APP-J9VR8I3XNJWK7DLZ,University of Bath,"education,employment,external_id,work",56434,67947,74229,works classification
+APP-XQR1MVT4G60U6J5R,Libra,"url,work",78,78,157,works classification
+APP-JMT55MJUP3VMA7GK,PRISM - University of Calgary's Institutional Repository,"url,work",0,0,3,works classification
+APP-TBV35CXM20D8B13P,Università di Bolzano,work,473,473,468,name rules
+APP-U1V4LMN124DPZBUL,OBD MZM,"employment,work",0,0,1120,works classification
+APP-30ZY8MIAXQ0UKW4D,Faculty Success by Watermark for University of Wisconsin-Madison,work,26,731,1207,works classification
+APP-ZOBVAH1MESOTCKEI,University of Salzburg,"external_id,work",13835,18866,23403,works classification
+APP-L4GNSRWOZMF0ZP1U,Università degli Studi di Napoli L'Orientale - IRIS,work,56,56,56,name rules
+APP-1UNPLN53FTAZE7WQ,Universitätsbibliographie Duisburg-Essen,work,0,0,206,works classification
+APP-X98B3FZI2F40RKRP,Repository KITopen (Karlsruhe Institute of Technology),work,48995,62753,76419,works classification
+APP-M7EFQCIANMPPH05X,Kiel University,"external_id,work",1474,1836,2542,works classification
+APP-SVHIYDABRPGOYS6J,V. N. Karazin Kharkiv National University,"url,work",0,3,8,works classification
+APP-Z2004HUVFXDAN1EK,The University of Sydney,work,122,122,121,name rules
+APP-NMZJA99M3RHKLCLP,Boston University - MyCV,work,3010,8386,13675,works classification
+APP-C5AAE6VKY87MPHA0,La Universidad de Málaga,"employment,external_id,keyword,other_name,url",651,657,653,affiliations buckets
+APP-LWWJS7JD173TPE94,The University of Sydney Profile Manager,"education,employment,work",0,0,84694,works classification
+APP-VHZQG94DXFFWYGD2,Università degli studi del Molise - IRIS,"address,employment,keyword,other_name,url,work",7252,7887,8284,works classification
+APP-4XWLCD444P2PJ7OF,Università degli Studi di Siena - IRIS,"address,employment,keyword,other_name,url,work",22502,26417,29899,works classification
+APP-BHNHMQUDMTY7C45G,Kharkiv National Medical University Repository,"url,work",72,676,696,works classification
+APP-6IFX0K251UGHKDUI,People @ Hochschule Burgenland,work,0,0,80,works classification
+APP-OFZR6297G4QVO8B6,Technische Universität Dortmund,"employment,work",24915,28544,31610,works classification
+APP-CASKXRUQ8Z4B33UC,National Taiwan University,"address,external_id,keyword,other_name,url,work",4860,4809,4790,name rules
+APP-B5CR0LKBYOVFL86Q,Leiden University,work,44786,50033,54923,works classification
+APP-3MHIXVAQ1MK7PLXN,The University of South Australia,"employment,work",26677,29388,30125,works classification
+APP-MFWO55R9PDJGNW3V,Nara Institute of Science and Technology (NAIST),employment,0,2,2,works classification
+APP-D4TGAY0UETAZT6ME,University of Illinois at Chicago Symplectic Elements,"employment,work",77,3106,4880,works classification
+APP-H7GN4AWBE4NU5999,Vrije Universiteit Amsterdam,"employment,external_id,url,work",107695,120538,130198,works classification
+APP-ZPSB61B4SQ70RLU1,Repository of Vasyl Stefanyk Carpathian National University,"address,url",0,0,2,name rules
+APP-UETS6JEK6ZLBJEBY,James Cook University - GECO,"education,employment,service,work",781,1743,2227,works classification
+APP-D8Q4QX8CX58S26TJ,Université de Lille,work,1905,2028,2021,works classification
+APP-7GKO1DZ7Z4U3S6V1,LISER,"employment,external_id,url,work",1596,2392,2895,works classification
+0000-0002-6828-0884,Memorial Sloan Kettering Cancer Center,"address,employment,other_name,url,work",25132,25672,29244,works classification
+APP-3LGMSF4KLW3QWGKR,Auckland War Memorial Museum,employment,55,56,56,affiliations buckets
+APP-PIXY295J93GL3GMY,PPM of Wroclaw Medical University,work,109892,109949,110052,name rules
+0000-0003-0729-2045,University of Hong Kong,"education,employment,external_id,keyword,other_name,url,work",80139,85217,92166,works classification
+APP-OQ0TISF8OKQXZKVD,ACU Research Bank,work,1484,1803,1823,works classification
+APP-CWOSV5DXROCY1Q2H,Neuromatch Academy Portal,education,287,959,1316,affiliations buckets
+APP-I8VRXMPAFUET9M68,Università Vita-Salute San Raffaele - IRIS,"address,keyword,other_name,url,work",13107,14563,18467,works classification
+APP-IE2PM1DSNCIKIFWF,ADAGGIO Cris,work,0,3,6,works classification
+APP-4MRRWT4R2DXDWU0H,Torrens University Australia,"employment,external_id,url,work",1840,2130,3009,works classification
+APP-7ZZQE5LD8EAC7LM8,University of Tasmania,"funding,work",36691,36680,36649,name rules
+APP-TPBKL4W8GX2H7LW9,The Open University of Israel Pure,"external_id,work",0,0,93,works classification
+APP-3BJIY179N8PNU9SC,Università degli studi di Roma Tor Vergata - IRIS,"address,employment,other_name,url,work",1860,5465,7042,works classification
+APP-JSMN9FEI3LE08UHE,The Open University (ORO - Open Research Online),"employment,work",28851,31576,33975,works classification
+APP-NLOI1QT5SLK6DOKW,Faculty Success/Digital Measures,work,0,0,2,works classification
+APP-Z196B82US154BL0H,Carnegie Mellon University Elements,work,8639,11065,13486,works classification
+APP-G0QFW9RMILCDVVQE,Institutional Repository of the State Tax University,"url,work",0,1981,3196,works classification
+0000-0001-8821-588X,Aalborg University,"address,education,employment,external_id,keyword,url,work",131717,160936,178957,works classification
+0000-0001-8616-5022,Symplectic Elements at University of Cambridge,work,4390,7171,15894,works classification
+APP-F6XPGVL3LA9PZN6O,European Centre for Medium-Range Weather Forecasts,work,1553,1629,1685,works classification
+APP-FOP7E3H25M9CTD56,Weizmann Institute of Science,"employment,external_id,work",4466,4830,5363,works classification
+APP-YDGWJSZ2OYM5QY0W,Otago Polytechnic,"education,employment,work",1261,1258,1260,affiliations buckets
+APP-8WR4AZ7NZ2SAV1W8,University Bibliography of Bauhaus-Universität Weimar,work,0,0,11,works classification
+APP-6FSTTCWOI90XRH3L,Montanuniversität Leoben,"education,employment,external_id,url,work",8916,12018,13433,works classification
+APP-82UQMS72V889KMSW,University of Oulu,"employment,work",0,57,492,works classification
+APP-1200WMPKY0KQVSRK,Liverpool School of Tropical Medicine CRIS,"external_id,work",0,3487,8582,works classification
+APP-VXIQUUY0S5P9QY0B,Universitätsbibliothek Paderborn,"employment,work",170,189,208,works classification
+APP-8X82M8JR5M02QEY5,Adam Mickiewicz University - Omega-PSIR,work,44419,48326,49997,works classification
+APP-C9EFX6ZOY8D8H65H,Technion - Israel Institute of Technology,"address,employment",1975,1962,1936,affiliations buckets
+APP-9JOBZONGGZPBVISG,RIMS,work,2371,5461,5769,works classification
+APP-WDD49RJYT8SR8WV0,University of Plymouth - Pure,"education,employment,external_id,url,work",17139,26954,31480,works classification
+APP-9GS26S1A9B43Q5UW,Istituto Universitario di Studi Superiori - Pavia,"address,employment,other_name,url,work",222,511,701,works classification
+APP-33AWTQA1UKY94ARA,Hong Kong University of Science and Technology,"address,education,employment,external_id,keyword,other_name,url,work",54613,57116,57273,works classification
+APP-421D1C7HNQ7JM51O,Lincoln University - Elements,work,2604,8436,9528,works classification
+APP-YBUMD2PV70ZKQHLY,University of Aberdeen - PURE,"education,employment,external_id,url,work",33903,39210,43236,works classification
+APP-AD94ZR0XRJZZVW0L,American Institute for Cancer Research ProposalCentral,funding,0,12,13,name rules
+APP-CTGCBDHSQ6DS9UZ7,European Molecular Biology Laboratory,"employment,work",1502,1909,2414,works classification
+APP-LLKZFA4D180AE1SO,IITJ - Dspace CRIS,"external_id,keyword,work",11,12,12,works classification
+APP-FY0M9VQW3R42LOR3,WelTec (Wellington Institute of Technology),employment,9,9,9,affiliations buckets
+APP-FMP3T1OTSNYBYZU1,NC State University Libraries,work,57127,73157,84833,works classification
+APP-L5WB9OTNYFF97RJU,FACTScience  - Charité Universitätsmedizin Berlin,"url,work",65742,73831,83609,works classification
+0000-0002-8446-3621,UNSW Sydney Research Output System,"employment,work",35112,51872,72748,works classification
+APP-A2MHMQNKG9OQFDHH,University of Newcastle,"education,employment,work",7510,9261,18957,works classification
+APP-XEW1LFN5TWB0MZTA,The Hebrew University of Jerusalem,"education,employment",2029,2159,2335,works classification
+APP-FEV0034X1L8KP7PF,LEARN - DSpace CRIS,url,0,1,1,name rules
+APP-UPN4WFZX37CAPOQF,IRIS Scuola Superiore Sant’Anna,"address,employment,other_name,url,work",0,131,1099,works classification
+APP-53KA7PS2OMZCBV4E,Università degli di Trento - IRIS,"employment,keyword,other_name,url,work",18679,22280,27018,works classification
+APP-CT2LCC4KZVAGLBYF,Massey University,"education,employment",428,429,443,works classification
+APP-19Z2G3F3TYBJCURD,Sac State Scholars,"employment,url,work",602,918,1281,works classification
+APP-9TWQW5J08D5L3JKK,University of Nottingham Ningbo China,"external_id,url,work",5275,9282,12023,works classification
+APP-6K5U04SUJX1B4R2U,Edith Cowan University,"education,employment",1930,2425,2867,works classification
+APP-M3NHPL73K2817SG4,University of Groningen,"education,employment,external_id,url,work",145895,178162,215637,works classification
+APP-ZWE21D8HS9AT1QPA,Coventry University,"education,employment,external_id,url,work",27808,31016,32393,works classification
+APP-5E1VKQXON4GX3LS0,University of Helsinki,"education,employment,external_id,url,work",256498,285897,313306,works classification
+APP-G7QN73B3OLI30QKW,Heriot-Watt University,"education,employment,external_id,keyword,url,work",30525,39660,44462,works classification
+APP-29DVDAXT6PGC2HN3,Augusta University - Pure,"employment,external_id,url,work",5374,6135,7721,works classification
+APP-38ZARIOJL13ZXS1G,Binghamton University,"education,employment",102,226,256,works classification
+APP-OVI6KAJJRJK5L0FS,Università Ca'Foscari Venezia - IRIS,"address,employment,keyword,other_name,url,work",9370,10814,12918,works classification
+APP-OSCS04PQHJ6J7O4T,Tel Aviv University,"education,employment",1265,1605,2004,works classification
+APP-U0TANBS263KYMSA3,Scuola Normale Superiore di Pisa - IRIS,"address,employment,keyword,other_name,url,work",4268,5792,7454,works classification
+APP-L5496ALW3ICS62BU,Kingston University at Pure,"education,employment,external_id,url,work",0,15,7798,works classification
+APP-DLR9RWNNXVATPQLN,Auckland University of Technology – NZ ORCID Hub,"education,employment",36,37,38,works classification
+APP-Y34UDE52DKLFXU7E,University of Pretoria - Intembeko ORCID Hub,"address,education,employment,external_id,invited_position,keyword,membership,other_name,qualification,service,url,work",832,840,833,works classification
+APP-OX6YVDEF7EPJAI3Z,Georgia State University ORCID Connector,employment,125,137,135,works classification
+APP-ANH7MDPIV03AY9U7,"The University of North Carolina, Chapel Hill",employment,0,4,819,works classification
+APP-0S83H19HUMMLQLT9,Boise State University-Pure,"external_id,work",0,41,212,works classification
+APP-FWSHEKF9JYMQ0GSP,Singapore Management University,work,13487,14818,16656,works classification
+APP-HSWJWIW4TMTCLASA,Università degli studi di Genova - IRIS,"address,employment,other_name,url,work",14428,23371,28029,works classification
+APP-8JVQXE9374XRYX9X,LUM Giuseppe Degennaro - sito della Ricerca,"url,work",167,1896,2176,works classification
+APP-M1J4CO4YANH9BXRN,University of Maryland - Digital Measures,work,2,827,1428,works classification
+APP-AYUZZ0M5FCIP909N,"Alfred Wegener Institute, Helmholtz Center for  Polar and Marine Research",work,37,37,37,name rules
+APP-ZMK60UDSZ5T10FZU,Instituto de Telecomunicações,work,5793,6220,6441,works classification
+APP-2YL9RY7X0XOF8MQ8,Ivey Business School - Elements,work,0,2065,2395,works classification
+APP-CG79ML0242SUIC7Y,Drexel Research Discovery,"employment,url,work",67,1633,2805,works classification
+APP-5XHQTE23PU7OAST9,King's College London,"education,employment,external_id,url,work",125043,148307,168673,works classification
+APP-UPM3OO98RYHTMNNP,Universidad de Santiago de Chile - Dataverse,"employment,service,work",25,25,27,works classification
+APP-R9QGZGT2ZYHVR7EK,Lincoln Agritech Ltd,employment,1,1,1,affiliations buckets
+APP-YG9EE6304IVOLVWB,Abertay University,"employment,external_id,url,work",3470,4332,4929,works classification
+APP-TCPR06V9JGSAUNV3,Delft University of  Technology Library - TU Delft Open Access,"peer_review,work",8,146,326,works classification
+APP-X7KMF7IT72Z7RKPS,Universidad de los Andes - Pure,"employment,external_id,url,work",227,336,523,works classification
+APP-RH7A3Z01T0DPBDX1,Symplectic Elements@McMaster,"employment,work",23600,27094,32362,works classification
+APP-MFX4PZLXYBYO7W27,Universidad Politécnica de Madrid UPM,"employment,url",2685,2693,2717,affiliations buckets
+APP-TT25H1IW2D4YRKIB,Università degli studi di Cagliari - IRIS,"address,employment,other_name,url,work",11218,14170,21053,works classification
+APP-CZNQ2X6FHC3FOWZ7,Yokohama National University,employment,227,380,535,works classification
+0000-0002-7223-7870,Roskilde University,"education,employment,external_id,url,work",27742,31626,36295,works classification
+APP-XHU57R4PV338B8VC,City University of Hong Kong,"education,employment,external_id,url,work",107611,138737,165553,works classification
+APP-KC1PIQXHSKWASOFZ,Bibliothèque uOttawa Library,work,131,183,256,works classification
+APP-CXE36IM1OU24MIDF,Liverpool John Moores University,"employment,work",14198,16393,20748,works classification
+APP-960EPY2F4TK0VIXA,University of Wollongong Elements,"education,employment,work",29799,32359,36725,works classification
+APP-XCBS77RM0T3OPVER,KRIS - Karl Landsteiner Research Information System,"education,employment,external_id,url,work",1051,2043,2977,works classification
+APP-YJXJVJ0YSZQ8KZQ5,Pure HvA,"employment,external_id,url,work",2206,3789,5288,works classification
+APP-27YMK5HJE77QY55G,La Universidad de Sevilla,"employment,external_id,keyword,other_name,url",4636,4716,4751,affiliations buckets
+APP-WQSI0ZFYI4QARU7W,Università degli Studi dell'Aquila - IRIS,"address,employment,other_name,url,work",7498,9897,11677,works classification
+APP-UFU7X5028FP87KZO,Electronic Repository of the Kyiv Institute of the National Guard of Ukraine,"url,work",0,0,41,works classification
+APP-YYTS3FP2BU3V7N41,University of West London,"employment,work",326,412,470,works classification
+APP-96444T5AQX2N7DF0,International Food Policy Research Institute (IFPRI),work,239,239,239,name rules
+APP-YINSD0G882XTZLHB,Charles University - IS Věda,"education,employment,work",0,8505,53756,works classification
+0000-0003-1678-3989,University of York,"external_id,keyword,url,work",12599,12872,13291,works classification
+APP-GMGMY6VT4M06AQ9B,IRIS UniCamillus,"other_name,url,work",0,373,373,works classification
+APP-PUIL0PYRU5PCHMC3,INSTITUTO ESPAÑOL DE OCEANOGRAFÍA,work,165,164,163,name rules
+APP-A6YHJ3SUMQTYA8O4,Partners in Digital Health,work,254,382,571,works classification
+APP-RSW98LN6IW5WD4N8,Murdoch University EPrints,"employment,work",11303,11290,11292,affiliations buckets
+APP-YYE8XZ6TMF8KBS41,Università degli Studi di Bari - IRIS,"address,employment,keyword,other_name,url,work",9670,11851,15600,works classification
+APP-UX015Z851O6ST9E1,KAUST Repository,"education,employment,work",52309,59425,65410,works classification
+APP-F4PUE9UIAQY05HG6,Technological University of the Shannon - PURE,"external_id,work",1146,2393,4349,works classification
+APP-KB0B7AOKI91WF71N,Università di Bergamo,"address,employment,other_name,url,work",5885,7461,9422,works classification
+APP-PKYLAT26OJLG84GU,"Aristotle University of Thessaloniki - Quality Assurance of educational, research activities and services and infrastructure of AUTh (QMS – AUTH)",employment,1136,1118,1100,affiliations buckets
+APP-1BGX1K9P6CHZ7VQ9,WesternU Libraries,"employment,work",0,0,39432,works classification
+APP-BSCQQ0PS85OE435Z,Los Alamos National Laboratory,"education,employment,funding,invited_position,keyword,membership,other_name,service,url,work",14418,14902,15193,works classification
+APP-NDT0XCDC4PIF1O8H,OBD VŠCHT,"education,employment,work",2941,6769,10120,works classification
+APP-NCM0IQPR2ZNVISEK,Ben-Gurion University of the Negev,"education,employment,external_id,work",2901,3638,5079,works classification
+APP-ZXQ64TI5UJA9WAN6,University of Minnesota - Digital Measures,work,0,824,2090,works classification
+APP-SFW9J4BAYWPMUSWE,IRIS UNIL,"other_name,work",0,43,7725,works classification
+APP-9D1N1G3AAS7NA60M,C.S.I.C. - Consejo Superior de Investigaciones Científicas,work,159138,187655,222544,works classification
+APP-918J2XP2CCLP96SN,Korea DOI Center,work,200,374,482,works classification
+APP-SX97WUNE23QD30PQ,Munster Technological University Pure Repository,"external_id,work",0,0,480,works classification
+APP-4I2KH866G1I6UEQ3,Massachusetts Institute of Technology,"education,employment",1218,1269,1345,affiliations buckets
+APP-LEDXGIRXOYGHYMVE,University of Twente Research Information (Pure Portal),"education,employment,external_id,url,work",34115,45264,53629,works classification
+APP-U73GBFB25QEM18LH,Consiglio Nazionale delle Ricerche CNR,"keyword,other_name,url,work",39457,134382,153128,works classification
+APP-UKGLZX5LPGYOXYX5,Macquarie University,"education,employment,external_id,url,work",135697,143656,154030,works classification
+APP-CH0N0RZ3G4OBGKYD,Penn State University - Digital Measures,work,27,27,27,name rules
+APP-Z61RUQZ0Y4KKHJ5I,University of Kwazulu Natal (UKZN),work,78,130,174,works classification
+APP-7B8EBFONYKCBW8LF,Kyoto University,employment,16,15,15,affiliations buckets
+APP-P3C82DOMT1QDASD4,Electronic Sumy State University Institutional Repository,work,0,0,1,works classification
+APP-O9XRDA50EWBQOKQ1,University of Amsterdam - PURE,"employment,external_id,work",38767,51624,64025,works classification
+APP-JDVPC3DB3C7LM6Z8,University of Dundee,"education,employment,external_id,url,work",31206,45454,49677,works classification
+APP-BNO3F4CN39W4BFNH,University of Tsukuba,"education,employment",1306,1418,1516,works classification
+APP-WRYD6WNYYH3PPEMZ,University of Toronto Libraries,work,382,556,776,works classification
+APP-G1HUWSKAF9O4SNK0,University of New England Australia,"employment,external_id,other_name,work",29100,32114,34581,works classification
+APP-5UXKHQCS7G57ASUJ,UC Viden - University College South Denmark,"employment,external_id,work",704,976,1422,works classification
+APP-7MYNRSHKM6GRFEKV,UTokyo Research Information Management System,"employment,other_name,url",0,0,145,works classification
+APP-0UHM89JQRTXDDW11,UniartsCRIS,"employment,work",0,0,241,works classification
+APP-J8L8ZJ4XVHJ67DC8,Johannes Gutenberg University Mainz,"employment,work",4092,5261,7734,works classification
+APP-P6SL5U1N02OA8G4Z,Midwestern University Elements,employment,0,0,2,works classification
+APP-83LDE4GOCZVY7AP3,University College Dublin,work,43788,49114,55944,works classification
+APP-XRH3RRXFTP18KLHK,Oak Ridge National Laboratory,"research_resource,service",1657,3435,5155,affiliations buckets
+APP-ME4E2CIBP2K34PAB,Università del Salento  - IRIS,"address,employment,keyword,other_name,url,work",10199,12656,14146,works classification
+APP-IDF2LCRYMH5ON9HO,University of Montana,"external_id,url,work",0,0,11,works classification
+0000-0001-9655-6473,KTH Royal Institute of Technology,"address,employment,keyword,other_name,url",7320,7832,8605,works classification
+APP-11OP2B5GJEHAY2J7,Aberystwyth University,"education,employment,external_id,url,work",9661,9697,9691,works classification
+APP-JPN1EXPJP0JZ8RPB,Hochschule Hannover,work,2,2,4,works classification
+APP-TP6X1ZD9XEAR66ZM,Università degli Studi Link Roma - IRIS,"address,other_name,url,work",0,2624,5275,works classification
+APP-QQ43293K7LJ77T95,"Architecture, Design and Conservation - Danish Portal for Artistic and Scientific Research","education,employment,external_id,url,work",6186,7096,8346,works classification
+APP-KJKG1IME80PSP8CR,Istituto nazionale di ricerca metrologica - IRIS,"address,employment,other_name,url,work",2544,2852,3102,works classification
+APP-83PU6O3VEZ4T0XBC,ZORA (Zurich Open Repository and Archive),"employment,keyword,work",0,5,635,works classification
+APP-SRC0TMXRNSUWD8OO,CRIS Agrosavia,"keyword,url",0,0,13,name rules
+APP-R7XYRUP253K4348R,Hochschulbibliographie - Universität Witten/Herdecke,"employment,work",365,4089,8468,works classification
+APP-GU2S9WZ9LVZ23GEB,Utrecht University,"education,employment,external_id,work",41291,59365,71935,works classification
+APP-B2ITWSM1JCIUKPBR,Lund University,"employment,external_id,url,work",50594,74548,97289,works classification
+APP-JX3MW0CGLC4B1CB7,SUNY via SUNY Research Connect,"external_id,work",0,0,3072,works classification
+APP-OIEGLPSKM1QO1ZO6,Universidade Nova de Lisboa,"education,employment,external_id,url,work",47104,51645,58359,works classification
+APP-BIDUC2UT7EK67HCN,Concordia University,work,13,22,25,works classification
+APP-GMBXWBQ6VH17ZFRP,University of Warwick Symplectic Elements,"education,employment,work",0,6921,15223,works classification
+APP-8OXKNHY4XBGNQ4JH,Faculty Success by Watermark for University at Albany,work,0,12,98,works classification
+APP-FAUVJJ4YRW0OY8I5,VŠB - Technická univerzita Ostrava,employment,1540,1646,1796,works classification
+APP-O4A9XT23SMOEZLBZ,University of Waterloo,"employment,external_id,url,work",203,203,203,affiliations buckets
+APP-TQO8DKC457MLFIZ1,Electronic Kharkiv National Pedagogical University Institutional Repository,url,0,0,1,name rules
+APP-9PAC44YVW64SN0CK,Perfiles y Capacidades de la Javeriana - Pure,"employment,external_id,url,work",5466,10039,14158,works classification
+APP-6CS2P9ZNSCUJAJ8S,University of Portsmouth,"education,employment,external_id,url,work",29896,33338,36801,works classification
+APP-UIQ1ZTKAU17ZGZSC,University of Queensland,work,36473,41017,101060,works classification
+APP-YFK7ZPEE3ZPQTVX7,Washington State University - Digital Measures,work,0,1,1,works classification
+APP-MJK13VABRNGW8OHS,Elements at RMIT,work,4809,9105,15123,works classification
+APP-CKV92M0O9MPKINNV,Università degli Studi di Napoli Federico II,"address,employment,keyword,other_name,url,work",53317,39656,47364,works classification
+APP-VH9FS40QD7OV28FC,ISCTE - Instituto Universitário de Lisboa,"funding,work",31868,31878,31838,name rules
+APP-DE1VGLRXP3LOE07G,myCV,"education,employment,funding,service,work",0,0,244,works classification
+APP-FBMWZG5HC1TKE2YB,Universitätsbibliographie der Universität Erfurt,work,0,0,140,works classification
+APP-UKOY48FJC2YWD7BH,Kyoto University Research Information Repository (KURENAI),work,25,27,120,works classification
+APP-1NKBZIMRA9XQD0L6,UC Viden - University College Absalon,"employment,external_id,work",1990,3138,3971,works classification
+APP-YXUW1T8S07K0ZZUA,University of Virginia,"education,employment,work",8894,9880,10715,works classification
+APP-T392V1L0YCTAI5O3,"Università degli Studi della Campania ""Luigi Vanvitelli""",work,1314,1314,1314,name rules
+APP-1I5UAN6C754ZGNF3,Malaghan Institute of Medical Research,"education,employment",23,23,23,affiliations buckets
+APP-VHMYY1YVLKI3ZH5Q,FIS - Leibniz Universität Hannover,"employment,external_id,url,work",1575,15283,21937,works classification
+APP-2SUOHR5EGT4IETGC,State University,education,1,1,1,affiliations buckets
+APP-GDBANNMKQOIC4TUU,University of Manchester - PURE,"education,employment,external_id,url,work",134380,180678,201323,works classification
+APP-05ZWZIWZ99P9S96Z,Cranfield University Elements,"education,employment,work",7518,9427,10897,works classification
+APP-5DQMRUPF1I925J2A,ARBOR - Applied Research Bern Open Repository,work,0,0,3,works classification
+APP-LL5BC8LIJTSL4916,Vrije Universiteit Brussel,"education,employment,external_id,url,work",115258,129326,153428,works classification
+APP-TI0ERH23NZ3UKQW6,Metropolitan University Prague,work,0,11,28,works classification
+APP-HDNQ92CA6YUG2QVM,"Libera Università Internazionale degli Studi Sociali ""Guido Carli"" - IRIS","address,employment,keyword,other_name,url,work",0,678,990,works classification
+APP-FEB9IGN79LRYBHOS,Western Sydney Research Profiles and Repository,"external_id,work",0,0,4600,works classification
+APP-VO3ROQQJFXHE1Q8W,IRIS - Roma Tre,"address,employment,keyword,other_name,url,work",0,0,2298,works classification
+APP-GOMW2DS3P0ZXPQ4J,Fondazione Edmund Mach - IRIS OPENHUB,"url,work",3654,4671,5246,works classification
+APP-V2VDSBFVL1MXGRPQ,Faculty Success by Watermark for Utah State University,work,0,115,318,works classification
+APP-QVDLJCSO2LRO76WF,University of Bern,"employment,work",6352,6159,6545,works classification
+APP-ATOXXPG1XOEWLCIS,University of Antwerp,work,23071,28029,31673,works classification
+APP-OSLF731D15J6DB5G,ORIX - OST Research Information Exchange,work,0,0,7,works classification
+APP-VSQKS6E93KCCEKN2,Pure at Athabasca University,"external_id,url,work",982,1478,1728,works classification
+APP-G3P0BISCBAMO72CQ,"Pao Yue-kong Library, Hong Kong Polytechnic University","education,employment,other_name,url,work",12519,12502,12485,affiliations buckets
+APP-IG8FS7VY96PLAGVL,Université Paris-Saclay,work,162,162,162,name rules
+APP-6MQXXONU3Y3KRU8L,University of Salford,"employment,work",2084,2079,2066,affiliations buckets
+APP-V1HDZZ0V41IHIHX8,Aalto University,"education,employment,external_id,url,work",30648,41474,49028,works classification
+APP-INCJTS9KAUDIIV4J,University of Reading,"employment,work",1291,2928,11312,works classification
+APP-C5Z8KBI3KGZ3NEYK,University of Texas at Arlington,work,0,1977,2838,works classification
+APP-S56SI3J3FGDT57BB,Universidade Federal de Uberlândia - Repositório Institucional,work,9135,11576,13629,works classification
+APP-SEJNVXA0BKPKHFW6,Lincoln University,"education,employment",145,179,180,works classification
+APP-MODL7UNOLXUNNB59,Zucker School of Medicine at Hofstra/Northwell,address,1,1,1,name rules
+APP-58LPOUVRI0T2NTQZ,Università degli studi di Perugia - IRIS,work,845,845,845,name rules
+APP-62IB96G4OQER57PB,Hasselt University,work,5945,9062,11160,works classification

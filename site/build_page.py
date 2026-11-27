@@ -95,6 +95,76 @@ D["nsw_stats"] = [["10", "NSW universities writing to ORCID", "New England 2016 
                   ["+51%", "co-author links, 2024 to 2026", "81.9k → 124k, same researchers"],
                   ["2 in 5", "new links seen only via a university", "16.6k of 42.3k since 2024"],
                   ["1 in 6", "last year’s new links from Sydney", "4.4k of 26.1k"]]
+# Affiliations follow-up (aff/): data for the third blog post.
+aff_rows = lambda f: list(csv.DictReader(open("aff/data/" + f)))
+AFF_SRC = {"Researcher": "Researcher", "Institution's own system": "Institution's own system", "ORCID Member Portal": "ORCID Member Portal"}
+fate = collections.defaultdict(collections.Counter)
+for r in aff_rows("aff_pair_fate_summary.csv"):
+    if r["section"] == "employment" and r["bucket"] in AFF_SRC:
+        f = r["fate"]
+        f = "kept" if f.startswith("kept") else "removed" if f.startswith("removed") else f
+        fate[r["bucket"]][f] += int(r["pairs"])
+FATES = ("kept", "recreated, identical", "recreated, changed", "removed", "record not public")
+D["aff"] = {
+    # [source, entries, % start date, % end date, % role, % organisation ID]
+    "src": [[r["bucket"], int(r["entries"]), float(r["pct_start"]), float(r["pct_end"]), float(r["pct_role"]), float(r["pct_org_id"])]
+            for r in aff_rows("aff_by_source.csv") if r["yr"] == "2026" and r["section"] == "employment" and r["bucket"] in AFF_SRC],
+    "fates": FATES,
+    "fate": [[b, *[fate[b][f] for f in FATES]] for b in AFF_SRC],
+    "links": [[r["link"][2:], int(r["pairs"])] for r in aff_rows("inst_coverage.csv")],
+    # [maintained system?, last seen bucket, pairs, still open, ended, removed]
+    "warn": [[r["maintained"] == "true", r["last_seen_2024"][2:].replace("-", "–").capitalize(), int(r["pairs"]), int(r["still_open_2026"]), int(r["ended_by_2026"]),
+              int(r["removed_by_2026"])] for r in aff_rows("inst_early_warning.csv")],
+}
+# Affiliation matching: text alone vs ORCID as the decider, for two ways of linking a paper's author to an ORCID record.
+DEC_CASE = {"1": "One text candidate", "2": "Several, one scores highest", "3": "Several, tied at the top"}
+def decider(f):
+    rows = aff_rows(f)
+    cand = [r for r in rows if r["text_case"][0] in DEC_CASE]
+    n = sum(int(r["instances"]) for r in cand)
+    num = lambda r, k: float(r[k] or 0)
+    text_right = sum(int(r["instances"]) * num(r, "text_decides") * num(r, "text_acc") for r in cand)
+    both_right = sum(int(r["instances"]) * num(r, "combined_decides") * num(r, "combined_acc") for r in cand)
+    # [case, % of instances with a text candidate, % text correct when it decides, % ORCID decides, % ORCID correct, % ORCID correct when they disagree]
+    return {"cases": [[DEC_CASE[r["text_case"][0]], 100 * int(r["instances"]) / n, 100 * num(r, "text_acc") if r["text_acc"] else None,
+                       100 * num(r, "orcid_decides"), 100 * num(r, "orcid_acc"), 100 * num(r, "orcid_right_when_disagree") if r["orcid_right_when_disagree"] else None]
+                      for r in cand],
+            "instances": n, "text_right": 100 * text_right / n, "both_right": 100 * both_right / n}
+RUN = {"dim": "Linked through Dimensions", "cr_orcid": "Crossref, author's iD", "cr_surname": "Crossref, surname only"}
+D["aff_match"] = {
+    "runs": [["Linked through Dimensions", decider("xr_decider_summary.csv")], ["Crossref, author's iD", decider("xr_decider_cro_summary.csv")], ["Crossref, surname only", decider("xr_decider_cr_summary.csv")]],
+    # [run, rule, variants, % exact, % same or related organisation] for employment-based candidates
+    "dict": [[RUN[r["run"]], r["rule"], int(r["variants"]), 100 * float(r["precision"]), 100 * float(r["precision_related"])]
+             for r in aff_rows("xr_eval_summary.csv") if r["signal"] == "emp"],
+}
+# Kinds of string (whole ROR names found word for word), and how text and ORCID do on each (xr_ambig_summary.csv).
+AMB_KIND = {"1": "One name, a city settles it", "2": "One name, no city settles it", "3": "Several organisations named",
+            "4": "One organisation named", "5": "No whole name"}
+def ambig(run):
+    rows = [r for r in aff_rows("xr_ambig_summary.csv") if r["run"] == run]
+    n = sum(int(r["instances"]) for r in rows)
+    # [kind, instances, % of instances, % text correct, % ORCID decides, % ORCID correct]
+    return [[AMB_KIND[r["kind"][0]], int(r["instances"]), 100 * int(r["instances"]) / n, 100 * float(r["text_correct"]),
+             100 * float(r["orcid_decides"]), 100 * float(r["orcid_acc"])] for r in rows]
+D["aff_ambig"] = [[RUN[k], ambig(k)] for k in ("dim", "cr_orcid", "cr_surname")]
+# Whole-name-first matcher with and without ORCID (xr_decider_cascade.csv):
+# [run, [% hard strings agreeing, word score alone; with ORCID; % all strings, whole name then word score; with ORCID]].
+casc = {r["run"]: r for r in aff_rows("xr_decider_cascade.csv")}
+D["aff_cascade"] = [[RUN[k], [100 * float(casc[k][c]) for c in ("no_name_text", "no_name_orcid_text", "name_then_text", "name_orcid_text")]]
+                    for k in ("dim", "cr_orcid", "cr_surname")]
+# Why the whole name + ORCID + word score does not agree with Dimensions, by run (xr_decider_gap.csv): rows of [outcome, % per run].
+GAP = {"1": "Agrees: whole name", "2": "Agrees: ORCID decided", "3": "Agrees: word score",
+       "4": "Whole name: a parent or child of Dimensions' choice", "5": "Whole name: a different organisation",
+       "6": "ORCID decided: a different organisation", "7": "No whole name, no ORCID affiliation for the year",
+       "8": "No whole name; ORCID affiliations, but none or several among the candidates"}
+gap = {}
+for r in aff_rows("xr_decider_gap.csv"):
+    gap.setdefault(r["bucket"][0], {})[r["run"]] = 100 * float(r["share"])
+D["aff_gap"] = [[GAP[k], *[gap[k][run] for run in ("dim", "cr_orcid", "cr_surname")]] for k in sorted(gap)]
+D["aff_stats"] = [["4 in 5", "affiliation strings agree with Dimensions when matched on an organisation's whole name first", "of the 150k–458k strings in each set with any candidate; scoring words alone manages 1 in 5"],
+                  ["2×", "agreement on the hard strings, with no whole name, once ORCID affiliations decide", "from 16–19% to 33–35%; over all strings, 83–84%"],
+                  ["14.2M", "ways of writing 53k organisations", "training data for affiliation matching, collected through ORCID records"],
+                  ["+44%", "more researcher–institution links when the system that wrote an item counts as an affiliation signal", "459k from the works, grants and other items institutions' systems write, against 318k from their affiliation entries"]]
 # Prompt history behind the dashboard and both posts (exported from the Claude Code session, private links removed).
 D["prompts"] = json.load(open("data/prompts.json"))
 html = open("site/page_template.html").read().replace("/*DATA*/null", json.dumps(D, separators=(",", ":")))

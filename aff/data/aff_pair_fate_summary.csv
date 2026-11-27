@@ -1,0 +1,109 @@
+bucket,section,from_yr,fate,pairs,pairs_with_duplicates,end_date_added,org_id_changed
+Institution's own system,education,2024,kept,49547,175,0,3434
+Institution's own system,education,2024,"kept, edited or added to",251,1,9,4
+Institution's own system,education,2024,record not public,33,0,0,0
+Institution's own system,education,2024,"recreated, changed",3248,6,2382,607
+Institution's own system,education,2024,"recreated, identical",2341,2,0,236
+Institution's own system,education,2024,removed,3799,16,0,0
+Institution's own system,education,2024,"removed, other organisation left from source",144,0,0,0
+Institution's own system,education,2025,kept,57810,191,0,1964
+Institution's own system,education,2025,"kept, edited or added to",1759,4,1273,209
+Institution's own system,education,2025,record not public,42,0,0,0
+Institution's own system,education,2025,"recreated, changed",3318,2,2714,581
+Institution's own system,education,2025,"recreated, identical",4214,6,0,2229
+Institution's own system,education,2025,removed,1912,5,0,0
+Institution's own system,education,2025,"removed, other organisation left from source",63,0,0,0
+Institution's own system,employment,2024,kept,165925,2040,0,5715
+Institution's own system,employment,2024,"kept, edited or added to",3122,72,274,250
+Institution's own system,employment,2024,record not public,54,0,0,0
+Institution's own system,employment,2024,"recreated, changed",13326,92,7580,2424
+Institution's own system,employment,2024,"recreated, identical",8815,18,0,2663
+Institution's own system,employment,2024,removed,9436,51,0,0
+Institution's own system,employment,2024,"removed, other organisation left from source",1324,1,0,0
+Institution's own system,employment,2025,kept,188023,2239,0,5096
+Institution's own system,employment,2025,"kept, edited or added to",5419,231,397,473
+Institution's own system,employment,2025,record not public,59,0,0,0
+Institution's own system,employment,2025,"recreated, changed",12646,85,7471,982
+Institution's own system,employment,2025,"recreated, identical",15387,26,0,5092
+Institution's own system,employment,2025,removed,8286,56,0,0
+Institution's own system,employment,2025,"removed, other organisation left from source",2226,8,0,0
+National system,education,2024,kept,24,1,0,0
+National system,education,2025,kept,35,1,0,0
+National system,employment,2024,kept,42,0,0,0
+National system,employment,2024,removed,1,0,0,0
+National system,employment,2025,kept,48,0,0,0
+ORCID Member Portal,education,2024,kept,5470,110,0,0
+ORCID Member Portal,education,2024,"kept, edited or added to",147,18,24,0
+ORCID Member Portal,education,2024,record not public,3,0,0,0
+ORCID Member Portal,education,2024,"recreated, identical",1,0,0,0
+ORCID Member Portal,education,2024,removed,51,1,0,0
+ORCID Member Portal,education,2025,kept,8516,119,0,1
+ORCID Member Portal,education,2025,"kept, edited or added to",409,1,32,0
+ORCID Member Portal,education,2025,record not public,1,0,0,0
+ORCID Member Portal,education,2025,removed,1250,1,0,0
+ORCID Member Portal,education,2025,"removed, other organisation left from source",4,0,0,0
+ORCID Member Portal,employment,2024,kept,15283,29,0,0
+ORCID Member Portal,employment,2024,"kept, edited or added to",564,0,229,2
+ORCID Member Portal,employment,2024,record not public,4,0,0,0
+ORCID Member Portal,employment,2024,"recreated, changed",13,1,3,2
+ORCID Member Portal,employment,2024,"recreated, identical",4,0,0,0
+ORCID Member Portal,employment,2024,removed,283,0,0,0
+ORCID Member Portal,employment,2024,"removed, other organisation left from source",44,0,0,0
+ORCID Member Portal,employment,2025,kept,22035,35,0,0
+ORCID Member Portal,employment,2025,"kept, edited or added to",899,2,196,3
+ORCID Member Portal,employment,2025,record not public,7,0,0,0
+ORCID Member Portal,employment,2025,"recreated, changed",25,0,6,2
+ORCID Member Portal,employment,2025,"recreated, identical",8,0,0,1
+ORCID Member Portal,employment,2025,removed,576,0,0,0
+ORCID Member Portal,employment,2025,"removed, other organisation left from source",45,0,0,0
+Other,education,2024,kept,133,0,0,0
+Other,education,2025,kept,131,0,0,0
+Other,education,2025,removed,2,0,0,0
+Other,employment,2024,kept,1942,6,0,0
+Other,employment,2024,record not public,2,0,0,0
+Other,employment,2024,removed,27,0,0,0
+Other,employment,2025,kept,1934,6,0,0
+Other,employment,2025,record not public,1,0,0,0
+Other,employment,2025,removed,40,0,0,0
+Other,employment,2025,"removed, other organisation left from source",2,0,0,0
+"Publisher, index or repository",education,2024,kept,888,74,0,0
+"Publisher, index or repository",education,2024,"recreated, identical",8,0,0,0
+"Publisher, index or repository",education,2024,removed,28,2,0,0
+"Publisher, index or repository",education,2025,kept,884,71,0,0
+"Publisher, index or repository",education,2025,removed,22,1,0,0
+"Publisher, index or repository",employment,2024,kept,1614,23,0,0
+"Publisher, index or repository",employment,2024,"recreated, changed",98,0,35,2
+"Publisher, index or repository",employment,2024,"recreated, identical",91,0,0,0
+"Publisher, index or repository",employment,2024,removed,76,0,0,0
+"Publisher, index or repository",employment,2025,kept,1743,23,0,0
+"Publisher, index or repository",employment,2025,"kept, edited or added to",20,0,1,0
+"Publisher, index or repository",employment,2025,"recreated, changed",132,0,14,0
+"Publisher, index or repository",employment,2025,removed,27,0,0,0
+Researcher,education,2024,kept,6050325,6508,0,892
+Researcher,education,2024,"kept, edited or added to",119952,84,42672,14845
+Researcher,education,2024,record not public,2827,2,0,0
+Researcher,education,2024,"recreated, changed",1577,1,467,912
+Researcher,education,2024,"recreated, identical",100,1,0,44
+Researcher,education,2024,removed,18070,5,0,0
+Researcher,education,2024,"removed, other organisation left from source",29300,23,0,0
+Researcher,education,2025,kept,6865406,8149,0,868
+Researcher,education,2025,"kept, edited or added to",143219,138,48459,15049
+Researcher,education,2025,record not public,2931,10,0,0
+Researcher,education,2025,"recreated, changed",2247,6,629,952
+Researcher,education,2025,"recreated, identical",122,0,0,22
+Researcher,education,2025,removed,19381,18,0,0
+Researcher,education,2025,"removed, other organisation left from source",39690,43,0,0
+Researcher,employment,2024,kept,7760389,11879,0,1304
+Researcher,employment,2024,"kept, edited or added to",278606,277,134593,31669
+Researcher,employment,2024,record not public,4241,2,0,0
+Researcher,employment,2024,"recreated, changed",5395,5,2108,2717
+Researcher,employment,2024,"recreated, identical",325,1,0,82
+Researcher,employment,2024,removed,33585,26,0,0
+Researcher,employment,2024,"removed, other organisation left from source",94146,74,0,0
+Researcher,employment,2025,kept,11070318,14682,0,2025
+Researcher,employment,2025,"kept, edited or added to",399916,506,180671,38976
+Researcher,employment,2025,record not public,5665,7,0,0
+Researcher,employment,2025,"recreated, changed",16897,15,4797,5092
+Researcher,employment,2025,"recreated, identical",2132,2,0,380
+Researcher,employment,2025,removed,53403,44,0,0
+Researcher,employment,2025,"removed, other organisation left from source",170492,143,0,0
