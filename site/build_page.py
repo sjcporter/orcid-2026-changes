@@ -147,8 +147,17 @@ def ambig(run):
     return [[AMB_KIND[r["kind"][0]], int(r["instances"]), 100 * int(r["instances"]) / n, 100 * float(r["text_correct"]),
              100 * float(r["orcid_decides"]), 100 * float(r["orcid_acc"])] for r in rows]
 D["aff_ambig"] = [[RUN[k], ambig(k)] for k in ("dim", "cr_orcid", "cr_surname")]
-D["aff_stats"] = [["1 in 5", "affiliation strings where a simple text matcher's pick agrees with Dimensions", "of the 150k–458k strings in each set where it finds any candidate"],
-                  ["1 in 2", "of the same strings agree when ORCID decides where it can and the matcher's pick is used otherwise", "ORCID's own picks agree 85–90% of the time, or 89–93% counting a parent or child organisation"],
+# Why text + ORCID does not agree with Dimensions, by run (xr_decider_gap.csv): {bucket: {run: share %}}.
+GAP = {"1": "Agrees with Dimensions", "2": "ORCID chose a parent or child of Dimensions' choice", "3": "ORCID chose a different organisation",
+       "4": "No ORCID affiliation for the year; the matcher's pick differs", "5": "No ORCID affiliation for the year; the matcher tied",
+       "6": "ORCID affiliations, but none or several among the candidates; the matcher's pick differs",
+       "7": "ORCID affiliations, but none or several among the candidates; the matcher tied"}
+gap = {}
+for r in aff_rows("xr_decider_gap.csv"):
+    gap.setdefault(r["bucket"][0], {})[r["run"]] = 100 * float(r["share"])
+D["aff_gap"] = [[GAP[k], *[gap[k][run] for run in ("dim", "cr_orcid", "cr_surname")]] for k in sorted(gap)]
+D["aff_stats"] = [["1 in 5", "affiliation strings where a simple text matcher agrees with Dimensions", "of the 150k–458k strings in each set where it finds any candidate"],
+                  ["1 in 2", "agree once ORCID affiliations are used to decide between the matcher's candidates", "most of the other half has no ORCID affiliation for the year of the paper"],
                   ["14.2M", "ways of writing 53k organisations", "training data for affiliation matching, collected through ORCID records"],
                   ["+44%", "more researcher–institution links when the system that wrote an item counts as an affiliation signal", "459k from the works, grants and other items institutions' systems write, against 318k from their affiliation entries"]]
 # Prompt history behind the dashboard and both posts (exported from the Claude Code session, private links removed).
